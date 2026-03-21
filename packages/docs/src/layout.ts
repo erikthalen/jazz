@@ -3,6 +3,8 @@ import type { HtmlEscapedString } from "hono/utils/html";
 import coreCss from "../../core/dist/main.css?raw";
 import docsCss from "./docs.css?raw";
 
+const base = process.env.BASE_URL ?? "/";
+
 type TocItem = { id: string; label: string };
 
 type LayoutProps = {
@@ -37,6 +39,7 @@ function head(title: string) {
   return html`
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="${base}" />
     <title>${title} — Jazz</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>😎</text></svg>" />
     <style>${raw(coreCss + "\n" + docsCss)}</style>

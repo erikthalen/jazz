@@ -35,6 +35,8 @@ jobs:
 
       - name: Build docs
         run: pnpm --filter @jazz/docs build
+        env:
+          BASE_URL: /${{ github.event.repository.name }}/
 
       - uses: actions/upload-pages-artifact@v3
         with:
