@@ -1,5 +1,5 @@
 import { html, raw } from 'hono/html'
-import { HomeLayout } from '../layout'
+import { HomeLayout, url } from '../layout'
 import { highlight } from '../highlight'
 
 export async function HomePage(path: string) {
@@ -16,8 +16,8 @@ export async function HomePage(path: string) {
             library, and a theming system.
           </p>
           <div class="home-cta">
-            <a href="/introduction" class="button">Get started</a>
-            <a href="/components/button" class="button outline">Components</a>
+            <a href="${url('/introduction')}" class="button">Get started</a>
+            <a href="${url('/components/button')}" class="button outline">Components</a>
           </div>
           <div class="home-eyebrow code-block">
             ${raw(await highlight("import '@jazz/core'", 'js'))}

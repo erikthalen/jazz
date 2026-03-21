@@ -4,7 +4,7 @@ import coreCss from "../../core/dist/main.css?raw";
 import docsCss from "./docs.css?raw";
 
 const b = (process.env.BASE_URL ?? "/").replace(/\/$/, "");
-const url = (path: string) => b + path;
+export const url = (path: string) => b + path;
 
 type TocItem = { id: string; label: string };
 

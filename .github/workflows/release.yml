@@ -35,13 +35,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          VERSION="${{ steps.version.outputs.current }}"
-          TAG="v$VERSION"
-          PRERELEASE=""
-          if [[ "$VERSION" == *"-"* ]]; then
-            PRERELEASE="--prerelease"
-          fi
+          TAG="v${{ steps.version.outputs.current }}"
           gh release create "$TAG" \
             --title "$TAG" \
-            --generate-notes \
-            $PRERELEASE
+            --generate-notes
