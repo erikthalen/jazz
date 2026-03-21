@@ -1,8 +1,9 @@
 import { defineConfig } from "vite";
 import devServer from "@hono/vite-dev-server";
 import { resolve } from "node:path";
+import { readFileSync } from "node:fs";
 
-const coreCss = resolve(import.meta.url, "../core/dist/main.css");
+const coreCssPath = resolve(import.meta.url, "../../main.css");
 
 export default defineConfig({
   plugins: [
@@ -10,15 +11,16 @@ export default defineConfig({
       entry: "src/index.ts",
     }),
     {
-      name: "watch-core-css",
+      name: "serve-and-watch-core-css",
       configureServer(server) {
-        server.watcher.add(coreCss);
+        server.watcher.add(coreCssPath);
+        server.middlewares.use("/main.css", (_req, res) => {
+          res.setHeader("Content-Type", "text/css");
+          res.end(readFileSync(coreCssPath, "utf-8"));
+        });
       },
       handleHotUpdate({ file, server }) {
-        if (file !== coreCss) return;
-        for (const mod of server.moduleGraph.idToModuleMap.values()) {
-          server.moduleGraph.invalidateModule(mod);
-        }
+        if (file !== coreCssPath) return;
         server.ws.send({ type: "full-reload" });
         return [];
       },

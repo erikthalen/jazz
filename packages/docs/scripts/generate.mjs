@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, writeFile, copyFile } from "node:fs/promises";
 import { join } from "node:path";
 
 const { default: app } = await import("../dist/.server/index.js");
@@ -39,6 +39,10 @@ for (const route of routes) {
   await writeFile(join(dir, "index.html"), html);
   console.log(`  ${route}`);
 }
+
+// Copy main.css to dist
+const rootCss = new URL("../../../main.css", import.meta.url).pathname;
+await copyFile(rootCss, join(outDir, "main.css"));
 
 // GitHub Pages needs this to disable Jekyll processing
 await writeFile(join(outDir, ".nojekyll"), "");

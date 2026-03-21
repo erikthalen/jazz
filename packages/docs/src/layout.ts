@@ -1,6 +1,5 @@
 import { html, raw } from "hono/html";
 import type { HtmlEscapedString } from "hono/utils/html";
-import coreCss from "../../core/dist/main.css?raw";
 import docsCss from "./docs.css?raw";
 
 const b = (process.env.BASE_URL ?? "/").replace(/\/$/, "");
@@ -42,7 +41,8 @@ function head(title: string) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${title} — Jazz</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>😎</text></svg>" />
-    <style>${raw(coreCss + "\n" + docsCss)}</style>
+    <link rel="stylesheet" href="${url('/main.css')}" />
+    <style>${raw(docsCss)}</style>
     ${import.meta.env.DEV ? raw('<script type="module" src="/@vite/client"></script>') : ""}
     <script>
       const stored = localStorage.getItem('jazz-theme');

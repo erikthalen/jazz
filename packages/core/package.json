@@ -1,14 +1,11 @@
 {
   "name": "@jazz/core",
   "private": true,
-  "version": "0.1.0-beta.0",
+  "version": "0.1.0-beta.1",
   "type": "module",
-  "exports": {
-    ".": "./dist/main.css"
-  },
   "scripts": {
-    "dev": "esbuild src/main.css --bundle --outdir=dist --watch",
-    "build": "esbuild src/main.css --bundle --minify --outdir=dist"
+    "dev": "esbuild src/main.css --bundle --outdir=../.. --watch",
+    "build": "esbuild src/main.css --bundle --minify --outdir=../.."
   },
   "devDependencies": {
     "esbuild": "^0.25.0"
