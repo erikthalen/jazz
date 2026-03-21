@@ -1,6 +1,10 @@
 import { html, raw } from "hono/html";
 import { Layout } from "../layout";
 import { highlight } from "../highlight";
+import pkg from "../../../core/package.json";
+
+const { version } = pkg;
+const cdnUrl = `https://esm.sh/gh/erikthalen/jazz@v${version}/main.css`;
 
 export async function IntroPage(path: string) {
   return Layout({
@@ -14,10 +18,10 @@ export async function IntroPage(path: string) {
       </p>
 
       <h2 id="usage">Usage</h2>
-      <p>Import the core stylesheet:</p>
+      <p>Link the stylesheet from the CDN:</p>
       <div class="example">
         <div class="code-block">
-          ${raw(await highlight("import '@jazz/core'", "js"))}
+          ${raw(await highlight(`<link rel="stylesheet" href="${cdnUrl}" />`, "html"))}
         </div>
       </div>
 

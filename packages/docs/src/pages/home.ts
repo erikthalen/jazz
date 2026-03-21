@@ -1,6 +1,9 @@
 import { html, raw } from 'hono/html'
 import { HomeLayout, url } from '../layout'
 import { highlight } from '../highlight'
+import pkg from '../../../core/package.json'
+
+const cdnUrl = `https://esm.sh/gh/erikthalen/jazz@v${pkg.version}/main.css`
 
 export async function HomePage(path: string) {
   return HomeLayout({
@@ -20,7 +23,7 @@ export async function HomePage(path: string) {
             <a href="${url('/components/button')}" class="button outline">Components</a>
           </div>
           <div class="home-eyebrow code-block">
-            ${raw(await highlight("import '@jazz/core'", 'js'))}
+            ${raw(await highlight(`<link rel="stylesheet" href="${cdnUrl}" />`, 'html'))}
           </div>
         </div>
       </section>

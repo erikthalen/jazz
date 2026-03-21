@@ -1,15 +1,12 @@
 import { defineConfig } from "vite";
 import devServer from "@hono/vite-dev-server";
-import { resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import { readFileSync } from "node:fs";
 
-const coreCssPath = resolve(import.meta.url, "../../main.css");
+const coreCssPath = fileURLToPath(new URL("../../main.css", import.meta.url));
 
 export default defineConfig({
   plugins: [
-    devServer({
-      entry: "src/index.ts",
-    }),
     {
       name: "serve-and-watch-core-css",
       configureServer(server) {
@@ -25,5 +22,8 @@ export default defineConfig({
         return [];
       },
     },
+    devServer({
+      entry: "src/index.ts",
+    }),
   ],
 });
