@@ -1,0 +1,54 @@
+@layer jazz {
+  dialog {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    z-index: 1;
+    background: var(--background-color);
+    border: none;
+    border-radius: 12px;
+    padding: 0;
+    max-width: min(480px, calc(100vw - 2rem));
+    width: 100%;
+
+    opacity: 0;
+    translate: 0 4px;
+    transition:
+      opacity 100ms ease-out,
+      translate 100ms ease-out,
+      display 100ms allow-discrete,
+      overlay 100ms allow-discrete;
+
+    &[open] {
+      opacity: 1;
+      translate: 0 0;
+    }
+
+    @starting-style {
+      &[open] {
+        opacity: 0;
+        translate: 0 4px;
+      }
+    }
+
+    &::backdrop {
+      opacity: 0;
+      background: oklch(0% 0 0 / 0.4);
+      backdrop-filter: blur(2px);
+      transition:
+        opacity 100ms ease-out,
+        display 100ms allow-discrete,
+        overlay 100ms allow-discrete;
+    }
+
+    &[open]::backdrop {
+      opacity: 1;
+    }
+
+    @starting-style {
+      &[open]::backdrop {
+        opacity: 0;
+      }
+    }
+  }
+}

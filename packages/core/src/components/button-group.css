@@ -1,0 +1,37 @@
+@layer jazz {
+  fieldset[role="group"] {
+    display: inline-flex;
+    align-items: stretch;
+    border: 1px solid var(--jazz-neutral-200);
+    border-radius: 10px;
+    padding: 0;
+    overflow: clip;
+
+    & > * {
+      border-radius: 0;
+      border-right: 1px solid var(--jazz-neutral-200);
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+
+    & > input {
+      flex: 1;
+      outline: none;
+      border: none;
+      min-width: 0;
+    }
+
+    &:has(input:focus) {
+      border-color: var(--jazz-neutral-500);
+    }
+
+    & > button,
+    & > .button {
+      &:active {
+        translate: 0;
+      }
+    }
+  }
+}

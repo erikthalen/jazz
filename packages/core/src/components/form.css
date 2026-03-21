@@ -1,0 +1,45 @@
+@layer jazz {
+  input[type="text"],
+  input[type="email"] {
+    appearance: none;
+    border: none;
+
+    outline: 1px solid var(--jazz-neutral-500);
+    outline-offset: -1px;
+
+    padding-block: calc(var(--spacing) * 2);
+    padding-inline: calc(var(--spacing) * 3);
+    border-radius: calc(var(--spacing) * 2);
+
+    font: inherit;
+
+    &:focus {
+      outline-color: currentColor;
+    }
+  }
+
+  label.field {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2);
+    cursor: pointer;
+
+    > span {
+      font-weight: 600;
+    }
+
+    > small {
+      color: var(--jazz-neutral-500);
+      font-size: 0.875em;
+    }
+
+    &:has(input:required) > span::after {
+      content: " *";
+      color: var(--jazz-destructive);
+    }
+
+    > input {
+      width: 100%;
+    }
+  }
+}

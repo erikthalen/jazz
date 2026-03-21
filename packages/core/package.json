@@ -1,0 +1,19 @@
+{
+  "name": "@jazz/core",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./dist/main.css"
+  },
+  "scripts": {
+    "dev": "esbuild src/main.css --bundle --outdir=dist --watch",
+    "build": "esbuild src/main.css --bundle --minify --outdir=dist"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  },
+  "prettier": {
+    "printWidth": 200
+  }
+}

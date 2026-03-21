@@ -1,0 +1,17 @@
+@layer jazz {
+  :root {
+    --jazz-font-family-sans: system-ui;
+    --jazz-font-size: 14px;
+
+    --jazz-typography-spacing-vertical: 1rem;
+  }
+
+  :root {
+    font-family: var(--jazz-font-family-sans);
+    font-size: var(--jazz-font-size);
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}

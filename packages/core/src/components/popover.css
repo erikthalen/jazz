@@ -1,0 +1,80 @@
+@layer jazz {
+  [popover] {
+    /* reset browser defaults */
+    position: fixed;
+    inset: unset;
+    margin: 0;
+    border: none;
+    padding: 0;
+
+    /* position below trigger by default */
+    top: calc(anchor(bottom) + 0.5rem);
+    left: anchor(left);
+    min-width: anchor-size(width);
+
+    /* fall back to above if not enough space below */
+    position-try-fallbacks: --popover-above;
+
+    /* visual */
+    background: var(--background-color);
+    color: var(--color);
+    border: 1px solid var(--jazz-neutral-200);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px oklch(0% 0 0 / 0.08);
+
+    & > menu {
+      display: flex;
+      flex-direction: column;
+      padding: calc(var(--spacing) * 1);
+      margin: 0;
+      list-style: none;
+
+      & > li > button,
+      & > li > .button {
+        width: 100%;
+        justify-content: flex-start;
+        border-radius: 8px;
+      }
+    }
+
+    & > article {
+      border: none;
+
+      & > header,
+      & > footer {
+        padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
+      }
+
+      &:has(> header, > footer) > :not(header):not(footer) {
+        padding: calc(var(--spacing) * 3);
+      }
+    }
+
+    /* animation */
+    opacity: 0;
+    translate: 0 -2px;
+    transition:
+      opacity 100ms ease-out,
+      translate 100ms ease-out,
+      display 100ms allow-discrete,
+      overlay 100ms allow-discrete;
+
+    &:popover-open {
+      opacity: 1;
+      translate: 0 0;
+    }
+
+    @starting-style {
+      &:popover-open {
+        opacity: 0;
+        translate: 0 -2px;
+      }
+    }
+  }
+
+  @position-try --popover-above {
+    top: unset;
+    bottom: calc(anchor(top) + 0.5rem);
+    translate: 0 4px;
+  }
+}

@@ -1,0 +1,19 @@
+@layer jazz {
+  kbd {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.5em;
+    border-radius: 6px;
+    padding-block: calc(var(--spacing) / 2);
+    padding-inline: calc(var(--spacing) * 2);
+    background: var(--jazz-neutral-100);
+    color: var(--jazz-neutral-800);
+    font-family: monospace;
+    font-size: 0.85em;
+
+    + kbd {
+      margin-left: 0.5em;
+    }
+  }
+}

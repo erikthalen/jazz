@@ -1,0 +1,45 @@
+@layer jazz {
+  .prose {
+    > h1,
+    > h2,
+    > h3,
+    > h4,
+    > h5,
+    > h6,
+    > p {
+      margin: 0 0 var(--jazz-typography-spacing-vertical) 0;
+    }
+
+    > ul,
+    > ol {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 var(--jazz-typography-spacing-vertical) 0;
+      counter-reset: list-counter;
+
+      display: flex;
+      flex-direction: column;
+      gap: 0.5lh;
+
+      li {
+        display: flex;
+        gap: 0.75em;
+        counter-increment: list-counter;
+
+        &::before {
+          color: var(--jazz-neutral-400);
+          flex-shrink: 0;
+        }
+      }
+    }
+
+    > ul li::before {
+      content: "•";
+    }
+
+    > ol li::before {
+      content: counter(list-counter) ".";
+      font-variant-numeric: tabular-nums;
+    }
+  }
+}

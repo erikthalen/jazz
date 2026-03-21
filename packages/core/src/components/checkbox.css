@@ -1,0 +1,32 @@
+@layer jazz {
+  input[type="checkbox"] {
+    appearance: none;
+    width: 1.125rem;
+    aspect-ratio: 1;
+    border-radius: 4px;
+    outline: 1.5px solid var(--jazz-neutral-300);
+    outline-offset: -1px;
+    background-color: var(--background-color);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background-color 100ms, outline-color 100ms;
+
+    &:checked {
+      background-color: var(--jazz-primary);
+      outline-color: var(--jazz-primary);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--jazz-neutral-950);
+      outline-offset: 2px;
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+}

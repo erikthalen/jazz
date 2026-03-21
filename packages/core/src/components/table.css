@@ -1,0 +1,47 @@
+@layer jazz {
+  table {
+    display: grid;
+    grid-template-columns: var(--cols, repeat(auto-fill, minmax(80px, 1fr)));
+    width: 100%;
+    border: 1px solid var(--jazz-neutral-200);
+    border-radius: 12px;
+    overflow: hidden;
+    font-size: 0.875rem;
+  }
+
+  thead,
+  tbody,
+  tfoot {
+    display: contents;
+  }
+
+  tr {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+
+    &:hover > td {
+      background: var(--jazz-neutral-50);
+    }
+  }
+
+  th,
+  td {
+    padding: calc(var(--spacing) * 3) calc(var(--spacing) * 4);
+    text-align: left;
+    border-bottom: 1px solid var(--jazz-neutral-200);
+  }
+
+  thead > tr > th {
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--jazz-neutral-500);
+    background: var(--jazz-neutral-50);
+  }
+
+  tbody > tr:last-child > td {
+    border-bottom: none;
+  }
+}

@@ -1,0 +1,33 @@
+@import "./reset.css";
+
+@import "./typography.css";
+@import "./colors.css";
+
+@import "./components/accordion.css";
+@import "./components/card.css";
+@import "./components/button.css";
+@import "./components/button-group.css";
+@import "./components/dialog.css";
+@import "./components/checkbox.css";
+@import "./components/color-input.css";
+@import "./components/radio.css";
+@import "./components/separator.css";
+@import "./components/form.css";
+@import "./components/slider.css";
+@import "./components/switch.css";
+@import "./components/tooltip.css";
+@import "./components/kbd.css";
+@import "./components/loading.css";
+@import "./components/progress.css";
+@import "./components/popover.css";
+@import "./components/table.css";
+@import "./components/prose.css";
+
+@layer jazz {
+  :root {
+    --spacing: 0.25rem;
+    interpolate-size: allow-keywords;
+  }
+}
+
+@layer reset, jazz;

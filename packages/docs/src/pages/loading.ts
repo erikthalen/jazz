@@ -1,0 +1,43 @@
+import { html, raw } from 'hono/html'
+import { Layout } from '../layout'
+import { highlight } from '../highlight'
+
+const toc = [
+  { id: 'button', label: 'Button' },
+  { id: 'custom', label: 'Custom element' },
+]
+
+export async function LoadingPage(path: string) {
+  return Layout({
+    title: 'Loading',
+    path,
+    toc,
+    content: html`
+      <h1>Loading</h1>
+      <p class="lead">
+        An animated SVG spinner injected via CSS whenever <code>aria-busy="true"</code> is set.
+      </p>
+
+      <h2 id="button">Button</h2>
+      <div class="example">
+        <div class="preview">
+          <button aria-busy="true">Saving…</button>
+        </div>
+        <div class="code-block">
+          ${raw(await highlight('<button aria-busy="true">Saving…</button>'))}
+        </div>
+      </div>
+
+      <h2 id="custom">Custom element</h2>
+      <p>Any element with <code>aria-busy="true"</code> gets a spinner via <code>::before</code>.</p>
+      <div class="example">
+        <div class="preview">
+          <div style="width: 1rem; height: 1rem;" aria-busy="true"></div>
+        </div>
+        <div class="code-block">
+          ${raw(await highlight('<div style="width: 1rem; height: 1rem;" aria-busy="true"></div>'))}
+        </div>
+      </div>
+    `,
+  })
+}

@@ -1,0 +1,50 @@
+@layer jazz {
+  input[type="checkbox"].switch {
+    appearance: none;
+    width: 2.25rem;
+    height: 1.2lh;
+    border-radius: 100px;
+    outline: none;
+    /* outline-offset: -1px; */
+    background-color: var(--jazz-neutral-200);
+    cursor: pointer;
+    flex-shrink: 0;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    transition: background-color 100ms, outline-color 100ms;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: calc(1.2lh - 2px);
+      aspect-ratio: 1;
+      margin-inline: 1px;
+      border-radius: 50%;
+      background-color: var(--background-color);
+      transition: left 100ms ease-out, background-color 100ms;
+    }
+
+    &:checked {
+      background-color: var(--jazz-primary);
+      /* outline-color: var(--jazz-primary); */
+      background-image: none;
+
+      &::after {
+        left: calc(100% - 1rem - 5px);
+        background-color: white;
+      }
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--jazz-primary);
+      outline-offset: 2px;
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+}
