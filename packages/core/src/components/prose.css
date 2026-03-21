@@ -12,34 +12,31 @@
 
     > ul,
     > ol {
-      list-style: none;
-      padding: 0;
+      padding-inline-start: 0;
+      list-style-position: outside;
       margin: 0 0 var(--jazz-typography-spacing-vertical) 0;
-      counter-reset: list-counter;
 
       display: flex;
       flex-direction: column;
       gap: 0.5lh;
 
       li {
-        display: flex;
-        gap: 0.75em;
-        counter-increment: list-counter;
+        margin-inline-start: 1.5em;
 
-        &::before {
+        &::marker {
           color: var(--jazz-neutral-400);
-          flex-shrink: 0;
         }
       }
     }
 
-    > ul li::before {
-      content: "•";
+    > ol {
+      li::marker {
+        font-variant-numeric: tabular-nums;
+      }
     }
 
-    > ol li::before {
-      content: counter(list-counter) ".";
-      font-variant-numeric: tabular-nums;
+    a {
+      color: var(--jazz-primary);
     }
   }
 }

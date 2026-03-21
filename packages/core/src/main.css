@@ -3,6 +3,7 @@
 @import "./typography.css";
 @import "./colors.css";
 
+@import "./components/badge.css";
 @import "./components/accordion.css";
 @import "./components/card.css";
 @import "./components/button.css";
@@ -12,7 +13,7 @@
 @import "./components/color-input.css";
 @import "./components/radio.css";
 @import "./components/separator.css";
-@import "./components/form.css";
+@import "./components/text-field.css";
 @import "./components/slider.css";
 @import "./components/switch.css";
 @import "./components/tooltip.css";
@@ -20,6 +21,7 @@
 @import "./components/loading.css";
 @import "./components/progress.css";
 @import "./components/popover.css";
+@import "./components/toggle.css";
 @import "./components/table.css";
 @import "./components/prose.css";
 

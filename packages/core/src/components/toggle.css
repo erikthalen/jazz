@@ -1,0 +1,48 @@
+@layer jazz {
+  label.toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 1);
+    padding-block: calc(var(--spacing) * 2);
+    padding-inline: calc(var(--spacing) * 3);
+    border-radius: calc(var(--spacing) * 3);
+    outline: 1px solid var(--jazz-neutral-300);
+    outline-offset: -1px;
+    cursor: pointer;
+    user-select: none;
+    transition:
+      background-color 100ms,
+      outline-color 100ms,
+      color 100ms;
+
+    font-weight: 500;
+
+    > input[type="checkbox"] {
+      appearance: none;
+      display: none;
+    }
+
+    svg {
+      transition: background-color 100ms;
+    }
+
+    &:has(> input:checked) {
+      background-color: var(--jazz-neutral-100);
+      outline-color: var(--jazz-neutral-400);
+
+      svg {
+        fill: currentColor;
+      }
+    }
+
+    &:focus-within {
+      outline: 2px solid var(--jazz-primary);
+      outline-offset: 2px;
+    }
+
+    &:has(> input:disabled) {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+}

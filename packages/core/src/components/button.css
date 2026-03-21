@@ -99,15 +99,29 @@
     padding-inline: calc(var(--spacing) * 2);
   }
 
-  button[aria-busy="true"]:before,
-  .button[aria-busy="true"]:before {
+  button:before,
+  .button:before {
     content: "";
     display: inline-block;
     background-color: currentColor;
     mask-image: var(--jazz-loading);
     mask-size: 1rem;
+    width: 0;
+    height: 1rem;
+    margin-inline-end: -0.5em;
+    transition: width 200ms ease, margin-inline-end 200ms ease;
+  }
+
+  button[aria-busy="true"]:before,
+  .button[aria-busy="true"]:before {
     width: 1rem;
-    aspect-ratio: 1;
+    margin-inline-end: 0;
+  }
+
+  button:focus-visible,
+  .button:focus-visible {
+    outline: 2px solid var(--jazz-neutral-950);
+    outline-offset: 2px;
   }
 
   button:active,

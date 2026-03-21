@@ -15,7 +15,7 @@ const routes = [
   "/components/checkbox",
   "/components/color-input",
   "/components/dialog",
-  "/components/form",
+  "/components/text-field",
   "/components/kbd",
   "/components/loading",
   "/components/popover",
@@ -25,7 +25,10 @@ const routes = [
   "/components/slider",
   "/components/switch",
   "/components/table",
+  "/components/toggle",
   "/components/tooltip",
+  "/icons",
+  "/components/badge",
 ];
 
 const outDir = new URL("../dist", import.meta.url).pathname;

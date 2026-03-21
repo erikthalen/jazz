@@ -141,7 +141,7 @@ export async function ButtonPage(path: string) {
               <path d="M12 4l0 12" />
             </svg>
           </button>
-          <button class="square">
+          <button class="square" style="margin-left: 0.5rem;">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -177,8 +177,12 @@ export async function ButtonPage(path: string) {
         label.
       </p>
       <div class="example">
-        <div class="preview">
-          <button aria-busy="true">Please wait…</button>
+        <div class="preview" style="flex-direction:column;align-items:center;justify-contents:center;flex-start;gap:1rem">
+          <button id="btn-loading-demo" aria-busy="true">Please wait…</button>
+          <label style="display:flex;align-items:center;gap:0.5rem">
+            <input type="checkbox" checked onchange="this.checked ? document.getElementById('btn-loading-demo').setAttribute('aria-busy', 'true') : document.getElementById('btn-loading-demo').removeAttribute('aria-busy')" />
+            Loading
+          </label>
         </div>
         <div class="code-block">
           ${raw(

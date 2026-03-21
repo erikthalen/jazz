@@ -12,8 +12,11 @@
     left: anchor(left);
     min-width: anchor-size(width);
 
-    /* fall back to above if not enough space below */
-    position-try-fallbacks: --popover-above;
+    /* try right-aligned, then above, then above-right */
+    position-try-fallbacks:
+      --popover-right,
+      --popover-above,
+      --popover-above-right;
 
     /* visual */
     background: var(--background-color);
@@ -75,6 +78,21 @@
   @position-try --popover-above {
     top: unset;
     bottom: calc(anchor(top) + 0.5rem);
+    left: anchor(left);
+    translate: 0 4px;
+  }
+
+  @position-try --popover-right {
+    top: calc(anchor(bottom) + 0.5rem);
+    left: unset;
+    right: anchor(right);
+  }
+
+  @position-try --popover-above-right {
+    top: unset;
+    bottom: calc(anchor(top) + 0.5rem);
+    left: unset;
+    right: anchor(right);
     translate: 0 4px;
   }
 }

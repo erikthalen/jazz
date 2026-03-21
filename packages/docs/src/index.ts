@@ -2,7 +2,7 @@ import { Hono } from 'hono'
 import { HomePage } from './pages/home'
 import { IntroPage } from './pages/intro'
 import { ButtonPage } from './pages/button'
-import { FormPage } from './pages/form'
+import { TextFieldPage } from './pages/text-field'
 import { LoadingPage } from './pages/loading'
 import { ThemesPage } from './pages/themes'
 import { ProsePage } from './pages/prose'
@@ -21,6 +21,9 @@ import { SeparatorPage } from './pages/separator'
 import { ProgressPage } from './pages/progress'
 import { ColorInputPage } from './pages/color-input'
 import { TablePage } from './pages/table'
+import { TogglePage } from './pages/toggle'
+import { IconsPage } from './pages/icons'
+import { BadgePage } from './pages/badge'
 
 const app = new Hono()
 
@@ -43,8 +46,11 @@ app.get('/components/separator', (c) => c.html(SeparatorPage(c.req.path)))
 app.get('/components/progress', (c) => c.html(ProgressPage(c.req.path)))
 app.get('/components/color-input', (c) => c.html(ColorInputPage(c.req.path)))
 app.get('/components/table', (c) => c.html(TablePage(c.req.path)))
+app.get('/components/toggle', (c) => c.html(TogglePage(c.req.path)))
 app.get('/components/button', (c) => c.html(ButtonPage(c.req.path)))
-app.get('/components/form', (c) => c.html(FormPage(c.req.path)))
+app.get('/components/text-field', (c) => c.html(TextFieldPage(c.req.path)))
 app.get('/components/loading', (c) => c.html(LoadingPage(c.req.path)))
+app.get('/icons', (c) => c.html(IconsPage(c.req.path)))
+app.get('/components/badge', (c) => c.html(BadgePage(c.req.path)))
 
 export default app

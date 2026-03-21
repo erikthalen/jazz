@@ -1,4 +1,16 @@
 @layer jazz {
+  label:has(> input[type="radio"]) {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+
+    &:has(> input:disabled) {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+
   input[type="radio"] {
     appearance: none;
     width: 1.125rem;

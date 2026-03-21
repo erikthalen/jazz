@@ -1,0 +1,117 @@
+@layer jazz {
+  input[type="text"],
+  input[type="email"],
+  input[type="search"],
+  input[type="password"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="url"] {
+    appearance: none;
+    border: none;
+
+    outline: 1px solid var(--jazz-neutral-500);
+    outline-offset: -1px;
+
+    padding-block: calc(var(--spacing) * 2);
+    padding-inline: calc(var(--spacing) * 3);
+    border-radius: calc(var(--spacing) * 2);
+
+    font: inherit;
+
+    &:focus {
+      outline-color: currentColor;
+    }
+  }
+
+  /* Input with leading/trailing adornments (svg, kbd, button, etc.) */
+  label:not(.toggle):has(> :not(input, span, small)) {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    cursor: text;
+
+    outline: 1px solid var(--jazz-neutral-500);
+    outline-offset: -1px;
+    border-radius: calc(var(--spacing) * 2);
+
+    &:has(> input:focus) {
+      outline-color: currentColor;
+    }
+
+    /* Input spans all columns as the full-width background */
+    > input {
+      grid-column: 1 / -1;
+      grid-row: 1;
+      padding-inline: calc(var(--spacing) * 3);
+      outline: none;
+      border-radius: 0;
+      background: transparent;
+    }
+
+    /* Adornments sit on top */
+    > :not(input) {
+      grid-row: 1;
+      position: relative;
+      z-index: 1;
+      color: var(--jazz-neutral-400);
+    }
+
+    /* Leading */
+    > :not(input):first-child {
+      grid-column: 1;
+      margin-inline: calc(var(--spacing) * 3) calc(var(--spacing) * 2);
+    }
+
+    /* Last trailing */
+    > :not(input):last-child {
+      grid-column: 4;
+      margin-inline: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
+    }
+
+    /* Second-to-last trailing (when not also the leading) */
+    > :not(input):nth-last-child(2):not(:first-child) {
+      grid-column: 3;
+      margin-inline: calc(var(--spacing) * 2) 0;
+    }
+  }
+
+  /* Offset input text to clear leading adornment */
+  label:not(.toggle):has(> :not(input, span, small):first-child) > input {
+    padding-inline-start: calc(var(--spacing) * 3 + 1rem + var(--spacing) * 2);
+  }
+
+  /* Offset input text to clear one trailing adornment */
+  label:not(.toggle):has(> :not(input, span, small):last-child) > input {
+    padding-inline-end: calc(var(--spacing) * 3 + 1rem + var(--spacing) * 2);
+  }
+
+  /* Offset input text to clear two trailing adornments */
+  label:not(.toggle):has(> :not(input, span, small):nth-last-child(2):not(:first-child)) > input {
+    padding-inline-end: calc(var(--spacing) * 3 + 2rem + var(--spacing) * 4);
+  }
+
+  label.field {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2);
+    cursor: pointer;
+
+    > span {
+      font-weight: 600;
+    }
+
+    > small {
+      color: var(--jazz-neutral-500);
+      font-size: 0.875em;
+    }
+
+    &:has(input:required) > span::after {
+      content: " *";
+      color: var(--jazz-destructive);
+    }
+
+    > input {
+      width: 100%;
+    }
+  }
+}

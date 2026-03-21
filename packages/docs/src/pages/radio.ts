@@ -21,21 +21,19 @@ export async function RadioPage(path: string) {
 
       <h2 id="default">Default</h2>
       <div class="example">
-        <div class="preview">
-          <div style="display:flex;flex-direction:column;gap:0.5rem">
-            <label style="display:flex;align-items:center;gap:0.75rem;cursor:pointer">
-              <input type="radio" name="density" value="default" />
-              Default
-            </label>
-            <label style="display:flex;align-items:center;gap:0.75rem;cursor:pointer">
-              <input type="radio" name="density" value="comfortable" checked />
-              Comfortable
-            </label>
-            <label style="display:flex;align-items:center;gap:0.75rem;cursor:pointer">
-              <input type="radio" name="density" value="compact" />
-              Compact
-            </label>
-          </div>
+        <div class="preview" style="flex-direction:column;align-items:flex-start;gap:0.5rem">
+          <label>
+            <input type="radio" name="density" value="default" />
+            Default
+          </label>
+          <label>
+            <input type="radio" name="density" value="comfortable" checked />
+            Comfortable
+          </label>
+          <label>
+            <input type="radio" name="density" value="compact" />
+            Compact
+          </label>
         </div>
         <div class="code-block">
           ${raw(
@@ -57,17 +55,15 @@ export async function RadioPage(path: string) {
 
       <h2 id="disabled">Disabled</h2>
       <div class="example">
-        <div class="preview">
-          <div style="display:flex;flex-direction:column;gap:0.5rem">
-            <label style="display:flex;align-items:center;gap:0.75rem;cursor:not-allowed;opacity:0.4">
-              <input type="radio" name="density-disabled" disabled />
-              Default
-            </label>
-            <label style="display:flex;align-items:center;gap:0.75rem;cursor:not-allowed;opacity:0.4">
-              <input type="radio" name="density-disabled" disabled checked />
-              Comfortable
-            </label>
-          </div>
+        <div class="preview" style="flex-direction:column;align-items:flex-start;gap:0.5rem">
+          <label>
+            <input type="radio" name="density-disabled" disabled />
+            Default
+          </label>
+          <label>
+            <input type="radio" name="density-disabled" disabled checked />
+            Comfortable
+          </label>
         </div>
         <div class="code-block">
           ${raw(

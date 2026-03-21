@@ -20,8 +20,12 @@ export async function LoadingPage(path: string) {
 
       <h2 id="button">Button</h2>
       <div class="example">
-        <div class="preview">
-          <button aria-busy="true">Saving…</button>
+        <div class="preview" style="flex-direction:column;align-items:center;justify-contents:center;gap:1rem">
+          <button id="loading-btn" aria-busy="true">Saving…</button>
+          <label style="display:flex;align-items:center;gap:0.5rem">
+            <input type="checkbox" checked onchange="this.checked ? document.getElementById('loading-btn').setAttribute('aria-busy', 'true') : document.getElementById('loading-btn').removeAttribute('aria-busy')" />
+            Loading
+          </label>
         </div>
         <div class="code-block">
           ${raw(await highlight('<button aria-busy="true">Saving…</button>'))}

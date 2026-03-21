@@ -26,4 +26,20 @@
       padding: calc(var(--spacing) * 6);
     }
   }
+
+  /* Reduce padding when the card's parent container is narrow */
+  @container (max-width: 320px) {
+    article {
+      padding: calc(var(--spacing) * 3);
+
+      & > header,
+      & > footer {
+        padding: calc(var(--spacing) * 3) calc(var(--spacing) * 3);
+      }
+
+      &:has(> header, > footer) > :not(header):not(footer) {
+        padding: calc(var(--spacing) * 3) calc(var(--spacing) * 3);
+      }
+    }
+  }
 }

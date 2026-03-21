@@ -23,7 +23,7 @@ export async function SliderPage(path: string) {
       <h2 id="default">Default</h2>
       <div class="example">
         <div class="preview" style="width:100%;padding-inline:2rem">
-          <input type="range" style="width:100%;--pct:0%" />
+          <input type="range" style="width:100%;" />
         </div>
         <div class="code-block">
           ${raw(await highlight(`<input type="range" />`))}

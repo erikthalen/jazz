@@ -45,11 +45,11 @@ export async function CheckboxPage(path: string) {
       <p>Wrap in a <code>&lt;label&gt;</code> to make the text clickable.</p>
       <div class="example">
         <div class="preview" style="flex-direction:column;align-items:flex-start;gap:0.5rem">
-          <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer">
+          <label>
             <input type="checkbox" checked />
             Accept terms and conditions
           </label>
-          <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer">
+          <label>
             <input type="checkbox" />
             Subscribe to newsletter
           </label>
@@ -70,14 +70,26 @@ export async function CheckboxPage(path: string) {
 
       <h2 id="disabled">Disabled</h2>
       <div class="example">
-        <div class="preview" style="gap:0.75rem">
-          <input type="checkbox" disabled />
-          <input type="checkbox" disabled checked />
+        <div class="preview" style="flex-direction:column;align-items:flex-start;gap:0.5rem">
+          <label>
+            <input type="checkbox" disabled />
+            Disabled
+          </label>
+          <label>
+            <input type="checkbox" disabled checked />
+            Disabled checked
+          </label>
         </div>
         <div class="code-block">
           ${raw(
-            await highlight(`<input type="checkbox" disabled />
-<input type="checkbox" disabled checked />`),
+            await highlight(`<label>
+  <input type="checkbox" disabled />
+  Disabled
+</label>
+<label>
+  <input type="checkbox" disabled checked />
+  Disabled checked
+</label>`),
           )}
         </div>
       </div>

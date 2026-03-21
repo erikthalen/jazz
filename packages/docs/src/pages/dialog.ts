@@ -35,7 +35,7 @@ export async function DialogPage(path: string) {
           </button>
           <dialog id="dialog-demo" closedby="any">
             <article>
-              <p>This is a non-modal dialog.</p>
+              <p style="margin-bottom: 1rem;">This is a non-modal dialog.</p>
               <form method="dialog">
                 <button class="outline">Close</button>
               </form>
@@ -50,7 +50,7 @@ export async function DialogPage(path: string) {
 
 <dialog id="my-dialog" closedby="any">
   <article>
-    <p>This is a non-modal dialog.</p>
+    <p style="margin-bottom: 1rem;">This is a non-modal dialog.</p>
     <form method="dialog">
       <button class="outline">Close</button>
     </form>
