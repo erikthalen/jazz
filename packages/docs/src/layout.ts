@@ -3,7 +3,8 @@ import type { HtmlEscapedString } from "hono/utils/html";
 import coreCss from "../../core/dist/main.css?raw";
 import docsCss from "./docs.css?raw";
 
-const base = process.env.BASE_URL ?? "/";
+const b = (process.env.BASE_URL ?? "/").replace(/\/$/, "");
+const url = (path: string) => b + path;
 
 type TocItem = { id: string; label: string };
 
@@ -39,7 +40,6 @@ function head(title: string) {
   return html`
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <base href="${base}" />
     <title>${title} — Jazz</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>😎</text></svg>" />
     <style>${raw(coreCss + "\n" + docsCss)}</style>
@@ -72,10 +72,10 @@ function head(title: string) {
 function header(path: string) {
   return html`
     <header class="docs-header">
-      <a href="/" class="docs-logo">Jazz</a>
+      <a href="${url("/")}" class="docs-logo">Jazz</a>
       <nav>
-        <a href="/introduction" class="button ghost" ${path.startsWith("/introduction") || (path !== "/" && !path.startsWith("/components") && !path.startsWith("/themes")) ? "" : ""}>Docs</a>
-        <a href="/components/button" class="button ghost">Components</a>
+        <a href="${url("/introduction")}" class="button ghost">Docs</a>
+        <a href="${url("/components/button")}" class="button ghost">Components</a>
       </nav>
       <button class="theme-toggle ghost square" aria-label="Toggle theme" onclick="
         const next = document.documentElement.className === 'jazz-light' ? 'jazz-dark' : 'jazz-light';
@@ -113,13 +113,13 @@ export function Layout({ title, path, toc, content }: LayoutProps) {
             <div class="sidebar-section">
               <p class="sidebar-label">Sections</p>
               <nav>
-                <a href="/introduction" ${path === "/introduction" ? 'aria-current="page"' : ""}>
+                <a href="${url("/introduction")}" ${path === "/introduction" ? 'aria-current="page"' : ""}>
                   Introduction
                 </a>
-                <a href="/themes" ${path === "/themes" ? 'aria-current="page"' : ""}>
+                <a href="${url("/themes")}" ${path === "/themes" ? 'aria-current="page"' : ""}>
                   Themes
                 </a>
-                <a href="/components/prose" ${path === "/components/prose" ? 'aria-current="page"' : ""}>
+                <a href="${url("/components/prose")}" ${path === "/components/prose" ? 'aria-current="page"' : ""}>
                   Prose
                 </a>
               </nav>
@@ -130,7 +130,7 @@ export function Layout({ title, path, toc, content }: LayoutProps) {
                 ${components.map(
                   (c) => html`
                     <a
-                      href="${c.path}"
+                      href="${url(c.path)}"
                       ${path === c.path ? 'aria-current="page"' : ""}
                       >${c.label}</a
                     >
