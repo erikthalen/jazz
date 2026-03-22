@@ -2,10 +2,24 @@ import { html, raw } from 'hono/html'
 import { HomeLayout, url } from '../layout'
 import { highlight } from '../highlight'
 import pkg from '../../../core/package.json'
+import { statSync } from 'node:fs'
+import { resolve } from 'node:path'
 
 const cdnUrl = `https://esm.sh/gh/erikthalen/jazz@v${pkg.version}/main.css`
 
+function getMainCssSize() {
+  try {
+    const cssPath = resolve(import.meta.dirname, '../../../../main.css')
+    const { size } = statSync(cssPath)
+    return (size / 1024).toFixed(1)
+  } catch {
+    return null
+  }
+}
+
 export async function HomePage(path: string) {
+  const cssSize = getMainCssSize()
+
   return HomeLayout({
     title: 'Jazz',
     path,
@@ -14,7 +28,7 @@ export async function HomePage(path: string) {
         <div class="home-hero-inner">
           <h1 class="home-headline">Write HTML.<br />Jazz handles the rest.</h1>
           <p class="home-sub">
-            A CSS reset and UI library in one. Drop it in and get
+            A single CSS file with reset and UI library in one${cssSize ? html`, at just <span style="background-color:var(--jazz-constructive-200);color:var(--jazz-constructive-600);padding:0.25rem 0.5rem;border-radius:8px;">${cssSize} kB</span>` : ''}. Drop it in and get
             sensible defaults for native elements, a full component
             library, and a theming system.
           </p>
@@ -199,7 +213,6 @@ export async function HomePage(path: string) {
 
         <div class="showcase-cell">
           <button class="destructive">Delete</button>
-          <button class="outline destructive">Remove</button>
         </div>
 
         <div class="showcase-cell">
