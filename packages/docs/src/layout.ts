@@ -14,7 +14,7 @@ type LayoutProps = {
   content: HtmlEscapedString | Promise<HtmlEscapedString>;
 };
 
-const components: { label: string; path: string; badge?: string }[] = [
+export const components: { label: string; path: string; badge?: string }[] = [
   { label: "Accordion", path: "/components/accordion" },
   { label: "Badge", path: "/components/badge" },
   { label: "Button", path: "/components/button" },
@@ -193,6 +193,12 @@ export function Layout({ title, path, toc, content }: LayoutProps) {
                 </a>
                 <a href="${url("/customization")}" ${path === "/customization" ? 'aria-current="page"' : ""}>
                   Customization
+                </a>
+                <a href="${url("/skills")}" ${path === "/skills" ? 'aria-current="page"' : ""}>
+                  Skills
+                </a>
+                <a href="${url("/llms.txt")}" target="_blank" rel="noopener">
+                  llms.txt
                 </a>
               </nav>
             </div>

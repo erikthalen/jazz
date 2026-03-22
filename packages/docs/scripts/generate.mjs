@@ -37,23 +37,36 @@ const routes = [
   "/components/submenu",
   "/components/field",
   "/easings",
+  "/skills",
+  "/llms.txt",
 ];
 
 const outDir = new URL("../dist", import.meta.url).pathname;
 
 for (const route of routes) {
   const response = await app.fetch(new Request(`http://localhost${route}`));
-  const html = await response.text();
+  const content = await response.text();
 
-  const dir = route === "/" ? outDir : join(outDir, route);
-  await mkdir(dir, { recursive: true });
-  await writeFile(join(dir, "index.html"), html);
+  if (route.includes('.')) {
+    await writeFile(join(outDir, route), content);
+  } else {
+    const dir = route === "/" ? outDir : join(outDir, route);
+    await mkdir(dir, { recursive: true });
+    await writeFile(join(dir, "index.html"), content);
+  }
   console.log(`  ${route}`);
 }
 
 // Copy main.css to dist
 const rootCss = new URL("../../../main.css", import.meta.url).pathname;
 await copyFile(rootCss, join(outDir, "main.css"));
+
+// Regenerate SKILL.md at repo root so it stays in sync with the build
+const skillResponse = await app.fetch(new Request("http://localhost/skill.md"));
+const skillContent = await skillResponse.text();
+const repoRoot = new URL("../../..", import.meta.url).pathname;
+await writeFile(join(repoRoot, "SKILL.md"), skillContent);
+console.log("  SKILL.md → repo root");
 
 // GitHub Pages needs this to disable Jekyll processing
 await writeFile(join(outDir, ".nojekyll"), "");

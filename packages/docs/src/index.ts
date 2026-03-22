@@ -32,6 +32,9 @@ import { ToastPage } from './pages/toast'
 import { SubmenuPage } from './pages/submenu'
 import { FieldPage } from './pages/field'
 import { EasingsPage } from './pages/easings'
+import { LlmsPage } from './pages/llms'
+import { SkillPage } from './pages/skill'
+import { SkillsPage } from './pages/skills'
 
 const app = new Hono()
 
@@ -68,5 +71,8 @@ app.get('/components/toast', (c) => c.html(ToastPage(c.req.path)))
 app.get('/components/submenu', (c) => c.html(SubmenuPage(c.req.path)))
 app.get('/components/field', (c) => c.html(FieldPage(c.req.path)))
 app.get('/easings', (c) => c.html(EasingsPage(c.req.path)))
+app.get('/llms.txt', (c) => c.text(LlmsPage()))
+app.get('/skill.md', (c) => c.text(SkillPage()))
+app.get('/skills', (c) => c.html(SkillsPage(c.req.path)))
 
 export default app
