@@ -1,90 +1,41 @@
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //
+  //  Seed colors. The palettes below are derived from these in each theme block.
+  //  Override these to customize the look — or use --jazz-primary-light / --jazz-primary-dark
+  //  for per-theme variants.
+  //
+  //  For palette generation see: https://color.surf/
+  //
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
 :root,
 .jazz-light,
 .jazz-dark {
-  --jazz-primary: dodgerblue;
+  --jazz-primary-light: dodgerblue;
+  --jazz-primary-dark: color-mix(in oklab, dodgerblue, white 20%);
+
   --jazz-neutral: #8b8c93;
   --jazz-constructive: #5dbb55;
   --jazz-destructive: #ef5655;
-
-  /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //
-    //  The color palettes below are generated from the seed colors. The palettes remain static in both light and dark
-    //  mode, so 100 is always light and 900 is always dark. If you plan on supporting dark mode, you should avoid using
-    //  these primitives and use the color tokens shown in the docs instead.
-    //
-    //  You probably shouldn't think about changing these but, but if you do venture into such territory, it will
-    //  probably be helpful to use the palettes from:
-    //
-    //  https://color.surf/
-    //
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-
-  --jazz-primary-50: color-mix(in oklab, var(--jazz-primary), white 95%);
-  --jazz-primary-100: color-mix(in oklab, var(--jazz-primary), white 87%);
-  --jazz-primary-200: color-mix(in oklab, var(--jazz-primary), white 70%);
-  --jazz-primary-300: color-mix(in oklab, var(--jazz-primary), white 47%);
-  --jazz-primary-400: color-mix(in oklab, var(--jazz-primary), white 23%);
-  --jazz-primary-500: var(--jazz-primary);
-  --jazz-primary-600: color-mix(in oklab, var(--jazz-primary), black 15.5%);
-  --jazz-primary-700: color-mix(in oklab, var(--jazz-primary), black 28.25%);
-  --jazz-primary-800: color-mix(in oklab, var(--jazz-primary), black 43.5%);
-  --jazz-primary-900: color-mix(in oklab, var(--jazz-primary), black 58.5%);
-  --jazz-primary-950: color-mix(in oklab, var(--jazz-primary), black 73.75%);
-
-  --jazz-neutral-0: color-mix(in oklab, var(--jazz-neutral), white 100%);
-  --jazz-neutral-50: color-mix(in oklab, var(--jazz-neutral), white 95%);
-  --jazz-neutral-100: color-mix(in oklab, var(--jazz-neutral), white 87%);
-  --jazz-neutral-200: color-mix(in oklab, var(--jazz-neutral), white 70%);
-  --jazz-neutral-300: color-mix(in oklab, var(--jazz-neutral), white 47%);
-  --jazz-neutral-400: color-mix(in oklab, var(--jazz-neutral), white 23%);
-  --jazz-neutral-500: var(--jazz-neutral);
-  --jazz-neutral-600: color-mix(in oklab, var(--jazz-neutral), black 15.5%);
-  --jazz-neutral-700: color-mix(in oklab, var(--jazz-neutral), black 28.25%);
-  --jazz-neutral-800: color-mix(in oklab, var(--jazz-neutral), black 43.5%);
-  --jazz-neutral-900: color-mix(in oklab, var(--jazz-neutral), black 58.5%);
-  --jazz-neutral-950: color-mix(in oklab, var(--jazz-neutral), black 73.75%);
-  --jazz-neutral-1000: color-mix(in oklab, var(--jazz-neutral), black 100%);
-
-  --jazz-constructive-50: color-mix(in oklab, var(--jazz-constructive), white 95%);
-  --jazz-constructive-100: color-mix(in oklab, var(--jazz-constructive), white 87%);
-  --jazz-constructive-200: color-mix(in oklab, var(--jazz-constructive), white 70%);
-  --jazz-constructive-300: color-mix(in oklab, var(--jazz-constructive), white 47%);
-  --jazz-constructive-400: color-mix(in oklab, var(--jazz-constructive), white 23%);
-  --jazz-constructive-500: var(--jazz-constructive);
-  --jazz-constructive-600: color-mix(in oklab, var(--jazz-constructive), black 15.5%);
-  --jazz-constructive-700: color-mix(in oklab, var(--jazz-constructive), black 28.25%);
-  --jazz-constructive-800: color-mix(in oklab, var(--jazz-constructive), black 43.5%);
-  --jazz-constructive-900: color-mix(in oklab, var(--jazz-constructive), black 58.5%);
-  --jazz-constructive-950: color-mix(in oklab, var(--jazz-constructive), black 73.75%);
-
-  --jazz-destructive-50: color-mix(in oklab, var(--jazz-destructive), white 95%);
-  --jazz-destructive-100: color-mix(in oklab, var(--jazz-destructive), white 87%);
-  --jazz-destructive-200: color-mix(in oklab, var(--jazz-destructive), white 70%);
-  --jazz-destructive-300: color-mix(in oklab, var(--jazz-destructive), white 47%);
-  --jazz-destructive-400: color-mix(in oklab, var(--jazz-destructive), white 23%);
-  --jazz-destructive-500: var(--jazz-destructive);
-  --jazz-destructive-600: color-mix(in oklab, var(--jazz-destructive), black 15.5%);
-  --jazz-destructive-700: color-mix(in oklab, var(--jazz-destructive), black 28.25%);
-  --jazz-destructive-800: color-mix(in oklab, var(--jazz-destructive), black 43.5%);
-  --jazz-destructive-900: color-mix(in oklab, var(--jazz-destructive), black 58.5%);
-  --jazz-destructive-950: color-mix(in oklab, var(--jazz-destructive), black 73.75%);
 }
 
 :root,
 .jazz-light {
   color-scheme: light;
 
-  --jazz-primary-50: color-mix(in oklab, var(--jazz-primary), white 95%);
-  --jazz-primary-100: color-mix(in oklab, var(--jazz-primary), white 87%);
-  --jazz-primary-200: color-mix(in oklab, var(--jazz-primary), white 70%);
-  --jazz-primary-300: color-mix(in oklab, var(--jazz-primary), white 47%);
-  --jazz-primary-400: color-mix(in oklab, var(--jazz-primary), white 23%);
-  --jazz-primary-500: var(--jazz-primary);
-  --jazz-primary-600: color-mix(in oklab, var(--jazz-primary), black 15.5%);
-  --jazz-primary-700: color-mix(in oklab, var(--jazz-primary), black 28.25%);
-  --jazz-primary-800: color-mix(in oklab, var(--jazz-primary), black 43.5%);
-  --jazz-primary-900: color-mix(in oklab, var(--jazz-primary), black 58.5%);
-  --jazz-primary-950: color-mix(in oklab, var(--jazz-primary), black 73.75%);
+  --jazz-primary: var(--jazz-primary-light);
+
+  --jazz-primary-50: color-mix(in oklab, var(--jazz-primary-light, var(--jazz-primary)), white 95%);
+  --jazz-primary-100: color-mix(in oklab, var(--jazz-primary-light, var(--jazz-primary)), white 87%);
+  --jazz-primary-200: color-mix(in oklab, var(--jazz-primary-light, var(--jazz-primary)), white 70%);
+  --jazz-primary-300: color-mix(in oklab, var(--jazz-primary-light, var(--jazz-primary)), white 47%);
+  --jazz-primary-400: color-mix(in oklab, var(--jazz-primary-light, var(--jazz-primary)), white 23%);
+  --jazz-primary-500: var(--jazz-primary-light, var(--jazz-primary));
+  --jazz-primary-600: color-mix(in oklab, var(--jazz-primary-light, var(--jazz-primary)), black 15.5%);
+  --jazz-primary-700: color-mix(in oklab, var(--jazz-primary-light, var(--jazz-primary)), black 28.25%);
+  --jazz-primary-800: color-mix(in oklab, var(--jazz-primary-light, var(--jazz-primary)), black 43.5%);
+  --jazz-primary-900: color-mix(in oklab, var(--jazz-primary-light, var(--jazz-primary)), black 58.5%);
+  --jazz-primary-950: color-mix(in oklab, var(--jazz-primary-light, var(--jazz-primary)), black 73.75%);
 
   --jazz-neutral-0: color-mix(in oklab, var(--jazz-neutral), white 100%);
   --jazz-neutral-50: color-mix(in oklab, var(--jazz-neutral), white 95%);
@@ -143,17 +94,19 @@
   :root:not(.jazz-light):not(.jazz-dark) {
     color-scheme: dark;
 
-    --jazz-primary-50: color-mix(in oklab, var(--jazz-primary), black 73.75%);
-    --jazz-primary-100: color-mix(in oklab, var(--jazz-primary), black 58.5%);
-    --jazz-primary-200: color-mix(in oklab, var(--jazz-primary), black 43.5%);
-    --jazz-primary-300: color-mix(in oklab, var(--jazz-primary), black 28.25%);
-    --jazz-primary-400: color-mix(in oklab, var(--jazz-primary), black 15.5%);
-    --jazz-primary-500: var(--jazz-primary);
-    --jazz-primary-600: color-mix(in oklab, var(--jazz-primary), white 23%);
-    --jazz-primary-700: color-mix(in oklab, var(--jazz-primary), white 47%);
-    --jazz-primary-800: color-mix(in oklab, var(--jazz-primary), white 70%);
-    --jazz-primary-900: color-mix(in oklab, var(--jazz-primary), white 87%);
-    --jazz-primary-950: color-mix(in oklab, var(--jazz-primary), white 95%);
+    --jazz-primary: var(--jazz-primary-dark);
+
+    --jazz-primary-50: color-mix(in oklab, var(--jazz-primary-dark, var(--jazz-primary)), black 73.75%);
+    --jazz-primary-100: color-mix(in oklab, var(--jazz-primary-dark, var(--jazz-primary)), black 58.5%);
+    --jazz-primary-200: color-mix(in oklab, var(--jazz-primary-dark, var(--jazz-primary)), black 43.5%);
+    --jazz-primary-300: color-mix(in oklab, var(--jazz-primary-dark, var(--jazz-primary)), black 28.25%);
+    --jazz-primary-400: color-mix(in oklab, var(--jazz-primary-dark, var(--jazz-primary)), black 15.5%);
+    --jazz-primary-500: var(--jazz-primary-dark, var(--jazz-primary));
+    --jazz-primary-600: color-mix(in oklab, var(--jazz-primary-dark, var(--jazz-primary)), white 23%);
+    --jazz-primary-700: color-mix(in oklab, var(--jazz-primary-dark, var(--jazz-primary)), white 47%);
+    --jazz-primary-800: color-mix(in oklab, var(--jazz-primary-dark, var(--jazz-primary)), white 70%);
+    --jazz-primary-900: color-mix(in oklab, var(--jazz-primary-dark, var(--jazz-primary)), white 87%);
+    --jazz-primary-950: color-mix(in oklab, var(--jazz-primary-dark, var(--jazz-primary)), white 95%);
 
     --jazz-neutral-0: color-mix(in oklab, var(--jazz-neutral), black 100%);
     --jazz-neutral-50: color-mix(in oklab, var(--jazz-neutral), black 73.75%);
@@ -206,17 +159,19 @@
 .jazz-dark {
   color-scheme: dark;
 
-  --jazz-primary-50: color-mix(in oklab, var(--jazz-primary), black 73.75%);
-  --jazz-primary-100: color-mix(in oklab, var(--jazz-primary), black 58.5%);
-  --jazz-primary-200: color-mix(in oklab, var(--jazz-primary), black 43.5%);
-  --jazz-primary-300: color-mix(in oklab, var(--jazz-primary), black 28.25%);
-  --jazz-primary-400: color-mix(in oklab, var(--jazz-primary), black 15.5%);
-  --jazz-primary-500: var(--jazz-primary);
-  --jazz-primary-600: color-mix(in oklab, var(--jazz-primary), white 23%);
-  --jazz-primary-700: color-mix(in oklab, var(--jazz-primary), white 47%);
-  --jazz-primary-800: color-mix(in oklab, var(--jazz-primary), white 70%);
-  --jazz-primary-900: color-mix(in oklab, var(--jazz-primary), white 87%);
-  --jazz-primary-950: color-mix(in oklab, var(--jazz-primary), white 95%);
+  --jazz-primary: var(--jazz-primary-dark);
+
+  --jazz-primary-50: color-mix(in oklab, var(--jazz-primary-dark, var(--jazz-primary)), black 73.75%);
+  --jazz-primary-100: color-mix(in oklab, var(--jazz-primary-dark, var(--jazz-primary)), black 58.5%);
+  --jazz-primary-200: color-mix(in oklab, var(--jazz-primary-dark, var(--jazz-primary)), black 43.5%);
+  --jazz-primary-300: color-mix(in oklab, var(--jazz-primary-dark, var(--jazz-primary)), black 28.25%);
+  --jazz-primary-400: color-mix(in oklab, var(--jazz-primary-dark, var(--jazz-primary)), black 15.5%);
+  --jazz-primary-500: var(--jazz-primary-dark, var(--jazz-primary));
+  --jazz-primary-600: color-mix(in oklab, var(--jazz-primary-dark, var(--jazz-primary)), white 23%);
+  --jazz-primary-700: color-mix(in oklab, var(--jazz-primary-dark, var(--jazz-primary)), white 47%);
+  --jazz-primary-800: color-mix(in oklab, var(--jazz-primary-dark, var(--jazz-primary)), white 70%);
+  --jazz-primary-900: color-mix(in oklab, var(--jazz-primary-dark, var(--jazz-primary)), white 87%);
+  --jazz-primary-950: color-mix(in oklab, var(--jazz-primary-dark, var(--jazz-primary)), white 95%);
 
   --jazz-neutral-0: color-mix(in oklab, var(--jazz-neutral), black 100%);
   --jazz-neutral-50: color-mix(in oklab, var(--jazz-neutral), black 73.75%);

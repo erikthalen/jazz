@@ -6,7 +6,7 @@
     border-radius: 100px;
     background: linear-gradient(
       to right,
-      var(--jazz-neutral-950) calc(var(--pct, 0) * 100%),
+      var(--jazz-primary) calc(var(--pct, 0) * 100%),
       var(--jazz-neutral-200) calc(var(--pct, 0) * 100%)
     );
     cursor: pointer;

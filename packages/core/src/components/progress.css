@@ -1,4 +1,9 @@
 @layer jazz {
+  @keyframes jazz-progress-indeterminate {
+    from { background-position: 100% center; }
+    to { background-position: -100% center; }
+  }
+
   progress {
     appearance: none;
     width: 100%;
@@ -12,13 +17,30 @@
     }
 
     &::-webkit-progress-value {
-      background: var(--jazz-neutral-950);
+      background: var(--jazz-primary);
       border-radius: 100px;
     }
 
     &::-moz-progress-bar {
-      background: var(--jazz-neutral-950);
+      background: var(--jazz-primary);
       border-radius: 100px;
+    }
+
+    &:indeterminate {
+      background: linear-gradient(
+        90deg,
+        var(--jazz-neutral-200) 0%,
+        var(--jazz-neutral-200) 40%,
+        var(--jazz-primary) 40%,
+        var(--jazz-primary) 60%,
+        var(--jazz-neutral-200) 60%
+      );
+      background-size: 200% 100%;
+      animation: jazz-progress-indeterminate 1.5s linear infinite;
+
+      &::-webkit-progress-bar { background: transparent; }
+      &::-webkit-progress-value { background: transparent; }
+      &::-moz-progress-bar { background: transparent; }
     }
   }
 }

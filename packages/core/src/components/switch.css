@@ -12,7 +12,10 @@
     position: relative;
     display: inline-flex;
     align-items: center;
-    transition: background-color 100ms, outline-color 100ms;
+    transition:
+      background-color 100ms,
+      outline-color 100ms;
+    mask-image: none;
 
     &::after {
       content: "";
@@ -23,7 +26,9 @@
       margin-inline: 1px;
       border-radius: 50%;
       background-color: var(--background-color);
-      transition: left 100ms ease-out, background-color 100ms;
+      transition:
+        left 300ms var(--ease-glide),
+        background-color 100ms;
     }
 
     &:checked {
@@ -33,7 +38,6 @@
 
       &::after {
         left: calc(100% - 1rem - 5px);
-        background-color: white;
       }
     }
 

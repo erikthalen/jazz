@@ -28,7 +28,7 @@ export async function HomePage(path: string) {
         </div>
       </section>
 
-      <section class="home-showcase" style="--jazz-primary: #111;">
+      <section class="home-showcase">
         <div class="showcase-cell">
           <button>Primary</button>
           <button class="outline">Outline</button>
@@ -54,26 +54,32 @@ export async function HomePage(path: string) {
         <div class="showcase-cell">
           <div style="display:flex;">
             <fieldset role="group">
-              <button class="ghost square" aria-label="Align left">
+              <label class="toggle square" aria-label="Align left">
+                <input type="radio" name="home-align" />
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="21" x2="3" y1="6" y2="6"/><line x1="15" x2="3" y1="12" y2="12"/><line x1="17" x2="3" y1="18" y2="18"/></svg>
-              </button>
-              <button class="ghost square" aria-label="Align center">
+              </label>
+              <label class="toggle square" aria-label="Align center">
+                <input type="radio" name="home-align" checked />
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="21" x2="3" y1="6" y2="6"/><line x1="17" x2="7" y1="12" y2="12"/><line x1="19" x2="5" y1="18" y2="18"/></svg>
-              </button>
-              <button class="ghost square" aria-label="Align right">
+              </label>
+              <label class="toggle square" aria-label="Align right">
+                <input type="radio" name="home-align" />
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="21" x2="3" y1="6" y2="6"/><line x1="21" x2="9" y1="12" y2="12"/><line x1="21" x2="7" y1="18" y2="18"/></svg>
-              </button>
+              </label>
             </fieldset>
             <fieldset role="group">
-              <button class="ghost square" aria-label="Bold">
+              <label class="toggle square" aria-label="Bold">
+                <input type="checkbox" />
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8"/></svg>
-              </button>
-              <button class="ghost square" aria-label="Italic">
+              </label>
+              <label class="toggle square" aria-label="Italic">
+                <input type="checkbox" checked />
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" x2="10" y1="4" y2="4"/><line x1="14" x2="5" y1="20" y2="20"/><line x1="15" x2="9" y1="4" y2="20"/></svg>
-              </button>
-              <button class="ghost square" aria-label="Underline">
+              </label>
+              <label class="toggle square" aria-label="Underline">
+                <input type="checkbox" />
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4v6a6 6 0 0 0 12 0V4"/><line x1="4" x2="20" y1="20" y2="20"/></svg>
-              </button>
+              </label>
             </fieldset>
           </div>
         </div>
@@ -95,6 +101,26 @@ export async function HomePage(path: string) {
           <label style="display:flex;align-items:center;gap:0.75rem;width:100%;justify-content:space-between">
             Bluetooth <input type="checkbox" class="switch" />
           </label>
+        </div>
+
+        <div class="showcase-cell">
+          <button class="ghost" popovertarget="showcase-dropdown">Options</button>
+          <div id="showcase-dropdown" popover>
+            <menu>
+              <li><button class="ghost">New File</button></li>
+              <li><button class="ghost">New Window</button></li>
+              <li>
+                <button class="ghost" popovertarget="showcase-submenu">Open Recent</button>
+                <div id="showcase-submenu" popover>
+                  <menu>
+                    <li><button class="ghost">project.zip</button></li>
+                    <li><button class="ghost">notes.md</button></li>
+                    <li><button class="ghost">index.html</button></li>
+                  </menu>
+                </div>
+              </li>
+            </menu>
+          </div>
         </div>
 
         <div class="showcase-cell showcase-cell--tall showcase-cell--wide" style="gap:0">
@@ -130,12 +156,12 @@ export async function HomePage(path: string) {
         </div>
 
         <div class="showcase-cell">
-          <label class="toggle">
+          <label class="toggle fill">
             <input type="checkbox" />
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg>
             Bookmark
           </label>
-          <label class="toggle">
+          <label class="toggle fill">
             <input type="checkbox" checked />
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
             Star
@@ -162,7 +188,7 @@ export async function HomePage(path: string) {
 
         <div class="showcase-cell">
           <article style="width:100%">
-            <header>Card title</header>
+            <header style="padding-inline: 0.75rem;">Card title</header>
             <p style="font-size:0.875rem;color:var(--jazz-neutral-500)">Some content inside a card with a header.</p>
             <footer style="display:flex;justify-content:flex-end;gap:0.5rem">
               <button class="ghost">Cancel</button>
@@ -203,16 +229,27 @@ export async function HomePage(path: string) {
         </div>
 
         <div class="showcase-cell">
-          <input id="showcase-primary-color" type="color" oninput="this.closest('section').style.setProperty('--jazz-primary', this.value)" />
+          <label style="display:flex;align-items:center;gap:var(--spacing-2);font-size:0.875rem">
+            Light
+            <input id="showcase-primary-light" type="color" oninput="document.documentElement.style.setProperty('--jazz-primary-light', this.value)" />
+          </label>
+          <label style="display:flex;align-items:center;gap:var(--spacing-2);font-size:0.875rem">
+            Dark
+            <input id="showcase-primary-dark" type="color" oninput="document.documentElement.style.setProperty('--jazz-primary-dark', this.value)" />
+          </label>
           <script>
             (function () {
-              var tmp = document.createElement('div');
-              tmp.style.color = getComputedStyle(document.documentElement).getPropertyValue('--jazz-primary').trim();
-              document.body.appendChild(tmp);
-              var rgb = getComputedStyle(tmp).color.match(/\d+/g)?.map(Number);
-              document.body.removeChild(tmp);
-              document.getElementById('showcase-primary-color').value =
-                '#' + rgb?.map(function (n) { return n.toString(16).padStart(2, '0'); }).join('');
+              function toHex(cssColor) {
+                var tmp = document.createElement('div');
+                tmp.style.color = cssColor;
+                document.body.appendChild(tmp);
+                var rgb = getComputedStyle(tmp).color.match(/\d+/g)?.map(Number);
+                document.body.removeChild(tmp);
+                return '#' + rgb?.map(function (n) { return n.toString(16).padStart(2, '0'); }).join('');
+              }
+              var root = document.documentElement;
+              document.getElementById('showcase-primary-light').value = toHex(getComputedStyle(root).getPropertyValue('--jazz-primary-light').trim());
+              document.getElementById('showcase-primary-dark').value = toHex(getComputedStyle(root).getPropertyValue('--jazz-primary-dark').trim());
             })();
           </script>
         </div>

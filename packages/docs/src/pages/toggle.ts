@@ -5,6 +5,8 @@ import { highlight } from "../highlight";
 const toc = [
   { id: "default", label: "Default" },
   { id: "checked", label: "Checked" },
+  { id: "square", label: "Square" },
+  { id: "fill", label: "Fill" },
   { id: "disabled", label: "Disabled" },
 ];
 
@@ -71,6 +73,63 @@ export async function TogglePage(path: string) {
         <div class="code-block">
           ${raw(
             await highlight(`<label class="toggle">
+  <input type="checkbox" checked />
+  <svg>...</svg>
+  Bookmark
+</label>`),
+          )}
+        </div>
+      </div>
+
+      <h2 id="square">Square</h2>
+      <p>Add <code>.square</code> for an icon-only toggle with equal padding.</p>
+      <div class="example">
+        <div class="preview" style="gap:0.5rem">
+          <label class="toggle square" aria-label="Bookmark">
+            <input type="checkbox" />
+            ${raw(bookmarkIcon)}
+          </label>
+          <label class="toggle square" aria-label="Star">
+            <input type="checkbox" checked />
+            ${raw(starIcon)}
+          </label>
+          <label class="toggle square" aria-label="Like">
+            <input type="checkbox" />
+            ${raw(heartIcon)}
+          </label>
+        </div>
+        <div class="code-block">
+          ${raw(
+            await highlight(`<label class="toggle square" aria-label="Bookmark">
+  <input type="checkbox" />
+  <svg>...</svg>
+</label>`),
+          )}
+        </div>
+      </div>
+
+      <h2 id="fill">Fill</h2>
+      <p>Add <code>.fill</code> to fill the SVG icon when checked.</p>
+      <div class="example">
+        <div class="preview" style="gap: 0.5rem; flex-wrap: wrap">
+          <label class="toggle fill">
+            <input type="checkbox" checked />
+            ${raw(bookmarkIcon)}
+            Bookmark
+          </label>
+          <label class="toggle fill">
+            <input type="checkbox" checked />
+            ${raw(starIcon)}
+            Star
+          </label>
+          <label class="toggle fill square">
+            <input type="checkbox" checked />
+            ${raw(heartIcon)}
+          </label>
+        </div>
+        <div class="code-block">
+          ${raw(
+            await highlight(`<label class="toggle fill">
   <input type="checkbox" checked />
   <svg>...</svg>
   Bookmark

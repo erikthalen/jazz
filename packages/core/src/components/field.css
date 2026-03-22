@@ -1,0 +1,28 @@
+@layer jazz {
+  label.field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+    cursor: pointer;
+
+    > span {
+      font-weight: 600;
+    }
+
+    > small {
+      color: var(--jazz-neutral-500);
+      font-size: 0.875em;
+    }
+
+    &:has(input:required) > span::after {
+      content: " *";
+      color: var(--jazz-destructive);
+    }
+
+    > input,
+    > select,
+    > progress {
+      width: 100%;
+    }
+  }
+}

@@ -2,10 +2,10 @@
   label.toggle {
     display: inline-flex;
     align-items: center;
-    gap: calc(var(--spacing) * 1);
-    padding-block: calc(var(--spacing) * 2);
-    padding-inline: calc(var(--spacing) * 3);
-    border-radius: calc(var(--spacing) * 3);
+    gap: var(--spacing);
+    padding-block: var(--spacing-2);
+    padding-inline: var(--spacing-3);
+    border-radius: var(--spacing-3);
     outline: 1px solid var(--jazz-neutral-300);
     outline-offset: -1px;
     cursor: pointer;
@@ -17,7 +17,8 @@
 
     font-weight: 500;
 
-    > input[type="checkbox"] {
+    > input[type="checkbox"],
+    > input[type="radio"] {
       appearance: none;
       display: none;
     }
@@ -29,9 +30,12 @@
     &:has(> input:checked) {
       background-color: var(--jazz-neutral-100);
       outline-color: var(--jazz-neutral-400);
+    }
 
+    &.fill:has(> input:checked) {
       svg {
         fill: currentColor;
+        color: var(--jazz-primary);
       }
     }
 
@@ -43,6 +47,10 @@
     &:has(> input:disabled) {
       opacity: 0.4;
       cursor: not-allowed;
+    }
+
+    &.square {
+      padding-inline: var(--spacing-2);
     }
   }
 }

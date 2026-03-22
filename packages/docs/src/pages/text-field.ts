@@ -5,7 +5,6 @@ import { highlight } from '../highlight'
 const toc = [
   { id: 'text', label: 'Text' },
   { id: 'with-icon', label: 'With icon' },
-  { id: 'field', label: 'Field' },
 ]
 
 const searchIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>`
@@ -96,30 +95,6 @@ export async function TextFieldPage(path: string) {
         </div>
       </div>
 
-      <h2 id="field">Field</h2>
-      <p>
-        Use <code>label.field</code> to add a visible label and optional
-        description. The required asterisk appears automatically when the input
-        has the <code>required</code> attribute.
-      </p>
-      <div class="example">
-        <div class="preview preview-padded">
-          <label class="field" style="width:100%">
-            <span>Email</span>
-            <input type="email" placeholder="you@example.com" required />
-            <small>We'll never share your email.</small>
-          </label>
-        </div>
-        <div class="code-block">
-          ${raw(
-            await highlight(`<label class="field">
-  <span>Email</span>
-  <input type="email" placeholder="you@example.com" required />
-  <small>We'll never share your email.</small>
-</label>`),
-          )}
-        </div>
-      </div>
     `,
   })
 }

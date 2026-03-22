@@ -14,8 +14,8 @@
     opacity: 0;
     translate: 0 4px;
     transition:
-      opacity 100ms ease-out,
-      translate 100ms ease-out,
+      opacity 300ms var(--ease-glide),
+      translate 300ms var(--ease-glide),
       display 100ms allow-discrete,
       overlay 100ms allow-discrete;
 
@@ -36,7 +36,7 @@
       background: oklch(0% 0 0 / 0.4);
       backdrop-filter: blur(2px);
       transition:
-        opacity 100ms ease-out,
+        opacity 200ms var(--ease-glide),
         display 100ms allow-discrete,
         overlay 100ms allow-discrete;
     }

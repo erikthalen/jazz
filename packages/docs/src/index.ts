@@ -22,8 +22,16 @@ import { ProgressPage } from './pages/progress'
 import { ColorInputPage } from './pages/color-input'
 import { TablePage } from './pages/table'
 import { TogglePage } from './pages/toggle'
+import { ToggleGroupPage } from './pages/toggle-group'
 import { IconsPage } from './pages/icons'
+import { CustomizationPage } from './pages/customization'
 import { BadgePage } from './pages/badge'
+import { DropdownPage } from './pages/dropdown'
+import { SelectPage } from './pages/select'
+import { ToastPage } from './pages/toast'
+import { SubmenuPage } from './pages/submenu'
+import { FieldPage } from './pages/field'
+import { EasingsPage } from './pages/easings'
 
 const app = new Hono()
 
@@ -47,10 +55,18 @@ app.get('/components/progress', (c) => c.html(ProgressPage(c.req.path)))
 app.get('/components/color-input', (c) => c.html(ColorInputPage(c.req.path)))
 app.get('/components/table', (c) => c.html(TablePage(c.req.path)))
 app.get('/components/toggle', (c) => c.html(TogglePage(c.req.path)))
+app.get('/components/toggle-group', (c) => c.html(ToggleGroupPage(c.req.path)))
 app.get('/components/button', (c) => c.html(ButtonPage(c.req.path)))
 app.get('/components/text-field', (c) => c.html(TextFieldPage(c.req.path)))
 app.get('/components/loading', (c) => c.html(LoadingPage(c.req.path)))
 app.get('/icons', (c) => c.html(IconsPage(c.req.path)))
+app.get('/customization', (c) => c.html(CustomizationPage(c.req.path)))
 app.get('/components/badge', (c) => c.html(BadgePage(c.req.path)))
+app.get('/components/dropdown', (c) => c.html(DropdownPage(c.req.path)))
+app.get('/components/select', (c) => c.html(SelectPage(c.req.path)))
+app.get('/components/toast', (c) => c.html(ToastPage(c.req.path)))
+app.get('/components/submenu', (c) => c.html(SubmenuPage(c.req.path)))
+app.get('/components/field', (c) => c.html(FieldPage(c.req.path)))
+app.get('/easings', (c) => c.html(EasingsPage(c.req.path)))
 
 export default app

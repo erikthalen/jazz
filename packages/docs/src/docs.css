@@ -461,6 +461,33 @@ body {
   line-height: 1.6;
 }
 
+/* Easing demos */
+.easing-demo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: var(--bg-subtle);
+  border-radius: 8px;
+  width: 100%;
+}
+
+.easing-track {
+  flex: 1;
+}
+
+.easing-dot {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--jazz-primary);
+  transition: translate 600ms linear;
+}
+
+.docs-content:has(.switch:checked) .easing-dot {
+  translate: calc(100cqi - 2rem) 0;
+}
+
 .home-footer {
   max-width: 960px;
   margin: 0 auto;

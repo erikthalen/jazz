@@ -3,7 +3,7 @@
     border: 1px solid var(--jazz-neutral-200);
     border-radius: 12px;
     overflow: hidden;
-    padding: calc(var(--spacing) * 6);
+    padding: var(--spacing-6);
 
     &:has(> header, > footer) {
       padding: 0;
@@ -11,7 +11,7 @@
 
     & > header,
     & > footer {
-      padding: calc(var(--spacing) * 4) calc(var(--spacing) * 6);
+      padding: var(--spacing-4) var(--spacing-6);
     }
 
     & > header {
@@ -23,22 +23,38 @@
     }
 
     &:has(> header, > footer) > :not(header):not(footer) {
-      padding: calc(var(--spacing) * 6);
+      padding: var(--spacing-6);
     }
   }
 
   /* Reduce padding when the card's parent container is narrow */
   @container (max-width: 320px) {
     article {
-      padding: calc(var(--spacing) * 3);
+      padding: var(--spacing-3);
 
       & > header,
       & > footer {
-        padding: calc(var(--spacing) * 3) calc(var(--spacing) * 3);
+        padding: var(--spacing-3);
       }
 
       &:has(> header, > footer) > :not(header):not(footer) {
-        padding: calc(var(--spacing) * 3) calc(var(--spacing) * 3);
+        padding: var(--spacing-3);
+      }
+    }
+  }
+
+  /* Reduce padding when the card's parent container is narrow */
+  @container (max-width: 200px) {
+    article {
+      padding: var(--spacing-2);
+
+      & > header,
+      & > footer {
+        padding: var(--spacing-2);
+      }
+
+      &:has(> header, > footer) > :not(header):not(footer) {
+        padding: var(--spacing-2);
       }
     }
   }

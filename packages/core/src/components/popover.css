@@ -8,15 +8,12 @@
     padding: 0;
 
     /* position below trigger by default */
-    top: calc(anchor(bottom) + 0.5rem);
+    top: calc(anchor(bottom) + var(--spacing-1));
     left: anchor(left);
     min-width: anchor-size(width);
 
     /* try right-aligned, then above, then above-right */
-    position-try-fallbacks:
-      --popover-right,
-      --popover-above,
-      --popover-above-right;
+    position-try-fallbacks: --popover-right, --popover-above, --popover-above-right;
 
     /* visual */
     background: var(--background-color);
@@ -25,31 +22,16 @@
     border-radius: 12px;
     box-shadow: 0 4px 16px oklch(0% 0 0 / 0.08);
 
-    & > menu {
-      display: flex;
-      flex-direction: column;
-      padding: calc(var(--spacing) * 1);
-      margin: 0;
-      list-style: none;
-
-      & > li > button,
-      & > li > .button {
-        width: 100%;
-        justify-content: flex-start;
-        border-radius: 8px;
-      }
-    }
-
     & > article {
       border: none;
 
       & > header,
       & > footer {
-        padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
+        padding: var(--spacing-2) var(--spacing-3);
       }
 
       &:has(> header, > footer) > :not(header):not(footer) {
-        padding: calc(var(--spacing) * 3);
+        padding: var(--spacing-3);
       }
     }
 
@@ -57,8 +39,8 @@
     opacity: 0;
     translate: 0 -2px;
     transition:
-      opacity 100ms ease-out,
-      translate 100ms ease-out,
+      opacity 100ms var(--ease-glide),
+      translate 100ms var(--ease-glide),
       display 100ms allow-discrete,
       overlay 100ms allow-discrete;
 

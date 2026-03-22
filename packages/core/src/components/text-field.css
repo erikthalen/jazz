@@ -9,12 +9,13 @@
     appearance: none;
     border: none;
 
+    background-color: var(--jazz-neutral-50);
     outline: 1px solid var(--jazz-neutral-500);
     outline-offset: -1px;
 
-    padding-block: calc(var(--spacing) * 2);
-    padding-inline: calc(var(--spacing) * 3);
-    border-radius: calc(var(--spacing) * 2);
+    padding-block: var(--spacing-2);
+    padding-inline: var(--spacing-3);
+    border-radius: var(--spacing-2);
 
     font: inherit;
 
@@ -24,7 +25,7 @@
   }
 
   /* Input with leading/trailing adornments (svg, kbd, button, etc.) */
-  label:not(.toggle):has(> :not(input, span, small)) {
+  label:not(.toggle):has(> :not(input, span, small, progress, select)) {
     display: grid;
     grid-template-columns: auto 1fr auto auto;
     align-items: center;
@@ -32,7 +33,7 @@
 
     outline: 1px solid var(--jazz-neutral-500);
     outline-offset: -1px;
-    border-radius: calc(var(--spacing) * 2);
+    border-radius: var(--spacing-2);
 
     &:has(> input:focus) {
       outline-color: currentColor;
@@ -42,7 +43,7 @@
     > input {
       grid-column: 1 / -1;
       grid-row: 1;
-      padding-inline: calc(var(--spacing) * 3);
+      padding-inline: var(--spacing-3);
       outline: none;
       border-radius: 0;
       background: transparent;
@@ -59,59 +60,35 @@
     /* Leading */
     > :not(input):first-child {
       grid-column: 1;
-      margin-inline: calc(var(--spacing) * 3) calc(var(--spacing) * 2);
+      margin-inline: var(--spacing-3) var(--spacing-2);
     }
 
     /* Last trailing */
     > :not(input):last-child {
       grid-column: 4;
-      margin-inline: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
+      margin-inline: var(--spacing-2) var(--spacing-3);
     }
 
     /* Second-to-last trailing (when not also the leading) */
     > :not(input):nth-last-child(2):not(:first-child) {
       grid-column: 3;
-      margin-inline: calc(var(--spacing) * 2) 0;
+      margin-inline: var(--spacing-2) 0;
     }
   }
 
   /* Offset input text to clear leading adornment */
-  label:not(.toggle):has(> :not(input, span, small):first-child) > input {
+  label:not(.toggle):has(> :not(input, span, small, progress, select):first-child) > input {
     padding-inline-start: calc(var(--spacing) * 3 + 1rem + var(--spacing) * 2);
   }
 
   /* Offset input text to clear one trailing adornment */
-  label:not(.toggle):has(> :not(input, span, small):last-child) > input {
+  label:not(.toggle):has(> :not(input, span, small, progress, select):last-child) > input {
     padding-inline-end: calc(var(--spacing) * 3 + 1rem + var(--spacing) * 2);
   }
 
   /* Offset input text to clear two trailing adornments */
-  label:not(.toggle):has(> :not(input, span, small):nth-last-child(2):not(:first-child)) > input {
+  label:not(.toggle):has(> :not(input, span, small, progress, select):nth-last-child(2):not(:first-child)) > input {
     padding-inline-end: calc(var(--spacing) * 3 + 2rem + var(--spacing) * 4);
   }
 
-  label.field {
-    display: flex;
-    flex-direction: column;
-    gap: calc(var(--spacing) * 2);
-    cursor: pointer;
-
-    > span {
-      font-weight: 600;
-    }
-
-    > small {
-      color: var(--jazz-neutral-500);
-      font-size: 0.875em;
-    }
-
-    &:has(input:required) > span::after {
-      content: " *";
-      color: var(--jazz-destructive);
-    }
-
-    > input {
-      width: 100%;
-    }
-  }
 }

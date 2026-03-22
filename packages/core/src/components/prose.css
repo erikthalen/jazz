@@ -6,8 +6,13 @@
     > h4,
     > h5,
     > h6,
-    > p {
+    > p,
+    > label {
       margin: 0 0 var(--jazz-typography-spacing-vertical) 0;
+    }
+
+    p {
+      line-height: 1.6;
     }
 
     > ul,

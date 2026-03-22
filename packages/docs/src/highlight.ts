@@ -10,8 +10,9 @@ export async function highlight(code: string, lang = 'html'): Promise<string> {
   const parser = lang === 'html' ? 'html' : lang === 'css' ? 'css' : 'babel'
   const formatted = await format(code, {
     parser,
-    printWidth: 60,
+    printWidth: 100,
     tabWidth: 2,
+    singleAttributePerLine: true
   })
 
   const highlighter = await highlighterPromise

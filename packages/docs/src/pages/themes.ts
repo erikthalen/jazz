@@ -45,8 +45,11 @@ export async function ThemesPage(path: string) {
 
       <h2 id="primary-scale">Primary scale</h2>
       <p>
-        Used for interactive elements like buttons and focus rings. Override
-        <code>--jazz-primary</code> to retheme everything at once.
+        Used for interactive elements like buttons and focus rings. The palette
+        is derived from <code>--jazz-primary-light</code> in light mode and
+        <code>--jazz-primary-dark</code> in dark mode — useful when a color
+        needs adjusting between themes (e.g. slightly lighter in dark mode for
+        contrast). Both fall back to <code>--jazz-primary</code> if unset.
       </p>
       ${colorScale('primary')}
 
@@ -73,18 +76,24 @@ export async function ThemesPage(path: string) {
 
       <h2 id="customizing">Customizing</h2>
       <p>
-        Override seed colors and typography variables on <code>:root</code>
-        after importing the stylesheet:
+        Override seed colors on <code>:root</code> after importing the
+        stylesheet. Use <code>--jazz-primary</code> for a single color across
+        both themes, or set <code>--jazz-primary-light</code> and
+        <code>--jazz-primary-dark</code> independently for per-theme control:
       </p>
       <div class="example">
         <div class="code-block">
           ${raw(
             await highlight(
               `:root {
+  /* Same primary for both themes */
   --jazz-primary: #6366f1;
+
+  /* Or tune per-theme */
+  --jazz-primary-light: #4f46e5;
+  --jazz-primary-dark: #818cf8;
+
   --jazz-neutral: #6b7280;
-  --jazz-font-family-sans: 'Inter', sans-serif;
-  --jazz-font-size: 16px;
 }`,
               'css',
             ),

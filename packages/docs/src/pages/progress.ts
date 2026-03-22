@@ -5,6 +5,7 @@ import { highlight } from "../highlight";
 const toc = [
   { id: "default", label: "Default" },
   { id: "indeterminate", label: "Indeterminate" },
+  { id: "labeled", label: "Labeled" },
 ];
 
 export async function ProgressPage(path: string) {
@@ -39,6 +40,36 @@ export async function ProgressPage(path: string) {
         </div>
         <div class="code-block">
           ${raw(await highlight(`<progress></progress>`))}
+        </div>
+      </div>
+
+      <h2 id="labeled">Labeled</h2>
+      <p>Wrap in a <code>&lt;label class="field"&gt;</code> to pair with a text label.</p>
+      <div class="example">
+        <div class="preview">
+          <label class="field" style="width:100%">
+            <span>Uploading…</span>
+            <progress value="65" max="100"></progress>
+            <small>65%</small>
+          </label>
+          <label class="field" style="width:100%">
+            <span>Processing</span>
+            <progress></progress>
+          </label>
+        </div>
+        <div class="code-block">
+          ${raw(
+            await highlight(`<label class="field">
+  <span>Uploading…</span>
+  <progress value="65" max="100"></progress>
+  <small>65%</small>
+</label>
+
+<label class="field">
+  <span>Processing</span>
+  <progress></progress>
+</label>`),
+          )}
         </div>
       </div>
     `,

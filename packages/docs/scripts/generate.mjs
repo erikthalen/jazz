@@ -26,9 +26,17 @@ const routes = [
   "/components/switch",
   "/components/table",
   "/components/toggle",
+  "/components/toggle-group",
   "/components/tooltip",
   "/icons",
+  "/customization",
   "/components/badge",
+  "/components/dropdown",
+  "/components/select",
+  "/components/toast",
+  "/components/submenu",
+  "/components/field",
+  "/easings",
 ];
 
 const outDir = new URL("../dist", import.meta.url).pathname;

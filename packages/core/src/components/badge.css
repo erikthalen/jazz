@@ -2,13 +2,14 @@
   .badge {
     display: inline-flex;
     align-items: center;
-    padding-block: calc(var(--spacing) * 1);
-    padding-inline: calc(var(--spacing) * 3);
+    /* padding-block: var(--spacing-1); */
+    padding-inline: var(--spacing-2);
     border-radius: 999px;
     font-size: 0.8125em;
     font-weight: 500;
+    user-select: none;
     line-height: 1.5;
-    background-color: var(--jazz-neutral-100);
+    background-color: var(--jazz-neutral-200);
     color: var(--jazz-neutral-900);
 
     &.secondary {
