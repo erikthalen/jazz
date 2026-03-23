@@ -35,61 +35,61 @@ export async function TextFieldPage(path: string) {
 
       <h2 id="with-icon">With icon</h2>
       <p>
-        Wrap an input and one or more <code>&lt;svg&gt;</code> icons in a
-        <code>&lt;label&gt;</code>. Icons before the input appear on the left,
-        icons after appear on the right.
+        Wrap an input and adornments in a <code>&lt;label&gt;</code>. Add
+        <code>data-prefix</code> for leading adornments and
+        <code>data-suffix</code> for trailing ones.
       </p>
       <div class="example">
         <div class="preview preview-padded" style="display:flex;flex-direction:column;gap:1rem">
           <label style="width:100%">
-            ${raw(searchIcon)}
+            ${raw(searchIcon.replace('<svg ', '<svg data-prefix '))}
             <input type="search" placeholder="Search..." />
           </label>
           <label style="width:100%">
-            ${raw(emailIcon)}
+            ${raw(emailIcon.replace('<svg ', '<svg data-prefix '))}
             <input type="email" placeholder="Enter your email" />
           </label>
           <label style="width:100%">
-            ${raw(cardIcon)}
+            ${raw(cardIcon.replace('<svg ', '<svg data-prefix '))}
             <input type="text" placeholder="Card number" />
-            ${raw(checkIcon)}
+            ${raw(checkIcon.replace('<svg ', '<svg data-suffix '))}
           </label>
           <label style="width:100%">
             <input type="text" placeholder="Card number" />
-            ${raw(starIcon)}
-            ${raw(infoIcon)}
+            ${raw(starIcon.replace('<svg ', '<svg data-suffix '))}
+            ${raw(infoIcon.replace('<svg ', '<svg data-suffix '))}
           </label>
           <label style="width:100%">
             <input type="text" placeholder="Search..." />
-            <kbd>⌘K</kbd>
+            <kbd data-suffix>⌘K</kbd>
           </label>
         </div>
         <div class="code-block">
           ${raw(
             await highlight(`<!-- leading icon -->
 <label>
-  <svg>...</svg>
+  <svg data-prefix>...</svg>
   <input type="search" placeholder="Search..." />
 </label>
 
-<!-- trailing icon -->
+<!-- leading + trailing -->
 <label>
-  <svg>...</svg>
+  <svg data-prefix>...</svg>
   <input type="text" placeholder="Card number" />
-  <svg>...</svg>
+  <svg data-suffix>...</svg>
 </label>
 
-<!-- multiple trailing icons -->
+<!-- multiple trailing -->
 <label>
   <input type="text" placeholder="Card number" />
-  <svg>...</svg>
-  <svg>...</svg>
+  <svg data-suffix>...</svg>
+  <svg data-suffix>...</svg>
 </label>
 
 <!-- kbd shortcut hint -->
 <label>
   <input type="text" placeholder="Search..." />
-  <kbd>⌘K</kbd>
+  <kbd data-suffix>⌘K</kbd>
 </label>`),
           )}
         </div>

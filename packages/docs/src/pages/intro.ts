@@ -28,14 +28,17 @@ export async function IntroPage(path: string) {
       <p>Link the stylesheet from the CDN:</p>
       <div class="example">
         <div class="code-block">
-          ${raw(await highlight(`<link rel="stylesheet" href="${cdnUrl}" />\n\n<!-- Optional: theme -->\n<style>\n  :root {\n    --jazz-primary-light: #111;\n    --jazz-primary-dark: #fefefe;\n  }\n</style>`, "html"))}
+          ${raw(
+            await highlight(
+              `<link rel="stylesheet" href="${cdnUrl}" />\n\n<!-- Optional: theme -->\n<style>\n  :root {\n    --jazz-primary-light: #111;\n    --jazz-primary-dark: #fefefe;\n  }\n</style>`,
+              "html",
+            ),
+          )}
         </div>
       </div>
 
       <h2 id="overview">Overview</h2>
-      <p>
-        Jazz styles native HTML elements directly, no class names required.
-      </p>
+      <p>Jazz styles native HTML elements directly, no class names required.</p>
       <div class="example">
         <div class="preview">
           <fieldset role="group">
@@ -55,13 +58,15 @@ export async function IntroPage(path: string) {
       <h2 id="ui-not-layout">UI, not layout</h2>
       <p>
         Jazz handles the look of interactive elements (buttons, inputs,
-        popovers) but deliberately stays out of the way of how you arrange
-        them on the page. CSS <code>flex</code> and <code>grid</code> are fast
-        to write, easy to read, and need no abstraction on top of them.
+        popovers) but deliberately stays out of the way of how you arrange them
+        on the page. CSS <code>flex</code> and <code>grid</code> are fast to
+        write, easy to read, and need no abstraction on top of them.
       </p>
       <div class="example">
         <div class="preview">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--spacing-3);width:100%;max-width:400px;margin:auto">
+          <div
+            style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:var(--spacing-3);width:100%;max-width:400px;margin:auto"
+          >
             <input type="text" placeholder="First name" />
             <input type="text" placeholder="Last name" />
             <input type="email" placeholder="Email" style="grid-column:1/-1" />
@@ -71,7 +76,7 @@ export async function IntroPage(path: string) {
         <div class="code-block">
           ${raw(
             await highlight(
-              `<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">\n  <input type="text" placeholder="First name" />\n  <input type="text" placeholder="Last name" />\n  <input type="email" placeholder="Email" style="grid-column:1/-1" />\n  <button style="grid-column:1/-1;justify-self:end">Submit</button>\n</div>`,
+              `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem">\n  <input type="text" placeholder="First name" />\n  <input type="text" placeholder="Last name" />\n  <input type="email" placeholder="Email" style="grid-column:1/-1" />\n  <button style="grid-column:1/-1;justify-self:end">Submit</button>\n</div>`,
             ),
           )}
         </div>

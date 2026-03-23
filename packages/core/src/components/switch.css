@@ -37,7 +37,7 @@
       background-image: none;
 
       &::after {
-        left: calc(100% - 1rem - 5px);
+        left: calc(100% - 1lh - 2px - 1px);
       }
     }
 
@@ -48,7 +48,7 @@
 
     &:disabled {
       opacity: 0.4;
-      cursor: not-allowed;
+      cursor: default;
     }
   }
 }

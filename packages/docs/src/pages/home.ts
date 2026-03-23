@@ -66,6 +66,7 @@ export async function HomePage(path: string) {
         <div class="showcase-cell">
           <label style="width:100%">
             <svg
+              data-prefix
               xmlns="http://www.w3.org/2000/svg"
               width="16"
               height="16"
@@ -80,7 +81,7 @@ export async function HomePage(path: string) {
               <path d="m21 21-4.3-4.3" />
             </svg>
             <input type="search" placeholder="Search..." />
-            <kbd>⌘K</kbd>
+            <kbd data-suffix>⌘K</kbd>
           </label>
         </div>
 
@@ -215,7 +216,12 @@ export async function HomePage(path: string) {
         </div>
 
         <div class="showcase-cell">
-          <input type="range" value="60" style="width:100%" />
+          <input
+            type="range"
+            value="60"
+            style="width:100%;--pct:0.6"
+            oninput="this.style.setProperty('--pct', (this.value - this.min) / (this.max - this.min || 100))"
+          />
         </div>
 
         <div class="showcase-cell">
@@ -442,6 +448,7 @@ export async function HomePage(path: string) {
                 tmp.style.color = cssColor;
                 document.body.appendChild(tmp);
                 var rgb = getComputedStyle(tmp).color.match(/d+/g)?.map(Number);
+                if (!rgb) return;
                 document.body.removeChild(tmp);
                 return (
                   "#" +
@@ -453,16 +460,24 @@ export async function HomePage(path: string) {
                 );
               }
               var root = document.documentElement;
-              document.getElementById("showcase-primary-light").value = toHex(
+              const lightcolor = toHex(
                 getComputedStyle(root)
                   .getPropertyValue("--jazz-primary-light")
                   .trim(),
               );
-              document.getElementById("showcase-primary-dark").value = toHex(
+              if (lightcolor) {
+                document.getElementById("showcase-primary-light").value =
+                  lightcolor;
+              }
+              const darkcolor = toHex(
                 getComputedStyle(root)
                   .getPropertyValue("--jazz-primary-dark")
                   .trim(),
               );
+              if (darkcolor) {
+                document.getElementById("showcase-primary-dark").value =
+                  darkcolor;
+              }
             })();
           </script>
         </div>
@@ -477,7 +492,7 @@ export async function HomePage(path: string) {
                 `<button class="ghost">Reset</button>\n` +
                 `\n` +
                 `<label>\n` +
-                `  <svg><!-- icon --></svg>\n` +
+                `  <svg data-prefix><!-- icon --></svg>\n` +
                 `  <input type="search" placeholder="Search..." />\n` +
                 `</label>\n` +
                 `\n` +

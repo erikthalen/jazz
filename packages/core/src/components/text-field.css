@@ -9,7 +9,7 @@
     appearance: none;
     border: none;
 
-    background-color: var(--jazz-neutral-50);
+    background-color: transparent;
     outline: 1px solid var(--jazz-neutral-500);
     outline-offset: -1px;
 
@@ -22,10 +22,11 @@
     &:focus {
       outline-color: currentColor;
     }
+
   }
 
   /* Input with leading/trailing adornments (svg, kbd, button, etc.) */
-  label:not(.toggle):has(> :not(input, span, small, progress, select)) {
+  label:not(.toggle):has(> [data-prefix], > [data-suffix]) {
     display: grid;
     grid-template-columns: auto 1fr auto auto;
     align-items: center;
@@ -40,7 +41,7 @@
     }
 
     /* Input spans all columns as the full-width background */
-    > input {
+    > input:is([type="text"], [type="email"], [type="search"], [type="password"], [type="number"], [type="tel"], [type="url"], :not([type])) {
       grid-column: 1 / -1;
       grid-row: 1;
       padding-inline: var(--spacing-3);
@@ -50,45 +51,42 @@
     }
 
     /* Adornments sit on top */
-    > :not(input) {
+    > [data-prefix],
+    > [data-suffix] {
       grid-row: 1;
       position: relative;
       z-index: 1;
       color: var(--jazz-neutral-400);
     }
 
-    /* Leading */
-    > :not(input):first-child {
+    > [data-prefix] {
       grid-column: 1;
       margin-inline: var(--spacing-3) var(--spacing-2);
     }
 
-    /* Last trailing */
-    > :not(input):last-child {
+    > [data-suffix]:last-child {
       grid-column: 4;
       margin-inline: var(--spacing-2) var(--spacing-3);
     }
 
-    /* Second-to-last trailing (when not also the leading) */
-    > :not(input):nth-last-child(2):not(:first-child) {
+    > [data-suffix]:not(:last-child) {
       grid-column: 3;
       margin-inline: var(--spacing-2) 0;
     }
   }
 
   /* Offset input text to clear leading adornment */
-  label:not(.toggle):has(> :not(input, span, small, progress, select):first-child) > input {
+  label:not(.toggle):has(> [data-prefix]) > input:is([type="text"], [type="email"], [type="search"], [type="password"], [type="number"], [type="tel"], [type="url"], :not([type])) {
     padding-inline-start: calc(var(--spacing) * 3 + 1rem + var(--spacing) * 2);
   }
 
   /* Offset input text to clear one trailing adornment */
-  label:not(.toggle):has(> :not(input, span, small, progress, select):last-child) > input {
+  label:not(.toggle):has(> [data-suffix]) > input:is([type="text"], [type="email"], [type="search"], [type="password"], [type="number"], [type="tel"], [type="url"], :not([type])) {
     padding-inline-end: calc(var(--spacing) * 3 + 1rem + var(--spacing) * 2);
   }
 
   /* Offset input text to clear two trailing adornments */
-  label:not(.toggle):has(> :not(input, span, small, progress, select):nth-last-child(2):not(:first-child)) > input {
+  label:not(.toggle):has(> [data-suffix]:not(:last-child)) > input:is([type="text"], [type="email"], [type="search"], [type="password"], [type="number"], [type="tel"], [type="url"], :not([type])) {
     padding-inline-end: calc(var(--spacing) * 3 + 2rem + var(--spacing) * 4);
   }
-
 }

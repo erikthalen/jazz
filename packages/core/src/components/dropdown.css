@@ -1,65 +1,64 @@
 @layer jazz {
-  [popover] {
-    & > menu {
+  [popover] > menu {
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-1);
+    margin: 0;
+    list-style: none;
+
+    & > li > button,
+    & > li > .button {
+      width: 100%;
+      justify-content: flex-start;
+      border-radius: 8px;
+      white-space: nowrap;
+    }
+
+    & > li > label {
       display: flex;
-      flex-direction: column;
-      padding: var(--spacing-1);
-      margin: 0;
-      list-style: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--spacing-4);
+      width: 100%;
+      padding-block: var(--spacing-2);
+      padding-inline: var(--spacing-3);
+      border-radius: 8px;
+      white-space: nowrap;
+      cursor: pointer;
+      user-select: none;
 
-      & > li > button,
-      & > li > .button {
-        width: 100%;
-        justify-content: flex-start;
-        border-radius: 8px;
-        white-space: nowrap;
+      > input[type="radio"] {
+        appearance: none;
+        display: none;
       }
 
-      & > li > label {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--spacing-4);
-        width: 100%;
-        padding-block: var(--spacing-2);
-        padding-inline: var(--spacing-3);
-        border-radius: 8px;
-        white-space: nowrap;
-        cursor: pointer;
-        user-select: none;
-
-        > input[type="radio"] {
-          appearance: none;
-          display: none;
+      @media (hover: hover) {
+        &:hover {
+          background: var(--jazz-neutral-100);
         }
+      }
 
-        @media (hover: hover) {
-          &:hover {
-            background: var(--jazz-neutral-100);
-          }
-        }
+      &::after {
+        content: "";
+        display: inline-block;
+        background-color: currentColor;
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+        mask-size: 1rem;
+        mask-repeat: no-repeat;
+        mask-position: center;
+        width: 1rem;
+        height: 1rem;
+        visibility: hidden;
+      }
 
-        &::after {
-          content: "";
-          display: inline-block;
-          background-color: currentColor;
-          mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
-          mask-size: 1rem;
-          mask-repeat: no-repeat;
-          mask-position: center;
-          width: 1rem;
-          height: 1rem;
-          visibility: hidden;
-        }
-
-        &:has(input:checked)::after {
-          visibility: visible;
-        }
+      &:has(input:checked)::after {
+        visibility: visible;
       }
     }
 
-    hr {
-      margin-block: var(--spacing-1);
-    }
+  }
+
+  [popover] > menu hr {
+    margin-block: var(--spacing-1);
   }
 }

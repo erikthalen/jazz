@@ -27,9 +27,33 @@
       transition: background-color 100ms;
     }
 
+    [data-checked] {
+      display: none;
+    }
+    [data-unchecked] {
+      display: revert;
+    }
+
     &:has(> input:checked) {
       background-color: var(--jazz-neutral-100);
       outline-color: var(--jazz-neutral-400);
+
+      [data-checked] {
+        display: revert;
+      }
+      [data-unchecked] {
+        display: none;
+      }
+    }
+
+    &.ghost {
+      background-color: transparent;
+      outline-color: transparent;
+    }
+
+    &.ghost:has(> input:checked) {
+      background-color: var(--jazz-neutral-100);
+      outline-color: transparent;
     }
 
     &.fill:has(> input:checked) {
@@ -46,7 +70,7 @@
 
     &:has(> input:disabled) {
       opacity: 0.4;
-      cursor: not-allowed;
+      cursor: default;
     }
 
     &.square {

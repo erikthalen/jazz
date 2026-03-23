@@ -48,48 +48,58 @@ function head(title: string) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${title} — Jazz</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>😎</text></svg>" />
-    <link rel="stylesheet" href="${url('/main.css')}" />
-    <style>${raw(docsCss)}</style>
-    ${import.meta.env.DEV ? raw('<script type="module" src="/@vite/client"></script>') : ""}
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>😎</text></svg>"
+    />
+    <link rel="stylesheet" href="${url("/main.css")}" />
+    <style>
+      ${raw(docsCss)}
+    </style>
+    ${import.meta.env.DEV
+      ? raw('<script type="module" src="/@vite/client"></script>')
+      : ""}
     <script>
-      const stored = localStorage.getItem('jazz-theme');
-      const preferred = matchMedia('(prefers-color-scheme: dark)').matches ? 'jazz-dark' : 'jazz-light';
+      const stored = localStorage.getItem("jazz-theme");
+      const preferred = matchMedia("(prefers-color-scheme: dark)").matches
+        ? "jazz-dark"
+        : "jazz-light";
       document.documentElement.className = stored || preferred;
-      const storedColor = localStorage.getItem('jazz-primary');
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggle = document.getElementById("theme-toggle-input");
+        if (toggle)
+          toggle.checked = document.documentElement.className === "jazz-dark";
+      });
+      const storedColor = localStorage.getItem("jazz-primary");
       if (storedColor) {
-        const storedDark = localStorage.getItem('jazz-primary-dark');
-        document.documentElement.style.setProperty('--jazz-primary-light', storedColor);
-        document.documentElement.style.setProperty('--jazz-primary-dark', storedDark || 'color-mix(in oklab, ' + storedColor + ', white 20%)');
+        const storedDark = localStorage.getItem("jazz-primary-dark");
+        document.documentElement.style.setProperty(
+          "--jazz-primary-light",
+          storedColor,
+        );
+        document.documentElement.style.setProperty(
+          "--jazz-primary-dark",
+          storedDark || "color-mix(in oklab, " + storedColor + ", white 20%)",
+        );
       }
     </script>
     <script defer>
-      function updateRange(el) {
-        const min = parseFloat(el.min) || 0
-        const max = parseFloat(el.max) || 100
-        el.style.setProperty('--pct', (el.value - min) / (max - min))
-      }
-
-      document.addEventListener('DOMContentLoaded', () => {
-        document.querySelectorAll('input[type="range"]').forEach(el => {
-          updateRange(el)
-          el.addEventListener('input', () => updateRange(el))
-        })
-
-        document.querySelectorAll('.code-block').forEach(block => {
-          const btn = document.createElement('button')
-          btn.className = 'code-copy-btn ghost square'
-          btn.setAttribute('aria-label', 'Copy code')
-          btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>'
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".code-block").forEach((block) => {
+          const btn = document.createElement("button");
+          btn.className = "code-copy-btn ghost square";
+          btn.setAttribute("aria-label", "Copy code");
+          btn.innerHTML =
+            '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>';
           btn.onclick = async () => {
-            const code = block.querySelector('code')?.innerText ?? ''
-            await navigator.clipboard.writeText(code)
-            btn.setAttribute('data-copied', '')
-            setTimeout(() => btn.removeAttribute('data-copied'), 1500)
-          }
-          block.appendChild(btn)
-        })
-      })
+            const code = block.querySelector("code")?.innerText ?? "";
+            await navigator.clipboard.writeText(code);
+            btn.setAttribute("data-copied", "");
+            setTimeout(() => btn.removeAttribute("data-copied"), 1500);
+          };
+          block.appendChild(btn);
+        });
+      });
     </script>
   `;
 }
@@ -98,44 +108,127 @@ function header(path: string) {
   return html`
     <header class="docs-header">
       <label class="toggle square docs-burger" aria-label="Toggle navigation">
-        <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle" />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="4" x2="20" y1="6" y2="6" />
+          <line x1="4" x2="20" y1="12" y2="12" />
+          <line x1="4" x2="20" y1="18" y2="18" />
+        </svg>
       </label>
       <a href="${url("/")}" class="docs-logo">Jazz</a>
       <nav>
         <a href="${url("/introduction")}" class="button ghost">Docs</a>
-        <a href="${url("/components/button")}" class="button ghost">Components</a>
+        <a href="${url("/components/button")}" class="button ghost"
+          >Components</a
+        >
       </nav>
-      <button class="theme-toggle ghost square" aria-label="Toggle theme" onclick="
-        const next = document.documentElement.className === 'jazz-light' ? 'jazz-dark' : 'jazz-light';
-        document.documentElement.className = next;
-        localStorage.setItem('jazz-theme', next);
-        this.querySelector('.theme-icon-light').hidden = next === 'jazz-light';
-        this.querySelector('.theme-icon-dark').hidden = next === 'jazz-dark';
-      ">
-        <svg class="theme-icon-light" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-        <svg class="theme-icon-dark" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" hidden><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-      </button>
-      <button class="ghost square" popovertarget="color-picker" aria-label="Change primary color" style="anchor-name:--color-picker">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+      <label class="toggle ghost square theme-toggle" aria-label="Toggle theme">
+        <input
+          type="checkbox"
+          id="theme-toggle-input"
+          onchange="
+          const next = this.checked ? 'jazz-dark' : 'jazz-light';
+          document.documentElement.className = next;
+          localStorage.setItem('jazz-theme', next);
+        "
+        />
+        <svg
+          data-unchecked
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="12" cy="12" r="4" />
+          <path
+            d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+          />
+        </svg>
+        <svg
+          data-checked
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+        </svg>
+      </label>
+      <button
+        class="ghost square"
+        popovertarget="color-picker"
+        aria-label="Change primary color"
+        style="anchor-name:--color-picker"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" />
+          <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" />
+          <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" />
+          <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" />
+          <path
+            d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"
+          />
+        </svg>
       </button>
       <menu id="color-picker" popover class="color-picker-popover">
-        ${(['dodgerblue', '#7c3aed', '#db2777', '#dc2626', '#ea580c', '#16a34a', '#0891b2'] as const).map(color => html`
-          <li>
-            <button
-              class="color-swatch-btn"
-              style="background:${color}"
-              aria-label="${color}"
-              onclick="
+        ${(
+          [
+            "dodgerblue",
+            "#7c3aed",
+            "#db2777",
+            "#dc2626",
+            "#ea580c",
+            "#16a34a",
+            "#0891b2",
+          ] as const
+        ).map(
+          (color) => html`
+            <li>
+              <button
+                class="color-swatch-btn"
+                style="background:${color}"
+                aria-label="${color}"
+                onclick="
                 document.documentElement.style.setProperty('--jazz-primary-light', '${color}');
                 document.documentElement.style.setProperty('--jazz-primary-dark', 'color-mix(in oklab, ${color}, white 20%)');
                 localStorage.setItem('jazz-primary', '${color}');
                 localStorage.removeItem('jazz-primary-dark');
                 document.getElementById('color-picker').hidePopover();
               "
-            ></button>
-          </li>
-        `)}
+              ></button>
+            </li>
+          `,
+        )}
         <li>
           <button
             class="color-swatch-btn"
@@ -151,8 +244,24 @@ function header(path: string) {
           ></button>
         </li>
       </menu>
-      <a href="https://github.com/erikthalen/jazz" target="_blank" rel="noopener" class="button ghost square" aria-label="GitHub">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      <a
+        href="https://github.com/erikthalen/jazz"
+        target="_blank"
+        rel="noopener"
+        class="button ghost square"
+        aria-label="GitHub"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path
+            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"
+          />
+        </svg>
       </a>
     </header>
   `;
@@ -161,7 +270,9 @@ function header(path: string) {
 export function HomeLayout({ title, path, content }: Omit<LayoutProps, "toc">) {
   return html`<!doctype html>
     <html lang="en">
-      <head>${head(title)}</head>
+      <head>
+        ${head(title)}
+      </head>
       <body>
         ${header(path)}
         <main class="home-content">${content}</main>
@@ -172,34 +283,61 @@ export function HomeLayout({ title, path, content }: Omit<LayoutProps, "toc">) {
 export function Layout({ title, path, toc, content }: LayoutProps) {
   return html`<!doctype html>
     <html lang="en">
-      <head>${head(title)}</head>
+      <head>
+        ${head(title)}
+      </head>
       <body>
         ${header(path)}
-        <label for="sidebar-toggle" class="sidebar-backdrop" aria-hidden="true"></label>
+        <label
+          for="sidebar-toggle"
+          class="sidebar-backdrop"
+          aria-hidden="true"
+        ></label>
         <div class="docs-layout">
           <aside class="docs-sidebar">
             <div class="sidebar-section">
               <p class="sidebar-label">Sections</p>
               <nav>
-                <a href="${url("/introduction")}" ${path === "/introduction" ? 'aria-current="page"' : ""}>
+                <a
+                  href="${url("/introduction")}"
+                  ${path === "/introduction" ? 'aria-current="page"' : ""}
+                >
                   Introduction
                 </a>
-                <a href="${url("/themes")}" ${path === "/themes" ? 'aria-current="page"' : ""}>
+                <a
+                  href="${url("/themes")}"
+                  ${path === "/themes" ? 'aria-current="page"' : ""}
+                >
                   Themes
                 </a>
-                <a href="${url("/components/prose")}" ${path === "/components/prose" ? 'aria-current="page"' : ""}>
+                <a
+                  href="${url("/components/prose")}"
+                  ${path === "/components/prose" ? 'aria-current="page"' : ""}
+                >
                   Prose
                 </a>
-                <a href="${url("/easings")}" ${path === "/easings" ? 'aria-current="page"' : ""}>
+                <a
+                  href="${url("/easings")}"
+                  ${path === "/easings" ? 'aria-current="page"' : ""}
+                >
                   Easings
                 </a>
-                <a href="${url("/icons")}" ${path === "/icons" ? 'aria-current="page"' : ""}>
+                <a
+                  href="${url("/icons")}"
+                  ${path === "/icons" ? 'aria-current="page"' : ""}
+                >
                   Icons
                 </a>
-                <a href="${url("/customization")}" ${path === "/customization" ? 'aria-current="page"' : ""}>
+                <a
+                  href="${url("/customization")}"
+                  ${path === "/customization" ? 'aria-current="page"' : ""}
+                >
                   Customization
                 </a>
-                <a href="${url("/skills")}" ${path === "/skills" ? 'aria-current="page"' : ""}>
+                <a
+                  href="${url("/skills")}"
+                  ${path === "/skills" ? 'aria-current="page"' : ""}
+                >
                   Skills
                 </a>
                 <a href="${url("/llms.txt")}" target="_blank" rel="noopener">
@@ -215,7 +353,9 @@ export function Layout({ title, path, toc, content }: LayoutProps) {
                     <a
                       href="${url(c.path)}"
                       ${path === c.path ? 'aria-current="page"' : ""}
-                      >${c.label}${c.badge ? html` <span class="badge">${c.badge}</span>` : ""}</a
+                      >${c.label}${c.badge
+                        ? html` <span class="badge">${c.badge}</span>`
+                        : ""}</a
                     >
                   `,
                 )}

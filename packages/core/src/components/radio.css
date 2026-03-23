@@ -8,7 +8,7 @@
 
     &:has(> input:disabled) {
       opacity: 0.4;
-      cursor: not-allowed;
+      cursor: default;
     }
   }
 
@@ -22,7 +22,9 @@
     background-color: var(--background-color);
     cursor: pointer;
     flex-shrink: 0;
-    transition: background-color 100ms, outline-color 100ms;
+    transition:
+      background-color 100ms,
+      outline-color 100ms;
 
     &:checked {
       background-color: var(--jazz-primary);
@@ -37,7 +39,7 @@
 
     &:disabled {
       opacity: 0.4;
-      cursor: not-allowed;
+      cursor: default;
     }
   }
 }

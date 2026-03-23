@@ -7,6 +7,7 @@ const toc = [
   { id: "with-separator", label: "With separator" },
   { id: "with-radios", label: "With radios" },
   { id: "custom-select", label: "Custom select" },
+  { id: "in-form", label: "In a form" },
 ];
 
 export async function DropdownPage(path: string) {
@@ -24,7 +25,9 @@ export async function DropdownPage(path: string) {
       <h2 id="default">Default</h2>
       <div class="example">
         <div class="preview">
-          <button class="outline" popovertarget="dropdown-default">Actions</button>
+          <button class="outline" popovertarget="dropdown-default">
+            Actions
+          </button>
           <div id="dropdown-default" popover>
             <menu>
               <li><button class="ghost">Edit</button></li>
@@ -51,10 +54,15 @@ export async function DropdownPage(path: string) {
       </div>
 
       <h2 id="with-separator">With separator</h2>
-      <p>Use an <code>&lt;hr&gt;</code> inside a <code>&lt;li&gt;</code> to visually group actions.</p>
+      <p>
+        Use an <code>&lt;hr&gt;</code> inside a <code>&lt;li&gt;</code> to
+        visually group actions.
+      </p>
       <div class="example">
         <div class="preview">
-          <button class="outline" popovertarget="dropdown-separator">Actions</button>
+          <button class="outline" popovertarget="dropdown-separator">
+            Actions
+          </button>
           <div id="dropdown-separator" popover>
             <menu>
               <li><button class="ghost">Edit</button></li>
@@ -90,13 +98,33 @@ export async function DropdownPage(path: string) {
       </p>
       <div class="example">
         <div class="preview">
-          <button class="outline" popovertarget="dropdown-radios">Sort by</button>
+          <button class="outline" popovertarget="dropdown-radios">
+            Sort by
+          </button>
           <div id="dropdown-radios" popover>
             <menu>
-              <li><label><input type="radio" name="sort" value="newest" checked /> Newest</label></li>
-              <li><label><input type="radio" name="sort" value="oldest" /> Oldest</label></li>
-              <li><label><input type="radio" name="sort" value="name" /> Name</label></li>
-              <li><label><input type="radio" name="sort" value="size" /> Size</label></li>
+              <li>
+                <label
+                  ><input type="radio" name="sort" value="newest" checked />
+                  Newest</label
+                >
+              </li>
+              <li>
+                <label
+                  ><input type="radio" name="sort" value="oldest" />
+                  Oldest</label
+                >
+              </li>
+              <li>
+                <label
+                  ><input type="radio" name="sort" value="name" /> Name</label
+                >
+              </li>
+              <li>
+                <label
+                  ><input type="radio" name="sort" value="size" /> Size</label
+                >
+              </li>
             </menu>
           </div>
         </div>
@@ -106,10 +134,18 @@ export async function DropdownPage(path: string) {
 
 <div id="my-dropdown" popover>
   <menu>
-    <li><label><input type="radio" name="sort" value="newest" checked /> Newest</label></li>
-    <li><label><input type="radio" name="sort" value="oldest" /> Oldest</label></li>
-    <li><label><input type="radio" name="sort" value="name" /> Name</label></li>
-    <li><label><input type="radio" name="sort" value="size" /> Size</label></li>
+    <li><label>
+      <input type="radio" name="sort" value="newest" checked /> Newest
+    </label></li>
+    <li><label>
+      <input type="radio" name="sort" value="oldest" /> Oldest
+    </label></li>
+    <li><label>
+      <input type="radio" name="sort" value="name" /> Name
+    </label></li>
+    <li><label>
+      <input type="radio" name="sort" value="size" /> Size
+    </label></li>
   </menu>
 </div>`),
           )}
@@ -131,14 +167,50 @@ export async function DropdownPage(path: string) {
             style="min-width: 10rem; justify-content: space-between"
           >
             <span>Choose a fruit</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="m6 9 6 6 6-6" />
+            </svg>
           </button>
-          <div id="select-dropdown" popover onchange="document.querySelector('[popovertarget='+this.id+'] span').textContent=event.target.closest('label').textContent.trim();this.hidePopover()">
+          <div
+            id="select-dropdown"
+            popover
+            onchange="document.querySelector('[popovertarget='+this.id+'] span').textContent=event.target.closest('label').textContent.trim();this.hidePopover()"
+          >
             <menu>
-              <li><label><input type="radio" name="fruit" value="apple" /> Apple</label></li>
-              <li><label><input type="radio" name="fruit" value="banana" /> Banana</label></li>
-              <li><label><input type="radio" name="fruit" value="cherry" /> Cherry</label></li>
-              <li><label><input type="radio" name="fruit" value="mango" /> Mango</label></li>
+              <li>
+                <label
+                  ><input type="radio" name="fruit" value="apple" />
+                  Apple</label
+                >
+              </li>
+              <li>
+                <label
+                  ><input type="radio" name="fruit" value="banana" />
+                  Banana</label
+                >
+              </li>
+              <li>
+                <label
+                  ><input type="radio" name="fruit" value="cherry" />
+                  Cherry</label
+                >
+              </li>
+              <li>
+                <label
+                  ><input type="radio" name="fruit" value="mango" />
+                  Mango</label
+                >
+              </li>
             </menu>
           </div>
         </div>
@@ -155,11 +227,100 @@ export async function DropdownPage(path: string) {
 <div id="my-select" popover
   onchange="document.querySelector(\`[popovertarget=\${this.id}] span\`).textContent=event.target.closest('label').textContent.trim();this.hidePopover()">
   <menu>
-    <li><label><input type="radio" name="fruit" /> Apple</label></li>
-    <li><label><input type="radio" name="fruit" /> Banana</label></li>
-    <li><label><input type="radio" name="fruit" /> Cherry</label></li>
+    <li><label>
+      <input type="radio" name="fruit" /> Apple
+    </label></li>
+    <li><label>
+      <input type="radio" name="fruit" /> Banana
+    </label></li>
+    <li><label>
+      <input type="radio" name="fruit" /> Cherry
+    </label></li>
   </menu>
 </div>`),
+          )}
+        </div>
+      </div>
+      <h2 id="in-form">In a form</h2>
+      <p>
+        Wrap the trigger and popover in a <code>&lt;form&gt;</code> to
+        participate in form submission. The <code>change</code> event bubbles up
+        so you can handle it on the form.
+      </p>
+      <div class="example">
+        <div class="preview">
+          <form onchange="alert('Selected: ' + event.target.value)">
+            <button
+              type="button"
+              class="outline"
+              popovertarget="form-select-dropdown"
+              style="min-width: 10rem; justify-content: space-between"
+            >
+              <span>Choose a color</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            <div
+              id="form-select-dropdown"
+              popover
+              onchange="document.querySelector('[popovertarget='+this.id+'] span').textContent=event.target.closest('label').textContent.trim();this.hidePopover()"
+            >
+              <menu>
+                <li>
+                  <label
+                    ><input type="radio" name="color" value="red" /> Red</label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="color" value="green" />
+                    Green</label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="radio" name="color" value="blue" />
+                    Blue</label
+                  >
+                </li>
+              </menu>
+            </div>
+          </form>
+        </div>
+        <div class="code-block">
+          ${raw(
+            await highlight(`<form onchange="alert('Selected: ' + event.target.value)">
+  <button type="button" popovertarget="my-select"
+    style="min-width: 10rem; justify-content: space-between">
+    <span>Choose a color</span>
+    <svg><!-- chevron --></svg>
+  </button>
+  <div id="my-select" popover
+    onchange="document.querySelector(\`[popovertarget=\${this.id}] span\`).textContent=event.target.closest('label').textContent.trim();this.hidePopover()">
+    <menu>
+      <li><label>
+        <input type="radio" name="color" value="red" /> Red
+      </label></li>
+      <li><label>
+        <input type="radio" name="color" value="green" /> Green
+      </label></li>
+      <li><label>
+        <input type="radio" name="color" value="blue" /> Blue
+      </label></li>
+    </menu>
+  </div>
+</form>`),
           )}
         </div>
       </div>

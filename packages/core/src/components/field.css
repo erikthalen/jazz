@@ -1,9 +1,8 @@
 @layer jazz {
-  label.field {
+  .field {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-2);
-    cursor: pointer;
 
     > span {
       font-weight: 600;
@@ -21,8 +20,13 @@
 
     > input,
     > select,
-    > progress {
+    > progress,
+    > button[popovertarget] {
       width: 100%;
     }
+  }
+
+  label.field {
+    cursor: pointer;
   }
 }

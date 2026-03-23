@@ -5,6 +5,7 @@ import { highlight } from "../highlight";
 const toc = [
   { id: "default", label: "Default" },
   { id: "disabled", label: "Disabled" },
+  { id: "choice-card", label: "Choice card" },
 ];
 
 export async function RadioPage(path: string) {
@@ -21,7 +22,10 @@ export async function RadioPage(path: string) {
 
       <h2 id="default">Default</h2>
       <div class="example">
-        <div class="preview" style="flex-direction:column;align-items:flex-start;gap:0.5rem">
+        <div
+          class="preview"
+          style="flex-direction:column;align-items:flex-start;gap:0.5rem"
+        >
           <label>
             <input type="radio" name="density" value="default" />
             Default
@@ -55,7 +59,10 @@ export async function RadioPage(path: string) {
 
       <h2 id="disabled">Disabled</h2>
       <div class="example">
-        <div class="preview" style="flex-direction:column;align-items:flex-start;gap:0.5rem">
+        <div
+          class="preview"
+          style="flex-direction:column;align-items:flex-start;gap:0.5rem"
+        >
           <label>
             <input type="radio" name="density-disabled" disabled />
             Default
@@ -75,6 +82,112 @@ export async function RadioPage(path: string) {
   <input type="radio" name="density" disabled checked />
   Comfortable
 </label>`),
+          )}
+        </div>
+      </div>
+      <h2 id="choice-card">Choice card</h2>
+      <p>
+        A card-style radio group built with a small CSS snippet and semantic
+        markup.
+      </p>
+      <div class="example">
+        <div
+          class="preview preview-padded"
+          style="flex-direction:column;width:100%"
+        >
+          <style>
+            .choice-card {
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-start;
+              gap: var(--spacing-4);
+              padding: var(--spacing-4);
+              border: 1px solid var(--jazz-neutral-300);
+              border-radius: var(--spacing-3);
+
+              > div {
+                display: grid;
+                gap: 0.5rem;
+              }
+
+              small {
+                color: var(--jazz-neutral-500);
+              }
+            }
+            .choice-card:has(input:checked) {
+              background: var(--jazz-neutral-50);
+              border-color: var(--jazz-neutral-600);
+            }
+          </style>
+          <fieldset
+            style="border:none;display:flex;flex-direction:column;gap:var(--spacing-3);width:100%;flex-direction:column;width:100%;max-width:400px;margin:auto"
+          >
+            <label class="choice-card">
+              <div>
+                <h4>Plus</h4>
+                <small>For individuals and small teams.</small>
+              </div>
+              <input type="radio" name="plan" value="plus" />
+            </label>
+            <label class="choice-card">
+              <div>
+                <h4>Pro</h4>
+                <small> For growing businesses. </small>
+              </div>
+              <input type="radio" name="plan" value="pro" checked />
+            </label>
+            <label class="choice-card">
+              <div>
+                <h4>Enterprise</h4>
+                <small> For large teams and enterprises. </small>
+              </div>
+              <input type="radio" name="plan" value="enterprise" />
+            </label>
+          </fieldset>
+        </div>
+        <div class="code-block">
+          ${raw(
+            await highlight(`<style>
+  .choice-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--spacing-4);
+    padding: var(--spacing-4);
+    border: 1px solid var(--jazz-neutral-300);
+    border-radius: var(--spacing-3);
+
+    > div {
+      display: grid;
+      gap: 0.5rem;
+    }
+    
+    small {
+      color:var(--jazz-neutral-500);
+    }
+  }
+  .choice-card:has(input:checked) {
+    background: var(--jazz-neutral-100);
+    border-color: var(--jazz-neutral-400);
+  }
+</style>
+
+<fieldset>
+  <label class="choice-card">
+    <div>
+      <h4>Plus</h4>
+      <div>For individuals and small teams.</div>
+    </div>
+    <input type="radio" name="plan" value="plus" />
+  </label>
+  <label class="choice-card">
+    <div>
+      <h4>Pro</h4>
+      <div>For growing businesses.</div>
+    </div>
+    <input type="radio" name="plan" value="pro" checked />
+  </label>
+</fieldset>`),
           )}
         </div>
       </div>
