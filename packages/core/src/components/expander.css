@@ -3,8 +3,10 @@
     position: relative;
 
     > :not(label) {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
       interpolate-size: allow-keywords;
-      overflow: clip;
       transition: max-height 400ms var(--ease-glide);
     }
 
@@ -36,10 +38,14 @@
   }
 
   .expander:has(> label > input[type="checkbox"]) > :not(label) {
-    max-height: var(--height);
+    -webkit-line-clamp: var(--lines, 3);
+    line-clamp: var(--lines, 3);
+    max-height: calc(var(--lines, 3) * 1lh);
   }
 
   .expander:has(> label > input[type="checkbox"]:checked) > :not(label) {
+    -webkit-line-clamp: none;
+    line-clamp: none;
     max-height: max-content;
   }
 

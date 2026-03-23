@@ -31,8 +31,8 @@ export async function ExpanderPage(path: string) {
       </div>
       <div class="example">
         <div class="preview preview-padded">
-          <div class="expander">
-            <p style="--height: 4.5rem;">${loremIpsum}</p>
+          <div class="prose expander" style="max-width: 400px; margin: auto;">
+            <p>${loremIpsum}</p>
             <label>
               <input type="checkbox" />
               Show more
@@ -42,7 +42,7 @@ export async function ExpanderPage(path: string) {
         <div class="code-block">
           ${raw(
             await highlight(`<div class="expander">
-  <p style="--height: 4.5rem">Long content...</p>
+  <p>Long content...</p>
   <label>
     <input type="checkbox" />
     Show more
