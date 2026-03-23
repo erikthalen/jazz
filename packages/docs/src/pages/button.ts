@@ -21,12 +21,14 @@ export async function ButtonPage(path: string) {
     path,
     toc,
     content: html`
-      <h1>Button</h1>
-      <p class="lead">
-        Trigger an action using a native <code>&lt;button&gt;</code> element.
-      </p>
+      <div class="prose">
+        <h1>Button</h1>
+        <p class="lead">
+          Trigger an action using a native <code>&lt;button&gt;</code> element.
+        </p>
 
-      <h2 id="default">Default</h2>
+        <h2 id="default">Default</h2>
+      </div>
       <div class="example">
         <div class="preview">
           <button>Click me</button>
@@ -36,7 +38,9 @@ export async function ButtonPage(path: string) {
         </div>
       </div>
 
-      <h2 id="with-icon">With icon</h2>
+      <div class="prose">
+        <h2 id="with-icon">With icon</h2>
+      </div>
       <div class="example">
         <div class="preview">
           <button>
@@ -53,7 +57,9 @@ export async function ButtonPage(path: string) {
         </div>
       </div>
 
-      <h2 id="outline">Outline</h2>
+      <div class="prose">
+        <h2 id="outline">Outline</h2>
+      </div>
       <div class="example">
         <div class="preview">
           <button class="outline">Click me</button>
@@ -63,7 +69,9 @@ export async function ButtonPage(path: string) {
         </div>
       </div>
 
-      <h2 id="secondary">Secondary</h2>
+      <div class="prose">
+        <h2 id="secondary">Secondary</h2>
+      </div>
       <div class="example">
         <div class="preview">
           <button class="secondary">Click me</button>
@@ -73,7 +81,9 @@ export async function ButtonPage(path: string) {
         </div>
       </div>
 
-      <h2 id="ghost">Ghost</h2>
+      <div class="prose">
+        <h2 id="ghost">Ghost</h2>
+      </div>
       <div class="example">
         <div class="preview">
           <button class="ghost">Click me</button>
@@ -83,7 +93,9 @@ export async function ButtonPage(path: string) {
         </div>
       </div>
 
-      <h2 id="destructive">Destructive</h2>
+      <div class="prose">
+        <h2 id="destructive">Destructive</h2>
+      </div>
       <div class="example">
         <div class="preview">
           <button class="destructive">Delete</button>
@@ -93,7 +105,9 @@ export async function ButtonPage(path: string) {
         </div>
       </div>
 
-      <h2 id="link">Link</h2>
+      <div class="prose">
+        <h2 id="link">Link</h2>
+      </div>
       <div class="example">
         <div class="preview">
           <button class="link">Click me</button>
@@ -103,7 +117,9 @@ export async function ButtonPage(path: string) {
         </div>
       </div>
 
-      <h2 id="round">Round</h2>
+      <div class="prose">
+        <h2 id="round">Round</h2>
+      </div>
       <div class="example">
         <div class="preview">
           <button class="round">
@@ -134,10 +150,12 @@ export async function ButtonPage(path: string) {
         </div>
       </div>
 
-      <h2 id="square">Square</h2>
-      <p>
-        Add <code>.square</code> for equal padding — useful for icon buttons.
-      </p>
+      <div class="prose">
+        <h2 id="square">Square</h2>
+        <p>
+          Add <code>.square</code> for equal padding — useful for icon buttons.
+        </p>
+      </div>
       <div class="example">
         <div class="preview">
           <button class="square">
@@ -189,11 +207,13 @@ export async function ButtonPage(path: string) {
         </div>
       </div>
 
-      <h2 id="loading">Loading</h2>
-      <p>
-        Set <code>aria-busy="true"</code> to show an animated spinner before the
-        label.
-      </p>
+      <div class="prose">
+        <h2 id="loading">Loading</h2>
+        <p>
+          Set <code>aria-busy="true"</code> to show an animated spinner before the
+          label.
+        </p>
+      </div>
       <div class="example">
         <div class="preview" style="flex-direction:column;align-items:center;justify-contents:center;flex-start;gap:1rem">
           <button id="btn-loading-demo" aria-busy="true">Please wait…</button>

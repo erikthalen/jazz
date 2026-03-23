@@ -1,0 +1,32 @@
+@layer jazz {
+  textarea {
+    appearance: none;
+    border: none;
+
+    background-color: transparent;
+    outline: 1px solid var(--jazz-neutral-500);
+    outline-offset: -1px;
+
+    padding-block: var(--spacing-2);
+    padding-inline: var(--spacing-3);
+    border-radius: var(--spacing-2);
+
+    font: inherit;
+
+    resize: vertical;
+    field-sizing: content;
+    min-height: 6lh;
+
+    &:focus {
+      outline-color: currentColor;
+    }
+
+    &::-webkit-resizer {
+      background-color: transparent;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cline x1='5' y1='13' x2='13' y2='5' stroke='%23888' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='9' y1='13' x2='13' y2='9' stroke='%23888' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-size: 100%;
+      background-position: bottom right;
+      background-repeat: no-repeat;
+    }
+  }
+}

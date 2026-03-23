@@ -14,13 +14,15 @@ export async function RadioPage(path: string) {
     path,
     toc,
     content: html`
-      <h1>Radio</h1>
-      <p class="lead">
-        A native <code>&lt;input type="radio"&gt;</code> for selecting one
-        option from a group.
-      </p>
+      <div class="prose">
+        <h1>Radio</h1>
+        <p class="lead">
+          A native <code>&lt;input type="radio"&gt;</code> for selecting one
+          option from a group.
+        </p>
 
-      <h2 id="default">Default</h2>
+        <h2 id="default">Default</h2>
+      </div>
       <div class="example">
         <div
           class="preview"
@@ -57,7 +59,9 @@ export async function RadioPage(path: string) {
         </div>
       </div>
 
-      <h2 id="disabled">Disabled</h2>
+      <div class="prose">
+        <h2 id="disabled">Disabled</h2>
+      </div>
       <div class="example">
         <div
           class="preview"
@@ -85,11 +89,13 @@ export async function RadioPage(path: string) {
           )}
         </div>
       </div>
-      <h2 id="choice-card">Choice card</h2>
-      <p>
-        A card-style radio group built with a small CSS snippet and semantic
-        markup.
-      </p>
+      <div class="prose">
+        <h2 id="choice-card">Choice card</h2>
+        <p>
+          A card-style radio group built with a small CSS snippet and semantic
+          markup.
+        </p>
+      </div>
       <div class="example">
         <div
           class="preview preview-padded"

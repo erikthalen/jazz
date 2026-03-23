@@ -17,6 +17,11 @@
     font-weight: 600;
   }
 
+  ul,
+  ol {
+    list-style: none;
+  }
+
   ::selection {
     background-color: var(--jazz-neutral-200);
   }

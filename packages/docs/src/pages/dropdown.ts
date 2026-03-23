@@ -16,13 +16,15 @@ export async function DropdownPage(path: string) {
     path,
     toc,
     content: html`
-      <h1>Dropdown</h1>
-      <p class="lead">
-        A menu of actions anchored to a trigger, built with the native
-        <code>popover</code> API and a <code>&lt;menu&gt;</code>.
-      </p>
+      <div class="prose">
+        <h1>Dropdown</h1>
+        <p class="lead">
+          A menu of actions anchored to a trigger, built with the native
+          <code>popover</code> API and a <code>&lt;menu&gt;</code>.
+        </p>
 
-      <h2 id="default">Default</h2>
+        <h2 id="default">Default</h2>
+      </div>
       <div class="example">
         <div class="preview">
           <button class="outline" popovertarget="dropdown-default">
@@ -53,11 +55,13 @@ export async function DropdownPage(path: string) {
         </div>
       </div>
 
-      <h2 id="with-separator">With separator</h2>
-      <p>
-        Use an <code>&lt;hr&gt;</code> inside a <code>&lt;li&gt;</code> to
-        visually group actions.
-      </p>
+      <div class="prose">
+        <h2 id="with-separator">With separator</h2>
+        <p>
+          Use an <code>&lt;hr&gt;</code> inside a <code>&lt;li&gt;</code> to
+          visually group actions.
+        </p>
+      </div>
       <div class="example">
         <div class="preview">
           <button class="outline" popovertarget="dropdown-separator">
@@ -90,12 +94,14 @@ export async function DropdownPage(path: string) {
         </div>
       </div>
 
-      <h2 id="with-radios">With radios</h2>
-      <p>
-        Radio inputs work naturally inside a dropdown — the checked state is
-        preserved between opens and a checkmark appears via CSS. The popover
-        stays open so the user can see their selection before dismissing.
-      </p>
+      <div class="prose">
+        <h2 id="with-radios">With radios</h2>
+        <p>
+          Radio inputs work naturally inside a dropdown — the checked state is
+          preserved between opens and a checkmark appears via CSS. The popover
+          stays open so the user can see their selection before dismissing.
+        </p>
+      </div>
       <div class="example">
         <div class="preview">
           <button class="outline" popovertarget="dropdown-radios">
@@ -152,12 +158,14 @@ export async function DropdownPage(path: string) {
         </div>
       </div>
 
-      <h2 id="custom-select">Custom select</h2>
-      <p>
-        Use radio inputs inside <code>&lt;label&gt;</code>s to build a styled
-        select. A checkmark appears on the chosen option via CSS. A small script
-        updates the trigger text and closes the dropdown on pick.
-      </p>
+      <div class="prose">
+        <h2 id="custom-select">Custom select</h2>
+        <p>
+          Use radio inputs inside <code>&lt;label&gt;</code>s to build a styled
+          select. A checkmark appears on the chosen option via CSS. A small script
+          updates the trigger text and closes the dropdown on pick.
+        </p>
+      </div>
       <div class="example">
         <div class="preview">
           <button
@@ -241,12 +249,14 @@ export async function DropdownPage(path: string) {
           )}
         </div>
       </div>
-      <h2 id="in-form">In a form</h2>
-      <p>
-        Wrap the trigger and popover in a <code>&lt;form&gt;</code> to
-        participate in form submission. The <code>change</code> event bubbles up
-        so you can handle it on the form.
-      </p>
+      <div class="prose">
+        <h2 id="in-form">In a form</h2>
+        <p>
+          Wrap the trigger and popover in a <code>&lt;form&gt;</code> to
+          participate in form submission. The <code>change</code> event bubbles up
+          so you can handle it on the form.
+        </p>
+      </div>
       <div class="example">
         <div class="preview">
           <form onchange="alert('Selected: ' + event.target.value)">

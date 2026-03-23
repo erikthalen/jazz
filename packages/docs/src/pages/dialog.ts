@@ -15,19 +15,21 @@ export async function DialogPage(path: string) {
     path,
     toc,
     content: html`
-      <h1>Dialog</h1>
-      <p class="lead">
-        A native <code>&lt;dialog&gt;</code> element for popovers and modal
-        overlays. Use an <code>&lt;article&gt;</code> inside for the card
-        styling.
-      </p>
+      <div class="prose">
+        <h1>Dialog</h1>
+        <p class="lead">
+          A native <code>&lt;dialog&gt;</code> element for popovers and modal
+          overlays. Use an <code>&lt;article&gt;</code> inside for the card
+          styling.
+        </p>
 
-      <h2 id="default">Default</h2>
-      <p>
-        Use <code>.show()</code> for non-modal dialogs that don't block
-        interaction with the rest of the page. Close with
-        <code>&lt;form method="dialog"&gt;</code>.
-      </p>
+        <h2 id="default">Default</h2>
+        <p>
+          Use <code>.show()</code> for non-modal dialogs that don't block
+          interaction with the rest of the page. Close with
+          <code>&lt;form method="dialog"&gt;</code>.
+        </p>
+      </div>
       <div class="example">
         <div class="preview">
           <button onclick="document.getElementById('dialog-demo').show()">
@@ -60,11 +62,13 @@ export async function DialogPage(path: string) {
         </div>
       </div>
 
-      <h2 id="modal">Modal</h2>
-      <p>
-        Call <code>.showModal()</code> to open as a modal — it blocks
-        interaction with the page and renders a backdrop.
-      </p>
+      <div class="prose">
+        <h2 id="modal">Modal</h2>
+        <p>
+          Call <code>.showModal()</code> to open as a modal — it blocks
+          interaction with the page and renders a backdrop.
+        </p>
+      </div>
       <div class="example">
         <div class="preview">
           <button onclick="document.getElementById('modal-demo').showModal()">
@@ -101,11 +105,13 @@ export async function DialogPage(path: string) {
         </div>
       </div>
 
-      <h2 id="with-header-footer">With header &amp; footer</h2>
-      <p>
-        Use the card's <code>&lt;header&gt;</code> and
-        <code>&lt;footer&gt;</code> for a structured layout with dividers.
-      </p>
+      <div class="prose">
+        <h2 id="with-header-footer">With header &amp; footer</h2>
+        <p>
+          Use the card's <code>&lt;header&gt;</code> and
+          <code>&lt;footer&gt;</code> for a structured layout with dividers.
+        </p>
+      </div>
       <div class="example">
         <div class="preview">
           <button
@@ -148,25 +154,27 @@ export async function DialogPage(path: string) {
         </div>
       </div>
 
-      <h2 id="closedby">closedby</h2>
-      <p>
-        The <code>closedby</code> attribute controls how a dialog can be
-        dismissed.
-      </p>
-      <ul>
-        <li>
-          <code>closedby="any"</code> — closes on outside click or
-          <kbd>Escape</kbd>
-        </li>
-        <li>
-          <code>closedby="closerequest"</code> — closes on <kbd>Escape</kbd>
-          only (default for modal)
-        </li>
-        <li>
-          <code>closedby="none"</code> — only closeable via
-          <code>&lt;form method="dialog"&gt;</code>
-        </li>
-      </ul>
+      <div class="prose">
+        <h2 id="closedby">closedby</h2>
+        <p>
+          The <code>closedby</code> attribute controls how a dialog can be
+          dismissed.
+        </p>
+        <ul>
+          <li>
+            <code>closedby="any"</code> — closes on outside click or
+            <kbd>Escape</kbd>
+          </li>
+          <li>
+            <code>closedby="closerequest"</code> — closes on <kbd>Escape</kbd>
+            only (default for modal)
+          </li>
+          <li>
+            <code>closedby="none"</code> — only closeable via
+            <code>&lt;form method="dialog"&gt;</code>
+          </li>
+        </ul>
+      </div>
       <div class="example">
         <div class="preview">
           <button

@@ -13,13 +13,15 @@ export async function SelectPage(path: string) {
     path,
     toc,
     content: html`
-      <h1>Select</h1>
-      <p class="lead">
-        A styled native <code>&lt;select&gt;</code> element. Accessible and
-        keyboard-navigable out of the box.
-      </p>
+      <div class="prose">
+        <h1>Select</h1>
+        <p class="lead">
+          A styled native <code>&lt;select&gt;</code> element. Accessible and
+          keyboard-navigable out of the box.
+        </p>
 
-      <h2 id="default">Default</h2>
+        <h2 id="default">Default</h2>
+      </div>
       <div class="example">
         <div class="preview">
           <select>
@@ -41,7 +43,9 @@ export async function SelectPage(path: string) {
         </div>
       </div>
 
-      <h2 id="disabled">Disabled</h2>
+      <div class="prose">
+        <h2 id="disabled">Disabled</h2>
+      </div>
       <div class="example">
         <div class="preview">
           <select disabled>

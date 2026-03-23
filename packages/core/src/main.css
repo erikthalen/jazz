@@ -15,11 +15,15 @@
 @import "./components/radio.css";
 @import "./components/separator.css";
 @import "./components/text-field.css";
+@import "./components/file-drop.css";
+@import "./components/expander.css";
+@import "./components/textarea.css";
 @import "./components/field.css";
 @import "./components/select.css";
 @import "./components/slider.css";
 @import "./components/switch.css";
 @import "./components/tooltip.css";
+@import "./components/code.css";
 @import "./components/kbd.css";
 @import "./components/loading.css";
 @import "./components/progress.css";

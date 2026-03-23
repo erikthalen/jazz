@@ -3,11 +3,16 @@ import { HomePage } from './pages/home'
 import { IntroPage } from './pages/intro'
 import { ButtonPage } from './pages/button'
 import { TextFieldPage } from './pages/text-field'
+import { TypographyPage } from './pages/typography'
+import { TextareaPage } from './pages/textarea'
+import { FileDropPage } from './pages/file-drop'
+import { ExpanderPage } from './pages/expander'
 import { LoadingPage } from './pages/loading'
 import { ThemesPage } from './pages/themes'
 import { ProsePage } from './pages/prose'
 import { AccordionPage } from './pages/accordion'
 import { DialogPage } from './pages/dialog'
+import { CodePage } from './pages/code'
 import { KbdPage } from './pages/kbd'
 import { CardPage } from './pages/card'
 import { ButtonGroupPage } from './pages/button-group'
@@ -44,6 +49,7 @@ app.get('/themes', (c) => c.html(ThemesPage(c.req.path)))
 app.get('/components/prose', (c) => c.html(ProsePage(c.req.path)))
 app.get('/components/accordion', (c) => c.html(AccordionPage(c.req.path)))
 app.get('/components/dialog', (c) => c.html(DialogPage(c.req.path)))
+app.get('/components/code', (c) => c.html(CodePage(c.req.path)))
 app.get('/components/kbd', (c) => c.html(KbdPage(c.req.path)))
 app.get('/components/card', (c) => c.html(CardPage(c.req.path)))
 app.get('/components/button-group', (c) => c.html(ButtonGroupPage(c.req.path)))
@@ -61,6 +67,9 @@ app.get('/components/toggle', (c) => c.html(TogglePage(c.req.path)))
 app.get('/components/toggle-group', (c) => c.html(ToggleGroupPage(c.req.path)))
 app.get('/components/button', (c) => c.html(ButtonPage(c.req.path)))
 app.get('/components/text-field', (c) => c.html(TextFieldPage(c.req.path)))
+app.get('/components/textarea', (c) => c.html(TextareaPage(c.req.path)))
+app.get('/components/file-drop', (c) => c.html(FileDropPage(c.req.path)))
+app.get('/components/expander', (c) => c.html(ExpanderPage(c.req.path)))
 app.get('/components/loading', (c) => c.html(LoadingPage(c.req.path)))
 app.get('/icons', (c) => c.html(IconsPage(c.req.path)))
 app.get('/customization', (c) => c.html(CustomizationPage(c.req.path)))
@@ -71,6 +80,7 @@ app.get('/components/toast', (c) => c.html(ToastPage(c.req.path)))
 app.get('/components/submenu', (c) => c.html(SubmenuPage(c.req.path)))
 app.get('/components/field', (c) => c.html(FieldPage(c.req.path)))
 app.get('/easings', (c) => c.html(EasingsPage(c.req.path)))
+app.get('/typography', (c) => c.html(TypographyPage(c.req.path)))
 app.get('/llms.txt', (c) => c.text(LlmsPage()))
 app.get('/skill.md', (c) => c.text(SkillPage()))
 app.get('/skills', (c) => c.html(SkillsPage(c.req.path)))

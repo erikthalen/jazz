@@ -20,10 +20,12 @@ export async function TextFieldPage(path: string) {
     path,
     toc,
     content: html`
-      <h1>Form</h1>
-      <p class="lead">Styled native form inputs — no classes needed.</p>
+      <div class="prose">
+        <h1>Form</h1>
+        <p class="lead">Styled native form inputs — no classes needed.</p>
 
-      <h2 id="text">Text</h2>
+        <h2 id="text">Text</h2>
+      </div>
       <div class="example">
         <div class="preview preview-padded">
           <input type="text" placeholder="First name" style="width:100%" />
@@ -33,12 +35,14 @@ export async function TextFieldPage(path: string) {
         </div>
       </div>
 
-      <h2 id="with-icon">With icon</h2>
-      <p>
-        Wrap an input and adornments in a <code>&lt;label&gt;</code>. Add
-        <code>data-prefix</code> for leading adornments and
-        <code>data-suffix</code> for trailing ones.
-      </p>
+      <div class="prose">
+        <h2 id="with-icon">With icon</h2>
+        <p>
+          Wrap an input and adornments in a <code>&lt;label&gt;</code>. Add
+          <code>data-prefix</code> for leading adornments and
+          <code>data-suffix</code> for trailing ones.
+        </p>
+      </div>
       <div class="example">
         <div class="preview preview-padded" style="display:flex;flex-direction:column;gap:1rem">
           <label style="width:100%">

@@ -18,14 +18,16 @@ export async function IntroPage(path: string) {
     path: "/introduction",
     toc,
     content: html`
-      <h1>Jazz</h1>
-      <p class="lead">
-        A minimal CSS design system. Drop in the stylesheet and use semantic
-        HTML.
-      </p>
+      <div class="prose">
+        <h1>Jazz</h1>
+        <p class="lead">
+          A minimal CSS design system. Drop in the stylesheet and use semantic
+          HTML.
+        </p>
 
-      <h2 id="usage">Usage</h2>
-      <p>Link the stylesheet from the CDN:</p>
+        <h2 id="usage">Usage</h2>
+        <p>Link the stylesheet from the CDN:</p>
+      </div>
       <div class="example">
         <div class="code-block">
           ${raw(
@@ -37,8 +39,10 @@ export async function IntroPage(path: string) {
         </div>
       </div>
 
-      <h2 id="overview">Overview</h2>
-      <p>Jazz styles native HTML elements directly, no class names required.</p>
+      <div class="prose">
+        <h2 id="overview">Overview</h2>
+        <p>Jazz styles native HTML elements directly, no class names required.</p>
+      </div>
       <div class="example">
         <div class="preview">
           <fieldset role="group">
@@ -55,13 +59,15 @@ export async function IntroPage(path: string) {
         </div>
       </div>
 
-      <h2 id="ui-not-layout">UI, not layout</h2>
-      <p>
-        Jazz handles the look of interactive elements (buttons, inputs,
-        popovers) but deliberately stays out of the way of how you arrange them
-        on the page. CSS <code>flex</code> and <code>grid</code> are fast to
-        write, easy to read, and need no abstraction on top of them.
-      </p>
+      <div class="prose">
+        <h2 id="ui-not-layout">UI, not layout</h2>
+        <p>
+          Jazz handles the look of interactive elements (buttons, inputs,
+          popovers) but deliberately stays out of the way of how you arrange them
+          on the page. CSS <code>flex</code> and <code>grid</code> are fast to
+          write, easy to read, and need no abstraction on top of them.
+        </p>
+      </div>
       <div class="example">
         <div class="preview">
           <div

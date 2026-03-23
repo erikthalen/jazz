@@ -13,12 +13,14 @@ export async function LoadingPage(path: string) {
     path,
     toc,
     content: html`
-      <h1>Loading</h1>
-      <p class="lead">
-        An animated SVG spinner injected via CSS whenever <code>aria-busy="true"</code> is set.
-      </p>
+      <div class="prose">
+        <h1>Loading</h1>
+        <p class="lead">
+          An animated SVG spinner injected via CSS whenever <code>aria-busy="true"</code> is set.
+        </p>
 
-      <h2 id="button">Button</h2>
+        <h2 id="button">Button</h2>
+      </div>
       <div class="example">
         <div class="preview" style="flex-direction:column;align-items:center;justify-contents:center;gap:1rem">
           <button id="loading-btn" aria-busy="true">Saving…</button>
@@ -32,8 +34,10 @@ export async function LoadingPage(path: string) {
         </div>
       </div>
 
-      <h2 id="custom">Custom element</h2>
-      <p>Any element with <code>aria-busy="true"</code> gets a spinner via <code>::before</code>.</p>
+      <div class="prose">
+        <h2 id="custom">Custom element</h2>
+        <p>Any element with <code>aria-busy="true"</code> gets a spinner via <code>::before</code>.</p>
+      </div>
       <div class="example">
         <div class="preview">
           <div style="width: 1rem; height: 1rem;" aria-busy="true"></div>

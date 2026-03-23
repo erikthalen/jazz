@@ -13,15 +13,17 @@ export async function ToggleGroupPage(path: string) {
     path,
     toc,
     content: html`
-      <h1>Toggle Group</h1>
-      <p class="lead">
-        A group of mutually exclusive or independent toggle buttons, built with
-        <code>&lt;label class="toggle"&gt;</code> inside a
-        <code>&lt;fieldset role="group"&gt;</code>.
-      </p>
+      <div class="prose">
+        <h1>Toggle Group</h1>
+        <p class="lead">
+          A group of mutually exclusive or independent toggle buttons, built with
+          <code>&lt;label class="toggle"&gt;</code> inside a
+          <code>&lt;fieldset role="group"&gt;</code>.
+        </p>
 
-      <h2 id="default">Default</h2>
-      <p>Use radio inputs for mutually exclusive options.</p>
+        <h2 id="default">Default</h2>
+        <p>Use radio inputs for mutually exclusive options.</p>
+      </div>
       <div class="example">
         <div class="preview">
           <fieldset role="group">
@@ -59,8 +61,10 @@ export async function ToggleGroupPage(path: string) {
         </div>
       </div>
 
-      <h2 id="multiple">Multiple groups</h2>
-      <p>Place groups next to each other to build toolbar-style layouts. Use checkboxes for independent toggles.</p>
+      <div class="prose">
+        <h2 id="multiple">Multiple groups</h2>
+        <p>Place groups next to each other to build toolbar-style layouts. Use checkboxes for independent toggles.</p>
+      </div>
       <div class="example">
         <div class="preview">
           <div style="display:flex">

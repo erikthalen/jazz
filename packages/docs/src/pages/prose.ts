@@ -15,13 +15,15 @@ export async function ProsePage(path: string) {
     path,
     toc,
     content: html`
-      <h1>Prose</h1>
-      <p class="lead">
-        Add <code>.prose</code> to any container to give headings and paragraphs
-        consistent vertical spacing.
-      </p>
+      <div class="prose">
+        <h1>Prose</h1>
+        <p class="lead">
+          Add <code>.prose</code> to any container to give headings and paragraphs
+          consistent vertical spacing.
+        </p>
 
-      <h2 id="headings">Headings</h2>
+        <h2 id="headings">Headings</h2>
+      </div>
       <div class="example">
         <div class="preview preview-padded prose">
           <h1>Heading 1</h1>
@@ -45,7 +47,9 @@ export async function ProsePage(path: string) {
         </div>
       </div>
 
-      <h2 id="paragraphs">Paragraphs</h2>
+      <div class="prose">
+        <h2 id="paragraphs">Paragraphs</h2>
+      </div>
       <div class="example">
         <div class="preview preview-padded prose">
           <p>
@@ -67,7 +71,9 @@ export async function ProsePage(path: string) {
         </div>
       </div>
 
-      <h2 id="lists">Lists</h2>
+      <div class="prose">
+        <h2 id="lists">Lists</h2>
+      </div>
       <div class="example">
         <div class="preview preview-padded prose">
           <p>There are a few points to note regarding this.</p>
@@ -113,12 +119,14 @@ export async function ProsePage(path: string) {
         </div>
       </div>
 
-      <h2 id="spacing">Spacing</h2>
-      <p>
-        Vertical spacing between elements is controlled by
-        <code>--jazz-typography-spacing-vertical</code>, which defaults to
-        <code>1rem</code>.
-      </p>
+      <div class="prose">
+        <h2 id="spacing">Spacing</h2>
+        <p>
+          Vertical spacing between elements is controlled by
+          <code>--jazz-typography-spacing-vertical</code>, which defaults to
+          <code>1rem</code>.
+        </p>
+      </div>
       <div class="example">
         <div class="code-block">
           ${raw(

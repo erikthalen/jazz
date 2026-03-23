@@ -13,13 +13,15 @@ export async function SubmenuPage(path: string) {
     path,
     toc,
     content: html`
-      <h1>Submenu</h1>
-      <p class="lead">
-        A nested menu that opens to the side of a parent menu item. Built with
-        the native Popover API — no JavaScript required.
-      </p>
+      <div class="prose">
+        <h1>Submenu</h1>
+        <p class="lead">
+          A nested menu that opens to the side of a parent menu item. Built with
+          the native Popover API — no JavaScript required.
+        </p>
 
-      <h2 id="default">Default</h2>
+        <h2 id="default">Default</h2>
+      </div>
       <div class="example">
         <div class="preview">
           <button popovertarget="submenu-demo">Edit</button>
@@ -66,8 +68,10 @@ export async function SubmenuPage(path: string) {
         </div>
       </div>
 
-      <h2 id="nested">Nested</h2>
-      <p>Submenus can be nested to any depth.</p>
+      <div class="prose">
+        <h2 id="nested">Nested</h2>
+        <p>Submenus can be nested to any depth.</p>
+      </div>
       <div class="example">
         <div class="preview">
           <button popovertarget="submenu-demo-2">Format</button>

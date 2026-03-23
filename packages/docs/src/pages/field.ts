@@ -5,6 +5,7 @@ import { highlight } from '../highlight'
 const toc = [
   { id: 'default', label: 'Default' },
   { id: 'required', label: 'Required' },
+  { id: 'with-textarea', label: 'With textarea' },
   { id: 'with-progress', label: 'With progress' },
   { id: 'with-slider', label: 'With slider' },
   { id: 'form', label: 'Form' },
@@ -16,14 +17,16 @@ export async function FieldPage(path: string) {
     path,
     toc,
     content: html`
-      <h1>Field</h1>
-      <p class="lead">
-        A <code>label.field</code> wrapper that stacks a label, any form
-        control, and an optional description. Works with any input type,
-        select, or progress.
-      </p>
+      <div class="prose">
+        <h1>Field</h1>
+        <p class="lead">
+          A <code>label.field</code> wrapper that stacks a label, any form
+          control, and an optional description. Works with any input type,
+          select, or progress.
+        </p>
 
-      <h2 id="default">Default</h2>
+        <h2 id="default">Default</h2>
+      </div>
       <div class="example">
         <div class="preview preview-padded">
           <label class="field" style="width:100%">
@@ -43,11 +46,13 @@ export async function FieldPage(path: string) {
         </div>
       </div>
 
-      <h2 id="required">Required</h2>
-      <p>
-        Add <code>required</code> to the input and a
-        <code>*</code> appears automatically on the label.
-      </p>
+      <div class="prose">
+        <h2 id="required">Required</h2>
+        <p>
+          Add <code>required</code> to the input and a
+          <code>*</code> appears automatically on the label.
+        </p>
+      </div>
       <div class="example">
         <div class="preview preview-padded">
           <label class="field" style="width:100%">
@@ -65,7 +70,31 @@ export async function FieldPage(path: string) {
         </div>
       </div>
 
-      <h2 id="with-progress">With progress</h2>
+      <div class="prose">
+        <h2 id="with-textarea">With textarea</h2>
+      </div>
+      <div class="example">
+        <div class="preview preview-padded">
+          <label class="field" style="width:100%">
+            <span>Message</span>
+            <textarea placeholder="Write something..."></textarea>
+            <small>Max 500 characters.</small>
+          </label>
+        </div>
+        <div class="code-block">
+          ${raw(
+            await highlight(`<label class="field">
+  <span>Message</span>
+  <textarea placeholder="Write something..."></textarea>
+  <small>Max 500 characters.</small>
+</label>`),
+          )}
+        </div>
+      </div>
+
+      <div class="prose">
+        <h2 id="with-progress">With progress</h2>
+      </div>
       <div class="example">
         <div class="preview preview-padded" style="display:flex;flex-direction:column;gap:1rem;width:100%">
           <label class="field" style="width:100%">
@@ -93,7 +122,9 @@ export async function FieldPage(path: string) {
           )}
         </div>
       </div>
-      <h2 id="with-slider">With slider</h2>
+      <div class="prose">
+        <h2 id="with-slider">With slider</h2>
+      </div>
       <div class="example">
         <div class="preview preview-padded">
           <label class="field" style="width:100%">
@@ -110,7 +141,9 @@ export async function FieldPage(path: string) {
           )}
         </div>
       </div>
-      <h2 id="form">Form</h2>
+      <div class="prose">
+        <h2 id="form">Form</h2>
+      </div>
       <div class="example">
         <div class="preview preview-padded">
           <form style="display:flex;flex-direction:column;gap:var(--spacing-4);width:100%;max-width:400px;margin:auto;" onsubmit="return false">

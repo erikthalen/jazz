@@ -13,13 +13,15 @@ export async function ColorInputPage(path: string) {
     path,
     toc,
     content: html`
-      <h1>Color Input</h1>
-      <p class="lead">
-        A styled native <code>&lt;input type="color"&gt;</code> for picking
-        colors.
-      </p>
+      <div class="prose">
+        <h1>Color Input</h1>
+        <p class="lead">
+          A styled native <code>&lt;input type="color"&gt;</code> for picking
+          colors.
+        </p>
 
-      <h2 id="default">Default</h2>
+        <h2 id="default">Default</h2>
+      </div>
       <div class="example">
         <div class="preview">
           <input type="color" value="#6366f1" />
@@ -29,7 +31,9 @@ export async function ColorInputPage(path: string) {
         </div>
       </div>
 
-      <h2 id="with-label">With label</h2>
+      <div class="prose">
+        <h2 id="with-label">With label</h2>
+      </div>
       <div class="example">
         <div class="preview">
           <label class="field">

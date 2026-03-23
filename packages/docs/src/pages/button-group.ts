@@ -15,13 +15,15 @@ export async function ButtonGroupPage(path: string) {
     path,
     toc,
     content: html`
-      <h1>Button Group</h1>
-      <p class="lead">
-        Group related actions using <code>&lt;button&gt;</code>s inside a
-        <code>&lt;fieldset role="group"&gt;</code>.
-      </p>
+      <div class="prose">
+        <h1>Button Group</h1>
+        <p class="lead">
+          Group related actions using <code>&lt;button&gt;</code>s inside a
+          <code>&lt;fieldset role="group"&gt;</code>.
+        </p>
 
-      <h2 id="default">Default</h2>
+        <h2 id="default">Default</h2>
+      </div>
       <div class="example">
         <div class="preview">
           <fieldset role="group">
@@ -41,8 +43,10 @@ export async function ButtonGroupPage(path: string) {
         </div>
       </div>
 
-      <h2 id="mixed">Mixed</h2>
-      <p>Combine icon buttons and labeled buttons in the same group.</p>
+      <div class="prose">
+        <h2 id="mixed">Mixed</h2>
+        <p>Combine icon buttons and labeled buttons in the same group.</p>
+      </div>
       <div class="example">
         <div class="preview">
           <fieldset role="group">
@@ -127,8 +131,10 @@ export async function ButtonGroupPage(path: string) {
         </div>
       </div>
 
-      <h2 id="with-input">With input</h2>
-      <p>Inputs stretch to fill the available space.</p>
+      <div class="prose">
+        <h2 id="with-input">With input</h2>
+        <p>Inputs stretch to fill the available space.</p>
+      </div>
       <div class="example">
         <div class="preview">
           <fieldset role="group" style="width:320px">
@@ -162,8 +168,10 @@ export async function ButtonGroupPage(path: string) {
           )}
         </div>
       </div>
-      <h2 id="quantity">Quantity</h2>
-      <p>A number input paired with increment and decrement buttons.</p>
+      <div class="prose">
+        <h2 id="quantity">Quantity</h2>
+        <p>A number input paired with increment and decrement buttons.</p>
+      </div>
       <div class="example">
         <div class="preview">
           <fieldset role="group">

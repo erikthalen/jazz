@@ -24,20 +24,24 @@ export async function EasingsPage(path: string) {
     path,
     toc,
     content: html`
-      <h1>Easings</h1>
-      <p class="lead">
-        Custom easing curves for natural-feeling transitions and animations.
-      </p>
+      <div class="prose">
+        <h1>Easings</h1>
+        <p class="lead">
+          Custom easing curves for natural-feeling transitions and animations.
+        </p>
+      </div>
       <label class="easings-animate-toggle">
         <input type="checkbox" class="switch" />
         Animate
       </label>
 
-      <h2 id="ease-glide">Glide</h2>
-      <p>
-        Smooth deceleration with a soft landing. Works well for most UI
-        transitions — drawers, modals, expanding content.
-      </p>
+      <div class="prose">
+        <h2 id="ease-glide">Glide</h2>
+        <p>
+          Smooth deceleration with a soft landing. Works well for most UI
+          transitions — drawers, modals, expanding content.
+        </p>
+      </div>
       <div class="example">
         <div class="preview">
           ${easingDemo('var(--ease-glide)')}
@@ -47,11 +51,13 @@ export async function EasingsPage(path: string) {
         </div>
       </div>
 
-      <h2 id="ease-snap">Snap</h2>
-      <p>
-        Fast out with a slight overshoot that snaps into place. Great for
-        elements that should feel responsive and decisive — toggles, selections.
-      </p>
+      <div class="prose">
+        <h2 id="ease-snap">Snap</h2>
+        <p>
+          Fast out with a slight overshoot that snaps into place. Great for
+          elements that should feel responsive and decisive — toggles, selections.
+        </p>
+      </div>
       <div class="example">
         <div class="preview">
           ${easingDemo('var(--ease-snap)')}
@@ -61,11 +67,13 @@ export async function EasingsPage(path: string) {
         </div>
       </div>
 
-      <h2 id="ease-heavy">Heavy</h2>
-      <p>
-        Dramatic elastic overshoot for elements that need weight and impact.
-        Use sparingly for things that should demand attention.
-      </p>
+      <div class="prose">
+        <h2 id="ease-heavy">Heavy</h2>
+        <p>
+          Dramatic elastic overshoot for elements that need weight and impact.
+          Use sparingly for things that should demand attention.
+        </p>
+      </div>
       <div class="example">
         <div class="preview">
           ${easingDemo('var(--ease-heavy)')}

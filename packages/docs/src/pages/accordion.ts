@@ -15,13 +15,15 @@ export async function AccordionPage(path: string) {
     path,
     toc,
     content: html`
-      <h1>Accordion</h1>
-      <p class="lead">
-        Collapsible content sections using the native
-        <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> elements.
-      </p>
+      <div class="prose">
+        <h1>Accordion</h1>
+        <p class="lead">
+          Collapsible content sections using the native
+          <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> elements.
+        </p>
 
-      <h2 id="default">Default</h2>
+        <h2 id="default">Default</h2>
+      </div>
       <div class="example">
         <div class="preview preview-padded">
           <details style="width:100%">
@@ -46,11 +48,13 @@ export async function AccordionPage(path: string) {
         </div>
       </div>
 
-      <h2 id="multiple">Multiple items</h2>
-      <p>
-        Stack multiple <code>&lt;details&gt;</code> elements — they get
-        automatic spacing between them.
-      </p>
+      <div class="prose">
+        <h2 id="multiple">Multiple items</h2>
+        <p>
+          Stack multiple <code>&lt;details&gt;</code> elements — they get
+          automatic spacing between them.
+        </p>
+      </div>
       <div class="example">
         <div class="preview preview-padded">
           <details style="width:100%">
@@ -90,11 +94,13 @@ export async function AccordionPage(path: string) {
         </div>
       </div>
 
-      <h2 id="exclusive">Exclusive</h2>
-      <p>
-        Give a group the same <code>name</code> attribute — only one item can
-        be open at a time.
-      </p>
+      <div class="prose">
+        <h2 id="exclusive">Exclusive</h2>
+        <p>
+          Give a group the same <code>name</code> attribute — only one item can
+          be open at a time.
+        </p>
+      </div>
       <div class="example">
         <div class="preview preview-padded">
           <details name="faq" style="width:100%">
@@ -130,10 +136,12 @@ export async function AccordionPage(path: string) {
         </div>
       </div>
 
-      <h2 id="open">Open by default</h2>
-      <p>
-        Add the <code>open</code> attribute to expand an item on load.
-      </p>
+      <div class="prose">
+        <h2 id="open">Open by default</h2>
+        <p>
+          Add the <code>open</code> attribute to expand an item on load.
+        </p>
+      </div>
       <div class="example">
         <div class="preview preview-padded">
           <details open style="width:100%">

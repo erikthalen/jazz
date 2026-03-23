@@ -13,16 +13,18 @@ export async function ToastPage(path: string) {
     path,
     toc,
     content: html`
-      <h1>Toast</h1>
-      <p class="lead">
-        Temporary notification messages using the native
-        <code>&lt;output&gt;</code> element — a semantic live region with
-        implicit <code>aria-live="polite"</code>. CSS handles the animation
-        lifecycle; the View Transitions API smoothly repositions existing toasts
-        when new ones arrive.
-      </p>
+      <div class="prose">
+        <h1>Toast <sup class="badge secondary">WIP</sup></h1>
+        <p class="lead">
+          Temporary notification messages using the native
+          <code>&lt;output&gt;</code> element — a semantic live region with
+          implicit <code>aria-live="polite"</code>. CSS handles the animation
+          lifecycle; the View Transitions API smoothly repositions existing toasts
+          when new ones arrive.
+        </p>
 
-      <h2 id="default">Default</h2>
+        <h2 id="default">Default</h2>
+      </div>
       <div class="example">
         <div class="preview">
           <div style="display:flex;gap:var(--spacing-2)">
@@ -69,12 +71,14 @@ export async function ToastPage(path: string) {
         </div>
       </div>
 
-      <h2 id="duration">Duration</h2>
-      <p>
-        Control display time with the
-        <code>--toast-duration</code> CSS custom property (default
-        <code>3s</code>).
-      </p>
+      <div class="prose">
+        <h2 id="duration">Duration</h2>
+        <p>
+          Control display time with the
+          <code>--toast-duration</code> CSS custom property (default
+          <code>3s</code>).
+        </p>
+      </div>
       <div class="example">
         <div class="preview">
           <button onclick="toast('This one lingers', 6)">Show 6s toast</button>

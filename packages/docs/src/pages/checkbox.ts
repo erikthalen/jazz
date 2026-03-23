@@ -15,13 +15,15 @@ export async function CheckboxPage(path: string) {
     path,
     toc,
     content: html`
-      <h1>Checkbox</h1>
-      <p class="lead">
-        A native <code>&lt;input type="checkbox"&gt;</code> for toggling
-        options.
-      </p>
+      <div class="prose">
+        <h1>Checkbox</h1>
+        <p class="lead">
+          A native <code>&lt;input type="checkbox"&gt;</code> for toggling
+          options.
+        </p>
 
-      <h2 id="default">Default</h2>
+        <h2 id="default">Default</h2>
+      </div>
       <div class="example">
         <div class="preview">
           <input type="checkbox" />
@@ -31,7 +33,9 @@ export async function CheckboxPage(path: string) {
         </div>
       </div>
 
-      <h2 id="checked">Checked</h2>
+      <div class="prose">
+        <h2 id="checked">Checked</h2>
+      </div>
       <div class="example">
         <div class="preview">
           <input type="checkbox" checked />
@@ -41,8 +45,10 @@ export async function CheckboxPage(path: string) {
         </div>
       </div>
 
-      <h2 id="with-label">With label</h2>
-      <p>Wrap in a <code>&lt;label&gt;</code> to make the text clickable.</p>
+      <div class="prose">
+        <h2 id="with-label">With label</h2>
+        <p>Wrap in a <code>&lt;label&gt;</code> to make the text clickable.</p>
+      </div>
       <div class="example">
         <div class="preview" style="flex-direction:column;align-items:flex-start;gap:0.5rem">
           <label>
@@ -68,7 +74,9 @@ export async function CheckboxPage(path: string) {
         </div>
       </div>
 
-      <h2 id="disabled">Disabled</h2>
+      <div class="prose">
+        <h2 id="disabled">Disabled</h2>
+      </div>
       <div class="example">
         <div class="preview" style="flex-direction:column;align-items:flex-start;gap:0.5rem">
           <label>

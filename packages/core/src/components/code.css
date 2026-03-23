@@ -1,0 +1,10 @@
+@layer jazz {
+  :not(pre) > code {
+    font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+    font-size: 0.8125em;
+    background: var(--jazz-neutral-100);
+    border: 1px solid var(--jazz-neutral-200);
+    border-radius: 4px;
+    padding: 0.15em 0.35em;
+  }
+}

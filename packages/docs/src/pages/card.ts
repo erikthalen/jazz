@@ -13,13 +13,15 @@ export async function CardPage(path: string) {
     path,
     toc,
     content: html`
-      <h1>Card</h1>
-      <p class="lead">
-        A surface for grouping related content using the native
-        <code>&lt;article&gt;</code> element.
-      </p>
+      <div class="prose">
+        <h1>Card</h1>
+        <p class="lead">
+          A surface for grouping related content using the native
+          <code>&lt;article&gt;</code> element.
+        </p>
 
-      <h2 id="default">Default</h2>
+        <h2 id="default">Default</h2>
+      </div>
       <div class="example">
         <div class="preview preview-padded">
           <article style="width:100%">
@@ -35,11 +37,13 @@ export async function CardPage(path: string) {
         </div>
       </div>
 
-      <h2 id="with-header-footer">With header &amp; footer</h2>
-      <p>
-        Add a <code>&lt;header&gt;</code> and/or <code>&lt;footer&gt;</code> for
-        a structured layout with dividers.
-      </p>
+      <div class="prose">
+        <h2 id="with-header-footer">With header &amp; footer</h2>
+        <p>
+          Add a <code>&lt;header&gt;</code> and/or <code>&lt;footer&gt;</code> for
+          a structured layout with dividers.
+        </p>
+      </div>
       <div class="example">
         <div class="preview preview-padded">
           <article style="width:100%">

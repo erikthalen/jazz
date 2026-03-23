@@ -13,17 +13,19 @@ export async function TablePage(path: string) {
     path,
     toc,
     content: html`
-      <h1>Table</h1>
-      <p class="lead">
-        A data table built with the native <code>&lt;table&gt;</code> element,
-        laid out using CSS grid and subgrid for precise column alignment.
-      </p>
+      <div class="prose">
+        <h1>Table</h1>
+        <p class="lead">
+          A data table built with the native <code>&lt;table&gt;</code> element,
+          laid out using CSS grid and subgrid for precise column alignment.
+        </p>
 
-      <h2 id="default">Default</h2>
-      <p>
-        Set <code>--cols</code> on the table to define column widths. All rows
-        inherit the same grid via <code>subgrid</code>.
-      </p>
+        <h2 id="default">Default</h2>
+        <p>
+          Set <code>--cols</code> on the table to define column widths. All rows
+          inherit the same grid via <code>subgrid</code>.
+        </p>
+      </div>
       <div class="example">
         <div class="preview preview-padded">
           <table style="--cols: repeat(3, 1fr)">
@@ -75,11 +77,13 @@ export async function TablePage(path: string) {
         </div>
       </div>
 
-      <h2 id="custom-columns">Custom columns</h2>
-      <p>
-        Use any grid template value for <code>--cols</code> to give columns
-        different widths.
-      </p>
+      <div class="prose">
+        <h2 id="custom-columns">Custom columns</h2>
+        <p>
+          Use any grid template value for <code>--cols</code> to give columns
+          different widths.
+        </p>
+      </div>
       <div class="example">
         <div class="preview preview-padded">
           <table style="--cols: 2fr 1fr 1fr 80px">

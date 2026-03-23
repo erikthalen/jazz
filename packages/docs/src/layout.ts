@@ -21,10 +21,13 @@ export const components: { label: string; path: string; badge?: string }[] = [
   { label: "Button Group", path: "/components/button-group" },
   { label: "Card", path: "/components/card" },
   { label: "Checkbox", path: "/components/checkbox" },
+  { label: "Code", path: "/components/code" },
   { label: "Color Input", path: "/components/color-input" },
   { label: "Dialog", path: "/components/dialog" },
   { label: "Dropdown", path: "/components/dropdown" },
+  { label: "Expander", path: "/components/expander" },
   { label: "Field", path: "/components/field" },
+  { label: "File Drop", path: "/components/file-drop" },
   { label: "Kbd", path: "/components/kbd" },
   { label: "Loading", path: "/components/loading" },
   { label: "Popover", path: "/components/popover" },
@@ -37,6 +40,7 @@ export const components: { label: string; path: string; badge?: string }[] = [
   { label: "Switch", path: "/components/switch" },
   { label: "Table", path: "/components/table" },
   { label: "Text Field", path: "/components/text-field" },
+  { label: "Textarea", path: "/components/textarea" },
   { label: "Toast", path: "/components/toast", badge: "WIP" },
   { label: "Toggle", path: "/components/toggle" },
   { label: "Toggle Group", path: "/components/toggle-group" },
@@ -323,6 +327,12 @@ export function Layout({ title, path, toc, content }: LayoutProps) {
                   Easings
                 </a>
                 <a
+                  href="${url("/typography")}"
+                  ${path === "/typography" ? 'aria-current="page"' : ""}
+                >
+                  Typography
+                </a>
+                <a
                   href="${url("/icons")}"
                   ${path === "/icons" ? 'aria-current="page"' : ""}
                 >
@@ -338,7 +348,7 @@ export function Layout({ title, path, toc, content }: LayoutProps) {
                   href="${url("/skills")}"
                   ${path === "/skills" ? 'aria-current="page"' : ""}
                 >
-                  Skills
+                  Skills <span class="badge">WIP</span>
                 </a>
                 <a href="${url("/llms.txt")}" target="_blank" rel="noopener">
                   llms.txt
@@ -363,7 +373,7 @@ export function Layout({ title, path, toc, content }: LayoutProps) {
             </div>
           </aside>
 
-          <main class="docs-content"><div class="prose">${content}</div></main>
+          <main class="docs-content">${content}</main>
 
           ${toc && toc.length > 0
             ? html`

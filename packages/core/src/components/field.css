@@ -19,9 +19,11 @@
     }
 
     > input,
+    > textarea,
     > select,
     > progress,
-    > button[popovertarget] {
+    > button[popovertarget],
+    > .file-drop {
       width: 100%;
     }
   }

@@ -1,0 +1,49 @@
+@layer jazz {
+  .expander {
+    position: relative;
+
+    > :not(label) {
+      interpolate-size: allow-keywords;
+      overflow: clip;
+      transition: max-height 400ms var(--ease-glide);
+    }
+
+    > label {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-2);
+      padding-top: var(--spacing-4);
+      cursor: pointer;
+      user-select: none;
+
+      > input[type="checkbox"] {
+        display: none;
+      }
+
+      &::after {
+        content: "";
+        display: inline-block;
+        background-color: currentColor;
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+        mask-size: 1rem;
+        mask-repeat: no-repeat;
+        mask-position: center;
+        width: 1rem;
+        aspect-ratio: 1;
+        transition: transform 400ms var(--ease-glide);
+      }
+    }
+  }
+
+  .expander:has(> label > input[type="checkbox"]) > :not(label) {
+    max-height: var(--height);
+  }
+
+  .expander:has(> label > input[type="checkbox"]:checked) > :not(label) {
+    max-height: max-content;
+  }
+
+  .expander:has(> label > input[type="checkbox"]:checked) > label::after {
+    transform: perspective(1rem) rotateX(180deg);
+  }
+}

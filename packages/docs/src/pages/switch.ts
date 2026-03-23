@@ -15,13 +15,15 @@ export async function SwitchPage(path: string) {
     path,
     toc,
     content: html`
-      <h1>Switch</h1>
-      <p class="lead">
-        A toggle switch using
-        <code>&lt;input type="checkbox" class="switch"&gt;</code>.
-      </p>
+      <div class="prose">
+        <h1>Switch</h1>
+        <p class="lead">
+          A toggle switch using
+          <code>&lt;input type="checkbox" class="switch"&gt;</code>.
+        </p>
 
-      <h2 id="default">Default</h2>
+        <h2 id="default">Default</h2>
+      </div>
       <div class="example">
         <div class="preview">
           <input type="checkbox" class="switch" />
@@ -31,7 +33,9 @@ export async function SwitchPage(path: string) {
         </div>
       </div>
 
-      <h2 id="checked">Checked</h2>
+      <div class="prose">
+        <h2 id="checked">Checked</h2>
+      </div>
       <div class="example">
         <div class="preview">
           <input type="checkbox" class="switch" checked />
@@ -43,7 +47,9 @@ export async function SwitchPage(path: string) {
         </div>
       </div>
 
-      <h2 id="with-label">With label</h2>
+      <div class="prose">
+        <h2 id="with-label">With label</h2>
+      </div>
       <div class="example">
         <div class="preview" style="flex-direction:column;align-items:flex-start;gap:0.5rem">
           <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer">
@@ -69,7 +75,9 @@ export async function SwitchPage(path: string) {
         </div>
       </div>
 
-      <h2 id="disabled">Disabled</h2>
+      <div class="prose">
+        <h2 id="disabled">Disabled</h2>
+      </div>
       <div class="example">
         <div class="preview" style="gap:0.75rem">
           <input type="checkbox" class="switch" disabled />

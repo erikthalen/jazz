@@ -1,12 +1,13 @@
 @layer jazz {
   table {
     display: grid;
-    grid-template-columns: var(--cols, repeat(auto-fill, minmax(80px, 1fr)));
+    grid-template-columns: var(--cols, repeat(auto-fill, minmax(max-content, 1fr)));
     width: 100%;
     border: 1px solid var(--jazz-neutral-200);
     border-radius: 12px;
-    overflow: hidden;
+    overflow: auto;
     font-size: 0.875rem;
+    white-space: nowrap;
   }
 
   thead,

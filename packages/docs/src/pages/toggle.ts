@@ -22,13 +22,15 @@ export async function TogglePage(path: string) {
     path,
     toc,
     content: html`
-      <h1>Toggle</h1>
-      <p class="lead">
-        A pressable label that wraps a checkbox — looks like a button, works
-        like a toggle.
-      </p>
+      <div class="prose">
+        <h1>Toggle</h1>
+        <p class="lead">
+          A pressable label that wraps a checkbox — looks like a button, works
+          like a toggle.
+        </p>
 
-      <h2 id="default">Default</h2>
+        <h2 id="default">Default</h2>
+      </div>
       <div class="example">
         <div class="preview">
           <label class="toggle">
@@ -47,8 +49,10 @@ export async function TogglePage(path: string) {
         </div>
       </div>
 
-      <h2 id="checked">Checked</h2>
-      <p>Works with or without an icon.</p>
+      <div class="prose">
+        <h2 id="checked">Checked</h2>
+        <p>Works with or without an icon.</p>
+      </div>
       <div class="example">
         <div class="preview" style="gap: 0.5rem; flex-wrap: wrap">
           <label class="toggle">
@@ -79,10 +83,12 @@ export async function TogglePage(path: string) {
         </div>
       </div>
 
-      <h2 id="square">Square</h2>
-      <p>
-        Add <code>.square</code> for an icon-only toggle with equal padding.
-      </p>
+      <div class="prose">
+        <h2 id="square">Square</h2>
+        <p>
+          Add <code>.square</code> for an icon-only toggle with equal padding.
+        </p>
+      </div>
       <div class="example">
         <div class="preview" style="gap:0.5rem">
           <label class="toggle square" aria-label="Bookmark">
@@ -108,8 +114,10 @@ export async function TogglePage(path: string) {
         </div>
       </div>
 
-      <h2 id="ghost">Ghost</h2>
-      <p>Add <code>.ghost</code> to remove the outline.</p>
+      <div class="prose">
+        <h2 id="ghost">Ghost</h2>
+        <p>Add <code>.ghost</code> to remove the outline.</p>
+      </div>
       <div class="example">
         <div class="preview" style="gap:0.5rem">
           <label class="toggle ghost">
@@ -138,8 +146,10 @@ export async function TogglePage(path: string) {
         </div>
       </div>
 
-      <h2 id="fill">Fill</h2>
-      <p>Add <code>.fill</code> to fill the SVG icon when checked.</p>
+      <div class="prose">
+        <h2 id="fill">Fill</h2>
+        <p>Add <code>.fill</code> to fill the SVG icon when checked.</p>
+      </div>
       <div class="example">
         <div class="preview" style="gap: 0.5rem; flex-wrap: wrap">
           <label class="toggle fill">
@@ -166,11 +176,13 @@ export async function TogglePage(path: string) {
         </div>
       </div>
 
-      <h2 id="conditional-content">Conditional content</h2>
-      <p>
-        Children with <code>data-checked</code> or
-        <code>data-unchecked</code> are shown only in the matching state.
-      </p>
+      <div class="prose">
+        <h2 id="conditional-content">Conditional content</h2>
+        <p>
+          Children with <code>data-checked</code> or
+          <code>data-unchecked</code> are shown only in the matching state.
+        </p>
+      </div>
       <div class="example">
         <div class="preview" style="gap:0.5rem">
           <label class="toggle">
@@ -199,7 +211,9 @@ export async function TogglePage(path: string) {
           )}
         </div>
       </div>
-      <p>Combine with <code>.ghost</code> for icon-only toggles like a theme switcher.</p>
+      <div class="prose">
+        <p>Combine with <code>.ghost</code> for icon-only toggles like a theme switcher.</p>
+      </div>
       <div class="example">
         <div class="preview" style="gap:0.5rem">
           <label class="toggle ghost square" aria-label="Toggle theme">
@@ -219,7 +233,9 @@ export async function TogglePage(path: string) {
         </div>
       </div>
 
-      <h2 id="disabled">Disabled</h2>
+      <div class="prose">
+        <h2 id="disabled">Disabled</h2>
+      </div>
       <div class="example">
         <div class="preview">
           <label class="toggle">

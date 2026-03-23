@@ -13,13 +13,15 @@ export async function TooltipPage(path: string) {
     path,
     toc,
     content: html`
-      <h1>Tooltip</h1>
-      <p class="lead">
-        Show a tooltip on hover using the <code>data-tooltip</code> attribute.
-      </p>
-      <p>Tooltips only appear on devices that support hover. On touch screens, consider using a different pattern to surface this information.</p>
+      <div class="prose">
+        <h1>Tooltip</h1>
+        <p class="lead">
+          Show a tooltip on hover using the <code>data-tooltip</code> attribute.
+        </p>
+        <p>Tooltips only appear on devices that support hover. On touch screens, consider using a different pattern to surface this information.</p>
 
-      <h2 id="default">Default</h2>
+        <h2 id="default">Default</h2>
+      </div>
       <div class="example">
         <div class="preview">
           <button class="outline" data-tooltip="Add to library">Hover</button>
@@ -33,11 +35,13 @@ export async function TooltipPage(path: string) {
         </div>
       </div>
 
-      <h2 id="placement">Placement</h2>
-      <p>
-        Use <code>data-placement</code> to control which side the tooltip
-        appears on. Defaults to <code>top</code>.
-      </p>
+      <div class="prose">
+        <h2 id="placement">Placement</h2>
+        <p>
+          Use <code>data-placement</code> to control which side the tooltip
+          appears on. Defaults to <code>top</code>.
+        </p>
+      </div>
       <div class="example">
         <div class="preview" style="gap:1rem">
           <button class="outline" data-tooltip="Top" data-placement="top">Top</button>

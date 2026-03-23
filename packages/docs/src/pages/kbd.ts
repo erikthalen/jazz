@@ -13,13 +13,15 @@ export async function KbdPage(path: string) {
     path,
     toc,
     content: html`
-      <h1>Kbd</h1>
-      <p class="lead">
-        Represents a keyboard input using the native
-        <code>&lt;kbd&gt;</code> element.
-      </p>
+      <div class="prose">
+        <h1>Kbd</h1>
+        <p class="lead">
+          Represents a keyboard input using the native
+          <code>&lt;kbd&gt;</code> element.
+        </p>
 
-      <h2 id="default">Default</h2>
+        <h2 id="default">Default</h2>
+      </div>
       <div class="example">
         <div class="preview">
           <kbd>⌘</kbd>
@@ -35,8 +37,10 @@ export async function KbdPage(path: string) {
         </div>
       </div>
 
-      <h2 id="combinations">Combinations</h2>
-      <p>Use <code>+</code> between <code>&lt;kbd&gt;</code> elements to show key combinations.</p>
+      <div class="prose">
+        <h2 id="combinations">Combinations</h2>
+        <p>Use <code>+</code> between <code>&lt;kbd&gt;</code> elements to show key combinations.</p>
+      </div>
       <div class="example">
         <div class="preview">
           <kbd>⌘</kbd> + <kbd>K</kbd>

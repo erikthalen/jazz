@@ -16,6 +16,10 @@ const routes = [
   "/components/color-input",
   "/components/dialog",
   "/components/text-field",
+  "/components/textarea",
+  "/components/expander",
+  "/components/file-drop",
+  "/components/code",
   "/components/kbd",
   "/components/loading",
   "/components/popover",
@@ -37,6 +41,7 @@ const routes = [
   "/components/submenu",
   "/components/field",
   "/easings",
+  "/typography",
   "/skills",
   "/llms.txt",
 ];

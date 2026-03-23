@@ -200,19 +200,23 @@ body {
   min-width: 0;
 }
 
-.docs-content > h1 {
+.docs-content .prose h1 {
   font-size: 1.875rem;
   font-weight: 700;
   margin-bottom: 0.375rem;
+
+  .badge {
+    vertical-align: top;
+  }
 }
 
-.docs-content .lead {
+.docs-content .prose .lead {
   color: var(--fg-muted);
   font-size: 1rem;
   margin-bottom: 2rem;
 }
 
-.docs-content > h2 {
+.docs-content .prose h2 {
   font-size: 1.25rem;
   font-weight: 600;
   margin-top: 2.5rem;
@@ -223,8 +227,8 @@ body {
 }
 
 /* Inline code */
-.docs-content :not(pre) > code,
-.home-content :not(pre) > code {
+.docs-content :not(pre) > code:not(.preview *),
+.home-content :not(pre) > code:not(.preview *) {
   font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
   font-size: 0.8125em;
   background: var(--bg-subtle);

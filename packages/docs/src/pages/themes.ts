@@ -37,50 +37,60 @@ export async function ThemesPage(path: string) {
     path,
     toc,
     content: html`
-      <h1>Themes</h1>
-      <p class="lead">
-        Jazz is themed entirely through CSS custom properties — override the
-        seed colors to match your brand.
-      </p>
+      <div class="prose">
+        <h1>Themes</h1>
+        <p class="lead">
+          Jazz is themed entirely through CSS custom properties — override the
+          seed colors to match your brand.
+        </p>
 
-      <h2 id="primary-scale">Primary scale</h2>
-      <p>
-        Used for interactive elements like buttons and focus rings. The palette
-        is derived from <code>--jazz-primary-light</code> in light mode and
-        <code>--jazz-primary-dark</code> in dark mode — useful when a color
-        needs adjusting between themes (e.g. slightly lighter in dark mode for
-        contrast). Both fall back to <code>--jazz-primary</code> if unset.
-      </p>
+        <h2 id="primary-scale">Primary scale</h2>
+        <p>
+          Used for interactive elements like buttons and focus rings. The palette
+          is derived from <code>--jazz-primary-light</code> in light mode and
+          <code>--jazz-primary-dark</code> in dark mode — useful when a color
+          needs adjusting between themes (e.g. slightly lighter in dark mode for
+          contrast). Both fall back to <code>--jazz-primary</code> if unset.
+        </p>
+      </div>
       ${colorScale('primary')}
 
-      <h2 id="neutral-scale">Neutral scale</h2>
-      <p>
-        Used for text, borders, and backgrounds. Override
-        <code>--jazz-neutral</code> to adjust neutral tones.
-      </p>
+      <div class="prose">
+        <h2 id="neutral-scale">Neutral scale</h2>
+        <p>
+          Used for text, borders, and backgrounds. Override
+          <code>--jazz-neutral</code> to adjust neutral tones.
+        </p>
+      </div>
       ${colorScale('neutral')}
 
-      <h2 id="constructive-scale">Constructive scale</h2>
-      <p>
-        Used for success and positive states. Override
-        <code>--jazz-constructive</code>.
-      </p>
+      <div class="prose">
+        <h2 id="constructive-scale">Constructive scale</h2>
+        <p>
+          Used for success and positive states. Override
+          <code>--jazz-constructive</code>.
+        </p>
+      </div>
       ${colorScale('constructive')}
 
-      <h2 id="destructive-scale">Destructive scale</h2>
-      <p>
-        Used for errors and danger states. Override
-        <code>--jazz-destructive</code>.
-      </p>
+      <div class="prose">
+        <h2 id="destructive-scale">Destructive scale</h2>
+        <p>
+          Used for errors and danger states. Override
+          <code>--jazz-destructive</code>.
+        </p>
+      </div>
       ${colorScale('destructive')}
 
-      <h2 id="customizing">Customizing</h2>
-      <p>
-        Override seed colors on <code>:root</code> after importing the
-        stylesheet. Use <code>--jazz-primary</code> for a single color across
-        both themes, or set <code>--jazz-primary-light</code> and
-        <code>--jazz-primary-dark</code> independently for per-theme control:
-      </p>
+      <div class="prose">
+        <h2 id="customizing">Customizing</h2>
+        <p>
+          Override seed colors on <code>:root</code> after importing the
+          stylesheet. Use <code>--jazz-primary</code> for a single color across
+          both themes, or set <code>--jazz-primary-light</code> and
+          <code>--jazz-primary-dark</code> independently for per-theme control:
+        </p>
+      </div>
       <div class="example">
         <div class="code-block">
           ${raw(
@@ -101,11 +111,13 @@ export async function ThemesPage(path: string) {
         </div>
       </div>
 
-      <h2 id="dark-mode">Dark mode</h2>
-      <p>
-        Jazz responds to <code>prefers-color-scheme: dark</code> automatically.
-        You can also force a mode by adding a class to any container element:
-      </p>
+      <div class="prose">
+        <h2 id="dark-mode">Dark mode</h2>
+        <p>
+          Jazz responds to <code>prefers-color-scheme: dark</code> automatically.
+          You can also force a mode by adding a class to any container element:
+        </p>
+      </div>
       <div class="example">
         <div class="code-block">
           ${raw(

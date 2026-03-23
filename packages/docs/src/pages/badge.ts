@@ -15,12 +15,14 @@ export async function BadgePage(path: string) {
     path,
     toc,
     content: html`
-      <h1>Badge</h1>
-      <p class="lead">
-        Small status labels using <code>&lt;span class="badge"&gt;</code>.
-      </p>
+      <div class="prose">
+        <h1>Badge</h1>
+        <p class="lead">
+          Small status labels using <code>&lt;span class="badge"&gt;</code>.
+        </p>
 
-      <h2 id="default">Default</h2>
+        <h2 id="default">Default</h2>
+      </div>
       <div class="example">
         <div class="preview">
           <span class="badge">Badge</span>
@@ -30,7 +32,9 @@ export async function BadgePage(path: string) {
         </div>
       </div>
 
-      <h2 id="secondary">Secondary</h2>
+      <div class="prose">
+        <h2 id="secondary">Secondary</h2>
+      </div>
       <div class="example">
         <div class="preview">
           <span class="badge secondary">Secondary</span>
@@ -40,7 +44,9 @@ export async function BadgePage(path: string) {
         </div>
       </div>
 
-      <h2 id="destructive">Destructive</h2>
+      <div class="prose">
+        <h2 id="destructive">Destructive</h2>
+      </div>
       <div class="example">
         <div class="preview">
           <span class="badge destructive">Destructive</span>
@@ -50,7 +56,9 @@ export async function BadgePage(path: string) {
         </div>
       </div>
 
-      <h2 id="outline">Outline</h2>
+      <div class="prose">
+        <h2 id="outline">Outline</h2>
+      </div>
       <div class="example">
         <div class="preview">
           <span class="badge outline">Outline</span>

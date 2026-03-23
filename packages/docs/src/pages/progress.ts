@@ -14,13 +14,15 @@ export async function ProgressPage(path: string) {
     path,
     toc,
     content: html`
-      <h1>Progress</h1>
-      <p class="lead">
-        Displays a completion state using the native
-        <code>&lt;progress&gt;</code> element.
-      </p>
+      <div class="prose">
+        <h1>Progress</h1>
+        <p class="lead">
+          Displays a completion state using the native
+          <code>&lt;progress&gt;</code> element.
+        </p>
 
-      <h2 id="default">Default</h2>
+        <h2 id="default">Default</h2>
+      </div>
       <div class="example">
         <div class="preview" style="width:100%;padding-inline:2rem">
           <progress value="40" max="100" style="width:100%"></progress>
@@ -30,10 +32,12 @@ export async function ProgressPage(path: string) {
         </div>
       </div>
 
-      <h2 id="indeterminate">Indeterminate</h2>
-      <p>
-        Omit the <code>value</code> attribute to show an indeterminate state.
-      </p>
+      <div class="prose">
+        <h2 id="indeterminate">Indeterminate</h2>
+        <p>
+          Omit the <code>value</code> attribute to show an indeterminate state.
+        </p>
+      </div>
       <div class="example">
         <div class="preview" style="width:100%;padding-inline:2rem">
           <progress style="width:100%"></progress>
@@ -43,8 +47,10 @@ export async function ProgressPage(path: string) {
         </div>
       </div>
 
-      <h2 id="labeled">Labeled</h2>
-      <p>Wrap in a <code>&lt;label class="field"&gt;</code> to pair with a text label.</p>
+      <div class="prose">
+        <h2 id="labeled">Labeled</h2>
+        <p>Wrap in a <code>&lt;label class="field"&gt;</code> to pair with a text label.</p>
+      </div>
       <div class="example">
         <div class="preview">
           <label class="field" style="width:100%">

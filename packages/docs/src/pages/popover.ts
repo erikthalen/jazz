@@ -13,18 +13,20 @@ export async function PopoverPage(path: string) {
     path,
     toc,
     content: html`
-      <h1>Popover</h1>
-      <p class="lead">
-        A floating panel anchored to a trigger using the native
-        <code>popover</code> API and CSS anchor positioning.
-      </p>
+      <div class="prose">
+        <h1>Popover</h1>
+        <p class="lead">
+          A floating panel anchored to a trigger using the native
+          <code>popover</code> API and CSS anchor positioning.
+        </p>
 
-      <h2 id="default">Default</h2>
-      <p>
-        Connect a <code>popovertarget</code> button to a
-        <code>[popover]</code> element by matching IDs. The button acts as the
-        CSS anchor automatically — no extra markup needed.
-      </p>
+        <h2 id="default">Default</h2>
+        <p>
+          Connect a <code>popovertarget</code> button to a
+          <code>[popover]</code> element by matching IDs. The button acts as the
+          CSS anchor automatically — no extra markup needed.
+        </p>
+      </div>
       <div class="example">
         <div class="preview">
           <button class="outline" popovertarget="popover-demo">Open</button>
@@ -43,11 +45,13 @@ export async function PopoverPage(path: string) {
         </div>
       </div>
 
-      <h2 id="with-card">With card</h2>
-      <p>
-        Use an <code>&lt;article&gt;</code> inside for structured content with
-        header and footer sections.
-      </p>
+      <div class="prose">
+        <h2 id="with-card">With card</h2>
+        <p>
+          Use an <code>&lt;article&gt;</code> inside for structured content with
+          header and footer sections.
+        </p>
+      </div>
       <div class="example">
         <div class="preview">
           <button class="outline" popovertarget="popover-card">Options</button>
