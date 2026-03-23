@@ -1,5 +1,7 @@
 @layer jazz {
   dialog {
+    container-type: inline-size;
+
     position: fixed;
     inset: 0;
     margin: auto;

@@ -81,9 +81,11 @@
       border-right-color: var(--jazz-neutral-950);
     }
 
-    &:hover::before,
-    &:hover::after {
-      opacity: 1;
+    @media (hover: hover) {
+      &:hover::before,
+      &:hover::after {
+        opacity: 1;
+      }
     }
   }
 }

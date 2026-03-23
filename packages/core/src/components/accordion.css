@@ -50,8 +50,10 @@
         transition: transform 300ms var(--ease-glide);
       }
 
-      &:hover {
-        text-decoration-color: currentColor;
+      @media (hover: hover) {
+        &:hover {
+          text-decoration-color: currentColor;
+        }
       }
 
       &:focus-visible {

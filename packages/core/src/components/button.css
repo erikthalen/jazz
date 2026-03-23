@@ -27,9 +27,31 @@
     }
   }
 
-  button:hover,
-  .button:hover {
-    background-color: var(--jazz-primary-600);
+  @media (hover: hover) {
+    button:hover,
+    .button:hover {
+      background-color: var(--jazz-primary-600);
+    }
+
+    button.outline:hover,
+    .button.outline:hover {
+      background-color: var(--jazz-neutral-100);
+    }
+
+    button.secondary:hover,
+    .button.secondary:hover {
+      background-color: var(--jazz-neutral-600);
+    }
+
+    button.ghost:hover,
+    .button.ghost:hover {
+      background-color: var(--jazz-neutral-100);
+    }
+
+    button.destructive:hover,
+    .button.destructive:hover {
+      background-color: var(--jazz-destructive-600);
+    }
   }
 
   button.outline,
@@ -40,30 +62,15 @@
     outline-offset: -1px;
   }
 
-  button.outline:hover,
-  .button.outline:hover {
-    background-color: var(--jazz-neutral-100);
-  }
-
   button.secondary,
   .button.secondary {
     background-color: var(--jazz-neutral);
-  }
-
-  button.secondary:hover,
-  .button.secondary:hover {
-    background-color: var(--jazz-neutral-600);
   }
 
   button.ghost,
   .button.ghost {
     background-color: transparent;
     color: var(--jazz-neutral-950);
-  }
-
-  button.ghost:hover,
-  .button.ghost:hover {
-    background-color: var(--jazz-neutral-100);
   }
 
   button.ghost:active,
@@ -75,11 +82,6 @@
   .button.destructive {
     background-color: var(--jazz-destructive);
     color: var(--jazz-neutral-50);
-  }
-
-  button.destructive:hover,
-  .button.destructive:hover {
-    background-color: var(--jazz-destructive-600);
   }
 
   button.link,

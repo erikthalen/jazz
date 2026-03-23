@@ -97,6 +97,10 @@ function head(title: string) {
 function header(path: string) {
   return html`
     <header class="docs-header">
+      <label class="toggle square docs-burger" aria-label="Toggle navigation">
+        <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      </label>
       <a href="${url("/")}" class="docs-logo">Jazz</a>
       <nav>
         <a href="${url("/introduction")}" class="button ghost">Docs</a>
@@ -171,6 +175,7 @@ export function Layout({ title, path, toc, content }: LayoutProps) {
       <head>${head(title)}</head>
       <body>
         ${header(path)}
+        <label for="sidebar-toggle" class="sidebar-backdrop" aria-hidden="true"></label>
         <div class="docs-layout">
           <aside class="docs-sidebar">
             <div class="sidebar-section">

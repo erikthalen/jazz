@@ -28,7 +28,7 @@ export async function EasingsPage(path: string) {
       <p class="lead">
         Custom easing curves for natural-feeling transitions and animations.
       </p>
-      <label>
+      <label class="easings-animate-toggle">
         <input type="checkbox" class="switch" />
         Animate
       </label>

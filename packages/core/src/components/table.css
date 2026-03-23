@@ -20,8 +20,10 @@
     grid-column: 1 / -1;
     grid-template-columns: subgrid;
 
-    &:hover > td {
-      background: var(--jazz-neutral-50);
+    @media (hover: hover) {
+      &:hover > td {
+        background: var(--jazz-neutral-50);
+      }
     }
   }
 

@@ -17,6 +17,7 @@ export async function TooltipPage(path: string) {
       <p class="lead">
         Show a tooltip on hover using the <code>data-tooltip</code> attribute.
       </p>
+      <p>Tooltips only appear on devices that support hover. On touch screens, consider using a different pattern to surface this information.</p>
 
       <h2 id="default">Default</h2>
       <div class="example">

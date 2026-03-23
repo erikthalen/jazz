@@ -33,8 +33,10 @@
           display: none;
         }
 
-        &:hover {
-          background: var(--jazz-neutral-100);
+        @media (hover: hover) {
+          &:hover {
+            background: var(--jazz-neutral-100);
+          }
         }
 
         &::after {

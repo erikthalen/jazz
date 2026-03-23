@@ -1,43 +1,57 @@
-import { html, raw } from 'hono/html'
-import { HomeLayout, url } from '../layout'
-import { highlight } from '../highlight'
-import pkg from '../../../core/package.json'
-import { statSync } from 'node:fs'
-import { resolve } from 'node:path'
+import { html, raw } from "hono/html";
+import { HomeLayout, url } from "../layout";
+import { highlight } from "../highlight";
+import pkg from "../../../core/package.json";
+import { statSync } from "node:fs";
+import { resolve } from "node:path";
 
-const cdnUrl = `https://esm.sh/gh/erikthalen/jazz@v${pkg.version}/main.css`
+const cdnUrl = `https://esm.sh/gh/erikthalen/jazz@v${pkg.version}/main.css`;
 
 function getMainCssSize() {
   try {
-    const cssPath = resolve(import.meta.dirname, '../../../../main.css')
-    const { size } = statSync(cssPath)
-    return (size / 1024).toFixed(1)
+    const cssPath = resolve(import.meta.dirname, "../../../../main.css");
+    const { size } = statSync(cssPath);
+    return (size / 1024).toFixed(1);
   } catch {
-    return null
+    return null;
   }
 }
 
 export async function HomePage(path: string) {
-  const cssSize = getMainCssSize()
+  const cssSize = getMainCssSize();
 
   return HomeLayout({
-    title: 'Jazz',
+    title: "Jazz",
     path,
     content: html`
       <section class="home-hero">
         <div class="home-hero-inner">
           <h1 class="home-headline">Write HTML.<br />Jazz handles the rest.</h1>
           <p class="home-sub">
-            A single CSS file with reset and UI library in one${cssSize ? html`, at just <span style="background-color:var(--jazz-constructive-200);color:var(--jazz-constructive-600);padding:0.25rem 0.5rem;border-radius:8px;">${cssSize} kB</span>` : ''}. Drop it in and get
-            sensible defaults for native elements, a full component
-            library, and a theming system.
+            A single CSS file with reset and UI library in
+            one${cssSize
+              ? html`, at just
+                  <span
+                    style="background-color:var(--jazz-constructive-200);color:var(--jazz-constructive-600);padding:0.25rem 0.5rem;border-radius:8px;"
+                    >${cssSize} kB</span
+                  >`
+              : ""}.
+            Drop it in and get sensible defaults for native elements, a full
+            component library, and a theming system.
           </p>
           <div class="home-cta">
-            <a href="${url('/introduction')}" class="button">Get started</a>
-            <a href="${url('/components/button')}" class="button outline">Components</a>
+            <a href="${url("/introduction")}" class="button">Get started</a>
+            <a href="${url("/components/button")}" class="button outline"
+              >Components</a
+            >
           </div>
           <div class="home-eyebrow code-block">
-            ${raw(await highlight(`<link rel="stylesheet" href="${cdnUrl}" />`, 'html'))}
+            ${raw(
+              await highlight(
+                `<link rel="stylesheet" href="${cdnUrl}" />`,
+                "html",
+              ),
+            )}
           </div>
         </div>
       </section>
@@ -51,7 +65,20 @@ export async function HomePage(path: string) {
 
         <div class="showcase-cell">
           <label style="width:100%">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
             <input type="search" placeholder="Search..." />
             <kbd>⌘K</kbd>
           </label>
@@ -70,29 +97,112 @@ export async function HomePage(path: string) {
             <fieldset role="group">
               <label class="toggle square" aria-label="Align left">
                 <input type="radio" name="home-align" />
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="21" x2="3" y1="6" y2="6"/><line x1="15" x2="3" y1="12" y2="12"/><line x1="17" x2="3" y1="18" y2="18"/></svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="21" x2="3" y1="6" y2="6" />
+                  <line x1="15" x2="3" y1="12" y2="12" />
+                  <line x1="17" x2="3" y1="18" y2="18" />
+                </svg>
               </label>
               <label class="toggle square" aria-label="Align center">
                 <input type="radio" name="home-align" checked />
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="21" x2="3" y1="6" y2="6"/><line x1="17" x2="7" y1="12" y2="12"/><line x1="19" x2="5" y1="18" y2="18"/></svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="21" x2="3" y1="6" y2="6" />
+                  <line x1="17" x2="7" y1="12" y2="12" />
+                  <line x1="19" x2="5" y1="18" y2="18" />
+                </svg>
               </label>
               <label class="toggle square" aria-label="Align right">
                 <input type="radio" name="home-align" />
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="21" x2="3" y1="6" y2="6"/><line x1="21" x2="9" y1="12" y2="12"/><line x1="21" x2="7" y1="18" y2="18"/></svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="21" x2="3" y1="6" y2="6" />
+                  <line x1="21" x2="9" y1="12" y2="12" />
+                  <line x1="21" x2="7" y1="18" y2="18" />
+                </svg>
               </label>
             </fieldset>
             <fieldset role="group">
               <label class="toggle square" aria-label="Bold">
                 <input type="checkbox" />
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8"/></svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8"
+                  />
+                </svg>
               </label>
               <label class="toggle square" aria-label="Italic">
                 <input type="checkbox" checked />
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" x2="10" y1="4" y2="4"/><line x1="14" x2="5" y1="20" y2="20"/><line x1="15" x2="9" y1="4" y2="20"/></svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="19" x2="10" y1="4" y2="4" />
+                  <line x1="14" x2="5" y1="20" y2="20" />
+                  <line x1="15" x2="9" y1="4" y2="20" />
+                </svg>
               </label>
               <label class="toggle square" aria-label="Underline">
                 <input type="checkbox" />
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4v6a6 6 0 0 0 12 0V4"/><line x1="4" x2="20" y1="20" y2="20"/></svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M6 4v6a6 6 0 0 0 12 0V4" />
+                  <line x1="4" x2="20" y1="20" y2="20" />
+                </svg>
               </label>
             </fieldset>
           </div>
@@ -109,22 +219,30 @@ export async function HomePage(path: string) {
         </div>
 
         <div class="showcase-cell">
-          <label style="display:flex;align-items:center;gap:0.75rem;width:100%;justify-content:space-between">
+          <label
+            style="display:flex;align-items:center;gap:0.75rem;width:100%;justify-content:space-between"
+          >
             Wi-Fi <input type="checkbox" class="switch" checked />
           </label>
-          <label style="display:flex;align-items:center;gap:0.75rem;width:100%;justify-content:space-between">
+          <label
+            style="display:flex;align-items:center;gap:0.75rem;width:100%;justify-content:space-between"
+          >
             Bluetooth <input type="checkbox" class="switch" />
           </label>
         </div>
 
         <div class="showcase-cell">
-          <button class="ghost" popovertarget="showcase-dropdown">Options</button>
+          <button class="ghost" popovertarget="showcase-dropdown">
+            Options
+          </button>
           <div id="showcase-dropdown" popover>
             <menu>
               <li><button class="ghost">New File</button></li>
               <li><button class="ghost">New Window</button></li>
               <li>
-                <button class="ghost" popovertarget="showcase-submenu">Open Recent</button>
+                <button class="ghost" popovertarget="showcase-submenu">
+                  Open Recent
+                </button>
                 <div id="showcase-submenu" popover>
                   <menu>
                     <li><button class="ghost">project.zip</button></li>
@@ -137,31 +255,40 @@ export async function HomePage(path: string) {
           </div>
         </div>
 
-        <div class="showcase-cell showcase-cell--tall showcase-cell--wide" style="gap:0">
+        <div
+          class="showcase-cell showcase-cell--tall showcase-cell--wide"
+          style="gap:0"
+        >
           <details open>
             <summary>Account</summary>
-            <p style="padding:0.5rem 0;color:var(--jazz-neutral-500);font-size:0.875rem">Manage your account settings and preferences.</p>
+            <p
+              style="padding:0.5rem 0;color:var(--jazz-neutral-500);font-size:0.875rem"
+            >
+              Manage your account settings and preferences.
+            </p>
           </details>
           <details>
             <summary>Privacy</summary>
-            <p style="padding:0.5rem 0;color:var(--jazz-neutral-500);font-size:0.875rem">Control who can see your data and activity.</p>
+            <p
+              style="padding:0.5rem 0;color:var(--jazz-neutral-500);font-size:0.875rem"
+            >
+              Control who can see your data and activity.
+            </p>
           </details>
           <details>
             <summary>Notifications</summary>
-            <p style="padding:0.5rem 0;color:var(--jazz-neutral-500);font-size:0.875rem">Choose what you want to be notified about.</p>
+            <p
+              style="padding:0.5rem 0;color:var(--jazz-neutral-500);font-size:0.875rem"
+            >
+              Choose what you want to be notified about.
+            </p>
           </details>
         </div>
 
         <div class="showcase-cell">
-          <label>
-            <input type="radio" name="plan" checked /> Free
-          </label>
-          <label>
-            <input type="radio" name="plan" /> Pro
-          </label>
-          <label>
-            <input type="radio" name="plan" /> Team
-          </label>
+          <label> <input type="radio" name="plan" checked /> Free </label>
+          <label> <input type="radio" name="plan" /> Pro </label>
+          <label> <input type="radio" name="plan" /> Team </label>
         </div>
 
         <div class="showcase-cell">
@@ -172,12 +299,38 @@ export async function HomePage(path: string) {
         <div class="showcase-cell">
           <label class="toggle fill">
             <input type="checkbox" />
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+            </svg>
             Bookmark
           </label>
           <label class="toggle fill">
             <input type="checkbox" checked />
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
             Star
           </label>
         </div>
@@ -191,19 +344,33 @@ export async function HomePage(path: string) {
         <div class="showcase-cell showcase-cell--wide">
           <table style="--cols: 1fr 1fr 1fr; width:100%">
             <thead>
-              <tr><th>Name</th><th>Role</th><th>Status</th></tr>
+              <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Status</th>
+              </tr>
             </thead>
             <tbody>
-              <tr><td>Alice</td><td>Engineer</td><td>Active</td></tr>
-              <tr><td>Bob</td><td>Designer</td><td>Away</td></tr>
+              <tr>
+                <td>Alice</td>
+                <td>Engineer</td>
+                <td>Active</td>
+              </tr>
+              <tr>
+                <td>Bob</td>
+                <td>Designer</td>
+                <td>Away</td>
+              </tr>
             </tbody>
           </table>
         </div>
 
         <div class="showcase-cell">
           <article style="width:100%">
-            <header style="padding-inline: 0.75rem;">Card title</header>
-            <p style="font-size:0.875rem;color:var(--jazz-neutral-500)">Some content inside a card with a header.</p>
+            <header>Card title</header>
+            <p style="font-size:0.875rem;color:var(--jazz-neutral-500)">
+              Some content inside a card with a header.
+            </p>
             <footer style="display:flex;justify-content:flex-end;gap:0.5rem">
               <button class="ghost">Cancel</button>
               <button>Save</button>
@@ -223,14 +390,20 @@ export async function HomePage(path: string) {
         </div>
 
         <div class="showcase-cell">
-          <button onclick="document.getElementById('showcase-modal').showModal()">Open modal</button>
+          <button
+            onclick="document.getElementById('showcase-modal').showModal()"
+          >
+            Open modal
+          </button>
           <dialog id="showcase-modal" closedby="any">
             <article>
               <header><strong>Confirm action</strong></header>
               <p>Are you sure you want to continue? This cannot be undone.</p>
               <footer style="display:flex;gap:0.5rem">
                 <button class="destructive">Delete</button>
-                <form method="dialog"><button class="outline">Cancel</button></form>
+                <form method="dialog">
+                  <button class="outline">Cancel</button>
+                </form>
               </footer>
             </article>
           </dialog>
@@ -242,27 +415,54 @@ export async function HomePage(path: string) {
         </div>
 
         <div class="showcase-cell">
-          <label style="display:flex;align-items:center;gap:var(--spacing-2);font-size:0.875rem">
+          <label
+            style="display:flex;align-items:center;gap:var(--spacing-2);font-size:0.875rem"
+          >
             Light
-            <input id="showcase-primary-light" type="color" oninput="document.documentElement.style.setProperty('--jazz-primary-light', this.value)" />
+            <input
+              id="showcase-primary-light"
+              type="color"
+              oninput="document.documentElement.style.setProperty('--jazz-primary-light', this.value)"
+            />
           </label>
-          <label style="display:flex;align-items:center;gap:var(--spacing-2);font-size:0.875rem">
+          <label
+            style="display:flex;align-items:center;gap:var(--spacing-2);font-size:0.875rem"
+          >
             Dark
-            <input id="showcase-primary-dark" type="color" oninput="document.documentElement.style.setProperty('--jazz-primary-dark', this.value)" />
+            <input
+              id="showcase-primary-dark"
+              type="color"
+              oninput="document.documentElement.style.setProperty('--jazz-primary-dark', this.value)"
+            />
           </label>
           <script>
             (function () {
               function toHex(cssColor) {
-                var tmp = document.createElement('div');
+                var tmp = document.createElement("div");
                 tmp.style.color = cssColor;
                 document.body.appendChild(tmp);
-                var rgb = getComputedStyle(tmp).color.match(/\d+/g)?.map(Number);
+                var rgb = getComputedStyle(tmp).color.match(/d+/g)?.map(Number);
                 document.body.removeChild(tmp);
-                return '#' + rgb?.map(function (n) { return n.toString(16).padStart(2, '0'); }).join('');
+                return (
+                  "#" +
+                  rgb
+                    ?.map(function (n) {
+                      return n.toString(16).padStart(2, "0");
+                    })
+                    .join("")
+                );
               }
               var root = document.documentElement;
-              document.getElementById('showcase-primary-light').value = toHex(getComputedStyle(root).getPropertyValue('--jazz-primary-light').trim());
-              document.getElementById('showcase-primary-dark').value = toHex(getComputedStyle(root).getPropertyValue('--jazz-primary-dark').trim());
+              document.getElementById("showcase-primary-light").value = toHex(
+                getComputedStyle(root)
+                  .getPropertyValue("--jazz-primary-light")
+                  .trim(),
+              );
+              document.getElementById("showcase-primary-dark").value = toHex(
+                getComputedStyle(root)
+                  .getPropertyValue("--jazz-primary-dark")
+                  .trim(),
+              );
             })();
           </script>
         </div>
@@ -270,32 +470,34 @@ export async function HomePage(path: string) {
 
       <section class="home-code">
         <div class="code-block">
-          ${raw(await highlight(
-            `<button>Save changes</button>\n` +
-            `<button class="outline">Cancel</button>\n` +
-            `<button class="ghost">Reset</button>\n` +
-            `\n` +
-            `<label>\n` +
-            `  <svg><!-- icon --></svg>\n` +
-            `  <input type="search" placeholder="Search..." />\n` +
-            `</label>\n` +
-            `\n` +
-            `<fieldset role="group">\n` +
-            `  <button class="ghost">Week</button>\n` +
-            `  <button class="ghost">Month</button>\n` +
-            `  <button class="ghost">Year</button>\n` +
-            `</fieldset>\n` +
-            `\n` +
-            `<article>\n` +
-            `  <header>Card title</header>\n` +
-            `  <p>Some content inside a card.</p>\n` +
-            `  <footer>\n` +
-            `    <button class="ghost">Cancel</button>\n` +
-            `    <button>Save</button>\n` +
-            `  </footer>\n` +
-            `</article>`,
-            'html'
-          ))}
+          ${raw(
+            await highlight(
+              `<button>Save changes</button>\n` +
+                `<button class="outline">Cancel</button>\n` +
+                `<button class="ghost">Reset</button>\n` +
+                `\n` +
+                `<label>\n` +
+                `  <svg><!-- icon --></svg>\n` +
+                `  <input type="search" placeholder="Search..." />\n` +
+                `</label>\n` +
+                `\n` +
+                `<fieldset role="group">\n` +
+                `  <button class="ghost">Week</button>\n` +
+                `  <button class="ghost">Month</button>\n` +
+                `  <button class="ghost">Year</button>\n` +
+                `</fieldset>\n` +
+                `\n` +
+                `<article>\n` +
+                `  <header>Card title</header>\n` +
+                `  <p>Some content inside a card.</p>\n` +
+                `  <footer>\n` +
+                `    <button class="ghost">Cancel</button>\n` +
+                `    <button>Save</button>\n` +
+                `  </footer>\n` +
+                `</article>`,
+              "html",
+            ),
+          )}
         </div>
       </section>
 
@@ -304,9 +506,9 @@ export async function HomePage(path: string) {
           <p class="home-feature-label">Reset + UI in one import</p>
           <h2 class="home-feature-title">Batteries included</h2>
           <p class="home-feature-desc">
-            Jazz normalizes browser defaults and builds on top of them.
-            You get a consistent baseline and a full component library
-            from a single stylesheet.
+            Jazz normalizes browser defaults and builds on top of them. You get
+            a consistent baseline and a full component library from a single
+            stylesheet.
           </p>
         </div>
 
@@ -316,8 +518,8 @@ export async function HomePage(path: string) {
           <p class="home-feature-desc">
             Components map to native elements. A
             <code>&lt;button&gt;</code> is a button, a
-            <code>&lt;dialog&gt;</code> is a dialog — no wrappers or
-            utility classes needed.
+            <code>&lt;dialog&gt;</code> is a dialog — no wrappers or utility
+            classes needed.
           </p>
         </div>
 
@@ -325,9 +527,9 @@ export async function HomePage(path: string) {
           <p class="home-feature-label">Works out of the box</p>
           <h2 class="home-feature-title">Dark mode included</h2>
           <p class="home-feature-desc">
-            Responds to <code>prefers-color-scheme</code> automatically.
-            Force a mode with <code>.jazz-light</code> or
-            <code>.jazz-dark</code> on any element.
+            Responds to <code>prefers-color-scheme</code> automatically. Force a
+            mode with <code>.jazz-light</code> or <code>.jazz-dark</code> on any
+            element.
           </p>
         </div>
       </section>
@@ -336,9 +538,14 @@ export async function HomePage(path: string) {
         <div class="home-footer-inner">
           <span>Jazz</span>
           <span>MIT License</span>
-          <a href="https://github.com/erikthalen/jazz" target="_blank" rel="noopener">GitHub</a>
+          <a
+            href="https://github.com/erikthalen/jazz"
+            target="_blank"
+            rel="noopener"
+            >GitHub</a
+          >
         </div>
       </footer>
     `,
-  })
+  });
 }
