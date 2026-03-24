@@ -36,6 +36,8 @@ import { SelectPage } from './pages/select'
 import { ToastPage } from './pages/toast'
 import { SubmenuPage } from './pages/submenu'
 import { FieldPage } from './pages/field'
+import { BlocksPage } from './pages/blocks'
+import { RichtextEditorPage } from './pages/blocks/richtext-editor'
 import { RadioGroupPage } from './pages/radio-group'
 import { EasingsPage } from './pages/easings'
 import { LlmsPage } from './pages/llms'
@@ -81,6 +83,8 @@ app.get('/components/toast', (c) => c.html(ToastPage(c.req.path)))
 app.get('/components/submenu', (c) => c.html(SubmenuPage(c.req.path)))
 app.get('/components/field', (c) => c.html(FieldPage(c.req.path)))
 app.get('/components/radio-group', (c) => c.html(RadioGroupPage(c.req.path)))
+app.get('/blocks', (c) => c.html(BlocksPage(c.req.path)))
+app.get('/blocks/richtext-editor', (c) => c.html(RichtextEditorPage(c.req.path)))
 app.get('/easings', (c) => c.html(EasingsPage(c.req.path)))
 app.get('/typography', (c) => c.html(TypographyPage(c.req.path)))
 app.get('/llms.txt', (c) => c.text(LlmsPage()))

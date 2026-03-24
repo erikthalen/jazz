@@ -18,6 +18,7 @@
     > ul,
     > ol {
       padding-inline-start: 0;
+      list-style: revert;
       list-style-position: outside;
       margin: 0 0 var(--jazz-typography-spacing-vertical) 0;
 
@@ -38,6 +39,23 @@
       li::marker {
         font-variant-numeric: tabular-nums;
       }
+    }
+
+    > blockquote {
+      border-inline-start: 3px solid var(--jazz-neutral-200);
+      padding-inline-start: var(--spacing-4);
+      margin: 0 0 var(--jazz-typography-spacing-vertical) 0;
+
+      footer, cite {
+        display: block;
+        margin-top: var(--spacing-2);
+        color: var(--jazz-neutral-500);
+        font-style: italic;
+      }
+    }
+
+    > :last-child {
+      margin-bottom: 0;
     }
 
     a {

@@ -58,7 +58,7 @@
   .button.outline {
     color: var(--jazz-neutral-950);
     background-color: transparent;
-    outline: 1px solid var(--jazz-neutral-400);
+    outline: 1px solid var(--jazz-neutral-200);
     outline-offset: -1px;
   }
 

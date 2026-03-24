@@ -6,6 +6,7 @@ const toc = [
   { id: 'headings', label: 'Headings' },
   { id: 'paragraphs', label: 'Paragraphs' },
   { id: 'lists', label: 'Lists' },
+  { id: 'blockquote', label: 'Blockquote' },
   { id: 'spacing', label: 'Spacing' },
 ]
 
@@ -116,6 +117,27 @@ export async function ProsePage(path: string) {
   </ol>
 </div>`),
           )}
+        </div>
+      </div>
+
+      <div class="prose">
+        <h2 id="blockquote">Blockquote</h2>
+      </div>
+      <div class="example">
+        <div class="preview preview-padded prose">
+          <blockquote>
+            "Design is a funny word. Some people think design means how it looks. But of course, if you dig deeper, it's really how it works."
+            <footer><cite>— Steve Jobs</cite></footer>
+          </blockquote>
+        </div>
+        <div class="code-block">
+          ${raw(await highlight(`<blockquote>
+  "Design is a funny word. Some people think design means how it
+  looks. But of course, if you dig deeper, it's really how it works."
+  <footer>
+    <cite>— Steve Jobs</cite>
+  </footer>
+</blockquote>`))}
         </div>
       </div>
 

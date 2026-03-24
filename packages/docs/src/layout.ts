@@ -14,6 +14,10 @@ type LayoutProps = {
   content: HtmlEscapedString | Promise<HtmlEscapedString>;
 };
 
+export const blocks: { label: string; path: string }[] = [
+  { label: "Richtext Editor", path: "/blocks/richtext-editor" },
+];
+
 export const components: { label: string; path: string; badge?: string }[] = [
   { label: "Accordion", path: "/components/accordion" },
   { label: "Badge", path: "/components/badge" },
@@ -133,9 +137,8 @@ function header(path: string) {
       <a href="${url("/")}" class="docs-logo">Jazz</a>
       <nav>
         <a href="${url("/introduction")}" class="button ghost">Docs</a>
-        <a href="${url("/components/button")}" class="button ghost"
-          >Components</a
-        >
+        <a href="${url("/components/button")}" class="button ghost">Components</a>
+        <a href="${url("/blocks")}" class="button ghost">Blocks</a>
       </nav>
       <label class="toggle ghost square theme-toggle" aria-label="Toggle theme">
         <input
@@ -367,6 +370,20 @@ export function Layout({ title, path, toc, content }: LayoutProps) {
                       >${c.label}${c.badge
                         ? html` <span class="badge">${c.badge}</span>`
                         : ""}</a
+                    >
+                  `,
+                )}
+              </nav>
+            </div>
+            <div class="sidebar-section">
+              <p class="sidebar-label">Blocks</p>
+              <nav>
+                ${blocks.map(
+                  (b) => html`
+                    <a
+                      href="${url(b.path)}"
+                      ${path === b.path ? 'aria-current="page"' : ""}
+                      >${b.label}</a
                     >
                   `,
                 )}

@@ -200,6 +200,10 @@ body {
   min-width: 0;
 }
 
+.docs-content > .prose {
+  margin-bottom: 1rem;
+}
+
 .docs-content > .prose h1 {
   font-size: 1.875rem;
   font-weight: 700;
