@@ -162,8 +162,8 @@ export async function DropdownPage(path: string) {
         <h2 id="custom-select">Custom select</h2>
         <p>
           Use radio inputs inside <code>&lt;label&gt;</code>s to build a styled
-          select. A checkmark appears on the chosen option via CSS. A small script
-          updates the trigger text and closes the dropdown on pick.
+          select. A checkmark appears on the chosen option via CSS. A small
+          script updates the trigger text and closes the dropdown on pick.
         </p>
       </div>
       <div class="example">
@@ -192,7 +192,7 @@ export async function DropdownPage(path: string) {
           <div
             id="select-dropdown"
             popover
-            onchange="document.querySelector('[popovertarget='+this.id+'] span').textContent=event.target.closest('label').textContent.trim();this.hidePopover()"
+            onchange="document.querySelector('[popovertarget='+this.id+'] span').textContent=event.target.closest('label').textContent;this.hidePopover()"
           >
             <menu>
               <li>
@@ -233,7 +233,7 @@ export async function DropdownPage(path: string) {
 </button>
 
 <div id="my-select" popover
-  onchange="document.querySelector(\`[popovertarget=\${this.id}] span\`).textContent=event.target.closest('label').textContent.trim();this.hidePopover()">
+  onchange="document.querySelector(\`[popovertarget=\${this.id}] span\`).textContent=event.target.closest('label').textContent;this.hidePopover()">
   <menu>
     <li><label>
       <input type="radio" name="fruit" /> Apple
@@ -253,8 +253,8 @@ export async function DropdownPage(path: string) {
         <h2 id="in-form">In a form</h2>
         <p>
           Wrap the trigger and popover in a <code>&lt;form&gt;</code> to
-          participate in form submission. The <code>change</code> event bubbles up
-          so you can handle it on the form.
+          participate in form submission. The <code>change</code> event bubbles
+          up so you can handle it on the form.
         </p>
       </div>
       <div class="example">
@@ -284,7 +284,7 @@ export async function DropdownPage(path: string) {
             <div
               id="form-select-dropdown"
               popover
-              onchange="document.querySelector('[popovertarget='+this.id+'] span').textContent=event.target.closest('label').textContent.trim();this.hidePopover()"
+              onchange="document.querySelector('[popovertarget='+this.id+'] span').textContent=event.target.closest('label').textContent;this.hidePopover()"
             >
               <menu>
                 <li>
@@ -317,7 +317,7 @@ export async function DropdownPage(path: string) {
     <svg><!-- chevron --></svg>
   </button>
   <div id="my-select" popover
-    onchange="document.querySelector(\`[popovertarget=\${this.id}] span\`).textContent=event.target.closest('label').textContent.trim();this.hidePopover()">
+    onchange="document.querySelector(\`[popovertarget=\${this.id}] span\`).textContent=event.target.closest('label').textContent;this.hidePopover()">
     <menu>
       <li><label>
         <input type="radio" name="color" value="red" /> Red

@@ -81,7 +81,7 @@
   button.destructive,
   .button.destructive {
     background-color: var(--jazz-destructive);
-    color: var(--jazz-neutral-50);
+    color: var(--jazz-destructive-100);
   }
 
   button.link,

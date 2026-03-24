@@ -200,7 +200,7 @@ body {
   min-width: 0;
 }
 
-.docs-content .prose h1 {
+.docs-content > .prose h1 {
   font-size: 1.875rem;
   font-weight: 700;
   margin-bottom: 0.375rem;
@@ -210,13 +210,13 @@ body {
   }
 }
 
-.docs-content .prose .lead {
+.docs-content > .prose .lead {
   color: var(--fg-muted);
   font-size: 1rem;
   margin-bottom: 2rem;
 }
 
-.docs-content .prose h2 {
+.docs-content > .prose h2 {
   font-size: 1.25rem;
   font-weight: 600;
   margin-top: 2.5rem;

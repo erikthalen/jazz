@@ -33,6 +33,7 @@ export const components: { label: string; path: string; badge?: string }[] = [
   { label: "Popover", path: "/components/popover" },
   { label: "Progress", path: "/components/progress" },
   { label: "Radio", path: "/components/radio" },
+  { label: "Radio Group", path: "/components/radio-group" },
   { label: "Select", path: "/components/select" },
   { label: "Submenu", path: "/components/submenu" },
   { label: "Separator", path: "/components/separator" },

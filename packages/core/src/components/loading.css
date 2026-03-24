@@ -7,7 +7,7 @@
   display: inline-block;
   background-color: currentColor;
   mask-image: var(--jazz-loading);
-  mask-size: 1rem;
-  width: 1rem;
+  mask-size: 1em;
+  width: 1em;
   aspect-ratio: 1;
 }

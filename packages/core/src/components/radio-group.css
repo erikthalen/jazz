@@ -1,0 +1,26 @@
+@layer jazz {
+  fieldset:not([role="group"]):has(input[type="radio"], input[type="checkbox"]) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+    border: none;
+    padding: 0;
+    margin: 0;
+
+    > legend {
+      font-weight: 600;
+      padding: 0;
+      margin-bottom: var(--spacing-2);
+    }
+
+    > small {
+      color: var(--jazz-neutral-500);
+      font-size: 0.875em;
+    }
+
+    &:has(input:required) > legend::after {
+      content: " *";
+      color: var(--jazz-destructive);
+    }
+  }
+}

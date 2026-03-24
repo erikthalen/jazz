@@ -40,6 +40,7 @@ const routes = [
   "/components/toast",
   "/components/submenu",
   "/components/field",
+  "/components/radio-group",
   "/easings",
   "/typography",
   "/skills",

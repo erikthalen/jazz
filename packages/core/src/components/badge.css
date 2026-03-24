@@ -2,7 +2,7 @@
   .badge {
     display: inline-flex;
     align-items: center;
-    /* padding-block: var(--spacing-1); */
+    gap: var(--spacing-1);
     padding-inline: var(--spacing-2);
     border-radius: 999px;
     font-size: 0.75rem;
@@ -20,7 +20,7 @@
 
     &.destructive {
       background-color: var(--jazz-destructive-100);
-      color: var(--jazz-destructive-600);
+      color: var(--jazz-destructive);
     }
 
     &.outline {

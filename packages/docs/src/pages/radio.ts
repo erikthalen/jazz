@@ -182,14 +182,14 @@ export async function RadioPage(path: string) {
   <label class="choice-card">
     <div>
       <h4>Plus</h4>
-      <div>For individuals and small teams.</div>
+      <small>For individuals and small teams.</small>
     </div>
     <input type="radio" name="plan" value="plus" />
   </label>
   <label class="choice-card">
     <div>
       <h4>Pro</h4>
-      <div>For growing businesses.</div>
+      <small>For growing businesses.</small>
     </div>
     <input type="radio" name="plan" value="pro" checked />
   </label>

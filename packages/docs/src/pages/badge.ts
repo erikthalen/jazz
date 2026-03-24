@@ -7,6 +7,7 @@ const toc = [
   { id: "secondary", label: "Secondary" },
   { id: "destructive", label: "Destructive" },
   { id: "outline", label: "Outline" },
+  { id: "loading", label: "Loading" },
 ];
 
 export async function BadgePage(path: string) {
@@ -40,7 +41,9 @@ export async function BadgePage(path: string) {
           <span class="badge secondary">Secondary</span>
         </div>
         <div class="code-block">
-          ${raw(await highlight(`<span class="badge secondary">Secondary</span>`))}
+          ${raw(
+            await highlight(`<span class="badge secondary">Secondary</span>`),
+          )}
         </div>
       </div>
 
@@ -52,7 +55,11 @@ export async function BadgePage(path: string) {
           <span class="badge destructive">Destructive</span>
         </div>
         <div class="code-block">
-          ${raw(await highlight(`<span class="badge destructive">Destructive</span>`))}
+          ${raw(
+            await highlight(
+              `<span class="badge destructive">Destructive</span>`,
+            ),
+          )}
         </div>
       </div>
 
@@ -65,6 +72,28 @@ export async function BadgePage(path: string) {
         </div>
         <div class="code-block">
           ${raw(await highlight(`<span class="badge outline">Outline</span>`))}
+        </div>
+      </div>
+
+      <div class="prose">
+        <h2 id="loading">Loading</h2>
+        <p>
+          Add <code>aria-busy="true"</code> to inject a spinner. Works on any
+          variant.
+        </p>
+      </div>
+      <div class="example">
+        <div class="preview" style="gap:0.5rem">
+          <span class="badge" aria-busy="true">Syncing</span>
+          <span class="badge secondary" aria-busy="true">Uploading</span>
+          <span class="badge outline" aria-busy="true">Processing</span>
+        </div>
+        <div class="code-block">
+          ${raw(
+            await highlight(
+              `<span class="badge" aria-busy="true">Syncing</span>`,
+            ),
+          )}
         </div>
       </div>
     `,

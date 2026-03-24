@@ -19,6 +19,7 @@
 @import "./components/expander.css";
 @import "./components/textarea.css";
 @import "./components/field.css";
+@import "./components/radio-group.css";
 @import "./components/select.css";
 @import "./components/slider.css";
 @import "./components/switch.css";

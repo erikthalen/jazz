@@ -41,12 +41,20 @@
     -webkit-line-clamp: var(--lines, 3);
     line-clamp: var(--lines, 3);
     max-height: calc(var(--lines, 3) * 1lh);
+    transition:
+      max-height 400ms var(--ease-glide),
+      -webkit-line-clamp 0s 400ms allow-discrete,
+      line-clamp 0s 400ms allow-discrete;
   }
 
   .expander:has(> label > input[type="checkbox"]:checked) > :not(label) {
     -webkit-line-clamp: none;
     line-clamp: none;
     max-height: max-content;
+    transition:
+      max-height 400ms var(--ease-glide),
+      -webkit-line-clamp 0s allow-discrete,
+      line-clamp 0s allow-discrete;
   }
 
   .expander:has(> label > input[type="checkbox"]:checked) > label::after {
