@@ -7,6 +7,7 @@ const toc = [
   { id: "checked", label: "Checked" },
   { id: "with-label", label: "With label" },
   { id: "disabled", label: "Disabled" },
+  { id: "indeterminate", label: "Indeterminate" },
 ];
 
 export async function CheckboxPage(path: string) {
@@ -99,6 +100,33 @@ export async function CheckboxPage(path: string) {
   Disabled checked
 </label>`),
           )}
+        </div>
+      </div>
+
+      <div class="prose">
+        <h2 id="indeterminate">Indeterminate</h2>
+        <p>
+          A third state shown when only some child options are selected. Must be
+          set via JavaScript: <code>checkbox.indeterminate = true</code>.
+        </p>
+      </div>
+      <div class="example">
+        <div class="preview">
+          <label>
+            <input type="checkbox" id="cb-indeterminate" />
+            Select all
+          </label>
+          <script>document.getElementById('cb-indeterminate').indeterminate = true</script>
+        </div>
+        <div class="code-block">
+          ${raw(await highlight(`<label>
+  <input type="checkbox" id="select-all" />
+  Select all
+</label>
+
+<script>
+  document.getElementById('select-all').indeterminate = true
+</script>`))}
         </div>
       </div>
     `,
