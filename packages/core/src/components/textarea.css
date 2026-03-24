@@ -4,7 +4,7 @@
     border: none;
 
     background-color: transparent;
-    outline: 1px solid var(--jazz-neutral-500);
+    outline: 1px solid var(--jazz-neutral-200);
     outline-offset: -1px;
 
     padding-block: var(--spacing-2);
@@ -16,6 +16,8 @@
     resize: vertical;
     field-sizing: content;
     min-height: 6lh;
+    display: block;
+    width: 100%;
 
     &:focus {
       outline-color: currentColor;

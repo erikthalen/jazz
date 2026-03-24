@@ -18,8 +18,22 @@
   }
 
   ul,
-  ol {
+  ol,
+  li {
     list-style: none;
+  }
+
+  ul li,
+  ol li {
+    list-style: revert;
+  }
+
+  a {
+    color: var(--jazz-primary);
+  }
+
+  img {
+    vertical-align: middle;
   }
 
   ::selection {

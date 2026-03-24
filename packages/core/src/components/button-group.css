@@ -5,6 +5,7 @@
     border: 1px solid var(--jazz-neutral-200);
     border-radius: 10px;
     padding: 0;
+    vertical-align: bottom;
 
     & > * {
       border-radius: 0;
@@ -48,10 +49,6 @@
     label {
       outline: none;
       border-radius: 0;
-    }
-
-    + fieldset[role="group"] {
-      margin-left: 0.5rem;
     }
   }
 }

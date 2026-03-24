@@ -194,7 +194,7 @@ export async function DialogPage(path: string) {
           </dialog>
         </div>
         <div class="code-block">
-          ${raw(await highlight(`<dialog closedby="none">...</dialog>`, "html"))}
+          ${raw(await highlight(`<dialog closedby="none">...</dialog>`))}
         </div>
       </div>
     `,

@@ -16,6 +16,8 @@ type LayoutProps = {
 
 export const blocks: { label: string; path: string }[] = [
   { label: "Richtext Editor", path: "/blocks/richtext-editor" },
+  { label: "Signup Form", path: "/blocks/signup-form" },
+  { label: "Sidebar", path: "/blocks/sidebar" },
 ];
 
 export const components: { label: string; path: string; badge?: string }[] = [

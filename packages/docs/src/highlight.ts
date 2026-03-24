@@ -6,11 +6,15 @@ const highlighterPromise = createHighlighter({
   langs: ["html", "js", "css"],
 });
 
-export async function highlight(code: string, lang = "html"): Promise<string> {
+export async function highlight(
+  code: string,
+  printWidth = 80,
+  lang = "html",
+): Promise<string> {
   const parser = lang === "html" ? "html" : lang === "css" ? "css" : "babel";
   const formatted = await format(code, {
     parser,
-    printWidth: 80,
+    printWidth: printWidth,
     tabWidth: 2,
     // singleAttributePerLine: true
   });

@@ -47,10 +47,7 @@ export async function HomePage(path: string) {
           </div>
           <div class="home-eyebrow code-block">
             ${raw(
-              await highlight(
-                `<link rel="stylesheet" href="${cdnUrl}" />`,
-                "html",
-              ),
+              await highlight(`<link rel="stylesheet" href="${cdnUrl}" />`),
             )}
           </div>
         </div>
@@ -510,7 +507,6 @@ export async function HomePage(path: string) {
                 `    <button>Save</button>\n` +
                 `  </footer>\n` +
                 `</article>`,
-              "html",
             ),
           )}
         </div>

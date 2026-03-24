@@ -154,7 +154,7 @@ export async function ProsePage(path: string) {
           ${raw(
             await highlight(`:root {
   --jazz-typography-spacing-vertical: 1.5rem;
-}`, 'css'),
+}`, 80, 'css'),
           )}
         </div>
       </div>

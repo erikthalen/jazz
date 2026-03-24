@@ -33,7 +33,6 @@ export async function IntroPage(path: string) {
           ${raw(
             await highlight(
               `<link rel="stylesheet" href="${cdnUrl}" />\n\n<!-- Optional: theme -->\n<style>\n  :root {\n    --jazz-primary-light: #111;\n    --jazz-primary-dark: #fefefe;\n  }\n</style>`,
-              "html",
             ),
           )}
         </div>
@@ -41,7 +40,9 @@ export async function IntroPage(path: string) {
 
       <div class="prose">
         <h2 id="overview">Overview</h2>
-        <p>Jazz styles native HTML elements directly, no class names required.</p>
+        <p>
+          Jazz styles native HTML elements directly, no class names required.
+        </p>
       </div>
       <div class="example">
         <div class="preview">
@@ -63,9 +64,9 @@ export async function IntroPage(path: string) {
         <h2 id="ui-not-layout">UI, not layout</h2>
         <p>
           Jazz handles the look of interactive elements (buttons, inputs,
-          popovers) but deliberately stays out of the way of how you arrange them
-          on the page. CSS <code>flex</code> and <code>grid</code> are fast to
-          write, easy to read, and need no abstraction on top of them.
+          popovers) but deliberately stays out of the way of how you arrange
+          them on the page. CSS <code>flex</code> and <code>grid</code> are fast
+          to write, easy to read, and need no abstraction on top of them.
         </p>
       </div>
       <div class="example">

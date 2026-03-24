@@ -97,11 +97,12 @@ export async function ButtonPage(path: string) {
         <h2 id="destructive">Destructive</h2>
       </div>
       <div class="example">
-        <div class="preview">
+        <div class="preview" style="gap:0.5rem;">
           <button class="destructive">Delete</button>
+          <button class="ghost destructive">Delete</button>
         </div>
         <div class="code-block">
-          ${raw(await highlight('<button class="destructive">Delete</button>'))}
+          ${raw(await highlight('<button class="destructive">Delete</button>\n<button class="ghost destructive">Delete</button>'))}
         </div>
       </div>
 

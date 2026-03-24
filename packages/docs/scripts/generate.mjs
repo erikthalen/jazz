@@ -43,6 +43,8 @@ const routes = [
   "/components/radio-group",
   "/blocks",
   "/blocks/richtext-editor",
+  "/blocks/signup-form",
+  "/blocks/sidebar",
   "/easings",
   "/typography",
   "/skills",

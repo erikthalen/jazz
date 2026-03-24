@@ -67,7 +67,7 @@ export async function ToggleGroupPage(path: string) {
       </div>
       <div class="example">
         <div class="preview">
-          <div style="display:flex">
+          <div style="display:flex;gap:0.5rem">
             <fieldset role="group">
               <label class="toggle square" aria-label="Align left">
                 <input type="radio" name="align-multi" />
@@ -100,7 +100,7 @@ export async function ToggleGroupPage(path: string) {
         </div>
         <div class="code-block">
           ${raw(
-            await highlight(`<div style="display:flex">
+            await highlight(`<div style="display:flex;gap:0.5rem">
   <fieldset role="group">
     <label class="toggle square" aria-label="Align left">
       <input type="radio" name="align" />
