@@ -25,19 +25,39 @@ export async function SidebarPage(path: string) {
             gap: var(--spacing-3);
           }
 
+          .sidebar-label {
+            display: block;
+            color: var(--jazz-neutral-400);
+            margin-block: var(--spacing-4) var(--spacing-1);
+          }
+
           details {
             border-bottom: 0;
             padding-inline: var(--spacing-3);
 
             summary {
-              font-weight: normal;
               padding-block: var(--spacing-2);
             }
           }
 
-          button:not(.square) {
-            width: -webkit-fill-available;
-            justify-content: flex-start;
+          .sidebar-submenu {
+            border-left: 1px solid var(--jazz-neutral-200);
+            margin-left: var(--spacing-2);
+            margin-block: 0 var(--spacing-4);
+            padding-block: 0;
+
+            button {
+              margin-left: var(--spacing-1);
+            }
+          }
+
+          button {
+            text-align: left;
+
+            &:not(.square) {
+              width: -webkit-fill-available;
+              justify-content: flex-start;
+            }
           }
 
           li {
@@ -46,72 +66,16 @@ export async function SidebarPage(path: string) {
             button.square {
               position: absolute;
               right: 0;
-            }
-          }
 
-          small {
-            width: 100%;
-          }
-
-          [popover] {
-            top: anchor(top);
-            left: calc(anchor(right) + 0.25rem);
-            min-width: unset;
-            translate: -2px 0;
-            position-try-fallbacks: --submenu-left;
-
-            &:popover-open {
-              translate: 0 0;
+              opacity: 0;
             }
 
-            @starting-style {
-              &:popover-open {
-                translate: -2px 0;
+            &:hover {
+              button.square {
+                opacity: 1;
               }
             }
           }
-
-          @position-try --submenu-left {
-            top: anchor(top);
-            left: unset;
-            right: calc(anchor(left) + 0.25rem);
-            translate: 2px 0;
-          }
-        }
-
-        .sidebar-logo {
-          display: flex;
-          background: var(--jazz-primary);
-          color: white;
-          padding: var(--spacing-2);
-        }
-
-        .sidebar-label-new {
-          display: block;
-          color: var(--jazz-neutral-400);
-          margin-block: var(--spacing-4) var(--spacing-1);
-        }
-
-        .sidebar menu li .more-btn {
-          opacity: 0;
-        }
-        .sidebar menu li:hover .more-btn {
-          opacity: 1;
-        }
-
-        .sidebar-submenu {
-          border-left: 1px solid var(--jazz-neutral-200);
-          margin-left: var(--spacing-2);
-          margin-block: 0 var(--spacing-4);
-          padding-block: 0;
-
-          button {
-            margin-left: var(--spacing-1);
-          }
-        }
-
-        .sidebar-user {
-          text-align: left;
         }
       </style>
 
@@ -119,23 +83,12 @@ export async function SidebarPage(path: string) {
         <div class="preview">
           <nav class="sidebar">
             <header>
-              <div class="sidebar-logo">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M7 9l5 -5l5 5" />
-                  <path d="M7 15l5 5l5 -5" />
-                </svg>
-              </div>
+              <img
+                src="https://api.dicebear.com/9.x/icons/svg?seed=Emery"
+                width="32"
+                height="32"
+                alt="avatar"
+              />
               <div style="display:grid">
                 <strong>Acme Inc</strong>
                 <small>Enterprise</small>
@@ -144,7 +97,7 @@ export async function SidebarPage(path: string) {
 
             <div>
               <section>
-                <small class="sidebar-label-new">Platform</small>
+                <small class="sidebar-label">Platform</small>
                 <menu>
                   <li>
                     <details open>
@@ -248,7 +201,7 @@ export async function SidebarPage(path: string) {
               </section>
 
               <section>
-                <small class="sidebar-label-new">Projects</small>
+                <small class="sidebar-label">Projects</small>
                 <menu>
                   <li>
                     <button class="ghost">
@@ -274,7 +227,7 @@ export async function SidebarPage(path: string) {
                       Design Engineering
                     </button>
                     <button
-                      class="ghost square more-btn"
+                      class="ghost square"
                       popovertarget="sidebar-de-menu"
                     >
                       <svg
@@ -297,7 +250,9 @@ export async function SidebarPage(path: string) {
                       <menu>
                         <li><button class="ghost">View</button></li>
                         <li><button class="ghost">Share</button></li>
-                        <li><button class="ghost destructive">Delete</button></li>
+                        <li>
+                          <button class="ghost destructive">Delete</button>
+                        </li>
                       </menu>
                     </div>
                   </li>
@@ -322,7 +277,7 @@ export async function SidebarPage(path: string) {
                       Sales &amp; Marketing
                     </button>
                     <button
-                      class="ghost square more-btn"
+                      class="ghost square"
                       popovertarget="sidebar-sm-menu"
                     >
                       <svg
@@ -345,7 +300,9 @@ export async function SidebarPage(path: string) {
                       <menu>
                         <li><button class="ghost">View</button></li>
                         <li><button class="ghost">Share</button></li>
-                        <li><button class="ghost destructive">Delete</button></li>
+                        <li>
+                          <button class="ghost destructive">Delete</button>
+                        </li>
                       </menu>
                     </div>
                   </li>
@@ -372,7 +329,7 @@ export async function SidebarPage(path: string) {
                       Travel
                     </button>
                     <button
-                      class="ghost square more-btn"
+                      class="ghost square"
                       popovertarget="sidebar-travel-menu"
                     >
                       <svg
@@ -395,7 +352,9 @@ export async function SidebarPage(path: string) {
                       <menu>
                         <li><button class="ghost">View</button></li>
                         <li><button class="ghost">Share</button></li>
-                        <li><button class="ghost destructive">Delete</button></li>
+                        <li>
+                          <button class="ghost destructive">Delete</button>
+                        </li>
                       </menu>
                     </div>
                   </li>
@@ -478,6 +437,7 @@ export async function SidebarPage(path: string) {
                   >
                 </li>
               </menu>
+              <hr />
               <button
                 class="ghost sidebar-user"
                 popovertarget="sidebar-user-menu"
@@ -509,7 +469,7 @@ export async function SidebarPage(path: string) {
                   <path d="m7 9 5-5 5 5" />
                 </svg>
               </button>
-              <div id="sidebar-user-menu" popover>
+              <div id="sidebar-user-menu" popover data-placement="right bottom">
                 <menu>
                   <li
                     style="display:flex;align-items:center;gap:var(--spacing-3);padding:var(--spacing-2) var(--spacing-3)"
@@ -660,19 +620,39 @@ export async function SidebarPage(path: string) {
       gap: var(--spacing-3);
     }
 
+  .sidebar-label {
+    display: block;
+    color: var(--jazz-neutral-400);
+    margin-block: var(--spacing-4) var(--spacing-1);
+  }
+
     details {
       border-bottom: 0;
       padding-inline: var(--spacing-3);
 
       summary {
-        font-weight: normal;
         padding-block: var(--spacing-2);
       }
     }
 
-    button:not(.square) {
-      width: -webkit-fill-available;
-      justify-content: flex-start;
+    .sidebar-submenu {
+      border-left: 1px solid var(--jazz-neutral-200);
+      margin-left: var(--spacing-2);
+      margin-block: 0 var(--spacing-4);
+      padding-block: 0;
+
+      button {
+        margin-left: var(--spacing-1);
+      }
+    }
+
+    button {
+      text-align: left;
+
+      &:not(.square) {
+        width: -webkit-fill-available;
+        justify-content: flex-start;
+      }
     }
 
     li {
@@ -681,74 +661,26 @@ export async function SidebarPage(path: string) {
       button.square {
         position: absolute;
         right: 0;
-      }
-    }
-
-    small {
-      width: 100%;
-    }
-
-    [popover] {
-      top: anchor(top);
-      left: calc(anchor(right) + 0.25rem);
-      min-width: unset;
-      translate: -2px 0;
-      position-try-fallbacks: --submenu-left;
-
-      &:popover-open {
-        translate: 0 0;
+        opacity: 0;
       }
 
-      @starting-style {
-        &:popover-open {
-          translate: -2px 0;
+      &:hover {
+        button.square {
+          opacity: 1;
         }
       }
     }
-
-    @position-try --submenu-left {
-      top: anchor(top);
-      left: unset;
-      right: calc(anchor(left) + 0.25rem);
-      translate: 2px 0;
-    }
-  }
-
-  .sidebar-logo {
-    display: flex;
-    background: var(--jazz-primary);
-    color: white;
-    padding: var(--spacing-2);
-  }
-
-  .sidebar-label-new {
-    display: block;
-    color: var(--jazz-neutral-400);
-    margin-block: var(--spacing-4) var(--spacing-1);
-  }
-
-  .sidebar menu li .more-btn { opacity: 0; }
-  .sidebar menu li:hover .more-btn { opacity: 1; }
-
-  .sidebar-submenu {
-    border-left: 1px solid var(--jazz-neutral-200);
-    margin-left: var(--spacing-2);
-    margin-block: 0 var(--spacing-4);
-    padding-block: 0;
-
-    button {
-      margin-left: var(--spacing-1);
-    }
-  }
-
-  .sidebar-user {
-    text-align: left;
   }
 </style>
 
 <nav class="sidebar">
   <header>
-    <div class="sidebar-logo"><svg>...</svg></div>
+    <img
+      src="https://api.dicebear.com/9.x/icons/svg?seed=Emery"
+      width="32"
+      height="32"
+      alt="avatar"
+    />
     <div style="display:grid">
       <strong>Acme Inc</strong>
       <small>Enterprise</small>
@@ -757,7 +689,7 @@ export async function SidebarPage(path: string) {
 
   <div>
     <section>
-      <small class="sidebar-label-new">Platform</small>
+      <small class="sidebar-label">Platform</small>
       <menu>
         <li>
           <details open>
@@ -781,11 +713,11 @@ export async function SidebarPage(path: string) {
     </section>
 
     <section>
-      <small class="sidebar-label-new">Projects</small>
+      <small class="sidebar-label">Projects</small>
       <menu>
         <li>
           <button class="ghost"><svg>...</svg> Design Engineering</button>
-          <button class="ghost square more-btn" popovertarget="de-menu"><svg>...</svg></button>
+          <button class="ghost square" popovertarget="de-menu"><svg>...</svg></button>
           <div id="de-menu" popover>
             <menu>
               <li><button class="ghost">View</button></li>
@@ -796,7 +728,7 @@ export async function SidebarPage(path: string) {
         </li>
         <li>
           <button class="ghost"><svg>...</svg> Sales &amp; Marketing</button>
-          <button class="ghost square more-btn" popovertarget="sm-menu"><svg>...</svg></button>
+          <button class="ghost square" popovertarget="sm-menu"><svg>...</svg></button>
           <div id="sm-menu" popover>
             <menu>
               <li><button class="ghost">View</button></li>
@@ -807,7 +739,7 @@ export async function SidebarPage(path: string) {
         </li>
         <li>
           <button class="ghost"><svg>...</svg> Travel</button>
-          <button class="ghost square more-btn" popovertarget="travel-menu"><svg>...</svg></button>
+          <button class="ghost square" popovertarget="travel-menu"><svg>...</svg></button>
           <div id="travel-menu" popover>
             <menu>
               <li><button class="ghost">View</button></li>
@@ -830,6 +762,7 @@ export async function SidebarPage(path: string) {
       <li><small><button class="ghost"><svg>...</svg> Support</button></small></li>
       <li><small><button class="ghost"><svg>...</svg> Feedback</button></small></li>
     </menu>
+    <hr />
     <button class="ghost sidebar-user" popovertarget="user-menu">
       <img src="avatar.png" width="26" height="26" alt="" />
       <div style="display:grid">
@@ -838,7 +771,7 @@ export async function SidebarPage(path: string) {
       </div>
       <svg style="margin-left:auto">...</svg>
     </button>
-    <div id="user-menu" popover>
+    <div id="user-menu" popover data-placement="right bottom">
       <menu>
         <li style="display:flex;align-items:center;gap:var(--spacing-3);padding:var(--spacing-2) var(--spacing-3)">
           <img src="avatar.png" width="32" height="32" alt="" />

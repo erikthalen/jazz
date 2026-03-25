@@ -2,7 +2,8 @@ import { html, raw } from "hono/html";
 import { HomeLayout, url } from "../layout";
 import { highlight } from "../highlight";
 import pkg from "../../../core/package.json";
-import { statSync } from "node:fs";
+import { readFileSync } from "node:fs";
+import { brotliCompressSync } from "node:zlib";
 import { resolve } from "node:path";
 
 const cdnUrl = `https://esm.sh/gh/erikthalen/jazz@v${pkg.version}/main.css`;
@@ -10,8 +11,9 @@ const cdnUrl = `https://esm.sh/gh/erikthalen/jazz@v${pkg.version}/main.css`;
 function getMainCssSize() {
   try {
     const cssPath = resolve(import.meta.dirname, "../../../../main.css");
-    const { size } = statSync(cssPath);
-    return (size / 1024).toFixed(1);
+    const css = readFileSync(cssPath);
+    const compressed = brotliCompressSync(css);
+    return (compressed.byteLength / 1024).toFixed(1);
   } catch {
     return null;
   }
@@ -34,7 +36,8 @@ export async function HomePage(path: string) {
                   <span
                     style="background-color:var(--jazz-constructive-200);color:var(--jazz-constructive-600);padding:0.25rem 0.5rem;border-radius:8px;"
                     >${cssSize} kB</span
-                  >`
+                  >
+                  brotli compressed`
               : ""}.
             Drop it in and get sensible defaults for native elements, a full
             component library, and a theming system.
@@ -264,25 +267,19 @@ export async function HomePage(path: string) {
         >
           <details open>
             <summary>Account</summary>
-            <p
-              style="padding:0.5rem 0;color:var(--jazz-neutral-500);font-size:0.875rem"
-            >
+            <p style="color:var(--jazz-neutral-500);font-size:0.875rem">
               Manage your account settings and preferences.
             </p>
           </details>
           <details>
             <summary>Privacy</summary>
-            <p
-              style="padding:0.5rem 0;color:var(--jazz-neutral-500);font-size:0.875rem"
-            >
+            <p style="color:var(--jazz-neutral-500);font-size:0.875rem">
               Control who can see your data and activity.
             </p>
           </details>
           <details>
             <summary>Notifications</summary>
-            <p
-              style="padding:0.5rem 0;color:var(--jazz-neutral-500);font-size:0.875rem"
-            >
+            <p style="color:var(--jazz-neutral-500);font-size:0.875rem">
               Choose what you want to be notified about.
             </p>
           </details>

@@ -60,22 +60,92 @@
 
   @position-try --popover-above {
     top: unset;
-    bottom: calc(anchor(top) + 0.5rem);
+    bottom: calc(anchor(top) + var(--spacing-1));
     left: anchor(left);
     translate: 0 4px;
   }
 
   @position-try --popover-right {
-    top: calc(anchor(bottom) + 0.5rem);
+    top: calc(anchor(bottom) + var(--spacing-1));
     left: unset;
     right: anchor(right);
   }
 
   @position-try --popover-above-right {
     top: unset;
-    bottom: calc(anchor(top) + 0.5rem);
+    bottom: calc(anchor(top) + var(--spacing-1));
     left: unset;
     right: anchor(right);
     translate: 0 4px;
+  }
+
+  /* per-side animation direction */
+  [popover][data-placement^="top"]   { --_translate-from: 0 2px; }
+  [popover][data-placement^="left"]  { --_translate-from: 2px 0; }
+  [popover][data-placement^="right"] { --_translate-from: -2px 0; }
+  /* bottom is the default (0 -2px), no override needed */
+
+  /* bottom placements */
+  [popover][data-placement="bottom left"] {
+    top: calc(anchor(bottom) + var(--spacing-1));
+    bottom: unset;
+    left: anchor(left);
+    right: unset;
+  }
+
+  [popover][data-placement="bottom right"] {
+    top: calc(anchor(bottom) + var(--spacing-1));
+    bottom: unset;
+    left: unset;
+    right: anchor(right);
+  }
+
+  /* top placements */
+  [popover][data-placement="top left"] {
+    top: unset;
+    bottom: calc(anchor(top) + var(--spacing-1));
+    left: anchor(left);
+    right: unset;
+  }
+
+  [popover][data-placement="top right"] {
+    top: unset;
+    bottom: calc(anchor(top) + var(--spacing-1));
+    left: unset;
+    right: anchor(right);
+  }
+
+  /* left placements */
+  [popover][data-placement="left top"] {
+    top: anchor(top);
+    bottom: unset;
+    left: unset;
+    right: calc(anchor(left) + var(--spacing-1));
+    min-width: unset;
+  }
+
+  [popover][data-placement="left bottom"] {
+    top: unset;
+    bottom: anchor(bottom);
+    left: unset;
+    right: calc(anchor(left) + var(--spacing-1));
+    min-width: unset;
+  }
+
+  /* right placements */
+  [popover][data-placement="right top"] {
+    top: anchor(top);
+    bottom: unset;
+    left: calc(anchor(right) + var(--spacing-1));
+    right: unset;
+    min-width: unset;
+  }
+
+  [popover][data-placement="right bottom"] {
+    top: unset;
+    bottom: anchor(bottom);
+    left: calc(anchor(right) + var(--spacing-1));
+    right: unset;
+    min-width: unset;
   }
 }

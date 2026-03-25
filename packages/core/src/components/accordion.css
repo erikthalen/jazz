@@ -24,9 +24,9 @@
       justify-content: space-between;
       gap: 0.75rem;
       cursor: pointer;
-      font-weight: 500;
       list-style: none;
       user-select: none;
+      padding-block: var(--spacing-3);
 
       text-decoration: underline;
       text-decoration-color: transparent;
@@ -67,8 +67,8 @@
       transform: perspective(1rem) rotateX(180deg);
     }
 
-    > * {
-      padding-block: var(--spacing-3);
+    > *:not(summary) {
+      padding-block: var(--spacing-3) var(--spacing-6);
     }
   }
 }

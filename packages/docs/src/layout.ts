@@ -14,10 +14,10 @@ type LayoutProps = {
   content: HtmlEscapedString | Promise<HtmlEscapedString>;
 };
 
-export const blocks: { label: string; path: string }[] = [
-  { label: "Richtext Editor", path: "/blocks/richtext-editor" },
-  { label: "Signup Form", path: "/blocks/signup-form" },
-  { label: "Sidebar", path: "/blocks/sidebar" },
+export const blocks: { label: string; path: string; description: string }[] = [
+  { label: "Richtext Editor", path: "/blocks/richtext-editor", description: "A full-featured text editor with formatting toolbar and keyboard shortcuts." },
+  { label: "Signup Form", path: "/blocks/signup-form", description: "A clean authentication form with email, password, and validation states." },
+  { label: "Sidebar", path: "/blocks/sidebar", description: "An app navigation sidebar with grouped links, expandable sections, and a user menu." },
 ];
 
 export const components: { label: string; path: string; badge?: string }[] = [

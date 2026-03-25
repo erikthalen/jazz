@@ -1,5 +1,5 @@
 import { html } from "hono/html";
-import { Layout, blocks } from "../layout";
+import { Layout, blocks, url } from "../layout";
 
 export async function BlocksPage(path: string) {
   return Layout({
@@ -9,8 +9,8 @@ export async function BlocksPage(path: string) {
       <div class="prose">
         <h1>Blocks</h1>
         <p class="lead">
-          Larger compositions built entirely from Jazz components, showing how
-          they combine into real UI patterns.
+          Larger compositions built entirely from Jazz components, with minimal
+          extra CSS. Showing how they combine into real UI patterns.
         </p>
       </div>
       <div
@@ -18,9 +18,14 @@ export async function BlocksPage(path: string) {
       >
         ${blocks.map(
           (b) => html`
-            <a href="${b.path}" style="text-decoration:none">
+            <a href="${url(b.path)}" style="text-decoration:none">
               <article style="height:100%;cursor:pointer">
                 <strong>${b.label}</strong>
+                <p
+                  style="margin:var(--spacing-2) 0 0;color:var(--jazz-neutral-500);font-size:0.875rem"
+                >
+                  ${b.description}
+                </p>
               </article>
             </a>
           `,

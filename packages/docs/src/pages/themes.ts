@@ -1,17 +1,17 @@
-import { html, raw } from 'hono/html'
-import { Layout } from '../layout'
-import { highlight } from '../highlight'
+import { html, raw } from "hono/html";
+import { Layout } from "../layout";
+import { highlight } from "../highlight";
 
 const toc = [
-  { id: 'primary-scale', label: 'Primary scale' },
-  { id: 'neutral-scale', label: 'Neutral scale' },
-  { id: 'constructive-scale', label: 'Constructive scale' },
-  { id: 'destructive-scale', label: 'Destructive scale' },
-  { id: 'customizing', label: 'Customizing' },
-  { id: 'dark-mode', label: 'Dark mode' },
-]
+  { id: "primary-scale", label: "Primary scale" },
+  { id: "neutral-scale", label: "Neutral scale" },
+  { id: "constructive-scale", label: "Constructive scale" },
+  { id: "destructive-scale", label: "Destructive scale" },
+  { id: "customizing", label: "Customizing" },
+  { id: "dark-mode", label: "Dark mode" },
+];
 
-const steps = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950]
+const steps = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
 
 function colorScale(name: string) {
   return html`
@@ -28,12 +28,12 @@ function colorScale(name: string) {
         `,
       )}
     </div>
-  `
+  `;
 }
 
 export async function ThemesPage(path: string) {
   return Layout({
-    title: 'Themes',
+    title: "Themes",
     path,
     toc,
     content: html`
@@ -46,14 +46,15 @@ export async function ThemesPage(path: string) {
 
         <h2 id="primary-scale">Primary scale</h2>
         <p>
-          Used for interactive elements like buttons and focus rings. The palette
-          is derived from <code>--jazz-primary-light</code> in light mode and
-          <code>--jazz-primary-dark</code> in dark mode — useful when a color
-          needs adjusting between themes (e.g. slightly lighter in dark mode for
-          contrast). Both fall back to <code>--jazz-primary</code> if unset.
+          Used for interactive elements like buttons and focus rings. The
+          palette is derived from <code>--jazz-primary-light</code> in light
+          mode and <code>--jazz-primary-dark</code> in dark mode — useful when a
+          color needs adjusting between themes (e.g. slightly lighter in dark
+          mode for contrast). Both fall back to <code>--jazz-primary</code> if
+          unset.
         </p>
       </div>
-      ${colorScale('primary')}
+      ${colorScale("primary")}
 
       <div class="prose">
         <h2 id="neutral-scale">Neutral scale</h2>
@@ -62,7 +63,7 @@ export async function ThemesPage(path: string) {
           <code>--jazz-neutral</code> to adjust neutral tones.
         </p>
       </div>
-      ${colorScale('neutral')}
+      ${colorScale("neutral")}
 
       <div class="prose">
         <h2 id="constructive-scale">Constructive scale</h2>
@@ -71,7 +72,7 @@ export async function ThemesPage(path: string) {
           <code>--jazz-constructive</code>.
         </p>
       </div>
-      ${colorScale('constructive')}
+      ${colorScale("constructive")}
 
       <div class="prose">
         <h2 id="destructive-scale">Destructive scale</h2>
@@ -80,7 +81,7 @@ export async function ThemesPage(path: string) {
           <code>--jazz-destructive</code>.
         </p>
       </div>
-      ${colorScale('destructive')}
+      ${colorScale("destructive")}
 
       <div class="prose">
         <h2 id="customizing">Customizing</h2>
@@ -105,7 +106,8 @@ export async function ThemesPage(path: string) {
 
   --jazz-neutral: #6b7280;
 }`,
-              'css',
+              80,
+              "css",
             ),
           )}
         </div>
@@ -114,8 +116,9 @@ export async function ThemesPage(path: string) {
       <div class="prose">
         <h2 id="dark-mode">Dark mode</h2>
         <p>
-          Jazz responds to <code>prefers-color-scheme: dark</code> automatically.
-          You can also force a mode by adding a class to any container element:
+          Jazz responds to
+          <code>prefers-color-scheme: dark</code> automatically. You can also
+          force a mode by adding a class to any container element:
         </p>
       </div>
       <div class="example">
@@ -129,5 +132,5 @@ export async function ThemesPage(path: string) {
         </div>
       </div>
     `,
-  })
+  });
 }
