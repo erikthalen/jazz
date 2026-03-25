@@ -28,19 +28,18 @@ export async function HomePage(path: string) {
     content: html`
       <section class="home-hero">
         <div class="home-hero-inner">
-          <h1 class="home-headline">Write HTML.<br />Jazz handles the rest.</h1>
+          <h1 class="home-headline">One stylesheet.<br />That's it.</h1>
           <p class="home-sub">
-            A single CSS file with reset and UI library in
-            one${cssSize
-              ? html`, at just
-                  <span
+            Drop in a single CSS file and get a full component library, theming
+            and dark mode.
+            ${cssSize
+              ? html` <span
                     style="background-color:var(--jazz-constructive-200);color:var(--jazz-constructive-600);padding:0.25rem 0.5rem;border-radius:8px;"
                     >${cssSize} kB</span
                   >
                   brotli compressed`
-              : ""}.
-            Drop it in and get sensible defaults for native elements, a full
-            component library, and a theming system.
+              : ""}
+            packing all that jazz.
           </p>
           <div class="home-cta">
             <a href="${url("/introduction")}" class="button">Get started</a>
