@@ -11,6 +11,7 @@
   "dependencies": {
     "@jazz/core": "workspace:*",
     "hono": "^4.0.0",
+    "prettier": "^3.8.1",
     "shiki": "^4.0.2"
   },
   "devDependencies": {
