@@ -11,6 +11,7 @@
     top: calc(anchor(bottom) + var(--spacing-1));
     left: anchor(left);
     min-width: anchor-size(width);
+    --_translate-from: 0 -2px;
 
     /* try right-aligned, then above, then above-right */
     position-try-fallbacks: --popover-right, --popover-above, --popover-above-right;
@@ -37,7 +38,7 @@
 
     /* animation */
     opacity: 0;
-    translate: 0 -2px;
+    translate: var(--_translate-from);
     transition:
       opacity 100ms var(--ease-glide),
       translate 100ms var(--ease-glide),
@@ -52,7 +53,7 @@
     @starting-style {
       &:popover-open {
         opacity: 0;
-        translate: 0 -2px;
+        translate: var(--_translate-from);
       }
     }
   }
