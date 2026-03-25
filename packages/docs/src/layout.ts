@@ -15,9 +15,24 @@ type LayoutProps = {
 };
 
 export const blocks: { label: string; path: string; description: string }[] = [
-  { label: "Richtext Editor", path: "/blocks/richtext-editor", description: "A full-featured text editor with formatting toolbar and keyboard shortcuts." },
-  { label: "Signup Form", path: "/blocks/signup-form", description: "A clean authentication form with email, password, and validation states." },
-  { label: "Sidebar", path: "/blocks/sidebar", description: "An app navigation sidebar with grouped links, expandable sections, and a user menu." },
+  {
+    label: "Richtext Editor",
+    path: "/blocks/richtext-editor",
+    description:
+      "A full-featured text editor with formatting toolbar and keyboard shortcuts.",
+  },
+  {
+    label: "Signup Form",
+    path: "/blocks/signup-form",
+    description:
+      "A clean authentication form with email, password, and validation states.",
+  },
+  {
+    label: "Sidebar",
+    path: "/blocks/sidebar",
+    description:
+      "An app navigation sidebar with grouped links, expandable sections, and a user menu.",
+  },
 ];
 
 export const components: { label: string; path: string; badge?: string }[] = [
@@ -29,6 +44,8 @@ export const components: { label: string; path: string; badge?: string }[] = [
   { label: "Checkbox", path: "/components/checkbox" },
   { label: "Code", path: "/components/code" },
   { label: "Color Input", path: "/components/color-input" },
+  { label: "Combobox", path: "/components/combobox", badge: "WIP" },
+  { label: "Datalist", path: "/components/datalist" },
   { label: "Date Input", path: "/components/date-input" },
   { label: "Dialog", path: "/components/dialog" },
   { label: "Dropdown", path: "/components/dropdown" },
@@ -137,10 +154,30 @@ function header(path: string) {
           <line x1="4" x2="20" y1="18" y2="18" />
         </svg>
       </label>
-      <a href="${url("/")}" class="docs-logo">Jazz</a>
+      <a href="${url("/")}" class="docs-logo"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+          <path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+          <path d="M9 17v-13h10v13" />
+          <path d="M9 8h10" />
+        </svg>
+        Jazz</a
+      >
       <nav>
         <a href="${url("/introduction")}" class="button ghost">Docs</a>
-        <a href="${url("/components/button")}" class="button ghost">Components</a>
+        <a href="${url("/components/button")}" class="button ghost"
+          >Components</a
+        >
         <a href="${url("/blocks")}" class="button ghost">Blocks</a>
       </nav>
       <label class="toggle ghost square theme-toggle" aria-label="Toggle theme">
@@ -315,11 +352,24 @@ export function Layout({ title, path, toc, content }: LayoutProps) {
                 >
                   Introduction
                 </a>
+
+                <a
+                  href="${url("/customization")}"
+                  ${path === "/customization" ? 'aria-current="page"' : ""}
+                >
+                  Customization
+                </a>
                 <a
                   href="${url("/themes")}"
                   ${path === "/themes" ? 'aria-current="page"' : ""}
                 >
                   Themes
+                </a>
+                <a
+                  href="${url("/icons")}"
+                  ${path === "/icons" ? 'aria-current="page"' : ""}
+                >
+                  Icons
                 </a>
                 <a
                   href="${url("/components/prose")}"
@@ -339,18 +389,7 @@ export function Layout({ title, path, toc, content }: LayoutProps) {
                 >
                   Typography
                 </a>
-                <a
-                  href="${url("/icons")}"
-                  ${path === "/icons" ? 'aria-current="page"' : ""}
-                >
-                  Icons
-                </a>
-                <a
-                  href="${url("/customization")}"
-                  ${path === "/customization" ? 'aria-current="page"' : ""}
-                >
-                  Customization
-                </a>
+
                 <a
                   href="${url("/skills")}"
                   ${path === "/skills" ? 'aria-current="page"' : ""}

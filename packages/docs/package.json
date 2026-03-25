@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@jazz/core": "workspace:*",
+    "@tabler/icons": "^3.40.0",
     "hono": "^4.0.0",
+    "minisearch": "^7.2.0",
     "prettier": "^3.8.1",
     "shiki": "^4.0.2"
   },

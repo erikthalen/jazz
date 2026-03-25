@@ -22,6 +22,8 @@
 @import "./components/field.css";
 @import "./components/radio-group.css";
 @import "./components/select.css";
+@import "./components/datalist.css";
+@import "./components/combobox.css";
 @import "./components/slider.css";
 @import "./components/switch.css";
 @import "./components/tooltip.css";

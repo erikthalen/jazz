@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import { readFileSync } from "node:fs";
 
 const coreCssPath = fileURLToPath(new URL("../../main.css", import.meta.url));
+const miniSearchPath = fileURLToPath(new URL("./node_modules/minisearch/dist/es/index.js", import.meta.url));
 
 export default defineConfig({
   plugins: [
@@ -14,6 +15,10 @@ export default defineConfig({
         server.middlewares.use("/main.css", (_req, res) => {
           res.setHeader("Content-Type", "text/css");
           res.end(readFileSync(coreCssPath, "utf-8"));
+        });
+        server.middlewares.use("/minisearch.js", (_req, res) => {
+          res.setHeader("Content-Type", "application/javascript");
+          res.end(readFileSync(miniSearchPath, "utf-8"));
         });
       },
       handleHotUpdate({ file, server }) {

@@ -29,11 +29,13 @@ import { DateInputPage } from './pages/date-input'
 import { TablePage } from './pages/table'
 import { TogglePage } from './pages/toggle'
 import { ToggleGroupPage } from './pages/toggle-group'
-import { IconsPage } from './pages/icons'
+import { IconsPage, IconsData, IconsFilledData } from './pages/icons'
 import { CustomizationPage } from './pages/customization'
 import { BadgePage } from './pages/badge'
 import { DropdownPage } from './pages/dropdown'
 import { SelectPage } from './pages/select'
+import { DatalistPage } from './pages/datalist'
+import { ComboboxPage } from './pages/combobox'
 import { ToastPage } from './pages/toast'
 import { SubmenuPage } from './pages/submenu'
 import { FieldPage } from './pages/field'
@@ -79,10 +81,14 @@ app.get('/components/file-drop', (c) => c.html(FileDropPage(c.req.path)))
 app.get('/components/expander', (c) => c.html(ExpanderPage(c.req.path)))
 app.get('/components/loading', (c) => c.html(LoadingPage(c.req.path)))
 app.get('/icons', (c) => c.html(IconsPage(c.req.path)))
+app.get('/icons.json', (c) => c.json(JSON.parse(IconsData())))
+app.get('/icons-filled.json', (c) => c.json(JSON.parse(IconsFilledData())))
 app.get('/customization', (c) => c.html(CustomizationPage(c.req.path)))
 app.get('/components/badge', (c) => c.html(BadgePage(c.req.path)))
 app.get('/components/dropdown', (c) => c.html(DropdownPage(c.req.path)))
 app.get('/components/select', (c) => c.html(SelectPage(c.req.path)))
+app.get('/components/datalist', (c) => c.html(DatalistPage(c.req.path)))
+app.get('/components/combobox', (c) => c.html(ComboboxPage(c.req.path)))
 app.get('/components/toast', (c) => c.html(ToastPage(c.req.path)))
 app.get('/components/submenu', (c) => c.html(SubmenuPage(c.req.path)))
 app.get('/components/field', (c) => c.html(FieldPage(c.req.path)))

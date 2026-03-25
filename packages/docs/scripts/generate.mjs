@@ -14,6 +14,8 @@ const routes = [
   "/components/card",
   "/components/checkbox",
   "/components/color-input",
+  "/components/combobox",
+  "/components/datalist",
   "/components/date-input",
   "/components/dialog",
   "/components/text-field",
@@ -34,6 +36,8 @@ const routes = [
   "/components/toggle-group",
   "/components/tooltip",
   "/icons",
+  "/icons.json",
+  "/icons-filled.json",
   "/customization",
   "/components/badge",
   "/components/dropdown",
@@ -78,6 +82,10 @@ const skillContent = await skillResponse.text();
 const repoRoot = new URL("../../..", import.meta.url).pathname;
 await writeFile(join(repoRoot, "SKILL.md"), skillContent);
 console.log("  SKILL.md → repo root");
+
+// Copy minisearch ESM bundle
+const miniSearchSrc = new URL("../node_modules/minisearch/dist/es/index.js", import.meta.url).pathname;
+await copyFile(miniSearchSrc, join(outDir, "minisearch.js"));
 
 // GitHub Pages needs this to disable Jekyll processing
 await writeFile(join(outDir, ".nojekyll"), "");

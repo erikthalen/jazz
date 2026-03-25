@@ -15,7 +15,7 @@ const families = ["sine", "quad", "cubic", "quart", "quint", "expo", "circ", "ba
 
 function easingDemo(variable: string, label: string) {
   return html`
-    <div>
+    <div style="width:100%">
       <div class="easing-demo">
         <div class="easing-track" style="container-type:inline-size">
           <div

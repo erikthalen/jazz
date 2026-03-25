@@ -1,0 +1,17 @@
+@layer jazz {
+  .combobox {
+    display: inline-block;
+
+    > input {
+      width: 100%;
+    }
+
+    > [popover] > menu:not(:has(li:not([hidden])))::after {
+      content: "No results";
+      display: block;
+      padding: var(--spacing-2) var(--spacing-3);
+      color: var(--jazz-neutral-400);
+      text-align: center;
+    }
+  }
+}

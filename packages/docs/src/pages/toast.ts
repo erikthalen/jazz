@@ -14,7 +14,7 @@ export async function ToastPage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>Toast <sup class="badge secondary">WIP</sup></h1>
+        <h1>Toast <sup class="badge">WIP</sup></h1>
         <p class="lead">
           Temporary notification messages using the native
           <code>&lt;output&gt;</code> element — a semantic live region with
