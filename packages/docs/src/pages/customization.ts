@@ -39,7 +39,7 @@ export async function CustomizationPage(path: string) {
             `\n` +
             `/* your styles — always win */\n` +
             `button { border-radius: 0; }`,
-            'css'
+            80, 'css'
           ))}
         </div>
       </div>
@@ -56,7 +56,7 @@ export async function CustomizationPage(path: string) {
           ${raw(await highlight(
             `<link rel="stylesheet" href="jazz/main.css" />\n` +
             `<link rel="stylesheet" href="your-styles.css" />`,
-            'html'
+            80, 'html'
           ))}
         </div>
       </div>
@@ -94,7 +94,7 @@ export async function CustomizationPage(path: string) {
           ${raw(await highlight(
             `/* your-styles.css */\n` +
             `button { border-radius: 0; }`,
-            'css'
+            80, 'css'
           ))}
         </div>
       </div>

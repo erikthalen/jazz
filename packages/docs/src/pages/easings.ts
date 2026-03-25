@@ -1,26 +1,29 @@
-import { html, raw } from 'hono/html'
-import { Layout } from '../layout'
-import { highlight } from '../highlight'
+import { html, raw } from "hono/html";
+import { Layout } from "../layout";
+import { highlight } from "../highlight";
 
 const toc = [
-  { id: 'ease-glide', label: 'Glide' },
-  { id: 'ease-snap', label: 'Snap' },
-  { id: 'ease-heavy', label: 'Heavy' },
-]
+  { id: "ease-glide", label: "Glide" },
+  { id: "ease-snap", label: "Snap" },
+  { id: "ease-heavy", label: "Heavy" },
+];
 
 function easingDemo(variable: string) {
   return html`
     <div class="easing-demo">
       <div class="easing-track" style="container-type:inline-size">
-        <div class="easing-dot" style="transition-timing-function:${variable}"></div>
+        <div
+          class="easing-dot"
+          style="transition-timing-function:${variable}"
+        ></div>
       </div>
     </div>
-  `
+  `;
 }
 
 export async function EasingsPage(path: string) {
   return Layout({
-    title: 'Easings',
+    title: "Easings",
     path,
     toc,
     content: html`
@@ -43,11 +46,15 @@ export async function EasingsPage(path: string) {
         </p>
       </div>
       <div class="example">
-        <div class="preview">
-          ${easingDemo('var(--ease-glide)')}
-        </div>
+        <div class="preview">${easingDemo("var(--ease-glide)")}</div>
         <div class="code-block">
-          ${raw(await highlight(`.element {\n  transition: transform 300ms var(--ease-glide);\n}`, 'css'))}
+          ${raw(
+            await highlight(
+              `.element {\n  transition: transform 300ms var(--ease-glide);\n}`,
+              80,
+              "css",
+            ),
+          )}
         </div>
       </div>
 
@@ -55,15 +62,20 @@ export async function EasingsPage(path: string) {
         <h2 id="ease-snap">Snap</h2>
         <p>
           Fast out with a slight overshoot that snaps into place. Great for
-          elements that should feel responsive and decisive — toggles, selections.
+          elements that should feel responsive and decisive — toggles,
+          selections.
         </p>
       </div>
       <div class="example">
-        <div class="preview">
-          ${easingDemo('var(--ease-snap)')}
-        </div>
+        <div class="preview">${easingDemo("var(--ease-snap)")}</div>
         <div class="code-block">
-          ${raw(await highlight(`.element {\n  transition: transform 300ms var(--ease-snap);\n}`, 'css'))}
+          ${raw(
+            await highlight(
+              `.element {\n  transition: transform 300ms var(--ease-snap);\n}`,
+              80,
+              "css",
+            ),
+          )}
         </div>
       </div>
 
@@ -75,13 +87,17 @@ export async function EasingsPage(path: string) {
         </p>
       </div>
       <div class="example">
-        <div class="preview">
-          ${easingDemo('var(--ease-heavy)')}
-        </div>
+        <div class="preview">${easingDemo("var(--ease-heavy)")}</div>
         <div class="code-block">
-          ${raw(await highlight(`.element {\n  transition: transform 300ms var(--ease-heavy);\n}`, 'css'))}
+          ${raw(
+            await highlight(
+              `.element {\n  transition: transform 300ms var(--ease-heavy);\n}`,
+              80,
+              "css",
+            ),
+          )}
         </div>
       </div>
     `,
-  })
+  });
 }
