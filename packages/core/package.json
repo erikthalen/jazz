@@ -4,11 +4,11 @@
   "version": "0.1.0-beta.9",
   "type": "module",
   "scripts": {
-    "dev": "esbuild src/main.css --bundle --minify --outdir=../.. --watch",
-    "build": "esbuild src/main.css --bundle --minify --outdir=../.."
+    "dev": "vite build --watch",
+    "build": "vite build"
   },
   "devDependencies": {
-    "esbuild": "^0.25.0"
+    "vite": "catalog:"
   },
   "prettier": {
     "printWidth": 200
