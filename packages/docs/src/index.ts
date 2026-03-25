@@ -25,6 +25,7 @@ import { RadioPage } from './pages/radio'
 import { SeparatorPage } from './pages/separator'
 import { ProgressPage } from './pages/progress'
 import { ColorInputPage } from './pages/color-input'
+import { DateInputPage } from './pages/date-input'
 import { TablePage } from './pages/table'
 import { TogglePage } from './pages/toggle'
 import { ToggleGroupPage } from './pages/toggle-group'
@@ -67,6 +68,7 @@ app.get('/components/radio', (c) => c.html(RadioPage(c.req.path)))
 app.get('/components/separator', (c) => c.html(SeparatorPage(c.req.path)))
 app.get('/components/progress', (c) => c.html(ProgressPage(c.req.path)))
 app.get('/components/color-input', (c) => c.html(ColorInputPage(c.req.path)))
+app.get('/components/date-input', (c) => c.html(DateInputPage(c.req.path)))
 app.get('/components/table', (c) => c.html(TablePage(c.req.path)))
 app.get('/components/toggle', (c) => c.html(TogglePage(c.req.path)))
 app.get('/components/toggle-group', (c) => c.html(ToggleGroupPage(c.req.path)))

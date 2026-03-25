@@ -23,7 +23,7 @@ export default defineConfig({
         assetFileNames: "main[extname]",
       },
     },
-    outDir: "../..",
+    outDir: "dist",
     emptyOutDir: false,
     cssMinify: true,
   },

@@ -6,16 +6,39 @@ const toc = [
   { id: "ease-glide", label: "Glide" },
   { id: "ease-snap", label: "Snap" },
   { id: "ease-heavy", label: "Heavy" },
+  { id: "ease-in", label: "In" },
+  { id: "ease-out", label: "Out" },
+  { id: "ease-in-out", label: "In Out" },
 ];
 
-function easingDemo(variable: string) {
+const families = ["sine", "quad", "cubic", "quart", "quint", "expo", "circ", "back"];
+
+function easingDemo(variable: string, label: string) {
   return html`
-    <div class="easing-demo">
-      <div class="easing-track" style="container-type:inline-size">
-        <div
-          class="easing-dot"
-          style="transition-timing-function:${variable}"
-        ></div>
+    <div>
+      <div class="easing-demo">
+        <div class="easing-track" style="container-type:inline-size">
+          <div
+            class="easing-dot"
+            style="transition-timing-function:${variable}"
+          ></div>
+        </div>
+      </div>
+      <p style="color:var(--jazz-neutral-400);font-size:0.8em;margin-top:var(--spacing-1)">${label}</p>
+    </div>
+  `;
+}
+
+async function directionGroup(direction: string) {
+  const varName = (family: string) => `--ease-${direction}-${family}`;
+  const codeLines = families.map(f => `  transition: transform 300ms var(${varName(f)});`).join("\n");
+  return html`
+    <div class="example">
+      <div class="preview preview-padded" style="display:flex;flex-direction:column;gap:var(--spacing-4)">
+        ${families.map(f => html`<div style="width:100%">${easingDemo(`var(${varName(f)})`, f)}</div>`)}
+      </div>
+      <div class="code-block">
+        ${raw(await highlight(`.element {\n${codeLines}\n}`, 80, "css"))}
       </div>
     </div>
   `;
@@ -46,15 +69,9 @@ export async function EasingsPage(path: string) {
         </p>
       </div>
       <div class="example">
-        <div class="preview">${easingDemo("var(--ease-glide)")}</div>
+        <div class="preview">${easingDemo("var(--ease-glide)", "glide")}</div>
         <div class="code-block">
-          ${raw(
-            await highlight(
-              `.element {\n  transition: transform 300ms var(--ease-glide);\n}`,
-              80,
-              "css",
-            ),
-          )}
+          ${raw(await highlight(`.element {\n  transition: transform 300ms var(--ease-glide);\n}`, 80, "css"))}
         </div>
       </div>
 
@@ -67,15 +84,9 @@ export async function EasingsPage(path: string) {
         </p>
       </div>
       <div class="example">
-        <div class="preview">${easingDemo("var(--ease-snap)")}</div>
+        <div class="preview">${easingDemo("var(--ease-snap)", "snap")}</div>
         <div class="code-block">
-          ${raw(
-            await highlight(
-              `.element {\n  transition: transform 300ms var(--ease-snap);\n}`,
-              80,
-              "css",
-            ),
-          )}
+          ${raw(await highlight(`.element {\n  transition: transform 300ms var(--ease-snap);\n}`, 80, "css"))}
         </div>
       </div>
 
@@ -87,17 +98,29 @@ export async function EasingsPage(path: string) {
         </p>
       </div>
       <div class="example">
-        <div class="preview">${easingDemo("var(--ease-heavy)")}</div>
+        <div class="preview">${easingDemo("var(--ease-heavy)", "heavy")}</div>
         <div class="code-block">
-          ${raw(
-            await highlight(
-              `.element {\n  transition: transform 300ms var(--ease-heavy);\n}`,
-              80,
-              "css",
-            ),
-          )}
+          ${raw(await highlight(`.element {\n  transition: transform 300ms var(--ease-heavy);\n}`, 80, "css"))}
         </div>
       </div>
+
+      <div class="prose">
+        <h2 id="ease-in">In</h2>
+        <p>Starts slow, accelerates toward the end.</p>
+      </div>
+      ${await directionGroup("in")}
+
+      <div class="prose">
+        <h2 id="ease-out">Out</h2>
+        <p>Starts fast, decelerates toward the end.</p>
+      </div>
+      ${await directionGroup("out")}
+
+      <div class="prose">
+        <h2 id="ease-in-out">In Out</h2>
+        <p>Slow at both ends, fast in the middle.</p>
+      </div>
+      ${await directionGroup("in-out")}
     `,
   });
 }

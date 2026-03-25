@@ -32,7 +32,7 @@ export async function SubmenuPage(path: string) {
               <li><button class="ghost">Paste</button></li>
               <li>
                 <button class="ghost" popovertarget="submenu-find">Find</button>
-                <div id="submenu-find" popover>
+                <div id="submenu-find" popover data-placement="right top">
                   <menu>
                     <li><button class="ghost">Find…</button></li>
                     <li><button class="ghost">Find Next</button></li>
@@ -54,7 +54,7 @@ export async function SubmenuPage(path: string) {
     <li><button class="ghost">Paste</button></li>
     <li>
       <button class="ghost" popovertarget="find-menu">Find</button>
-      <div id="find-menu" popover>
+      <div id="find-menu" popover data-placement="right top">
         <menu>
           <li><button class="ghost">Find…</button></li>
           <li><button class="ghost">Find Next</button></li>
@@ -81,13 +81,13 @@ export async function SubmenuPage(path: string) {
               <li><button class="ghost">Italic</button></li>
               <li>
                 <button class="ghost" popovertarget="submenu-lists">Lists</button>
-                <div id="submenu-lists" popover>
+                <div id="submenu-lists" popover data-placement="right top">
                   <menu>
                     <li><button class="ghost">Bullet List</button></li>
                     <li><button class="ghost">Numbered List</button></li>
                     <li>
                       <button class="ghost" popovertarget="submenu-indent">Indent</button>
-                      <div id="submenu-indent" popover>
+                      <div id="submenu-indent" popover data-placement="right top">
                         <menu>
                           <li><button class="ghost">Increase</button></li>
                           <li><button class="ghost">Decrease</button></li>
@@ -110,13 +110,13 @@ export async function SubmenuPage(path: string) {
     <li><button class="ghost">Italic</button></li>
     <li>
       <button class="ghost" popovertarget="lists-menu">Lists</button>
-      <div id="lists-menu" popover>
+      <div id="lists-menu" popover data-placement="right top">
         <menu>
           <li><button class="ghost">Bullet List</button></li>
           <li><button class="ghost">Numbered List</button></li>
           <li>
             <button class="ghost" popovertarget="indent-menu">Indent</button>
-            <div id="indent-menu" popover>
+            <div id="indent-menu" popover data-placement="right top">
               <menu>
                 <li><button class="ghost">Increase</button></li>
                 <li><button class="ghost">Decrease</button></li>

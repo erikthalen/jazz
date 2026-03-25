@@ -29,6 +29,7 @@ export const components: { label: string; path: string; badge?: string }[] = [
   { label: "Checkbox", path: "/components/checkbox" },
   { label: "Code", path: "/components/code" },
   { label: "Color Input", path: "/components/color-input" },
+  { label: "Date Input", path: "/components/date-input" },
   { label: "Dialog", path: "/components/dialog" },
   { label: "Dropdown", path: "/components/dropdown" },
   { label: "Expander", path: "/components/expander" },

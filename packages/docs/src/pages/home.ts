@@ -94,7 +94,7 @@ export async function HomePage(path: string) {
         </div>
 
         <div class="showcase-cell">
-          <div style="display:flex;">
+          <div style="display:flex;gap:0.5rem;">
             <fieldset role="group">
               <label class="toggle square" aria-label="Align left">
                 <input type="radio" name="home-align" />

@@ -248,10 +248,24 @@ export async function SidebarPage(path: string) {
                     </button>
                     <div id="sidebar-de-menu" popover>
                       <menu>
-                        <li><button class="ghost">View</button></li>
-                        <li><button class="ghost">Share</button></li>
                         <li>
-                          <button class="ghost destructive">Delete</button>
+                          <button class="ghost">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"/></svg>
+                            View
+                          </button>
+                        </li>
+                        <li>
+                          <button class="ghost">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M18 6m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M8.7 10.7l6.6 -3.4"/><path d="M8.7 13.3l6.6 3.4"/></svg>
+                            Share
+                          </button>
+                        </li>
+                        <li><hr /></li>
+                        <li>
+                          <button class="ghost destructive">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7l16 0"/><path d="M10 11l0 6"/><path d="M14 11l0 6"/><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"/><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"/></svg>
+                            Delete
+                          </button>
                         </li>
                       </menu>
                     </div>
@@ -298,10 +312,24 @@ export async function SidebarPage(path: string) {
                     </button>
                     <div id="sidebar-sm-menu" popover>
                       <menu>
-                        <li><button class="ghost">View</button></li>
-                        <li><button class="ghost">Share</button></li>
                         <li>
-                          <button class="ghost destructive">Delete</button>
+                          <button class="ghost">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"/></svg>
+                            View
+                          </button>
+                        </li>
+                        <li>
+                          <button class="ghost">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M18 6m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M8.7 10.7l6.6 -3.4"/><path d="M8.7 13.3l6.6 3.4"/></svg>
+                            Share
+                          </button>
+                        </li>
+                        <li><hr /></li>
+                        <li>
+                          <button class="ghost destructive">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7l16 0"/><path d="M10 11l0 6"/><path d="M14 11l0 6"/><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"/><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"/></svg>
+                            Delete
+                          </button>
                         </li>
                       </menu>
                     </div>
@@ -350,10 +378,24 @@ export async function SidebarPage(path: string) {
                     </button>
                     <div id="sidebar-travel-menu" popover>
                       <menu>
-                        <li><button class="ghost">View</button></li>
-                        <li><button class="ghost">Share</button></li>
                         <li>
-                          <button class="ghost destructive">Delete</button>
+                          <button class="ghost">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"/></svg>
+                            View
+                          </button>
+                        </li>
+                        <li>
+                          <button class="ghost">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M18 6m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M8.7 10.7l6.6 -3.4"/><path d="M8.7 13.3l6.6 3.4"/></svg>
+                            Share
+                          </button>
+                        </li>
+                        <li><hr /></li>
+                        <li>
+                          <button class="ghost destructive">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7l16 0"/><path d="M10 11l0 6"/><path d="M14 11l0 6"/><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"/><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"/></svg>
+                            Delete
+                          </button>
                         </li>
                       </menu>
                     </div>
@@ -720,9 +762,10 @@ export async function SidebarPage(path: string) {
           <button class="ghost square" popovertarget="de-menu"><svg>...</svg></button>
           <div id="de-menu" popover>
             <menu>
-              <li><button class="ghost">View</button></li>
-              <li><button class="ghost">Share</button></li>
-              <li><button class="ghost destructive">Delete</button></li>
+              <li><button class="ghost"><svg>...</svg> View</button></li>
+              <li><button class="ghost"><svg>...</svg> Share</button></li>
+              <li><hr /></li>
+              <li><button class="ghost destructive"><svg>...</svg> Delete</button></li>
             </menu>
           </div>
         </li>
@@ -731,9 +774,10 @@ export async function SidebarPage(path: string) {
           <button class="ghost square" popovertarget="sm-menu"><svg>...</svg></button>
           <div id="sm-menu" popover>
             <menu>
-              <li><button class="ghost">View</button></li>
-              <li><button class="ghost">Share</button></li>
-              <li><button class="ghost destructive">Delete</button></li>
+              <li><button class="ghost"><svg>...</svg> View</button></li>
+              <li><button class="ghost"><svg>...</svg> Share</button></li>
+              <li><hr /></li>
+              <li><button class="ghost destructive"><svg>...</svg> Delete</button></li>
             </menu>
           </div>
         </li>
@@ -742,9 +786,10 @@ export async function SidebarPage(path: string) {
           <button class="ghost square" popovertarget="travel-menu"><svg>...</svg></button>
           <div id="travel-menu" popover>
             <menu>
-              <li><button class="ghost">View</button></li>
-              <li><button class="ghost">Share</button></li>
-              <li><button class="ghost destructive">Delete</button></li>
+              <li><button class="ghost"><svg>...</svg> View</button></li>
+              <li><button class="ghost"><svg>...</svg> Share</button></li>
+              <li><hr /></li>
+              <li><button class="ghost destructive"><svg>...</svg> Delete</button></li>
             </menu>
           </div>
         </li>

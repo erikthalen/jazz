@@ -1,0 +1,28 @@
+@layer jazz {
+  input[type="date"],
+  input[type="time"],
+  input[type="datetime-local"],
+  input[type="month"],
+  input[type="week"] {
+    &::-webkit-calendar-picker-indicator {
+      opacity: 0.5;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    &::-webkit-datetime-edit-day-field:focus,
+    &::-webkit-datetime-edit-month-field:focus,
+    &::-webkit-datetime-edit-year-field:focus,
+    &::-webkit-datetime-edit-hour-field:focus,
+    &::-webkit-datetime-edit-minute-field:focus,
+    &::-webkit-datetime-edit-ampm-field:focus {
+      background-color: var(--jazz-primary);
+      color: var(--jazz-neutral-0);
+      border-radius: 2px;
+      outline: none;
+    }
+  }
+}

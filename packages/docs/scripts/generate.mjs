@@ -14,6 +14,7 @@ const routes = [
   "/components/card",
   "/components/checkbox",
   "/components/color-input",
+  "/components/date-input",
   "/components/dialog",
   "/components/text-field",
   "/components/textarea",

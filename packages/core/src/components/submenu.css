@@ -16,23 +16,9 @@
     }
   }
 
-  /* Submenu popover: override default below-trigger positioning */
+  /* Submenu popover: fall back to left side when no space on the right */
   [popover] > menu > li > [popover] {
-    top: anchor(top);
-    left: calc(anchor(right) + 0.25rem);
-    min-width: unset;
-    translate: -2px 0;
     position-try-fallbacks: --submenu-left;
-
-    &:popover-open {
-      translate: 0 0;
-    }
-
-    @starting-style {
-      &:popover-open {
-        translate: -2px 0;
-      }
-    }
   }
 
   @position-try --submenu-left {

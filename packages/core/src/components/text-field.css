@@ -5,7 +5,12 @@
   input[type="password"],
   input[type="number"],
   input[type="tel"],
-  input[type="url"] {
+  input[type="url"],
+  input[type="date"],
+  input[type="time"],
+  input[type="datetime-local"],
+  input[type="month"],
+  input[type="week"] {
     appearance: none;
     border: none;
 

@@ -12,6 +12,7 @@
 @import "./components/dialog.css";
 @import "./components/checkbox.css";
 @import "./components/color-input.css";
+@import "./components/date-input.css";
 @import "./components/radio.css";
 @import "./components/separator.css";
 @import "./components/text-field.css";
