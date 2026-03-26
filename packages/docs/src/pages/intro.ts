@@ -43,7 +43,7 @@ export async function IntroPage(path: string) {
         <div class="code-block">
           ${raw(
             await highlight(
-              `<link rel="stylesheet" href="${cdnUrl}" />\n\n<!-- Optional: theme -->\n<style>\n  :root {\n    --jazz-primary-light: #111;\n    --jazz-primary-dark: #fefefe;\n  }\n</style>`,
+              `<link rel="stylesheet" href="${cdnUrl}" />\n\n<!-- Optional: theme -->\n<style>\n  :root {\n    --jazz-primary: light-dark(#111, #fefefe);\n  }\n</style>`,
             ),
           )}
         </div>

@@ -89,27 +89,27 @@ function head(title: string) {
       ? raw('<script type="module" src="/@vite/client"></script>')
       : ""}
     <script>
+      function applyColorScheme(scheme) {
+        let s = document.getElementById("jazz-theme-style");
+        if (!s) {
+          s = document.createElement("style");
+          s.id = "jazz-theme-style";
+          document.head.appendChild(s);
+        }
+        s.textContent = ":root { color-scheme: " + scheme + "; }";
+        document.documentElement.dataset.theme = scheme;
+      }
       const stored = localStorage.getItem("jazz-theme");
-      const preferred = matchMedia("(prefers-color-scheme: dark)").matches
-        ? "jazz-dark"
-        : "jazz-light";
-      document.documentElement.className = stored || preferred;
+      const preferred = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      applyColorScheme(stored || preferred);
       document.addEventListener("DOMContentLoaded", () => {
         const toggle = document.getElementById("theme-toggle-input");
-        if (toggle)
-          toggle.checked = document.documentElement.className === "jazz-dark";
+        if (toggle) toggle.checked = (stored || preferred) === "dark";
       });
+      localStorage.removeItem("jazz-primary-dark");
       const storedColor = localStorage.getItem("jazz-primary");
       if (storedColor) {
-        const storedDark = localStorage.getItem("jazz-primary-dark");
-        document.documentElement.style.setProperty(
-          "--jazz-primary-light",
-          storedColor,
-        );
-        document.documentElement.style.setProperty(
-          "--jazz-primary-dark",
-          storedDark || "color-mix(in oklab, " + storedColor + ", white 20%)",
-        );
+        document.documentElement.style.setProperty("--jazz-primary", storedColor);
       }
     </script>
     <script defer>
@@ -185,8 +185,8 @@ function header(path: string) {
           type="checkbox"
           id="theme-toggle-input"
           onchange="
-          const next = this.checked ? 'jazz-dark' : 'jazz-light';
-          document.documentElement.className = next;
+          const next = this.checked ? 'dark' : 'light';
+          applyColorScheme(next);
           localStorage.setItem('jazz-theme', next);
         "
         />
@@ -267,10 +267,9 @@ function header(path: string) {
                 style="background:${color}"
                 aria-label="${color}"
                 onclick="
-                document.documentElement.style.setProperty('--jazz-primary-light', '${color}');
-                document.documentElement.style.setProperty('--jazz-primary-dark', 'color-mix(in oklab, ${color}, white 20%)');
-                localStorage.setItem('jazz-primary', '${color}');
-                localStorage.removeItem('jazz-primary-dark');
+                const val = 'light-dark(${color}, color-mix(in oklab, ${color}, white 20%))';
+                document.documentElement.style.setProperty('--jazz-primary', val);
+                localStorage.setItem('jazz-primary', val);
                 document.getElementById('color-picker').hidePopover();
               "
               ></button>
@@ -283,10 +282,9 @@ function header(path: string) {
             style="background:linear-gradient(135deg, #111 50%, #fff 50%);outline:1px solid var(--jazz-neutral-200);outline-offset:-1px"
             aria-label="Black / White"
             onclick="
-              document.documentElement.style.setProperty('--jazz-primary-light', '#111111');
-              document.documentElement.style.setProperty('--jazz-primary-dark', '#ffffff');
-              localStorage.setItem('jazz-primary', '#111111');
-              localStorage.setItem('jazz-primary-dark', '#ffffff');
+              const val = 'light-dark(#111111, #ffffff)';
+              document.documentElement.style.setProperty('--jazz-primary', val);
+              localStorage.setItem('jazz-primary', val);
               document.getElementById('color-picker').hidePopover();
             "
           ></button>

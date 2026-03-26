@@ -48,11 +48,8 @@ export async function ThemesPage(path: string) {
         <h2 id="primary-scale">Primary scale</h2>
         <p>
           Used for interactive elements like buttons and focus rings. The
-          palette is derived from <code>--jazz-primary-light</code> in light
-          mode and <code>--jazz-primary-dark</code> in dark mode — useful when a
-          color needs adjusting between themes (e.g. slightly lighter in dark
-          mode for contrast). Both fall back to <code>--jazz-primary</code> if
-          unset.
+          palette is derived from <code>--jazz-primary</code>, which accepts a
+          <code>light-dark()</code> value for per-theme control.
         </p>
       </div>
       ${colorScale("primary")}
@@ -88,19 +85,18 @@ export async function ThemesPage(path: string) {
         <h2 id="color-scales">Color scales</h2>
         <p>
           General-purpose accent colors. Override
-          <code>--jazz-color-1</code> through <code>--jazz-color-6</code> to
+          <code>--jazz-color1</code> through <code>--jazz-color6</code> to
           suit your palette.
         </p>
       </div>
-      ${[1, 2, 3, 4, 5, 6].map((n) => colorScale(`color-${n}`))}
+      ${[1, 2, 3, 4, 5, 6].map((n) => colorScale(`color${n}`))}
 
       <div class="prose">
         <h2 id="customizing">Customizing</h2>
         <p>
           Override seed colors on <code>:root</code> after importing the
-          stylesheet. Use <code>--jazz-primary</code> for a single color across
-          both themes, or set <code>--jazz-primary-light</code> and
-          <code>--jazz-primary-dark</code> independently for per-theme control:
+          stylesheet. Use <code>light-dark()</code> on
+          <code>--jazz-primary</code> for per-theme control:
         </p>
       </div>
       <div class="example">
@@ -111,9 +107,8 @@ export async function ThemesPage(path: string) {
   /* Same primary for both themes */
   --jazz-primary: #6366f1;
 
-  /* Or tune per-theme */
-  --jazz-primary-light: #4f46e5;
-  --jazz-primary-dark: #818cf8;
+  /* Or tune per-theme with light-dark() */
+  --jazz-primary: light-dark(#4f46e5, #818cf8);
 
   --jazz-neutral: #6b7280;
 }`,
@@ -129,15 +124,16 @@ export async function ThemesPage(path: string) {
         <p>
           Jazz responds to
           <code>prefers-color-scheme: dark</code> automatically. You can also
-          force a mode by adding a class to any container element:
+          force a mode on any element using the <code>color-scheme</code> CSS
+          property:
         </p>
       </div>
       <div class="example">
         <div class="code-block">
           ${raw(
             await highlight(
-              `<html class="jazz-light">...</html>
-<html class="jazz-dark">...</html>`,
+              `<html style="color-scheme: light">...</html>
+<html style="color-scheme: dark">...</html>`,
             ),
           )}
         </div>

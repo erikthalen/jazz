@@ -328,7 +328,7 @@ export async function SidebarPage(path: string) {
                   <li>
                     <button
                       class="ghost"
-                      style="color: var(--jazz-color-2-600);"
+                      style="color: var(--jazz-color2-600);"
                     >
                       ${raw(svg(I.sparkles))} Upgrade to Pro
                     </button>
@@ -546,7 +546,7 @@ export async function SidebarPage(path: string) {
           </div>
         </li>
         <li><hr /></li>
-        <li><button class="ghost" style="color: var(--jazz-color-2-600);"><svg><!-- sparkles --></svg> Upgrade to Pro</button></li>
+        <li><button class="ghost" style="color: var(--jazz-color2-600);"><svg><!-- sparkles --></svg> Upgrade to Pro</button></li>
         <li><hr /></li>
         <li><button class="ghost"><svg><!-- user-circle --></svg> Account</button></li>
         <li><button class="ghost"><svg><!-- credit-card --></svg> Billing</button></li>

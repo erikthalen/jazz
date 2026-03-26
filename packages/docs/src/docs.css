@@ -316,34 +316,34 @@ body:has(.home-content) .docs-burger {
 }
 
 /* Shiki dual-theme: activate light token colors */
-.jazz-light .shiki span {
+[data-theme="light"] .shiki span {
   color: var(--shiki-light);
 }
 
 @media (prefers-color-scheme: light) {
-  :root:not(.jazz-dark) .shiki span {
+  :root:not([data-theme="dark"]) .shiki span {
     color: var(--shiki-light);
   }
 }
 
 /* Shiki dual-theme: activate dark token colors */
-.jazz-dark .shiki span {
+[data-theme="dark"] .shiki span {
   color: var(--shiki-dark);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root:not(.jazz-light) .shiki span {
+  :root:not([data-theme="light"]) .shiki span {
     color: var(--shiki-dark);
   }
 }
 
 /* Code block backgrounds from Shiki themes */
-.jazz-light .code-block {
+[data-theme="light"] .code-block {
   background: #fff;
 }
 
 @media (prefers-color-scheme: light) {
-  :root:not(.jazz-dark) .code-block {
+  :root:not([data-theme="dark"]) .code-block {
     background: #fff;
   }
 }

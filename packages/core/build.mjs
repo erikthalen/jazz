@@ -13,7 +13,7 @@ const watchMode = process.argv.includes("--watch");
 const req = createRequire(import.meta.resolve("vite"));
 const { bundle: lcBundle, browserslistToTargets } = req("lightningcss");
 
-const targets = browserslistToTargets(browserslist("> 0.5%, last 2 versions, Firefox ESR, not dead"));
+const targets = browserslistToTargets(browserslist("chrome >= 123, firefox >= 120, safari >= 17.5"));
 
 async function runBuild() {
   const { code, map } = lcBundle({

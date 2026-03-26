@@ -12,6 +12,12 @@ function dropJs(): Plugin {
 }
 
 export default defineConfig({
+  css: {
+    lightningcss: {
+      targets: { chrome: 123 << 16, firefox: 120 << 16, safari: (17 << 16) | (5 << 8) },
+    },
+    transformer: "lightningcss",
+  },
   build: {
     lib: {
       entry: "src/entry.ts",
@@ -25,7 +31,7 @@ export default defineConfig({
     },
     outDir: "dist",
     emptyOutDir: false,
-    cssMinify: true,
+    cssMinify: "lightningcss",
   },
   plugins: [dropJs()],
 });
