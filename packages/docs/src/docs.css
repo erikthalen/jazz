@@ -635,9 +635,9 @@ body:has(.home-content) .docs-burger {
 }
 
 .icons-empty-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
   background: var(--jazz-neutral-200);
   display: flex;
   align-items: center;

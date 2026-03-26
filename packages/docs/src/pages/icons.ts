@@ -7,7 +7,9 @@ import { join, basename, dirname } from "path";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const tablerDir = join(__dirname, "../../node_modules/@tabler/icons/icons");
 
-function loadIcons(style: "outline" | "filled"): { name: string; paths: string }[] {
+function loadIcons(
+  style: "outline" | "filled",
+): { name: string; paths: string }[] {
   const dir = join(tablerDir, style);
   const files = readdirSync(dir).filter((f) => f.endsWith(".svg"));
   return files.map((file) => {
@@ -30,13 +32,21 @@ function buildData(style: "outline" | "filled"): string {
   return JSON.stringify(data);
 }
 
-export function IconsData(): string { return buildData("outline"); }
-export function IconsFilledData(): string { return buildData("filled"); }
+export function IconsData(): string {
+  return buildData("outline");
+}
+export function IconsFilledData(): string {
+  return buildData("filled");
+}
 
 export function IconsPage(path: string) {
-  const outlineTotal = readdirSync(join(tablerDir, "outline")).filter((f) => f.endsWith(".svg")).length;
-  const filledTotal  = readdirSync(join(tablerDir, "filled")).filter((f) => f.endsWith(".svg")).length;
-  const dataUrl       = url("/icons.json");
+  const outlineTotal = readdirSync(join(tablerDir, "outline")).filter((f) =>
+    f.endsWith(".svg"),
+  ).length;
+  const filledTotal = readdirSync(join(tablerDir, "filled")).filter((f) =>
+    f.endsWith(".svg"),
+  ).length;
+  const dataUrl = url("/icons.json");
   const filledDataUrl = url("/icons-filled.json");
 
   return Layout({
@@ -55,16 +65,27 @@ export function IconsPage(path: string) {
         </p>
         <p>
           Inline SVGs work especially well with Jazz since they inherit
-          <code>currentColor</code> and scale with <code>font-size</code>.
-          Click any icon to copy its SVG.
+          <code>currentColor</code> and scale with <code>font-size</code>. Click
+          any icon to copy its SVG.
         </p>
       </div>
 
       <div class="icons-search-bar">
         <label>
-          <svg data-prefix xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"/>
-            <path d="m21 21-4.3-4.3"/>
+          <svg
+            data-prefix
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.3-4.3" />
           </svg>
           <input
             type="search"
@@ -72,9 +93,13 @@ export function IconsPage(path: string) {
             placeholder="Search..."
             autocomplete="off"
           />
-          <span data-suffix id="icon-count" aria-live="polite">${outlineTotal}</span>
+          <span data-suffix id="icon-count" aria-live="polite"
+            >${outlineTotal}</span
+          >
         </label>
-        <label style="display:flex;align-items:center;gap:0.5rem;white-space:nowrap">
+        <label
+          style="display:flex;align-items:center;gap:0.5rem;white-space:nowrap"
+        >
           <input type="checkbox" class="switch" id="icon-style-switch" />
           Filled
         </label>
@@ -84,7 +109,17 @@ export function IconsPage(path: string) {
 
       <div id="icons-hint" class="icons-empty-state">
         <div class="icons-empty-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
             <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
             <path d="M21 21l-6 -6" />
           </svg>
@@ -95,7 +130,17 @@ export function IconsPage(path: string) {
 
       <div id="icons-empty" style="display:none" class="icons-empty-state">
         <div class="icons-empty-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
             <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
             <path d="M21 21l-6 -6" />
             <path d="M6 10l8 0" />
@@ -106,51 +151,52 @@ export function IconsPage(path: string) {
       </div>
 
       <script type="module">
-        import MiniSearch from '${url('/minisearch.js')}';
+        import MiniSearch from "${url("/minisearch.js")}";
 
         const URLS = {
-          outline: '${dataUrl}',
-          filled:  '${filledDataUrl}',
+          outline: "${dataUrl}",
+          filled: "${filledDataUrl}",
         };
         const TOTALS = {
           outline: ${outlineTotal},
-          filled:  ${filledTotal},
+          filled: ${filledTotal},
         };
         const SVG_ATTRS = {
-          outline: 'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"',
-          filled:  'fill="currentColor"',
+          outline:
+            'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"',
+          filled: 'fill="currentColor"',
         };
 
-        const search     = document.getElementById('icon-search');
-        const grid       = document.getElementById('icons-grid');
-        const count      = document.getElementById('icon-count');
-        const hint       = document.getElementById('icons-hint');
-        const empty      = document.getElementById('icons-empty');
-        const styleSwitch = document.getElementById('icon-style-switch');
+        const search = document.getElementById("icon-search");
+        const grid = document.getElementById("icons-grid");
+        const count = document.getElementById("icon-count");
+        const hint = document.getElementById("icons-hint");
+        const empty = document.getElementById("icons-empty");
+        const styleSwitch = document.getElementById("icon-style-switch");
 
-        const cache = {};      // { outline: data, filled: data }
-        const indexes = {};    // { outline: MiniSearch, filled: MiniSearch }
-        const promises = {};   // in-flight fetches
+        const cache = {}; // { outline: data, filled: data }
+        const indexes = {}; // { outline: MiniSearch, filled: MiniSearch }
+        const promises = {}; // in-flight fetches
 
         function fetchData(style) {
           if (promises[style]) return promises[style];
           promises[style] = fetch(URLS[style])
-            .then(r => r.json())
-            .then(json => {
+            .then((r) => r.json())
+            .then((json) => {
               cache[style] = json;
               const ms = new MiniSearch({
-                fields: ['name'],
-                storeFields: ['name'],
-                tokenize: s => s.split(/[-\s]+/),
+                fields: ["name"],
+                storeFields: ["name"],
+                tokenize: (s) => s.split(/[-s]+/),
               });
-              ms.addAll(Object.keys(json).map(name => ({ id: name, name })));
+              ms.addAll(Object.keys(json).map((name) => ({ id: name, name })));
               indexes[style] = ms;
             });
           return promises[style];
         }
 
         function currentStyle() {
-          return styleSwitch.checked ? 'filled' : 'outline';
+          return styleSwitch.checked ? "filled" : "outline";
         }
 
         function render(q) {
@@ -159,11 +205,11 @@ export function IconsPage(path: string) {
           const ms = indexes[style];
           if (!data || !ms) return;
 
-          hint.style.display = q ? 'none' : '';
+          hint.style.display = q ? "none" : "";
 
           if (!q) {
-            grid.innerHTML = '';
-            empty.style.display = 'none';
+            grid.innerHTML = "";
+            empty.style.display = "none";
             count.textContent = TOTALS[style];
             return;
           }
@@ -171,62 +217,82 @@ export function IconsPage(path: string) {
           const results = ms.search(q, { prefix: true, fuzzy: 0.2 });
           const attrs = SVG_ATTRS[style];
 
-          empty.style.display = results.length === 0 ? '' : 'none';
-          count.textContent = results.length + ' / ' + TOTALS[style];
+          empty.style.display = results.length === 0 ? "" : "none";
+          count.textContent = results.length + " / " + TOTALS[style];
 
           grid.innerHTML = results
-            .map(({ id: name }) =>
-              '<li class="icon-item" data-name="' + name + '" data-tooltip="' + name + '">'
-              + '<button class="icon-copy-btn ghost square" data-icon="' + name + '" data-style="' + style + '">'
-              + '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" ' + attrs + '>'
-              + data[name]
-              + '</svg></button></li>'
+            .map(
+              ({ id: name }) =>
+                '<li class="icon-item" data-name="' +
+                name +
+                '" data-tooltip="' +
+                name +
+                '">' +
+                '<button class="icon-copy-btn ghost square" data-icon="' +
+                name +
+                '" data-style="' +
+                style +
+                '">' +
+                '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" ' +
+                attrs +
+                ">" +
+                data[name] +
+                "</svg></button></li>",
             )
-            .join('');
+            .join("");
         }
 
         function setQuery(q, style) {
           const u = new URL(location.href);
-          if (q) u.searchParams.set('q', q); else u.searchParams.delete('q');
-          if (style === 'filled') u.searchParams.set('style', 'filled'); else u.searchParams.delete('style');
-          history.replaceState(null, '', u);
+          if (q) u.searchParams.set("q", q);
+          else u.searchParams.delete("q");
+          if (style === "filled") u.searchParams.set("style", "filled");
+          else u.searchParams.delete("style");
+          history.replaceState(null, "", u);
           fetchData(style).then(() => render(q));
         }
 
         // Restore from URL on load
-        const params  = new URL(location.href).searchParams;
-        const initQ  = params.get('q') || '';
-        const initFilled = params.get('style') === 'filled';
+        const params = new URL(location.href).searchParams;
+        const initQ = params.get("q") || "";
+        const initFilled = params.get("style") === "filled";
         if (initFilled) styleSwitch.checked = true;
         if (initQ) {
           search.value = initQ;
-          setQuery(initQ, initFilled ? 'filled' : 'outline');
+          setQuery(initQ, initFilled ? "filled" : "outline");
         }
 
-        search.addEventListener('focus', () => fetchData(currentStyle()), { once: true });
-        search.addEventListener('input', function () {
+        search.addEventListener("focus", () => fetchData(currentStyle()), {
+          once: true,
+        });
+        search.addEventListener("input", function () {
           setQuery(this.value.trim().toLowerCase(), currentStyle());
         });
 
-        styleSwitch.addEventListener('change', function () {
+        styleSwitch.addEventListener("change", function () {
           const style = currentStyle();
           const q = search.value.trim().toLowerCase();
           count.textContent = TOTALS[style];
           setQuery(q, style);
         });
 
-        grid.addEventListener('click', e => {
-          const btn = e.target.closest('.icon-copy-btn');
+        grid.addEventListener("click", (e) => {
+          const btn = e.target.closest(".icon-copy-btn");
           if (!btn) return;
-          const name  = btn.dataset.icon;
+          const name = btn.dataset.icon;
           const style = btn.dataset.style;
           const paths = cache[style]?.[name];
           if (!paths) return;
           const attrs = SVG_ATTRS[style];
-          const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" ' + attrs + '>' + paths + '</svg>';
+          const svg =
+            '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" ' +
+            attrs +
+            ">" +
+            paths +
+            "</svg>";
           navigator.clipboard.writeText(svg).then(() => {
-            btn.setAttribute('data-copied', '');
-            setTimeout(() => btn.removeAttribute('data-copied'), 1500);
+            btn.setAttribute("data-copied", "");
+            setTimeout(() => btn.removeAttribute("data-copied"), 1500);
           });
         });
       </script>

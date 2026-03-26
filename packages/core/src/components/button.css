@@ -131,6 +131,36 @@
     height: 1rem;
   }
 
+  button[popovertarget]:has(+ [popover]:popover-open),
+  .button[popovertarget]:has(+ [popover]:popover-open) {
+    background-color: var(--jazz-primary-600);
+  }
+
+  button.outline[popovertarget]:has(+ [popover]:popover-open),
+  .button.outline[popovertarget]:has(+ [popover]:popover-open) {
+    background-color: var(--jazz-neutral-100);
+  }
+
+  button.secondary[popovertarget]:has(+ [popover]:popover-open),
+  .button.secondary[popovertarget]:has(+ [popover]:popover-open) {
+    background-color: var(--jazz-neutral-600);
+  }
+
+  button.ghost[popovertarget]:has(+ [popover]:popover-open),
+  .button.ghost[popovertarget]:has(+ [popover]:popover-open) {
+    background-color: var(--jazz-neutral-200);
+  }
+
+  button.ghost.destructive[popovertarget]:has(+ [popover]:popover-open),
+  .button.ghost.destructive[popovertarget]:has(+ [popover]:popover-open) {
+    background-color: var(--jazz-destructive-100);
+  }
+
+  button.destructive[popovertarget]:has(+ [popover]:popover-open),
+  .button.destructive[popovertarget]:has(+ [popover]:popover-open) {
+    background-color: var(--jazz-destructive-600);
+  }
+
   button:focus-visible,
   .button:focus-visible {
     outline: 2px solid var(--jazz-neutral-950);
@@ -138,7 +168,9 @@
   }
 
   button:active,
-  .button:active {
+  .button:active,
+  button[popovertarget]:has(+ [popover]:popover-open),
+  .button[popovertarget]:has(+ [popover]:popover-open) {
     translate: 0 1px;
   }
 }

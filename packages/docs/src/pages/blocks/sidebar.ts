@@ -94,10 +94,13 @@ export async function SidebarPage(path: string) {
               position: absolute;
               right: 0;
 
-              opacity: 0;
+              @media (hover: hover) {
+                opacity: 0;
+              }
             }
 
-            &:hover {
+            &:hover,
+            &:has([popover]:popover-open) {
               button.square {
                 opacity: 1;
               }
@@ -171,7 +174,11 @@ export async function SidebarPage(path: string) {
                     >
                       ${raw(svg(I.dots))}
                     </button>
-                    <div id="sidebar-de-menu" popover>
+                    <div
+                      id="sidebar-de-menu"
+                      popover
+                      data-placement="right top"
+                    >
                       <menu>
                         <li>
                           <button class="ghost">${raw(svg(I.eye))} View</button>
@@ -200,7 +207,11 @@ export async function SidebarPage(path: string) {
                     >
                       ${raw(svg(I.dots))}
                     </button>
-                    <div id="sidebar-sm-menu" popover>
+                    <div
+                      id="sidebar-sm-menu"
+                      popover
+                      data-placement="right top"
+                    >
                       <menu>
                         <li>
                           <button class="ghost">${raw(svg(I.eye))} View</button>
@@ -227,7 +238,11 @@ export async function SidebarPage(path: string) {
                     >
                       ${raw(svg(I.dots))}
                     </button>
-                    <div id="sidebar-travel-menu" popover>
+                    <div
+                      id="sidebar-travel-menu"
+                      popover
+                      data-placement="right top"
+                    >
                       <menu>
                         <li>
                           <button class="ghost">${raw(svg(I.eye))} View</button>
@@ -311,7 +326,10 @@ export async function SidebarPage(path: string) {
                   </li>
                   <li><hr /></li>
                   <li>
-                    <button class="ghost">
+                    <button
+                      class="ghost"
+                      style="color: var(--jazz-color-2-600);"
+                    >
                       ${raw(svg(I.sparkles))} Upgrade to Pro
                     </button>
                   </li>
@@ -354,11 +372,13 @@ export async function SidebarPage(path: string) {
       gap: var(--spacing-3);
     }
 
-  .sidebar-label {
-    display: block;
-    color: var(--jazz-neutral-400);
-    margin-block: var(--spacing-4) var(--spacing-1);
-  }
+    section {
+      > small {
+        display: block;
+        color: var(--jazz-neutral-400);
+        margin-block: var(--spacing-4) var(--spacing-1);
+      }
+    }
 
     details {
       border-bottom: 0;
@@ -367,16 +387,16 @@ export async function SidebarPage(path: string) {
       summary {
         padding-block: var(--spacing-2);
       }
-    }
 
-    .sidebar-submenu {
-      border-left: 1px solid var(--jazz-neutral-200);
-      margin-left: var(--spacing-2);
-      margin-block: 0 var(--spacing-4);
-      padding-block: 0;
+      menu {
+        border-left: 1px solid var(--jazz-neutral-200);
+        margin-left: var(--spacing-2);
+        margin-block: 0 var(--spacing-4);
+        padding-block: 0;
 
-      button {
-        margin-left: var(--spacing-1);
+        button {
+          margin-left: var(--spacing-1);
+        }
       }
     }
 
@@ -395,10 +415,14 @@ export async function SidebarPage(path: string) {
       button.square {
         position: absolute;
         right: 0;
-        opacity: 0;
+
+        @media (hover: hover) {
+          opacity: 0;
+        }
       }
 
-      &:hover {
+      &:hover,
+      &:has([popover]:popover-open) {
         button.square {
           opacity: 1;
         }
@@ -423,7 +447,7 @@ export async function SidebarPage(path: string) {
 
   <div>
     <section>
-      <small class="sidebar-label">Platform</small>
+      <small>Platform</small>
       <menu>
         <li>
           <details open>
@@ -447,12 +471,12 @@ export async function SidebarPage(path: string) {
     </section>
 
     <section>
-      <small class="sidebar-label">Projects</small>
+      <small>Projects</small>
       <menu>
         <li>
           <button class="ghost"><svg><!-- layout-grid --></svg> Design Engineering</button>
           <button class="ghost square" popovertarget="de-menu"><svg><!-- dots --></svg></button>
-          <div id="de-menu" popover>
+          <div id="de-menu" popover data-placement="right top">
             <menu>
               <li><button class="ghost"><svg><!-- eye --></svg> View</button></li>
               <li><button class="ghost"><svg><!-- share --></svg> Share</button></li>
@@ -464,7 +488,7 @@ export async function SidebarPage(path: string) {
         <li>
           <button class="ghost"><svg><!-- trending-up --></svg> Sales &amp; Marketing</button>
           <button class="ghost square" popovertarget="sm-menu"><svg><!-- dots --></svg></button>
-          <div id="sm-menu" popover>
+          <div id="sm-menu" popover data-placement="right top">
             <menu>
               <li><button class="ghost"><svg><!-- eye --></svg> View</button></li>
               <li><button class="ghost"><svg><!-- share --></svg> Share</button></li>
@@ -476,7 +500,7 @@ export async function SidebarPage(path: string) {
         <li>
           <button class="ghost"><svg><!-- plane --></svg> Travel</button>
           <button class="ghost square" popovertarget="travel-menu"><svg><!-- dots --></svg></button>
-          <div id="travel-menu" popover>
+          <div id="travel-menu" popover data-placement="right top">
             <menu>
               <li><button class="ghost"><svg><!-- eye --></svg> View</button></li>
               <li><button class="ghost"><svg><!-- share --></svg> Share</button></li>
@@ -496,8 +520,12 @@ export async function SidebarPage(path: string) {
 
   <footer>
     <menu>
-      <li><small><button class="ghost"><svg><!-- lifebuoy --></svg> Support</button></small></li>
-      <li><small><button class="ghost"><svg><!-- message --></svg> Feedback</button></small></li>
+      <li><small>
+        <button class="ghost"><svg><!-- lifebuoy --></svg> Support</button>
+      </small></li>
+      <li><small>
+        <button class="ghost"><svg><!-- message --></svg> Feedback</button>
+      </small></li>
     </menu>
     <hr />
     <button class="ghost sidebar-user" popovertarget="user-menu">
@@ -518,7 +546,7 @@ export async function SidebarPage(path: string) {
           </div>
         </li>
         <li><hr /></li>
-        <li><button class="ghost"><svg><!-- sparkles --></svg> Upgrade to Pro</button></li>
+        <li><button class="ghost" style="color: var(--jazz-color-2-600);"><svg><!-- sparkles --></svg> Upgrade to Pro</button></li>
         <li><hr /></li>
         <li><button class="ghost"><svg><!-- user-circle --></svg> Account</button></li>
         <li><button class="ghost"><svg><!-- credit-card --></svg> Billing</button></li>

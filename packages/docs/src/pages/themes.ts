@@ -7,6 +7,7 @@ const toc = [
   { id: "neutral-scale", label: "Neutral scale" },
   { id: "constructive-scale", label: "Constructive scale" },
   { id: "destructive-scale", label: "Destructive scale" },
+  { id: "color-scales", label: "Color scales" },
   { id: "customizing", label: "Customizing" },
   { id: "dark-mode", label: "Dark mode" },
 ];
@@ -82,6 +83,16 @@ export async function ThemesPage(path: string) {
         </p>
       </div>
       ${colorScale("destructive")}
+
+      <div class="prose">
+        <h2 id="color-scales">Color scales</h2>
+        <p>
+          General-purpose accent colors. Override
+          <code>--jazz-color-1</code> through <code>--jazz-color-6</code> to
+          suit your palette.
+        </p>
+      </div>
+      ${[1, 2, 3, 4, 5, 6].map((n) => colorScale(`color-${n}`))}
 
       <div class="prose">
         <h2 id="customizing">Customizing</h2>
