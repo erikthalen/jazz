@@ -1,19 +1,18 @@
 import { preprocessCSS, resolveConfig } from "vite";
 import { createRequire } from "node:module";
-import { copyFile, mkdir, readFile, watch, writeFile } from "node:fs/promises";
+import { readFile, watch, writeFile } from "node:fs/promises";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const srcFile = resolve(__dirname, "src/main.css");
-const distFile = resolve(__dirname, "dist/main.css");
 const dest = resolve(__dirname, "../../main.css");
 const watchMode = process.argv.includes("--watch");
 
 // Load lightningcss from Vite's own dependencies — no extra install needed
 const req = createRequire(import.meta.resolve("vite"));
 const { transform: lcTransform, browserslistToTargets } = req("lightningcss");
-const browserslist = req("browserslist");
+import browserslist from "browserslist";
 
 async function runBuild() {
   const code = await readFile(srcFile, "utf-8");
@@ -29,9 +28,7 @@ async function runBuild() {
     targets,
   });
 
-  await mkdir(resolve(__dirname, "dist"), { recursive: true });
-  await writeFile(distFile, minified);
-  await copyFile(distFile, dest);
+  await writeFile(dest, minified);
   console.log("  main.css written");
 }
 
