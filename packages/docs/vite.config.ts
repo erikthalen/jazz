@@ -16,6 +16,10 @@ export default defineConfig({
           res.setHeader("Content-Type", "text/css");
           res.end(readFileSync(coreCssPath, "utf-8"));
         });
+        server.middlewares.use("/jazz.css.map", (_req, res) => {
+          res.setHeader("Content-Type", "application/json");
+          res.end(readFileSync(coreCssPath + ".map", "utf-8"));
+        });
         server.middlewares.use("/minisearch.js", (_req, res) => {
           res.setHeader("Content-Type", "application/javascript");
           res.end(readFileSync(miniSearchPath, "utf-8"));
