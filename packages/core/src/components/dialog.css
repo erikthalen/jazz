@@ -53,4 +53,9 @@
       }
     }
   }
+
+  body:has(dialog[scroll-lock][open], details[scroll-lock][open]) {
+    overflow: hidden;
+    touch-action: none;
+  }
 }

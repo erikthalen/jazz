@@ -6,6 +6,7 @@
     text-rendering: geometricPrecision;
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: transparent;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1,

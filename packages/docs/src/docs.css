@@ -42,6 +42,10 @@ body {
   cursor: pointer;
 }
 
+body:has(.home-content) .docs-burger {
+  display: none !important;
+}
+
 .sidebar-backdrop {
   display: none;
 }
@@ -122,8 +126,7 @@ body {
 
   body:has(.sidebar-toggle:checked) .docs-sidebar {
     translate: 0 0;
-    box-shadow: 4px 0 24px
-      color-mix(in srgb, var(--jazz-neutral-950) 15%, transparent);
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.6);
   }
 
   .sidebar-backdrop {
@@ -132,7 +135,8 @@ body {
     inset: 0;
     z-index: 98;
     cursor: pointer;
-    background: color-mix(in srgb, var(--jazz-neutral-950) 30%, transparent);
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
     opacity: 0;
     pointer-events: none;
     transition: opacity 300ms var(--ease-glide);

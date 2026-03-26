@@ -248,7 +248,7 @@ export async function HomePage(path: string) {
                 <button class="ghost" popovertarget="showcase-submenu">
                   Open Recent
                 </button>
-                <div id="showcase-submenu" popover>
+                <div id="showcase-submenu" popover data-placement="right top">
                   <menu>
                     <li><button class="ghost">project.zip</button></li>
                     <li><button class="ghost">notes.md</button></li>

@@ -1,4 +1,13 @@
 @layer jazz {
+  /* @keyframes prevent-scroll {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  } */
+
   input[type="text"],
   input[type="email"],
   input[type="search"],
@@ -25,9 +34,10 @@
     font: inherit;
 
     &:focus {
+      /* opacity: 0; */
+      /* animation: prevent-scroll 20ms 20ms forwards; */
       outline-color: currentColor;
     }
-
   }
 
   label:has([data-suffix]) input[type="search"]::-webkit-search-cancel-button {

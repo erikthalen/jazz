@@ -7,6 +7,7 @@ const toc = [
   { id: "modal", label: "Modal" },
   { id: "with-header-footer", label: "With header & footer" },
   { id: "closedby", label: "closedby" },
+  { id: "scroll-lock", label: "scroll-lock" },
 ];
 
 export async function DialogPage(path: string) {
@@ -195,6 +196,40 @@ export async function DialogPage(path: string) {
         </div>
         <div class="code-block">
           ${raw(await highlight(`<dialog closedby="none">...</dialog>`))}
+        </div>
+      </div>
+
+      <div class="prose">
+        <h2 id="scroll-lock">scroll-lock</h2>
+        <p>
+          Add the <code>scroll-lock</code> attribute to prevent the page from
+          scrolling while the dialog is open.
+        </p>
+      </div>
+      <div class="example">
+        <div class="preview">
+          <button
+            onclick="document.getElementById('scroll-lock-demo').showModal()"
+          >
+            Open modal
+          </button>
+          <dialog id="scroll-lock-demo" scroll-lock closedby="any">
+            <article>
+              <p style="margin-bottom:1rem">
+                Page scrolling is locked while this dialog is open.
+              </p>
+              <form method="dialog">
+                <button class="outline">Close</button>
+              </form>
+            </article>
+          </dialog>
+        </div>
+        <div class="code-block">
+          ${raw(
+            await highlight(
+              `<dialog scroll-lock closedby="any">...</dialog>`,
+            ),
+          )}
         </div>
       </div>
     `,

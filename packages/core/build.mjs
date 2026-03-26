@@ -12,17 +12,21 @@ const watchMode = process.argv.includes("--watch");
 
 // Load lightningcss from Vite's own dependencies — no extra install needed
 const req = createRequire(import.meta.resolve("vite"));
-const { transform: lcTransform } = req("lightningcss");
+const { transform: lcTransform, browserslistToTargets } = req("lightningcss");
+const browserslist = req("browserslist");
 
 async function runBuild() {
   const code = await readFile(srcFile, "utf-8");
   const config = await resolveConfig({}, "build");
   const { code: bundled } = await preprocessCSS(code, srcFile, config);
 
+  const targets = browserslistToTargets(browserslist("> 0.5%, last 2 versions, Firefox ESR, not dead"));
+
   const { code: minified } = lcTransform({
     filename: "main.css",
     code: Buffer.from(bundled),
     minify: true,
+    targets,
   });
 
   await mkdir(resolve(__dirname, "dist"), { recursive: true });
