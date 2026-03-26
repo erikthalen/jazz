@@ -1,7 +1,7 @@
 import { components } from '../layout'
 import pkg from '../../../core/package.json'
 
-const cdnUrl = `https://esm.sh/gh/erikthalen/jazz@v${pkg.version}/main.css`
+const cdnUrl = `https://esm.sh/gh/erikthalen/jazz@v${pkg.version}/jazz.css`
 
 export function SkillPage() {
   const componentList = components

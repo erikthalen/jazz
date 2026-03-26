@@ -4,7 +4,7 @@ import { highlight } from "../highlight";
 import pkg from "../../../core/package.json";
 
 const { version } = pkg;
-const cdnUrl = `https://esm.sh/gh/erikthalen/jazz@v${version}/main.css`;
+const cdnUrl = `https://esm.sh/gh/erikthalen/jazz@v${version}/jazz.css`;
 
 const toc = [
   { id: "usage", label: "Usage" },

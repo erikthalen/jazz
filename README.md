@@ -9,7 +9,7 @@ A minimal CSS design system. Drop in the stylesheet and use semantic HTML. No cl
 Link the stylesheet from the CDN:
 
 ```html
-<link rel="stylesheet" href="https://esm.sh/gh/erikthalen/jazz@latest/main.css" />
+<link rel="stylesheet" href="https://esm.sh/gh/erikthalen/jazz@latest/jazz.css" />
 ```
 
 That's it. Jazz styles native HTML elements directly, so a `<button>` looks like a button, an `<input>` looks like an input, and so on. No class names required.

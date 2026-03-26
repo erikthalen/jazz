@@ -54,7 +54,7 @@ export async function CustomizationPage(path: string) {
       <div class="example">
         <div class="code-block">
           ${raw(await highlight(
-            `<link rel="stylesheet" href="jazz/main.css" />\n` +
+            `<link rel="stylesheet" href="jazz/jazz.css" />\n` +
             `<link rel="stylesheet" href="your-styles.css" />`,
             80, 'html'
           ))}

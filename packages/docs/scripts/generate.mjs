@@ -72,9 +72,9 @@ for (const route of routes) {
   console.log(`  ${route}`);
 }
 
-// Copy main.css to dist
-const rootCss = new URL("../../../main.css", import.meta.url).pathname;
-await copyFile(rootCss, join(outDir, "main.css"));
+// Copy jazz.css to dist
+const rootCss = new URL("../../../jazz.css", import.meta.url).pathname;
+await copyFile(rootCss, join(outDir, "jazz.css"));
 
 // Regenerate SKILL.md at repo root so it stays in sync with the build
 const skillResponse = await app.fetch(new Request("http://localhost/skill.md"));

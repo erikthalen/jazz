@@ -3,7 +3,7 @@ import devServer from "@hono/vite-dev-server";
 import { fileURLToPath } from "node:url";
 import { readFileSync } from "node:fs";
 
-const coreCssPath = fileURLToPath(new URL("../../main.css", import.meta.url));
+const coreCssPath = fileURLToPath(new URL("../../jazz.css", import.meta.url));
 const miniSearchPath = fileURLToPath(new URL("./node_modules/minisearch/dist/es/index.js", import.meta.url));
 
 export default defineConfig({
@@ -12,7 +12,7 @@ export default defineConfig({
       name: "serve-and-watch-core-css",
       configureServer(server) {
         server.watcher.add(coreCssPath);
-        server.middlewares.use("/main.css", (_req, res) => {
+        server.middlewares.use("/jazz.css", (_req, res) => {
           res.setHeader("Content-Type", "text/css");
           res.end(readFileSync(coreCssPath, "utf-8"));
         });

@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const srcFile = resolve(__dirname, "src/main.css");
-const dest = resolve(__dirname, "../../main.css");
+const dest = resolve(__dirname, "../../jazz.css");
 const watchMode = process.argv.includes("--watch");
 
 // Load lightningcss from Vite's own dependencies — no extra install needed
@@ -22,14 +22,14 @@ async function runBuild() {
   const targets = browserslistToTargets(browserslist("> 0.5%, last 2 versions, Firefox ESR, not dead"));
 
   const { code: minified } = lcTransform({
-    filename: "main.css",
+    filename: "jazz.css",
     code: Buffer.from(bundled),
     minify: true,
     targets,
   });
 
   await writeFile(dest, minified);
-  console.log("  main.css written");
+  console.log("  jazz.css written");
 }
 
 await runBuild();

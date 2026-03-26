@@ -419,11 +419,23 @@ body:has(.home-content) .docs-burger {
   border-right: 1px solid var(--border);
 }
 
+@media (max-width: 768px) {
+  .home-hero {
+    padding-inline: 1rem;
+  }
+}
+
 .home-eyebrow {
   margin-top: 2.5rem;
   width: fit-content;
   max-width: 100%;
   padding-right: 3rem;
+}
+
+@media (max-width: 768px) {
+  .home-eyebrow {
+    padding-right: 0rem;
+  }
 }
 
 .home-headline {

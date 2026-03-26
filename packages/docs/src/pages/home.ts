@@ -6,11 +6,11 @@ import { readFileSync } from "node:fs";
 import { brotliCompressSync } from "node:zlib";
 import { resolve } from "node:path";
 
-const cdnUrl = `https://esm.sh/gh/erikthalen/jazz@v${pkg.version}/main.css`;
+const cdnUrl = `https://esm.sh/gh/erikthalen/jazz@v${pkg.version}/jazz.css`;
 
 function getMainCssSize() {
   try {
-    const cssPath = resolve(import.meta.dirname, "../../../../main.css");
+    const cssPath = resolve(import.meta.dirname, "../../../../jazz.css");
     const css = readFileSync(cssPath);
     const compressed = brotliCompressSync(css);
     return (compressed.byteLength / 1024).toFixed(1);
@@ -34,7 +34,7 @@ export async function HomePage(path: string) {
             and dark mode.
             ${cssSize
               ? html` <span
-                    style="background-color:var(--jazz-constructive-200);color:var(--jazz-constructive-600);padding:0.25rem 0.5rem;border-radius:8px;"
+                    style="white-space:break-spaces;background-color:var(--jazz-constructive-200);color:var(--jazz-constructive-600);padding:0.25rem 0.5rem;border-radius:8px;"
                     >${cssSize} kB</span
                   >
                   brotli compressed`
