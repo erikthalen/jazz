@@ -6,6 +6,7 @@ const toc = [
   { id: "default", label: "Default" },
   { id: "with-separator", label: "With separator" },
   { id: "with-radios", label: "With radios" },
+  { id: "with-checkboxes", label: "With checkboxes" },
   { id: "custom-select", label: "Custom select" },
   { id: "in-form", label: "In a form" },
 ];
@@ -151,6 +152,60 @@ export async function DropdownPage(path: string) {
     </label></li>
     <li><label>
       <input type="radio" name="sort" value="size" /> Size
+    </label></li>
+  </menu>
+</div>`),
+          )}
+        </div>
+      </div>
+
+      <div class="prose">
+        <h2 id="with-checkboxes">With checkboxes</h2>
+        <p>
+          Checkboxes allow multiple selections. An empty square indicates each
+          item is toggleable; a filled square with checkmark appears when
+          selected.
+        </p>
+      </div>
+      <div class="example">
+        <div class="preview">
+          <button class="outline" popovertarget="dropdown-checkboxes">
+            Columns
+          </button>
+          <div id="dropdown-checkboxes" popover>
+            <menu>
+              <li>
+                <label><input type="checkbox" name="col" value="name" checked /> Name</label>
+              </li>
+              <li>
+                <label><input type="checkbox" name="col" value="size" checked /> Size</label>
+              </li>
+              <li>
+                <label><input type="checkbox" name="col" value="type" /> Type</label>
+              </li>
+              <li>
+                <label><input type="checkbox" name="col" value="modified" /> Modified</label>
+              </li>
+            </menu>
+          </div>
+        </div>
+        <div class="code-block">
+          ${raw(
+            await highlight(`<button popovertarget="my-dropdown">Columns</button>
+
+<div id="my-dropdown" popover>
+  <menu>
+    <li><label>
+      <input type="checkbox" name="col" value="name" checked /> Name
+    </label></li>
+    <li><label>
+      <input type="checkbox" name="col" value="size" checked /> Size
+    </label></li>
+    <li><label>
+      <input type="checkbox" name="col" value="type" /> Type
+    </label></li>
+    <li><label>
+      <input type="checkbox" name="col" value="modified" /> Modified
     </label></li>
   </menu>
 </div>`),

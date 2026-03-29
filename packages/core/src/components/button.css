@@ -30,35 +30,40 @@
   }
 
   @media (hover: hover) {
-    button:hover,
-    .button:hover {
+    button:not(:disabled):hover,
+    .button:not(:disabled):hover {
       background-color: var(--jazz-primary-600);
     }
 
-    button.outline:hover,
-    .button.outline:hover {
+    button.outline:not(:disabled):hover,
+    .button.outline:not(:disabled):hover {
       background-color: var(--jazz-neutral-100);
     }
 
-    button.secondary:hover,
-    .button.secondary:hover {
+    button.secondary:not(:disabled):hover,
+    .button.secondary:not(:disabled):hover {
       background-color: var(--jazz-neutral-600);
     }
 
-    button.ghost:hover,
-    .button.ghost:hover {
+    button.ghost:not(:disabled):hover,
+    .button.ghost:not(:disabled):hover {
       background-color: var(--jazz-neutral-100);
     }
 
-    button.ghost.destructive:hover,
-    .button.ghost.destructive:hover {
+    button.ghost.destructive:not(:disabled):hover,
+    .button.ghost.destructive:not(:disabled):hover {
       background-color: var(--jazz-destructive-100);
     }
 
-    button.destructive:hover,
-    .button.destructive:hover {
+    button.destructive:not(:disabled):hover,
+    .button.destructive:not(:disabled):hover {
       background-color: var(--jazz-destructive-600);
     }
+  }
+
+  button:disabled,
+  .button:disabled {
+    cursor: default;
   }
 
   button.outline,

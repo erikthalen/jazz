@@ -22,13 +22,13 @@ export async function TablePage(path: string) {
 
         <h2 id="default">Default</h2>
         <p>
-          Set <code>--cols</code> on the table to define column widths. All rows
+          Column count is detected automatically from the header row. All rows
           inherit the same grid via <code>subgrid</code>.
         </p>
       </div>
       <div class="example">
         <div class="preview preview-padded">
-          <table style="--cols: repeat(3, 1fr)">
+          <table>
             <thead>
               <tr>
                 <th>Name</th>
@@ -57,7 +57,7 @@ export async function TablePage(path: string) {
         </div>
         <div class="code-block">
           ${raw(
-            await highlight(`<table style="--cols: repeat(3, 1fr)">
+            await highlight(`<table>
   <thead>
     <tr>
       <th>Name</th>
@@ -80,8 +80,8 @@ export async function TablePage(path: string) {
       <div class="prose">
         <h2 id="custom-columns">Custom columns</h2>
         <p>
-          Use any grid template value for <code>--cols</code> to give columns
-          different widths.
+          Set <code>--cols</code> on the table to override the default equal
+          widths with any grid template value.
         </p>
       </div>
       <div class="example">
