@@ -12,7 +12,7 @@ Docs: https://erikthalen.github.io/jazz/
 ## Setup
 
 ```html
-<link rel="stylesheet" href="https://esm.sh/gh/erikthalen/jazz@latest/main.css" />
+<link rel="stylesheet" href="https://esm.sh/gh/erikthalen/jazz@v0.1.0-beta.15/jazz.css" />
 ```
 
 ## Core idea
@@ -44,7 +44,7 @@ Jazz does not provide layout utilities. Use CSS `flex` and `grid` directly.
 <button class="ghost">Ghost</button>
 <button class="secondary">Secondary</button>
 <button class="destructive">Delete</button>
-<button class="square">...</button>  <!-- icon button -->
+<button class="square">...</button>
 <button class="round">Pill</button>
 ```
 
@@ -67,7 +67,7 @@ Jazz does not provide layout utilities. Use CSS `flex` and `grid` directly.
 
 ```html
 <label>
-  <svg><!-- search icon --></svg>
+  <svg><!-- icon --></svg>
   <input type="search" placeholder="Search" />
   <kbd>⌘K</kbd>
 </label>
@@ -144,7 +144,7 @@ el.addEventListener('input', () =>
 
 ```html
 <progress value="65" max="100"></progress>
-<progress></progress>  <!-- indeterminate -->
+<progress></progress>
 ```
 
 ## Badge
@@ -195,11 +195,9 @@ el.addEventListener('input', () =>
 
 ## Dropdown / popover menu
 
-Uses the native Popover API. The trigger button needs `popovertarget` and `anchor-name` matching the popover's `position-anchor`.
-
 ```html
-<button popovertarget="menu" style="anchor-name:--menu">Options</button>
-<div id="menu" popover>
+<button popovertarget="my-menu">Options</button>
+<div id="my-menu" popover>
   <menu>
     <li><button class="ghost">Edit</button></li>
     <li><button class="ghost">Delete</button></li>
@@ -235,33 +233,209 @@ Uses the native Popover API. The trigger button needs `popovertarget` and `ancho
 </div>
 ```
 
+## Textarea
+
+```html
+<textarea placeholder="Write something..."></textarea>
+```
+
+## Separator
+
+```html
+<hr />
+<hr data-label="or" />
+```
+
+## Expander (truncated text with show more)
+
+```html
+<div class="expander">
+  <p>Long text that gets truncated...</p>
+  <label>
+    <input type="checkbox" />
+    Show more
+  </label>
+</div>
+```
+
+Control the number of visible lines with `--lines` (default: 3):
+```html
+<div class="expander" style="--lines:5">...</div>
+```
+
+## File Drop
+
+```html
+<div class="file-drop">
+  Drop files here or click to browse
+  <input type="file" />
+</div>
+```
+
+## Loading indicator
+
+Add `aria-busy="true"` to any element to show a spinner before it:
+
+```html
+<p aria-busy="true">Loading...</p>
+<button aria-busy="true">Saving</button>
+```
+
+## Radio Group (fieldset with legend)
+
+```html
+<fieldset>
+  <legend>Notification preference</legend>
+  <label><input type="radio" name="notif" /> Email</label>
+  <label><input type="radio" name="notif" /> SMS</label>
+  <small>Choose how you want to be notified.</small>
+</fieldset>
+```
+
+Add `required` to an input and a `*` appears on the legend automatically.
+
+## Toggle Group (toolbar-style buttons)
+
+Use `<label class="toggle">` inside `<fieldset role="group">`. Radio for mutually exclusive, checkbox for independent:
+
+```html
+<fieldset role="group">
+  <label class="toggle square" aria-label="Align left">
+    <input type="radio" name="align" />
+    <svg>...</svg>
+  </label>
+  <label class="toggle square" aria-label="Align center">
+    <input type="radio" name="align" checked />
+    <svg>...</svg>
+  </label>
+  <label class="toggle square" aria-label="Align right">
+    <input type="radio" name="align" />
+    <svg>...</svg>
+  </label>
+</fieldset>
+```
+
+## Code and Kbd
+
+```html
+<p>Use <code>flex</code> for layout.</p>
+<kbd>⌘</kbd><kbd>K</kbd>
+```
+
+## Toast (notification)
+
+Append children to an `<output>` element fixed in the corner. Each child auto-animates in and out:
+
+```html
+<output id="toasts"></output>
+```
+
+```js
+const p = document.createElement('p')
+p.textContent = 'Saved!'
+document.getElementById('toasts').appendChild(p)
+```
+
+Control duration with `--toast-duration` (default: 3s).
+
+## Color Input
+
+```html
+<input type="color" value="#3b82f6" />
+```
+
+## Date Input
+
+```html
+<input type="date" />
+<input type="time" />
+<input type="datetime-local" />
+```
+
+## Datalist (autocomplete input)
+
+```html
+<input list="fruits" placeholder="Pick a fruit" />
+<datalist id="fruits">
+  <option value="Apple" />
+  <option value="Banana" />
+  <option value="Cherry" />
+</datalist>
+```
+
 ## Theming
 
-Override seed variables on `:root` after the stylesheet:
+Override seed variables on `:root` after the stylesheet. All color scales are derived automatically via `color-mix()`:
 
 ```css
 :root {
-  --jazz-primary-light: #4f46e5;  /* light mode primary */
-  --jazz-primary-dark: #818cf8;   /* dark mode primary */
-  --jazz-neutral: #6b7280;
+  --jazz-primary: dodgerblue;               /* or light-dark(blue, lightblue) */
+  --jazz-neutral: #8b8c93;
+  --jazz-constructive: #5dbb55;             /* success/positive actions */
+  --jazz-destructive: #ef5655;             /* danger/error actions */
+  --jazz-color1: crimson;                  /* accent colors 1-6 */
+  --jazz-color2: gold;
 }
 ```
 
 ## Dark mode
 
-Jazz responds to `prefers-color-scheme` automatically. Force a theme:
+Jazz responds to `prefers-color-scheme` automatically (via `color-scheme: light dark`). To force a theme, set `color-scheme` on the root:
+
+```css
+:root { color-scheme: dark; }
+:root { color-scheme: light; }
+```
+
+Or inline:
 
 ```html
-<html class="jazz-dark">...</html>
-<html class="jazz-light">...</html>
+<html style="color-scheme:dark">...</html>
 ```
 
 ## Spacing tokens
 
-`--spacing-1` through `--spacing-8` (multiples of `--spacing: 0.25rem`).
+`--spacing-1` through `--spacing-8` (multiples of `--spacing: 0.25em`).
 
 ## Easing tokens
 
 - `--ease-glide` — smooth deceleration, good for most transitions
 - `--ease-snap` — fast with a slight overshoot, great for toggles
 - `--ease-heavy` — dramatic elastic overshoot
+
+## Available components
+
+- `Accordion`
+- `Badge`
+- `Button`
+- `Button Group`
+- `Card`
+- `Checkbox`
+- `Code`
+- `Color Input`
+- `Combobox` (WIP)
+- `Datalist`
+- `Date Input`
+- `Dialog`
+- `Dropdown`
+- `Expander`
+- `Field`
+- `File Drop`
+- `Kbd`
+- `Loading`
+- `Popover`
+- `Progress`
+- `Radio`
+- `Radio Group`
+- `Select`
+- `Submenu`
+- `Separator`
+- `Slider`
+- `Switch`
+- `Table`
+- `Text Field`
+- `Textarea`
+- `Toast` (WIP)
+- `Toggle`
+- `Toggle Group`
+- `Tooltip`

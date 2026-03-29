@@ -24,8 +24,8 @@
     user-select: none;
     text-decoration: none;
 
-    &.icon {
-      padding-inline: var(--spacing-2);
+    svg {
+      flex-shrink: 0;
     }
   }
 

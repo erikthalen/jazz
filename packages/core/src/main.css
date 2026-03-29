@@ -41,7 +41,7 @@
 
 @layer jazz {
   :root {
-    --spacing: 0.25rem;
+    --spacing: 0.25em;
 
     --spacing-1: calc(var(--spacing) * 1);
     --spacing-2: calc(var(--spacing) * 2);

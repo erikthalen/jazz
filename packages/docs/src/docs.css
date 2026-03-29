@@ -205,6 +205,8 @@ body:has(.home-content) .docs-burger {
   container-type: inline-size;
   padding: 2.5rem 3rem;
   min-width: 0;
+  width: min(680px, 100%);
+  margin: auto;
 }
 
 .docs-content > .prose {

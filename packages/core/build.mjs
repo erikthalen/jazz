@@ -1,6 +1,6 @@
 import { createRequire } from "node:module";
 import { watch, writeFile } from "node:fs/promises";
-import { resolve, dirname } from "node:path";
+import { resolve, dirname, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import browserslist from "browserslist";
 
@@ -23,8 +23,12 @@ async function runBuild() {
     sourceMap: true,
   });
 
+  const destDir = dirname(dest);
+  const mapJson = JSON.parse(map.toString());
+  mapJson.sources = mapJson.sources.map(s => relative(destDir, "/" + s));
+
   await writeFile(dest, code + "\n/*# sourceMappingURL=jazz.css.map */");
-  await writeFile(dest + ".map", map);
+  await writeFile(dest + ".map", JSON.stringify(mapJson));
   console.log("  jazz.css written");
 }
 
