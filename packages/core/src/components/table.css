@@ -67,6 +67,11 @@
     border-bottom: 1px solid var(--jazz-neutral-200);
   }
 
+  th:last-child,
+  td:last-child {
+    text-align: right;
+  }
+
   thead > tr > th {
     font-weight: 600;
     font-size: 0.75rem;

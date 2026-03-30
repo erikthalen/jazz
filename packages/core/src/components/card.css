@@ -1,6 +1,6 @@
 @layer jazz {
   article {
-    border: 1px solid var(--jazz-neutral-200);
+    border: 1px solid var(--jazz-neutral-100);
     border-radius: 12px;
     overflow: hidden;
     padding: var(--spacing-6);
@@ -15,11 +15,11 @@
     }
 
     & > header {
-      border-bottom: 1px solid var(--jazz-neutral-200);
+      border-bottom: 1px solid var(--jazz-neutral-100);
     }
 
     & > footer {
-      border-top: 1px solid var(--jazz-neutral-200);
+      border-top: 1px solid var(--jazz-neutral-100);
     }
 
     &:has(> header, > footer) > :not(header):not(footer) {

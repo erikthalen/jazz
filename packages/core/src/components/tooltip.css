@@ -1,12 +1,11 @@
 @layer jazz {
   [data-tooltip] {
     position: relative;
-    anchor-name: --tooltip;
-    anchor-scope: --tooltip;
 
     &::before,
     &::after {
-      position: fixed;
+      position: absolute;
+      z-index: 2147483647;
       pointer-events: none;
       opacity: 0;
       transition: opacity 100ms;
@@ -31,53 +30,53 @@
     /* top (default) */
     &:not([data-placement])::before,
     &[data-placement="top"]::before {
-      bottom: calc(anchor(--tooltip top) + 0.5rem);
-      left: anchor(--tooltip center);
+      bottom: calc(100% + 0.5rem);
+      left: 50%;
       translate: -50% 0;
     }
     &:not([data-placement])::after,
     &[data-placement="top"]::after {
-      bottom: calc(anchor(--tooltip top) + 0.5rem);
-      left: anchor(--tooltip center);
+      bottom: calc(100% + 0.5rem);
+      left: 50%;
       translate: -50% 100%;
       border-top-color: var(--jazz-neutral-950);
     }
 
     /* bottom */
     &[data-placement="bottom"]::before {
-      top: calc(anchor(--tooltip bottom) + 0.5rem);
-      left: anchor(--tooltip center);
+      top: calc(100% + 0.5rem);
+      left: 50%;
       translate: -50% 0;
     }
     &[data-placement="bottom"]::after {
-      top: calc(anchor(--tooltip bottom) + 0.5rem);
-      left: anchor(--tooltip center);
+      top: calc(100% + 0.5rem);
+      left: 50%;
       translate: -50% -100%;
       border-bottom-color: var(--jazz-neutral-950);
     }
 
     /* left */
     &[data-placement="left"]::before {
-      right: calc(anchor(--tooltip left) + 0.5rem);
-      top: anchor(--tooltip center);
+      right: calc(100% + 0.5rem);
+      top: 50%;
       translate: 0 -50%;
     }
     &[data-placement="left"]::after {
-      right: calc(anchor(--tooltip left) + 0.5rem);
-      top: anchor(--tooltip center);
+      right: calc(100% + 0.5rem);
+      top: 50%;
       translate: 100% -50%;
       border-left-color: var(--jazz-neutral-950);
     }
 
     /* right */
     &[data-placement="right"]::before {
-      left: calc(anchor(--tooltip right) + 0.5rem);
-      top: anchor(--tooltip center);
+      left: calc(100% + 0.5rem);
+      top: 50%;
       translate: 0 -50%;
     }
     &[data-placement="right"]::after {
-      left: calc(anchor(--tooltip right) + 0.5rem);
-      top: anchor(--tooltip center);
+      left: calc(100% + 0.5rem);
+      top: 50%;
       translate: -100% -50%;
       border-right-color: var(--jazz-neutral-950);
     }
