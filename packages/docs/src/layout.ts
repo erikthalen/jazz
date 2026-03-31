@@ -49,6 +49,7 @@ export const components: { label: string; path: string; badge?: string }[] = [
   { label: "Date Input", path: "/components/date-input" },
   { label: "Dialog", path: "/components/dialog" },
   { label: "Dropdown", path: "/components/dropdown" },
+  { label: "Empty State", path: "/components/empty" },
   { label: "Expander", path: "/components/expander" },
   { label: "Field", path: "/components/field" },
   { label: "File Drop", path: "/components/file-drop" },

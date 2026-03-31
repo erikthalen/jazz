@@ -38,6 +38,7 @@
 @import "./components/table.css";
 @import "./components/prose.css";
 @import "./components/toast.css";
+@import "./components/empty.css";
 
 @layer jazz {
   :root {

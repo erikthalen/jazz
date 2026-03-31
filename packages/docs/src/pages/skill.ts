@@ -362,6 +362,26 @@ Control duration with \`--toast-duration\` (default: 3s).
 <input type="datetime-local" />
 \`\`\`
 
+## Empty State
+
+\`\`\`html
+<div class="empty">
+  <svg><!-- icon --></svg>
+  <h3>No items yet</h3>
+  <p>There's nothing here. Add something to get started.</p>
+</div>
+\`\`\`
+
+Add a button to give the user a clear next step:
+\`\`\`html
+<div class="empty">
+  <svg><!-- icon --></svg>
+  <h3>No documents</h3>
+  <p>Create your first document to get started.</p>
+  <button>New document</button>
+</div>
+\`\`\`
+
 ## Datalist (autocomplete input)
 
 \`\`\`html

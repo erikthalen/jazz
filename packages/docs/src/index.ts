@@ -38,6 +38,7 @@ import { DatalistPage } from './pages/datalist'
 import { ComboboxPage } from './pages/combobox'
 import { ToastPage } from './pages/toast'
 import { SubmenuPage } from './pages/submenu'
+import { EmptyPage } from './pages/empty'
 import { FieldPage } from './pages/field'
 import { BlocksPage } from './pages/blocks'
 import { RichtextEditorPage } from './pages/blocks/richtext-editor'
@@ -91,6 +92,7 @@ app.get('/components/datalist', (c) => c.html(DatalistPage(c.req.path)))
 app.get('/components/combobox', (c) => c.html(ComboboxPage(c.req.path)))
 app.get('/components/toast', (c) => c.html(ToastPage(c.req.path)))
 app.get('/components/submenu', (c) => c.html(SubmenuPage(c.req.path)))
+app.get('/components/empty', (c) => c.html(EmptyPage(c.req.path)))
 app.get('/components/field', (c) => c.html(FieldPage(c.req.path)))
 app.get('/components/radio-group', (c) => c.html(RadioGroupPage(c.req.path)))
 app.get('/blocks', (c) => c.html(BlocksPage(c.req.path)))
