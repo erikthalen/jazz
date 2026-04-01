@@ -203,14 +203,72 @@ el.addEventListener('input', () =>
 <button onclick="document.getElementById('my-dialog').showModal()">Open</button>
 \`\`\`
 
-## Dropdown / popover menu
+## Menu
+
+A \`<menu>\` element is styled as a vertical list of actions. Use it standalone or inside a popover.
+
+\`\`\`html
+<menu>
+  <li><button class="ghost">Edit</button></li>
+  <li><button class="ghost">Duplicate</button></li>
+  <li><hr /></li>
+  <li><button class="ghost destructive">Delete</button></li>
+</menu>
+\`\`\`
+
+Section labels: a \`<li>\` whose only child is a text-only \`<small>\` renders as a muted group header:
+
+\`\`\`html
+<menu>
+  <li><small>Actions</small></li>
+  <li><button class="ghost">New File</button></li>
+  <li><button class="ghost">New Folder</button></li>
+</menu>
+\`\`\`
+
+Radio and checkbox inputs inside \`<label>\`s show a checkmark indicator:
+
+\`\`\`html
+<menu>
+  <li><label><input type="radio" name="sort" checked /> Newest</label></li>
+  <li><label><input type="radio" name="sort" /> Oldest</label></li>
+</menu>
+\`\`\`
+
+## Dropdown (popover menu)
+
+Place a \`<menu>\` inside any \`[popover]\` — styles and padding apply automatically:
 
 \`\`\`html
 <button popovertarget="my-menu">Options</button>
 <div id="my-menu" popover>
   <menu>
+    <li><small>Actions</small></li>
     <li><button class="ghost">Edit</button></li>
-    <li><button class="ghost">Delete</button></li>
+    <li><button class="ghost">Duplicate</button></li>
+    <li><hr /></li>
+    <li><button class="ghost destructive">Delete</button></li>
+  </menu>
+</div>
+\`\`\`
+
+## Submenu
+
+A \`[popover]\` that is a sibling of a \`<button>\` inside a menu \`<li>\` becomes a submenu. The trigger button gets a chevron automatically:
+
+\`\`\`html
+<div id="parent-menu" popover>
+  <menu>
+    <li><button class="ghost">Cut</button></li>
+    <li>
+      <button class="ghost" popovertarget="find-menu">Find</button>
+      <div id="find-menu" popover data-placement="right top">
+        <menu>
+          <li><button class="ghost">Find…</button></li>
+          <li><button class="ghost">Find Next</button></li>
+        </menu>
+      </div>
+    </li>
   </menu>
 </div>
 \`\`\`
@@ -329,7 +387,13 @@ Use \`<label class="toggle">\` inside \`<fieldset role="group">\`. Radio for mut
 
 \`\`\`html
 <p>Use <code>flex</code> for layout.</p>
-<kbd>⌘</kbd><kbd>K</kbd>
+<kbd>⌘K</kbd>
+\`\`\`
+
+Put a \`<kbd>\` inside a button to show a keyboard shortcut hint:
+
+\`\`\`html
+<button class="ghost">Save <kbd>⌘S</kbd></button>
 \`\`\`
 
 ## Toast (notification)
