@@ -39,11 +39,13 @@ import { ComboboxPage } from './pages/combobox'
 import { ToastPage } from './pages/toast'
 import { SubmenuPage } from './pages/submenu'
 import { EmptyPage } from './pages/empty'
+import { MenuPage } from './pages/menu'
 import { FieldPage } from './pages/field'
 import { BlocksPage } from './pages/blocks'
 import { RichtextEditorPage } from './pages/blocks/richtext-editor'
 import { SignupFormPage } from './pages/blocks/signup-form'
 import { SidebarPage } from './pages/blocks/sidebar'
+import { ComplexMenuPage } from './pages/blocks/complex-menu'
 import { RadioGroupPage } from './pages/radio-group'
 import { EasingsPage } from './pages/easings'
 import { LlmsPage } from './pages/llms'
@@ -93,12 +95,14 @@ app.get('/components/combobox', (c) => c.html(ComboboxPage(c.req.path)))
 app.get('/components/toast', (c) => c.html(ToastPage(c.req.path)))
 app.get('/components/submenu', (c) => c.html(SubmenuPage(c.req.path)))
 app.get('/components/empty', (c) => c.html(EmptyPage(c.req.path)))
+app.get('/components/menu', (c) => c.html(MenuPage(c.req.path)))
 app.get('/components/field', (c) => c.html(FieldPage(c.req.path)))
 app.get('/components/radio-group', (c) => c.html(RadioGroupPage(c.req.path)))
 app.get('/blocks', (c) => c.html(BlocksPage(c.req.path)))
 app.get('/blocks/richtext-editor', (c) => c.html(RichtextEditorPage(c.req.path)))
 app.get('/blocks/signup-form', (c) => c.html(SignupFormPage(c.req.path)))
 app.get('/blocks/sidebar', (c) => c.html(SidebarPage(c.req.path)))
+app.get('/blocks/complex-menu', (c) => c.html(ComplexMenuPage(c.req.path)))
 app.get('/easings', (c) => c.html(EasingsPage(c.req.path)))
 app.get('/typography', (c) => c.html(TypographyPage(c.req.path)))
 app.get('/llms.txt', (c) => c.text(LlmsPage()))

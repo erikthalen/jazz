@@ -2,22 +2,31 @@
   fieldset[role="group"] {
     display: inline-flex;
     align-items: stretch;
-    border: 1px solid var(--jazz-neutral-200);
-    border-radius: 10px;
     padding: 0;
     vertical-align: bottom;
+    border: none;
+    background: var(--background-color);
 
     & > * {
+      position: relative;
       border-radius: 0;
-      border-right: 1px solid var(--jazz-neutral-200);
+      outline: 1px solid var(--jazz-neutral-200);
+      outline-offset: -1px;
+      margin-right: -1px;
 
       &:first-child {
         border-radius: 9px 0 0 9px;
       }
 
       &:last-child {
-        border-right: none;
         border-radius: 0 9px 9px 0;
+        margin-right: 0;
+      }
+
+      &:hover,
+      &:focus-within,
+      &:active {
+        z-index: 1;
       }
     }
 
@@ -27,27 +36,15 @@
 
     & > input {
       flex: 1;
-      outline: none;
-      border: none;
-      border-right: 1px solid var(--jazz-neutral-200);
-
       min-width: 0;
-      border-radius: 0;
-    }
 
-    &:has(input:focus) {
-      border-color: var(--jazz-neutral-500);
-    }
-
-    & > button,
-    & > .button {
-      &:active {
-        translate: 0;
+      &:focus {
+        border-color: var(--jazz-neutral-500);
       }
     }
 
     label {
-      outline: none;
+      line-height: calc(16 / 14 * 1em);
       border-radius: 0;
     }
   }

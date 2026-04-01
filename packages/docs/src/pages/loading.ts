@@ -73,7 +73,7 @@ export async function LoadingPage(path: string) {
       <div class="example">
         <div class="preview">
           <article
-            style="border-style:dashed;text-align:center;display:flex;flex-direction:column;align-items:center;gap:var(--spacing-4);max-width:22rem"
+            style="border-style:dashed;text-align:center;display:grid;place-items:center;gap:var(--spacing-4);max-width:22rem"
           >
             <div
               aria-busy="true"
@@ -93,7 +93,7 @@ export async function LoadingPage(path: string) {
         </div>
         <div class="code-block">
           ${raw(
-            await highlight(`<article style="border-style:dashed;text-align:center;display:flex;flex-direction:column;align-items:center;gap:var(--spacing-4)">
+            await highlight(`<article style="border-style:dashed;text-align:center;display:grid;place-items:center;gap:var(--spacing-4)">
   <div aria-busy="true" style="width:2.5rem;height:2.5rem;border-radius:8px;background:var(--jazz-neutral-100);display:grid;place-items:center;"></div>
   <div>
     <p style="margin-bottom:var(--spacing-2)"><strong>Processing your request</strong></p>

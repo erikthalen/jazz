@@ -39,14 +39,16 @@ export async function KbdPage(path: string) {
 
       <div class="prose">
         <h2 id="combinations">Combinations</h2>
-        <p>Use <code>+</code> between <code>&lt;kbd&gt;</code> elements to show key combinations.</p>
+        <p>Wrap keys in an outer <code>&lt;kbd&gt;</code> to form a combination. The <code>+</code> separator is a plain text node between the inner elements.</p>
       </div>
       <div class="example">
         <div class="preview">
-          <kbd>⌘</kbd> + <kbd>K</kbd>
+          <kbd><kbd>⌘</kbd>+<kbd>K</kbd></kbd>
+          <kbd><kbd>⌘</kbd>+<kbd>⇧</kbd>+<kbd>P</kbd></kbd>
         </div>
         <div class="code-block">
-          ${raw(await highlight(`<kbd>⌘</kbd> + <kbd>K</kbd>`))}
+          ${raw(await highlight(`<kbd><kbd>⌘</kbd>+<kbd>K</kbd></kbd>
+<kbd><kbd>⌘</kbd>+<kbd>⇧</kbd>+<kbd>P</kbd></kbd>`))}
         </div>
       </div>
     `,

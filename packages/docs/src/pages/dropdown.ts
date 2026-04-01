@@ -5,6 +5,7 @@ import { highlight } from "../highlight";
 const toc = [
   { id: "default", label: "Default" },
   { id: "with-separator", label: "With separator" },
+  { id: "with-labels", label: "With section labels" },
   { id: "with-radios", label: "With radios" },
   { id: "with-checkboxes", label: "With checkboxes" },
   { id: "custom-select", label: "Custom select" },
@@ -88,6 +89,46 @@ export async function DropdownPage(path: string) {
     <li><button class="ghost">Duplicate</button></li>
     <li><button class="ghost">Share</button></li>
     <li><hr /></li>
+    <li><button class="ghost destructive">Delete</button></li>
+  </menu>
+</div>`),
+          )}
+        </div>
+      </div>
+
+      <div class="prose">
+        <h2 id="with-labels">With section labels</h2>
+        <p>
+          A <code>&lt;li&gt;</code> whose only child is a text-only
+          <code>&lt;small&gt;</code> is automatically styled as a section label.
+          No extra class needed.
+        </p>
+      </div>
+      <div class="example">
+        <div class="preview">
+          <button class="outline" popovertarget="dropdown-labels">
+            File
+          </button>
+          <div id="dropdown-labels" popover>
+            <menu>
+              <li><small>Actions</small></li>
+              <li><button class="ghost">New File</button></li>
+              <li><button class="ghost">New Folder</button></li>
+              <li><hr /></li>
+              <li><small>Danger zone</small></li>
+              <li><button class="ghost destructive">Delete</button></li>
+            </menu>
+          </div>
+        </div>
+        <div class="code-block">
+          ${raw(
+            await highlight(`<div id="my-dropdown" popover>
+  <menu>
+    <li><small>Actions</small></li>
+    <li><button class="ghost">New File</button></li>
+    <li><button class="ghost">New Folder</button></li>
+    <li><hr /></li>
+    <li><small>Danger zone</small></li>
     <li><button class="ghost destructive">Delete</button></li>
   </menu>
 </div>`),

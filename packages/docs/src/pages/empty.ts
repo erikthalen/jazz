@@ -5,6 +5,7 @@ import { highlight } from "../highlight";
 const toc = [
   { id: "default", label: "Default" },
   { id: "with-action", label: "With action" },
+  { id: "with-link", label: "With link" },
 ];
 
 export async function EmptyPage(path: string) {
@@ -60,22 +61,8 @@ export async function EmptyPage(path: string) {
       <div class="example">
         <div class="preview preview-padded">
           <div class="empty">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
-              <path d="M14 2v4a2 2 0 0 0 2 2h4" />
-              <path d="M12 18v-6" />
-              <path d="M9 15h6" />
-            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18" />
+  <path d="M7 3h7l5 5v7m0 4a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-14" /></svg>
             <h3>No documents</h3>
             <p>Create your first document to get started.</p>
             <button>New document</button>
@@ -88,6 +75,34 @@ export async function EmptyPage(path: string) {
   <h3>No documents</h3>
   <p>Create your first document to get started.</p>
   <button>New document</button>
+</div>`),
+          )}
+        </div>
+      </div>
+      <div class="prose">
+        <h2 id="with-link">With link</h2>
+        <p>Use an <code>&lt;a&gt;</code> when the action navigates somewhere.</p>
+      </div>
+      <div class="example">
+        <div class="preview preview-padded">
+          <div class="empty">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 8h.01" />
+  <path d="M7 3h11a3 3 0 0 1 3 3v11m-.856 3.099a2.991 2.991 0 0 1 -2.144 .901h-12a3 3 0 0 1 -3 -3v-12c0 -.845 .349 -1.608 .91 -2.153" />
+  <path d="M3 16l5 -5c.928 -.893 2.072 -.893 3 0l5 5" />
+  <path d="M16.33 12.338c.574 -.054 1.155 .166 1.67 .662l3 3" />
+  <path d="M3 3l18 18" /></svg>
+            <h3>No images uploaded</h3>
+            <p>Visit the media library to upload and manage your images.</p>
+            <a href="#" class="button">Go to media library</a>
+          </div>
+        </div>
+        <div class="code-block">
+          ${raw(
+            await highlight(`<div class="empty">
+  <svg><!-- icon --></svg>
+  <h3>No images uploaded</h3>
+  <p>Visit the media library to upload and manage your images.</p>
+  <a href="/media" class="button">Go to media library</a>
 </div>`),
           )}
         </div>

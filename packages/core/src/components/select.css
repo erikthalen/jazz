@@ -3,7 +3,7 @@
     appearance: none;
     border: none;
 
-    outline: 1px solid var(--jazz-neutral-500);
+    outline: 1px solid var(--jazz-neutral-200);
     outline-offset: -1px;
 
     padding-block: var(--spacing-2);

@@ -10,23 +10,68 @@
     letter-spacing: 0.02em;
     user-select: none;
     line-height: 1.5;
-    background-color: var(--jazz-neutral-200);
+    background-color: var(--jazz-neutral-300);
     color: var(--jazz-neutral-900);
 
     &.secondary {
-      background-color: var(--jazz-neutral-800);
+      background-color: var(--jazz-neutral-900);
       color: var(--jazz-neutral-100);
     }
 
+    &.primary {
+      background-color: var(--jazz-primary-300);
+      color: var(--jazz-primary-900);
+    }
+
+    &.constructive {
+      background-color: var(--jazz-constructive-300);
+      color: var(--jazz-constructive-900);
+    }
+
     &.destructive {
-      background-color: var(--jazz-destructive-100);
-      color: var(--jazz-destructive);
+      background-color: var(--jazz-destructive-300);
+      color: var(--jazz-destructive-900);
+    }
+
+    &.color1 {
+      background-color: var(--jazz-color1-300);
+      color: var(--jazz-color1-900);
+    }
+
+    &.color2 {
+      background-color: var(--jazz-color2-300);
+      color: var(--jazz-color2-900);
+    }
+
+    &.color3 {
+      background-color: var(--jazz-color3-300);
+      color: var(--jazz-color3-900);
+    }
+
+    &.color4 {
+      background-color: var(--jazz-color4-300);
+      color: var(--jazz-color4-900);
+    }
+
+    &.color5 {
+      background-color: var(--jazz-color5-300);
+      color: var(--jazz-color5-900);
+    }
+
+    &.color6 {
+      background-color: var(--jazz-color6-300);
+      color: var(--jazz-color6-900);
     }
 
     &.outline {
       background-color: transparent;
       outline: 1px solid currentColor;
       outline-offset: -1px;
+    }
+
+    svg {
+      width: 1em;
+      height: 1em;
     }
   }
 }

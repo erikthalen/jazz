@@ -28,8 +28,7 @@
 
     &::before {
       width: 100%;
-      background: black;
-      mix-blend-mode: destination-out plus-lighter;
+      background: var(--background-color);
     }
 
     &::after {

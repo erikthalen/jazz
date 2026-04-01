@@ -1,8 +1,6 @@
 @layer jazz {
   /* Trigger: button inside a menu item that has a sibling popover */
   [popover] > menu > li:has(> [popover]) > button {
-    justify-content: space-between;
-
     &::after {
       content: "";
       display: inline-block;
@@ -13,6 +11,7 @@
       mask-position: center;
       width: 1rem;
       height: 1rem;
+      margin-left: auto;
     }
   }
 

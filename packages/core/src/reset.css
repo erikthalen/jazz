@@ -7,6 +7,7 @@
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: transparent;
     -moz-osx-font-smoothing: grayscale;
+    text-wrap-style: pretty;
   }
 
   h1,
@@ -35,6 +36,13 @@
 
   img {
     vertical-align: middle;
+    object-fit: cover;
+    max-width: 100%;
+  }
+
+  svg {
+    width: 1lh;
+    height: 1lh;
   }
 
   ::selection {

@@ -50,12 +50,8 @@ export async function SidebarPage(path: string) {
             gap: var(--spacing-3);
           }
 
-          section {
-            > small {
-              display: block;
-              color: var(--jazz-neutral-400);
-              margin-block: var(--spacing-4) var(--spacing-1);
-            }
+          section > menu {
+            padding-top: var(--spacing-2);
           }
 
           details {
@@ -127,8 +123,8 @@ export async function SidebarPage(path: string) {
 
             <div>
               <section>
-                <small>Platform</small>
                 <menu>
+                  <li><small>Platform</small></li>
                   <li>
                     <details open>
                       <summary>
@@ -162,8 +158,8 @@ export async function SidebarPage(path: string) {
               </section>
 
               <section>
-                <small>Projects</small>
                 <menu>
+                  <li><small>Projects</small></li>
                   <li>
                     <button class="ghost">
                       ${raw(svg(I.layoutGrid))} Design Engineering
@@ -372,12 +368,8 @@ export async function SidebarPage(path: string) {
       gap: var(--spacing-3);
     }
 
-    section {
-      > small {
-        display: block;
-        color: var(--jazz-neutral-400);
-        margin-block: var(--spacing-4) var(--spacing-1);
-      }
+    section > menu {
+      padding-top: var(--spacing-2);
     }
 
     details {
@@ -447,8 +439,8 @@ export async function SidebarPage(path: string) {
 
   <div>
     <section>
-      <small>Platform</small>
       <menu>
+        <li><small>Platform</small></li>
         <li>
           <details open>
             <summary>
@@ -471,8 +463,8 @@ export async function SidebarPage(path: string) {
     </section>
 
     <section>
-      <small>Projects</small>
       <menu>
+        <li><small>Projects</small></li>
         <li>
           <button class="ghost"><svg><!-- layout-grid --></svg> Design Engineering</button>
           <button class="ghost square" popovertarget="de-menu"><svg><!-- dots --></svg></button>

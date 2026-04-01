@@ -32,6 +32,7 @@
 @import "./components/loading.css";
 @import "./components/progress.css";
 @import "./components/popover.css";
+@import "./components/menu.css";
 @import "./components/dropdown.css";
 @import "./components/submenu.css";
 @import "./components/toggle.css";

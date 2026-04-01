@@ -12,15 +12,25 @@
     margin: auto;
 
     > svg {
-      width: 2rem;
-      height: 2rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      background: var(--jazz-neutral-100);
+      color: var(--jazz-neutral-800);
+      padding: 0.5rem;
+      border-radius: 6px;
     }
 
     > :is(h1, h2, h3, h4, h5, h6) {
       color: var(--jazz-neutral-950);
     }
 
-    > button {
+    p {
+      max-width: 35ch;
+    }
+
+    > button,
+    > a,
+    > .button {
       margin-top: var(--spacing-2);
     }
   }

@@ -4,7 +4,7 @@
     flex-direction: column;
     gap: var(--spacing-2);
 
-    > span {
+    > span:not([data-prefix]):not([data-suffix]) {
       font-weight: 600;
     }
 
@@ -13,7 +13,7 @@
       font-size: 0.875em;
     }
 
-    &:has(input:required) > span::after {
+    &:has(input:required) > span:not([data-prefix]):not([data-suffix])::after {
       content: " *";
       color: var(--jazz-destructive);
     }

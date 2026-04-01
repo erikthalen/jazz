@@ -1,6 +1,7 @@
 import { html, raw } from "hono/html";
 import type { HtmlEscapedString } from "hono/utils/html";
 import docsCss from "./docs.css?raw";
+import { IconsSearchDialog } from "./pages/icons-dialog";
 
 const b = (process.env.BASE_URL ?? "/").replace(/\/$/, "");
 export const url = (path: string) => b + path;
@@ -33,6 +34,12 @@ export const blocks: { label: string; path: string; description: string }[] = [
     description:
       "An app navigation sidebar with grouped links, expandable sections, and a user menu.",
   },
+  {
+    label: "Complex Menu",
+    path: "/blocks/complex-menu",
+    description:
+      "A multi-section dropdown with keyboard shortcuts, checkable items, and nested submenus.",
+  },
 ];
 
 export const components: { label: string; path: string; badge?: string }[] = [
@@ -55,6 +62,7 @@ export const components: { label: string; path: string; badge?: string }[] = [
   { label: "File Drop", path: "/components/file-drop" },
   { label: "Kbd", path: "/components/kbd" },
   { label: "Loading", path: "/components/loading" },
+  { label: "Menu", path: "/components/menu" },
   { label: "Popover", path: "/components/popover" },
   { label: "Progress", path: "/components/progress" },
   { label: "Radio", path: "/components/radio" },
@@ -92,20 +100,26 @@ function head(title: string) {
     <script>
       function applyColorScheme(scheme) {
         let s = document.getElementById("jazz-theme-style");
-        if (!s) {
-          s = document.createElement("style");
-          s.id = "jazz-theme-style";
-          document.head.appendChild(s);
+        if (scheme === "system") {
+          if (s) s.remove();
+          localStorage.removeItem("jazz-theme");
+        } else {
+          if (!s) {
+            s = document.createElement("style");
+            s.id = "jazz-theme-style";
+            document.head.appendChild(s);
+          }
+          s.textContent = ":root { color-scheme: " + scheme + "; }";
+          localStorage.setItem("jazz-theme", scheme);
         }
-        s.textContent = ":root { color-scheme: " + scheme + "; }";
         document.documentElement.dataset.theme = scheme;
+        document.querySelectorAll('input[name="theme"]').forEach(function(r) {
+          r.checked = r.value === scheme;
+        });
       }
-      const stored = localStorage.getItem("jazz-theme");
-      const preferred = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-      applyColorScheme(stored || preferred);
-      document.addEventListener("DOMContentLoaded", () => {
-        const toggle = document.getElementById("theme-toggle-input");
-        if (toggle) toggle.checked = (stored || preferred) === "dark";
+      applyColorScheme(localStorage.getItem("jazz-theme") || "system");
+      document.addEventListener("DOMContentLoaded", function() {
+        applyColorScheme(localStorage.getItem("jazz-theme") || "system");
       });
       localStorage.removeItem("jazz-primary-dark");
       const storedColor = localStorage.getItem("jazz-primary");
@@ -180,19 +194,16 @@ function header(path: string) {
           >Components</a
         >
         <a href="${url("/blocks")}" class="button ghost">Blocks</a>
+        <button class="ghost" onclick="document.getElementById('icons-dialog').showModal()">Icons</button>
       </nav>
-      <label class="toggle ghost square theme-toggle" aria-label="Toggle theme">
-        <input
-          type="checkbox"
-          id="theme-toggle-input"
-          onchange="
-          const next = this.checked ? 'dark' : 'light';
-          applyColorScheme(next);
-          localStorage.setItem('jazz-theme', next);
-        "
-        />
+      <button
+        class="ghost square theme-toggle"
+        popovertarget="theme-menu"
+        aria-label="Toggle theme"
+        style="anchor-name:--theme-menu"
+      >
         <svg
-          data-unchecked
+          data-scheme="light"
           xmlns="http://www.w3.org/2000/svg"
           width="16"
           height="16"
@@ -204,12 +215,10 @@ function header(path: string) {
           stroke-linejoin="round"
         >
           <circle cx="12" cy="12" r="4" />
-          <path
-            d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
-          />
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
         </svg>
         <svg
-          data-checked
+          data-scheme="dark"
           xmlns="http://www.w3.org/2000/svg"
           width="16"
           height="16"
@@ -222,7 +231,105 @@ function header(path: string) {
         >
           <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
         </svg>
-      </label>
+        <svg
+          data-scheme="system"
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <rect width="20" height="14" x="2" y="3" rx="2" />
+          <path d="M8 21h8M12 17v4" />
+        </svg>
+      </button>
+      <div
+        id="theme-menu"
+        popover
+        class="theme-menu-popover"
+        data-placement="bottom right"
+      >
+        <menu>
+          <li>
+            <label>
+              <input
+                type="radio"
+                name="theme"
+                value="light"
+                onchange="applyColorScheme(this.value);document.getElementById('theme-menu').hidePopover()"
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="4" />
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+              </svg>
+              Light
+            </label>
+          </li>
+          <li>
+            <label>
+              <input
+                type="radio"
+                name="theme"
+                value="dark"
+                onchange="applyColorScheme(this.value);document.getElementById('theme-menu').hidePopover()"
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+              </svg>
+              Dark
+            </label>
+          </li>
+          <li>
+            <label>
+              <input
+                type="radio"
+                name="theme"
+                value="system"
+                onchange="applyColorScheme(this.value);document.getElementById('theme-menu').hidePopover()"
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect width="20" height="14" x="2" y="3" rx="2" />
+                <path d="M8 21h8M12 17v4" />
+              </svg>
+              System
+            </label>
+          </li>
+        </menu>
+      </div>
       <button
         class="ghost square"
         popovertarget="color-picker"
@@ -323,6 +430,7 @@ export function HomeLayout({ title, path, content }: Omit<LayoutProps, "toc">) {
       <body>
         ${header(path)}
         <main class="home-content">${content}</main>
+        ${raw(IconsSearchDialog())}
       </body>
     </html>`;
 }
@@ -447,6 +555,7 @@ export function Layout({ title, path, toc, content }: LayoutProps) {
               `
             : ""}
         </div>
+        ${raw(IconsSearchDialog())}
       </body>
     </html>`;
 }
