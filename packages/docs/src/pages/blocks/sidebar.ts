@@ -67,19 +67,7 @@ export async function SidebarPage(path: string) {
               margin-left: var(--spacing-2);
               margin-block: 0 var(--spacing-4);
               padding-block: 0;
-
-              button {
-                margin-left: var(--spacing-1);
-              }
-            }
-          }
-
-          button {
-            text-align: left;
-
-            &:not(.square) {
-              width: -webkit-fill-available;
-              justify-content: flex-start;
+              padding-left: var(--spacing-1);
             }
           }
 
@@ -89,6 +77,7 @@ export async function SidebarPage(path: string) {
             button.square {
               position: absolute;
               right: 0;
+              width: revert;
 
               @media (hover: hover) {
                 opacity: 0;
@@ -101,6 +90,11 @@ export async function SidebarPage(path: string) {
                 opacity: 1;
               }
             }
+          }
+
+          .sidebar-user {
+            text-align: left;
+            width: 100%;
           }
         }
       </style>
@@ -385,19 +379,7 @@ export async function SidebarPage(path: string) {
         margin-left: var(--spacing-2);
         margin-block: 0 var(--spacing-4);
         padding-block: 0;
-
-        button {
-          margin-left: var(--spacing-1);
-        }
-      }
-    }
-
-    button {
-      text-align: left;
-
-      &:not(.square) {
-        width: -webkit-fill-available;
-        justify-content: flex-start;
+        padding-left: var(--spacing-1);
       }
     }
 
@@ -407,6 +389,7 @@ export async function SidebarPage(path: string) {
       button.square {
         position: absolute;
         right: 0;
+        width: revert;
 
         @media (hover: hover) {
           opacity: 0;
@@ -419,6 +402,11 @@ export async function SidebarPage(path: string) {
           opacity: 1;
         }
       }
+    }
+
+    .sidebar-user {
+      text-align: left;
+      width: 100%;
     }
   }
 </style>

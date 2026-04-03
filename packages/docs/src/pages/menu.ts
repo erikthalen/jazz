@@ -18,10 +18,10 @@ export async function MenuPage(path: string) {
       <div class="prose">
         <h1>Menu</h1>
         <p class="lead">
-          A styled list of actions or options. Add <code>.menu</code> to a
-          <code>&lt;menu&gt;</code> element to use it standalone — or place a
-          plain <code>&lt;menu&gt;</code> inside any
-          <code>[popover]</code> and the styles apply automatically.
+          A styled list of actions or options. The
+          <code>&lt;menu&gt;</code> element is styled directly — no class
+          needed. Place it inside a <code>[popover]</code> for a dropdown, or
+          use it standalone anywhere.
         </p>
 
         <h2 id="default">Default</h2>
