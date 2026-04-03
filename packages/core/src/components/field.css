@@ -18,7 +18,7 @@
       color: var(--jazz-destructive);
     }
 
-    > input,
+    > input:not([type="checkbox"]):not([type="radio"]),
     > textarea,
     > select,
     > progress,
