@@ -12,7 +12,7 @@ Docs: https://erikthalen.github.io/jazz/
 ## Setup
 
 ```html
-<link rel="stylesheet" href="https://esm.sh/gh/erikthalen/jazz@v0.1.0-beta.22/jazz.css" />
+<link rel="stylesheet" href="https://esm.sh/gh/erikthalen/jazz@v0.1.0-beta.23/jazz.css" />
 ```
 
 ## Core idea

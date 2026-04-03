@@ -1,5 +1,5 @@
 @layer jazz {
-  label:has(> input:where([type="checkbox"])) {
+  label:not(.field):has(> input:where([type="checkbox"])) {
     display: flex;
     align-items: center;
     gap: var(--spacing-2);
