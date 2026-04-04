@@ -8,6 +8,8 @@ const toc = [
   { id: 'with-textarea', label: 'With textarea' },
   { id: 'with-progress', label: 'With progress' },
   { id: 'with-slider', label: 'With slider' },
+  { id: 'with-checkbox', label: 'With checkbox' },
+  { id: 'with-radio', label: 'With radio' },
   { id: 'form', label: 'Form' },
 ]
 
@@ -141,6 +143,56 @@ export async function FieldPage(path: string) {
           )}
         </div>
       </div>
+      <div class="prose">
+        <h2 id="with-checkbox">With checkbox</h2>
+      </div>
+      <div class="example">
+        <div class="preview preview-padded">
+          <div class="field">
+            <span>Notifications</span>
+            <label><input type="checkbox" checked /> Email</label>
+            <label><input type="checkbox" /> SMS</label>
+            <label><input type="checkbox" /> Push</label>
+          </div>
+        </div>
+        <div class="code-block">
+          ${raw(
+            await highlight(`<div class="field">
+  <span>Notifications</span>
+  <label><input type="checkbox" checked /> Email</label>
+  <label><input type="checkbox" /> SMS</label>
+  <label><input type="checkbox" /> Push</label>
+</div>`),
+          )}
+        </div>
+      </div>
+
+      <div class="prose">
+        <h2 id="with-radio">With radio</h2>
+      </div>
+      <div class="example">
+        <div class="preview preview-padded">
+          <div class="field">
+            <span>Plan</span>
+            <label><input type="radio" name="field-plan" checked /> Free</label>
+            <label><input type="radio" name="field-plan" /> Pro</label>
+            <label><input type="radio" name="field-plan" /> Enterprise</label>
+            <small>You can upgrade at any time.</small>
+          </div>
+        </div>
+        <div class="code-block">
+          ${raw(
+            await highlight(`<div class="field">
+  <span>Plan</span>
+  <label><input type="radio" name="plan" checked /> Free</label>
+  <label><input type="radio" name="plan" /> Pro</label>
+  <label><input type="radio" name="plan" /> Enterprise</label>
+  <small>You can upgrade at any time.</small>
+</div>`),
+          )}
+        </div>
+      </div>
+
       <div class="prose">
         <h2 id="form">Form</h2>
       </div>

@@ -115,148 +115,130 @@ export async function SidebarPage(path: string) {
               </div>
             </header>
 
-            <div>
-              <section>
-                <menu>
-                  <li><small>Platform</small></li>
-                  <li>
-                    <details open>
-                      <summary>
-                        <span
-                          style="display:flex;align-items:center;gap:0.5rem"
-                        >
-                          ${raw(svg(I.terminal2))} Playground
-                        </span>
-                      </summary>
-                      <menu class="sidebar-submenu">
-                        <li><button class="ghost">History</button></li>
-                        <li><button class="ghost">Starred</button></li>
-                        <li><button class="ghost">Settings</button></li>
-                      </menu>
-                    </details>
-                  </li>
-                  <li>
-                    <button class="ghost">${raw(svg(I.search))} Models</button>
-                  </li>
-                  <li>
-                    <button class="ghost">
-                      ${raw(svg(I.books))} Documentation
-                    </button>
-                  </li>
-                  <li>
-                    <button class="ghost">
-                      ${raw(svg(I.settings))} Settings
-                    </button>
-                  </li>
-                </menu>
-              </section>
+            <section>
+              <menu>
+                <li><small>Platform</small></li>
+                <li>
+                  <details open>
+                    <summary>
+                      <span style="display:flex;align-items:center;gap:0.5rem">
+                        ${raw(svg(I.terminal2))} Playground
+                      </span>
+                    </summary>
+                    <menu class="sidebar-submenu">
+                      <li><button class="ghost">History</button></li>
+                      <li><button class="ghost">Starred</button></li>
+                      <li><button class="ghost">Settings</button></li>
+                    </menu>
+                  </details>
+                </li>
+                <li>
+                  <button class="ghost">${raw(svg(I.search))} Models</button>
+                </li>
+                <li>
+                  <button class="ghost">
+                    ${raw(svg(I.books))} Documentation
+                  </button>
+                </li>
+                <li>
+                  <button class="ghost">
+                    ${raw(svg(I.settings))} Settings
+                  </button>
+                </li>
+              </menu>
+            </section>
 
-              <section>
-                <menu>
-                  <li><small>Projects</small></li>
-                  <li>
-                    <button class="ghost">
-                      ${raw(svg(I.layoutGrid))} Design Engineering
-                    </button>
-                    <button
-                      class="ghost square"
-                      popovertarget="sidebar-de-menu"
-                    >
-                      ${raw(svg(I.dots))}
-                    </button>
-                    <div
-                      id="sidebar-de-menu"
-                      popover
-                      data-placement="right top"
-                    >
-                      <menu>
-                        <li>
-                          <button class="ghost">${raw(svg(I.eye))} View</button>
-                        </li>
-                        <li>
-                          <button class="ghost">
-                            ${raw(svg(I.share))} Share
-                          </button>
-                        </li>
-                        <li><hr /></li>
-                        <li>
-                          <button class="ghost destructive">
-                            ${raw(svg(I.trash))} Delete
-                          </button>
-                        </li>
-                      </menu>
-                    </div>
-                  </li>
-                  <li>
-                    <button class="ghost">
-                      ${raw(svg(I.trendingUp))} Sales &amp; Marketing
-                    </button>
-                    <button
-                      class="ghost square"
-                      popovertarget="sidebar-sm-menu"
-                    >
-                      ${raw(svg(I.dots))}
-                    </button>
-                    <div
-                      id="sidebar-sm-menu"
-                      popover
-                      data-placement="right top"
-                    >
-                      <menu>
-                        <li>
-                          <button class="ghost">${raw(svg(I.eye))} View</button>
-                        </li>
-                        <li>
-                          <button class="ghost">
-                            ${raw(svg(I.share))} Share
-                          </button>
-                        </li>
-                        <li><hr /></li>
-                        <li>
-                          <button class="ghost destructive">
-                            ${raw(svg(I.trash))} Delete
-                          </button>
-                        </li>
-                      </menu>
-                    </div>
-                  </li>
-                  <li>
-                    <button class="ghost">${raw(svg(I.plane))} Travel</button>
-                    <button
-                      class="ghost square"
-                      popovertarget="sidebar-travel-menu"
-                    >
-                      ${raw(svg(I.dots))}
-                    </button>
-                    <div
-                      id="sidebar-travel-menu"
-                      popover
-                      data-placement="right top"
-                    >
-                      <menu>
-                        <li>
-                          <button class="ghost">${raw(svg(I.eye))} View</button>
-                        </li>
-                        <li>
-                          <button class="ghost">
-                            ${raw(svg(I.share))} Share
-                          </button>
-                        </li>
-                        <li><hr /></li>
-                        <li>
-                          <button class="ghost destructive">
-                            ${raw(svg(I.trash))} Delete
-                          </button>
-                        </li>
-                      </menu>
-                    </div>
-                  </li>
-                  <li>
-                    <button class="ghost">${raw(svg(I.dots))} More</button>
-                  </li>
-                </menu>
-              </section>
-            </div>
+            <section>
+              <menu>
+                <li><small>Projects</small></li>
+                <li>
+                  <button class="ghost">
+                    ${raw(svg(I.layoutGrid))} Design Engineering
+                  </button>
+                  <button class="ghost square" popovertarget="sidebar-de-menu">
+                    ${raw(svg(I.dots))}
+                  </button>
+                  <div id="sidebar-de-menu" popover data-placement="right top">
+                    <menu>
+                      <li>
+                        <button class="ghost">${raw(svg(I.eye))} View</button>
+                      </li>
+                      <li>
+                        <button class="ghost">
+                          ${raw(svg(I.share))} Share
+                        </button>
+                      </li>
+                      <li><hr /></li>
+                      <li>
+                        <button class="ghost destructive">
+                          ${raw(svg(I.trash))} Delete
+                        </button>
+                      </li>
+                    </menu>
+                  </div>
+                </li>
+                <li>
+                  <button class="ghost">
+                    ${raw(svg(I.trendingUp))} Sales &amp; Marketing
+                  </button>
+                  <button class="ghost square" popovertarget="sidebar-sm-menu">
+                    ${raw(svg(I.dots))}
+                  </button>
+                  <div id="sidebar-sm-menu" popover data-placement="right top">
+                    <menu>
+                      <li>
+                        <button class="ghost">${raw(svg(I.eye))} View</button>
+                      </li>
+                      <li>
+                        <button class="ghost">
+                          ${raw(svg(I.share))} Share
+                        </button>
+                      </li>
+                      <li><hr /></li>
+                      <li>
+                        <button class="ghost destructive">
+                          ${raw(svg(I.trash))} Delete
+                        </button>
+                      </li>
+                    </menu>
+                  </div>
+                </li>
+                <li>
+                  <button class="ghost">${raw(svg(I.plane))} Travel</button>
+                  <button
+                    class="ghost square"
+                    popovertarget="sidebar-travel-menu"
+                  >
+                    ${raw(svg(I.dots))}
+                  </button>
+                  <div
+                    id="sidebar-travel-menu"
+                    popover
+                    data-placement="right top"
+                  >
+                    <menu>
+                      <li>
+                        <button class="ghost">${raw(svg(I.eye))} View</button>
+                      </li>
+                      <li>
+                        <button class="ghost">
+                          ${raw(svg(I.share))} Share
+                        </button>
+                      </li>
+                      <li><hr /></li>
+                      <li>
+                        <button class="ghost destructive">
+                          ${raw(svg(I.trash))} Delete
+                        </button>
+                      </li>
+                    </menu>
+                  </div>
+                </li>
+                <li>
+                  <button class="ghost">${raw(svg(I.dots))} More</button>
+                </li>
+              </menu>
+            </section>
 
             <hr />
 
@@ -425,7 +407,6 @@ export async function SidebarPage(path: string) {
     </div>
   </header>
 
-  <div>
     <section>
       <menu>
         <li><small>Platform</small></li>
@@ -494,7 +475,7 @@ export async function SidebarPage(path: string) {
         </li>
       </menu>
     </section>
-  </div>
+
 
   <hr />
 

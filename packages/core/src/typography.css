@@ -3,7 +3,7 @@
     --jazz-font-family-sans: system-ui;
     --jazz-font-size: 14px;
 
-    --jazz-typography-spacing-vertical: 1rem;
+    --jazz-typography-spacing-vertical: 0.61em;
   }
 
   :root {

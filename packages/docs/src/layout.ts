@@ -113,18 +113,21 @@ function head(title: string) {
           localStorage.setItem("jazz-theme", scheme);
         }
         document.documentElement.dataset.theme = scheme;
-        document.querySelectorAll('input[name="theme"]').forEach(function(r) {
+        document.querySelectorAll('input[name="theme"]').forEach(function (r) {
           r.checked = r.value === scheme;
         });
       }
       applyColorScheme(localStorage.getItem("jazz-theme") || "system");
-      document.addEventListener("DOMContentLoaded", function() {
+      document.addEventListener("DOMContentLoaded", function () {
         applyColorScheme(localStorage.getItem("jazz-theme") || "system");
       });
       localStorage.removeItem("jazz-primary-dark");
       const storedColor = localStorage.getItem("jazz-primary");
       if (storedColor) {
-        document.documentElement.style.setProperty("--jazz-primary", storedColor);
+        document.documentElement.style.setProperty(
+          "--jazz-primary",
+          storedColor,
+        );
       }
     </script>
     <script defer>
@@ -169,8 +172,9 @@ function header(path: string) {
           <line x1="4" x2="20" y1="18" y2="18" />
         </svg>
       </label>
-      <a href="${url("/")}" class="docs-logo"
-        ><svg
+
+      <a href="${url("/")}" class="docs-logo button link">
+        <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
           height="16"
@@ -186,21 +190,29 @@ function header(path: string) {
           <path d="M9 17v-13h10v13" />
           <path d="M9 8h10" />
         </svg>
-        Jazz</a
-      >
+        <strong>Jazz</strong>
+      </a>
+
       <nav>
         <a href="${url("/introduction")}" class="button ghost">Docs</a>
-        <a href="${url("/components/button")}" class="button ghost"
-          >Components</a
-        >
+        <a href="${url("/components/button")}" class="button ghost">
+          Components
+        </a>
         <a href="${url("/blocks")}" class="button ghost">Blocks</a>
-        <button class="ghost" onclick="document.getElementById('icons-dialog').showModal()">Icons</button>
+        <button
+          class="ghost"
+          onclick="document.getElementById('icons-dialog').showModal()"
+        >
+          Icons
+        </button>
       </nav>
       <button
         class="ghost square theme-toggle"
         popovertarget="theme-menu"
         aria-label="Toggle theme"
         style="anchor-name:--theme-menu"
+        data-tooltip="Theme"
+        data-placement="bottom"
       >
         <svg
           data-scheme="light"
@@ -215,7 +227,9 @@ function header(path: string) {
           stroke-linejoin="round"
         >
           <circle cx="12" cy="12" r="4" />
-          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+          <path
+            d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+          />
         </svg>
         <svg
           data-scheme="dark"
@@ -274,7 +288,9 @@ function header(path: string) {
                 stroke-linejoin="round"
               >
                 <circle cx="12" cy="12" r="4" />
-                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+                <path
+                  d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+                />
               </svg>
               Light
             </label>
@@ -330,32 +346,34 @@ function header(path: string) {
           </li>
         </menu>
       </div>
-      <button
-        class="ghost square"
-        popovertarget="color-picker"
-        aria-label="Change primary color"
-        style="anchor-name:--color-picker"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+      <div data-tooltip="Color scheme" data-placement="bottom">
+        <button
+          class="ghost square"
+          popovertarget="color-picker"
+          aria-label="Change primary color"
+          style="anchor-name:--color-picker"
         >
-          <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" />
-          <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" />
-          <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" />
-          <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" />
-          <path
-            d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"
-          />
-        </svg>
-      </button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" />
+            <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" />
+            <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" />
+            <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" />
+            <path
+              d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"
+            />
+          </svg>
+        </button>
+      </div>
       <menu id="color-picker" popover class="color-picker-popover">
         ${(
           [
@@ -375,11 +393,11 @@ function header(path: string) {
                 style="background:${color}"
                 aria-label="${color}"
                 onclick="
-                const val = 'light-dark(${color}, color-mix(in oklab, ${color}, white 20%))';
-                document.documentElement.style.setProperty('--jazz-primary', val);
-                localStorage.setItem('jazz-primary', val);
-                document.getElementById('color-picker').hidePopover();
-              "
+                  const val = 'light-dark(${color}, color-mix(in oklab, ${color}, white 20%))';
+                  document.documentElement.style.setProperty('--jazz-primary', val);
+                  localStorage.setItem('jazz-primary', val);
+                  document.getElementById('color-picker').hidePopover();
+                "
               ></button>
             </li>
           `,
@@ -390,20 +408,23 @@ function header(path: string) {
             style="background:linear-gradient(135deg, #111 50%, #fff 50%);outline:1px solid var(--jazz-neutral-200);outline-offset:-1px"
             aria-label="Black / White"
             onclick="
-              const val = 'light-dark(#111111, #ffffff)';
-              document.documentElement.style.setProperty('--jazz-primary', val);
-              localStorage.setItem('jazz-primary', val);
-              document.getElementById('color-picker').hidePopover();
-            "
+                const val = 'light-dark(#111111, #ffffff)';
+                document.documentElement.style.setProperty('--jazz-primary', val);
+                localStorage.setItem('jazz-primary', val);
+                document.getElementById('color-picker').hidePopover();
+              "
           ></button>
         </li>
       </menu>
+
       <a
         href="https://github.com/erikthalen/jazz"
         target="_blank"
         rel="noopener"
         class="button ghost square"
         aria-label="GitHub"
+        data-tooltip="Github"
+        data-placement="bottom"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -450,94 +471,130 @@ export function Layout({ title, path, toc, content }: LayoutProps) {
         ></label>
         <div class="docs-layout">
           <aside class="docs-sidebar">
-            <div class="sidebar-section">
-              <p class="sidebar-label">Sections</p>
-              <nav>
-                <a
-                  href="${url("/introduction")}"
-                  ${path === "/introduction" ? 'aria-current="page"' : ""}
+            <menu>
+              <li><small>Sections</small></li>
+              <li>
+                <small
+                  ><a
+                    class="button ghost"
+                    href="${url("/introduction")}"
+                    ${path === "/introduction" ? 'aria-current="page"' : ""}
+                    >Introduction</a
+                  ></small
                 >
-                  Introduction
-                </a>
-
-                <a
-                  href="${url("/customization")}"
-                  ${path === "/customization" ? 'aria-current="page"' : ""}
+              </li>
+              <li>
+                <small
+                  ><a
+                    class="button ghost"
+                    href="${url("/customization")}"
+                    ${path === "/customization" ? 'aria-current="page"' : ""}
+                    >Customization</a
+                  ></small
                 >
-                  Customization
-                </a>
-                <a
-                  href="${url("/themes")}"
-                  ${path === "/themes" ? 'aria-current="page"' : ""}
+              </li>
+              <li>
+                <small
+                  ><a
+                    class="button ghost"
+                    href="${url("/themes")}"
+                    ${path === "/themes" ? 'aria-current="page"' : ""}
+                    >Themes</a
+                  ></small
                 >
-                  Themes
-                </a>
-                <a
-                  href="${url("/icons")}"
-                  ${path === "/icons" ? 'aria-current="page"' : ""}
+              </li>
+              <li>
+                <small
+                  ><a
+                    class="button ghost"
+                    href="${url("/icons")}"
+                    ${path === "/icons" ? 'aria-current="page"' : ""}
+                    >Icons</a
+                  ></small
                 >
-                  Icons
-                </a>
-                <a
-                  href="${url("/components/prose")}"
-                  ${path === "/components/prose" ? 'aria-current="page"' : ""}
+              </li>
+              <li>
+                <small
+                  ><a
+                    class="button ghost"
+                    href="${url("/components/prose")}"
+                    ${path === "/components/prose" ? 'aria-current="page"' : ""}
+                    >Prose</a
+                  ></small
                 >
-                  Prose
-                </a>
-                <a
-                  href="${url("/easings")}"
-                  ${path === "/easings" ? 'aria-current="page"' : ""}
+              </li>
+              <li>
+                <small
+                  ><a
+                    class="button ghost"
+                    href="${url("/easings")}"
+                    ${path === "/easings" ? 'aria-current="page"' : ""}
+                    >Easings</a
+                  ></small
                 >
-                  Easings
-                </a>
-                <a
-                  href="${url("/typography")}"
-                  ${path === "/typography" ? 'aria-current="page"' : ""}
+              </li>
+              <li>
+                <small
+                  ><a
+                    class="button ghost"
+                    href="${url("/typography")}"
+                    ${path === "/typography" ? 'aria-current="page"' : ""}
+                    >Typography</a
+                  ></small
                 >
-                  Typography
-                </a>
-
-                <a
-                  href="${url("/skills")}"
-                  ${path === "/skills" ? 'aria-current="page"' : ""}
+              </li>
+              <li>
+                <small
+                  ><a
+                    class="button ghost"
+                    href="${url("/skills")}"
+                    ${path === "/skills" ? 'aria-current="page"' : ""}
+                    >Skills <span class="badge">WIP</span></a
+                  ></small
                 >
-                  Skills <span class="badge">WIP</span>
-                </a>
-                <a href="${url("/llms.txt")}" target="_blank" rel="noopener">
-                  llms.txt
-                </a>
-              </nav>
-            </div>
-            <div class="sidebar-section">
-              <p class="sidebar-label">Components</p>
-              <nav>
-                ${components.map(
-                  (c) => html`
-                    <a
-                      href="${url(c.path)}"
-                      ${path === c.path ? 'aria-current="page"' : ""}
-                      >${c.label}${c.badge
-                        ? html` <span class="badge">${c.badge}</span>`
-                        : ""}</a
+              </li>
+              <li>
+                <small
+                  ><a
+                    class="button ghost"
+                    href="${url("/llms.txt")}"
+                    target="_blank"
+                    rel="noopener"
+                    >llms.txt</a
+                  ></small
+                >
+              </li>
+              <li><small>Components</small></li>
+              ${components.map(
+                (c) =>
+                  html`<li>
+                    <small
+                      ><a
+                        class="button ghost"
+                        href="${url(c.path)}"
+                        ${path === c.path ? 'aria-current="page"' : ""}
+                        >${c.label}${c.badge
+                          ? html` <span class="badge">${c.badge}</span>`
+                          : ""}</a
+                      ></small
                     >
-                  `,
-                )}
-              </nav>
-            </div>
-            <div class="sidebar-section">
-              <p class="sidebar-label">Blocks</p>
-              <nav>
-                ${blocks.map(
-                  (b) => html`
-                    <a
-                      href="${url(b.path)}"
-                      ${path === b.path ? 'aria-current="page"' : ""}
-                      >${b.label}</a
+                  </li>`,
+              )}
+              <li><small>Blocks</small></li>
+              ${blocks.map(
+                (b) =>
+                  html`<li>
+                    <small
+                      ><a
+                        class="button ghost"
+                        href="${url(b.path)}"
+                        ${path === b.path ? 'aria-current="page"' : ""}
+                        >${b.label}</a
+                      ></small
                     >
-                  `,
-                )}
-              </nav>
-            </div>
+                  </li>`,
+              )}
+            </menu>
           </aside>
 
           <main class="docs-content">${content}</main>

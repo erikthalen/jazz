@@ -509,20 +509,20 @@ export async function HomePage(path: string) {
       </section>
 
       <section class="home-features">
-        <div class="home-feature-card">
-          <p class="home-feature-label">Reset + UI in one import</p>
-          <h2 class="home-feature-title">Batteries included</h2>
-          <p class="home-feature-desc">
+        <div class="home-feature-card prose">
+          <p><small>Reset + UI in one import</small></p>
+          <h2>Batteries included</h2>
+          <p>
             Jazz normalizes browser defaults and builds on top of them. You get
             a consistent baseline and a full component library from a single
             stylesheet.
           </p>
         </div>
 
-        <div class="home-feature-card">
-          <p class="home-feature-label">No class soup</p>
-          <h2 class="home-feature-title">Just write HTML</h2>
-          <p class="home-feature-desc">
+        <div class="home-feature-card prose">
+          <p><small>No class soup</small></p>
+          <h2>Just write HTML</h2>
+          <p>
             Components map to native elements. A
             <code>&lt;button&gt;</code> is a button, a
             <code>&lt;dialog&gt;</code> is a dialog — no wrappers or utility
@@ -530,10 +530,10 @@ export async function HomePage(path: string) {
           </p>
         </div>
 
-        <div class="home-feature-card">
-          <p class="home-feature-label">Works out of the box</p>
-          <h2 class="home-feature-title">Dark mode included</h2>
-          <p class="home-feature-desc">
+        <div class="home-feature-card prose">
+          <p><small>Works out of the box</small></p>
+          <h2>Dark mode included</h2>
+          <p>
             Responds to <code>prefers-color-scheme</code> automatically. Force a
             mode with <code>.jazz-light</code> or <code>.jazz-dark</code> on any
             element.

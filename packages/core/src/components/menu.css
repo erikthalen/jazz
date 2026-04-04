@@ -22,7 +22,7 @@
         display: none;
       }
 
-      /* &:has(input[type="checkbox"]) {
+      &:has(input[type="checkbox"]) {
         position: relative;
 
         &::before {
@@ -30,23 +30,24 @@
           order: 9999;
           margin-left: auto;
           flex-shrink: 0;
-          width: 1em;
-          height: 1em;
+          width: 0.75rem;
+          height: 0.75rem;
           border-radius: 3px;
-          border: 1px solid color-mix(in srgb, currentColor 30%, transparent);
+          border: 1px solid var(--jazz-neutral-300);
         }
 
         &::after {
+          --icon-size: calc(1em - 4px);
           position: absolute;
-          right: 0.85em;
+          right: var(--spacing-3);
           top: 50%;
-          translate: 0 -50%;
+          translate: -12.5% -50%;
           margin-left: 0;
-          width: 1em;
-          height: 1em;
-          mask-size: 100%;
+          width: var(--icon-size);
+          height: var(--icon-size);
+          mask-size: var(--icon-size);
         }
-      } */
+      }
 
       @media (hover: hover) {
         &:hover {
