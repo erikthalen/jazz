@@ -5,9 +5,9 @@
     padding: 0;
     vertical-align: bottom;
     border: none;
-    background: var(--background-color);
+    /* background: var(--background-color); */
 
-    & > * {
+    & > *:not(.field) {
       position: relative;
       border-radius: 0;
       outline: 1px solid var(--jazz-neutral-200);
@@ -43,7 +43,7 @@
       }
     }
 
-    label {
+    label:not(.field) {
       line-height: calc(16 / 14 * 1em);
       border-radius: 0;
     }

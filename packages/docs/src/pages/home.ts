@@ -414,63 +414,68 @@ export async function HomePage(path: string) {
         </div>
 
         <div class="showcase-cell">
-          <label
-            style="display:flex;align-items:center;gap:var(--spacing-2);font-size:0.875rem"
-          >
-            Light
-            <input
-              id="showcase-primary-light"
-              type="color"
-              oninput="document.documentElement.style.setProperty('--jazz-primary-light', this.value)"
-            />
+          <label class="field">
+            <span>Light</span>
+            <input id="showcase-primary-light" type="color" />
+            <small>Primary color in light mode</small>
           </label>
-          <label
-            style="display:flex;align-items:center;gap:var(--spacing-2);font-size:0.875rem"
-          >
-            Dark
-            <input
-              id="showcase-primary-dark"
-              type="color"
-              oninput="document.documentElement.style.setProperty('--jazz-primary-dark', this.value)"
-            />
+          <hr />
+          <label class="field">
+            <span>Dark</span>
+            <input id="showcase-primary-dark" type="color" />
+            <small>Primary color in dark mode</small>
           </label>
           <script>
             (function () {
-              function toHex(cssColor) {
+              function resolveColor(color, scheme) {
+                var prev = document.documentElement.style.colorScheme;
+                document.documentElement.style.colorScheme = scheme;
                 var tmp = document.createElement("div");
-                tmp.style.color = cssColor;
+                tmp.style.color = color;
                 document.body.appendChild(tmp);
                 var rgb = getComputedStyle(tmp).color.match(/d+/g)?.map(Number);
-                if (!rgb) return;
                 document.body.removeChild(tmp);
+                document.documentElement.style.colorScheme = prev;
+                if (!rgb) return null;
                 return (
                   "#" +
                   rgb
-                    ?.map(function (n) {
+                    .slice(0, 3)
+                    .map(function (n) {
                       return n.toString(16).padStart(2, "0");
                     })
                     .join("")
                 );
               }
+
               var root = document.documentElement;
-              const lightcolor = toHex(
-                getComputedStyle(root)
-                  .getPropertyValue("--jazz-primary-light")
-                  .trim(),
+              var primary = getComputedStyle(root)
+                .getPropertyValue("--jazz-primary")
+                .trim();
+              var lightInput = document.getElementById(
+                "showcase-primary-light",
               );
-              if (lightcolor) {
-                document.getElementById("showcase-primary-light").value =
-                  lightcolor;
-              }
-              const darkcolor = toHex(
-                getComputedStyle(root)
-                  .getPropertyValue("--jazz-primary-dark")
-                  .trim(),
-              );
-              if (darkcolor) {
-                document.getElementById("showcase-primary-dark").value =
-                  darkcolor;
-              }
+              var darkInput = document.getElementById("showcase-primary-dark");
+
+              var lightVal = resolveColor(primary, "light") || "#3b82f6";
+              var darkVal = resolveColor(primary, "dark") || "#3b82f6";
+              lightInput.value = lightVal;
+              darkInput.value = darkVal;
+
+              lightInput.oninput = function () {
+                lightVal = this.value;
+                root.style.setProperty(
+                  "--jazz-primary",
+                  "light-dark(" + lightVal + ", " + darkVal + ")",
+                );
+              };
+              darkInput.oninput = function () {
+                darkVal = this.value;
+                root.style.setProperty(
+                  "--jazz-primary",
+                  "light-dark(" + lightVal + ", " + darkVal + ")",
+                );
+              };
             })();
           </script>
         </div>

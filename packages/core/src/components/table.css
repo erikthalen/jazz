@@ -6,7 +6,7 @@
     border: 1px solid var(--jazz-neutral-200);
     border-radius: 12px;
     overflow: auto;
-    font-size: 0.875rem;
+    /* font-size: 0.875rem; */
     white-space: nowrap;
   }
 
@@ -74,9 +74,9 @@
 
   thead > tr > th {
     font-weight: 600;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    /* font-size: 0.75rem; */
+    /* text-transform: uppercase; */
+    /* letter-spacing: 0.05em; */
     color: var(--jazz-neutral-500);
     background: var(--jazz-neutral-50);
   }

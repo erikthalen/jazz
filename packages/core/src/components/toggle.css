@@ -1,5 +1,5 @@
 @layer jazz {
-  label.toggle {
+  label:not(.field).toggle {
     display: inline-grid;
     text-align: center;
     grid-auto-flow: column;
@@ -12,12 +12,17 @@
     outline-offset: -1px;
     cursor: pointer;
     user-select: none;
+    interpolate-size: allow-keywords;
     transition:
       background-color 100ms,
       outline-color 100ms,
-      color 100ms;
+      color 100ms,
+      grid-template-columns var(--toggle-duration) var(--ease-glide);
+
+    --toggle-duration: 150ms;
 
     font-weight: 500;
+    line-height: calc(16 / 14 * 1rem);
 
     > input[type="checkbox"],
     > input[type="radio"] {
@@ -31,21 +36,17 @@
 
     [data-checked],
     [data-unchecked] {
-      grid-column: 1;
-      grid-row: 1;
+      overflow: hidden;
+      white-space: nowrap;
       transition:
-        opacity 150ms ease,
-        scale 150ms ease,
-        display 150ms allow-discrete;
-    }
-
-    [data-checked] {
-      display: none;
-      opacity: 0;
-      scale: 0.75;
+        opacity var(--toggle-duration) ease,
+        scale var(--toggle-duration) ease,
+        display var(--toggle-duration) allow-discrete;
     }
 
     [data-unchecked] {
+      grid-column: 1;
+      grid-row: 1;
       display: revert;
       opacity: 1;
       scale: 1;
@@ -56,9 +57,20 @@
       }
     }
 
+    [data-checked] {
+      grid-column: 1;
+      grid-row: 1;
+      display: none;
+      opacity: 0;
+      scale: 0.75;
+    }
+
+    /* &:has([data-unchecked]) {
+      grid-template-columns: max-content 0px;
+    } */
+
     &:has(> input:checked) {
       background-color: var(--jazz-neutral-100);
-      outline-color: var(--jazz-neutral-400);
 
       [data-checked] {
         display: revert;
@@ -76,6 +88,10 @@
         opacity: 0;
         scale: 0.75;
       }
+
+      /* &:has([data-unchecked]) {
+        grid-template-columns: 0px max-content;
+      } */
     }
 
     &.ghost {
