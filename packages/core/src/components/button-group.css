@@ -30,7 +30,7 @@
       }
     }
 
-    & > :only-child {
+    & > :only-child:not(.field) {
       border-radius: 9px;
     }
 
