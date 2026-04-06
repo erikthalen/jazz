@@ -4,17 +4,14 @@
     width: 2.25rem;
     height: 1.2lh;
     border-radius: 100px;
-    outline: none;
-    /* outline-offset: -1px; */
+    box-shadow: none;
     background-color: var(--jazz-neutral-200);
     cursor: pointer;
     flex-shrink: 0;
     position: relative;
     display: inline-flex;
     align-items: center;
-    transition:
-      background-color 100ms,
-      outline-color 100ms;
+    transition: background-color 100ms;
     mask-image: none;
 
     &::after {
@@ -26,14 +23,11 @@
       margin-inline: 1px;
       border-radius: 50%;
       background-color: var(--background-color);
-      transition:
-        left 300ms var(--ease-glide),
-        background-color 100ms;
+      transition: left 300ms var(--ease-glide);
     }
 
     &:checked {
       background-color: var(--jazz-primary);
-      /* outline-color: var(--jazz-primary); */
       background-image: none;
 
       &::after {
@@ -42,7 +36,7 @@
     }
 
     &:focus-visible {
-      outline: 2px solid var(--jazz-primary);
+      outline: 2px solid var(--jazz-neutral-950);
       outline-offset: 2px;
     }
 

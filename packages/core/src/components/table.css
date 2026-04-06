@@ -3,10 +3,7 @@
     display: grid;
     grid-template-columns: var(--cols, repeat(auto-fill, minmax(max-content, 1fr)));
     width: 100%;
-    border: 1px solid var(--jazz-neutral-200);
-    border-radius: 12px;
-    overflow: auto;
-    /* font-size: 0.875rem; */
+    overflow-x: auto;
     white-space: nowrap;
   }
 
@@ -42,6 +39,13 @@
   table:has(> thead > tr > th:last-child:nth-child(29)) { --cols: repeat(29, 1fr); }
   table:has(> thead > tr > th:last-child:nth-child(30)) { --cols: repeat(30, 1fr); }
 
+  caption {
+    grid-column: 1 / -1;
+    padding: var(--spacing-3) var(--spacing-3);
+    color: var(--jazz-neutral-400);
+    /* border-bottom: 1px solid var(--jazz-neutral-200); */
+  }
+
   thead,
   tbody,
   tfoot {
@@ -62,7 +66,7 @@
 
   th,
   td {
-    padding: var(--spacing-3) var(--spacing-4);
+    padding: var(--spacing-3) var(--spacing-3);
     text-align: left;
     border-bottom: 1px solid var(--jazz-neutral-200);
   }
@@ -74,14 +78,21 @@
 
   thead > tr > th {
     font-weight: 600;
-    /* font-size: 0.75rem; */
-    /* text-transform: uppercase; */
-    /* letter-spacing: 0.05em; */
-    color: var(--jazz-neutral-500);
-    background: var(--jazz-neutral-50);
+    color: var(--jazz-neutral-600);
+    /* background: var(--jazz-neutral-50); */
   }
 
-  tbody > tr:last-child > td {
+  tbody > tr:last-child > td,
+  tfoot > tr:last-child > :is(th, td) {
     border-bottom: none;
+  }
+
+  tfoot > tr > :is(th, td) {
+    background: var(--jazz-neutral-50);
+    font-weight: 600;
+  }
+
+  tfoot > tr:first-child > :is(th, td) {
+    border-top: 1px solid var(--jazz-neutral-200);
   }
 }

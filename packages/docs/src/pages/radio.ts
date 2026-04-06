@@ -4,6 +4,7 @@ import { highlight } from "../highlight";
 
 const toc = [
   { id: "default", label: "Default" },
+  { id: "with-label", label: "With label" },
   { id: "disabled", label: "Disabled" },
   { id: "choice-card", label: "Choice card" },
 ];
@@ -22,6 +23,19 @@ export async function RadioPage(path: string) {
         </p>
 
         <h2 id="default">Default</h2>
+      </div>
+      <div class="example">
+        <div class="preview">
+          <input type="radio" name="bare" />
+          <input type="radio" name="bare" checked />
+        </div>
+        <div class="code-block">
+          ${raw(await highlight(`<input type="radio" name="group" />\n<input type="radio" name="group" checked />`))}
+        </div>
+      </div>
+
+      <div class="prose">
+        <h2 id="with-label">With label</h2>
       </div>
       <div class="example">
         <div
@@ -113,7 +127,7 @@ export async function RadioPage(path: string) {
 
               > div {
                 display: grid;
-                gap: 0.5rem;
+                gap: 0.25rem;
               }
 
               small {
@@ -158,7 +172,7 @@ export async function RadioPage(path: string) {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: var(--spacing-4);
+    gap: var(--spacing-2);
     padding: var(--spacing-4);
     border: 1px solid var(--jazz-neutral-300);
     border-radius: var(--spacing-3);

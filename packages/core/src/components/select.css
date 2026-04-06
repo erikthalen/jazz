@@ -2,9 +2,7 @@
   select {
     appearance: none;
     border: none;
-
-    outline: 1px solid var(--jazz-neutral-200);
-    outline-offset: -1px;
+    box-shadow: 0 0 0 1px var(--jazz-neutral-200) inset;
 
     padding-block: var(--spacing-2);
     padding-inline: var(--spacing-3);
@@ -23,7 +21,7 @@
     background-size: 1rem;
 
     &:focus {
-      outline-color: currentColor;
+      box-shadow: 0 0 0 1px currentColor inset;
     }
 
     &:disabled {

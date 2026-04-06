@@ -549,7 +549,7 @@ export function Layout({ title, path, toc, content }: LayoutProps) {
                     class="button ghost"
                     href="${url("/skills")}"
                     ${path === "/skills" ? 'aria-current="page"' : ""}
-                    >Skills <span class="badge">WIP</span></a
+                    >Skills</a
                   ></small
                 >
               </li>

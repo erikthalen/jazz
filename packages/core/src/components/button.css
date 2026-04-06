@@ -80,8 +80,7 @@
   .button.outline {
     color: var(--jazz-neutral-950);
     background-color: transparent;
-    outline: 1px solid var(--jazz-neutral-200);
-    outline-offset: -1px;
+    box-shadow: 0 0 0 1px var(--jazz-neutral-200) inset;
   }
 
   button.secondary,

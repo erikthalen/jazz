@@ -8,14 +8,13 @@
     padding-block: var(--spacing-2);
     padding-inline: var(--spacing-3);
     border-radius: var(--spacing-3);
-    outline: 1px solid var(--jazz-neutral-200);
-    outline-offset: -1px;
+    box-shadow: 0 0 0 1px var(--jazz-neutral-200) inset;
     cursor: pointer;
     user-select: none;
     interpolate-size: allow-keywords;
     transition:
       background-color 100ms,
-      outline-color 100ms,
+      box-shadow 100ms,
       color 100ms,
       grid-template-columns var(--toggle-duration) var(--ease-glide);
 
@@ -27,7 +26,11 @@
     > input[type="checkbox"],
     > input[type="radio"] {
       appearance: none;
-      display: none;
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+      pointer-events: none;
     }
 
     svg {
@@ -96,12 +99,12 @@
 
     &.ghost {
       background-color: transparent;
-      outline-color: transparent;
+      box-shadow: 0 0 0 1px transparent inset;
     }
 
     &.ghost:has(> input:checked) {
       background-color: var(--jazz-neutral-100);
-      outline-color: transparent;
+      box-shadow: 0 0 0 1px transparent inset;
     }
 
     &.fill:has(> input:checked) {
@@ -112,7 +115,7 @@
     }
 
     &:focus-within {
-      outline: 2px solid var(--jazz-primary);
+      outline: 2px solid var(--jazz-neutral-950);
       outline-offset: 2px;
     }
 

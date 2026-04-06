@@ -65,8 +65,7 @@
 
     &.outline {
       background-color: transparent;
-      outline: 1px solid currentColor;
-      outline-offset: -1px;
+      box-shadow: 0 0 0 1px currentColor inset;
     }
 
     svg {

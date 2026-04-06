@@ -10,9 +10,9 @@
     & > *:not(.field) {
       position: relative;
       border-radius: 0;
-      outline: 1px solid var(--jazz-neutral-200);
-      outline-offset: -1px;
       margin-right: -1px;
+
+      box-shadow: 0 0 0 1px var(--jazz-neutral-200) inset;
 
       &:first-child {
         border-radius: 9px 0 0 9px;

@@ -59,12 +59,12 @@
       &:focus-visible {
         outline: 2px solid var(--jazz-neutral-950);
         outline-offset: 2px;
-        border-radius: 2px;
+        border-radius: 8px;
       }
     }
 
     &[open] > summary::after {
-      transform: perspective(1rem) rotateX(180deg);
+      transform: rotate(-180deg);
     }
 
     > *:not(summary) {

@@ -17,29 +17,34 @@
     width: 1.125rem;
     aspect-ratio: 1;
     border-radius: 50%;
-    outline: 1.5px solid var(--jazz-neutral-300);
-    outline-offset: -1px;
-    background-color: var(--background-color);
+    box-shadow: 0 0 0 1.5px var(--jazz-neutral-300) inset;
+    background-color: transparent;
     cursor: pointer;
     flex-shrink: 0;
     transition:
       background-color 100ms,
-      outline-color 100ms;
+      box-shadow 100ms;
 
     &:checked {
       background-color: var(--jazz-primary);
-      outline-color: var(--jazz-primary);
-      mask-image: radial-gradient(circle, transparent 30%, black 31%);
-    }
-
-    &:focus-visible {
-      outline: 2px solid var(--jazz-primary);
-      outline-offset: 2px;
+      box-shadow: 0 0 0 1.5px var(--jazz-primary) inset;
+      mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-8 -8 40 40' overflow='visible'%3E%3Crect x='-100' y='-100' width='200' height='200' fill='white'/%3E%3Ccircle cx='12' cy='12' r='7.2' fill='black'/%3E%3C/svg%3E");
+      mask-mode: luminance;
+      mask-size: calc(1.125rem + 6px);
+      mask-position: 50%;
+      mask-repeat: no-repeat;
+      mask-clip: no-clip;
     }
 
     &:disabled {
       opacity: 0.4;
       cursor: default;
+    }
+
+    &:focus-visible {
+      border-radius: 8px;
+      outline: 2px solid var(--jazz-neutral-950);
+      outline-offset: 2px;
     }
   }
 }
