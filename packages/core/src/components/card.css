@@ -42,20 +42,4 @@
       }
     }
   }
-
-  /* Reduce padding when the card's parent container is narrow */
-  @container (max-width: 200px) {
-    article {
-      padding: var(--spacing-2);
-
-      & > header,
-      & > footer {
-        padding: var(--spacing-2);
-      }
-
-      &:has(> header, > footer) > :not(header):not(footer) {
-        padding: var(--spacing-2);
-      }
-    }
-  }
 }

@@ -30,19 +30,20 @@ Override the seed colors on `:root` to match your brand:
   /* Same primary for both themes */
   --jazz-primary: #6366f1;
 
-  /* Or tune per-theme */
-  --jazz-primary-light: #4f46e5;
-  --jazz-primary-dark:  #818cf8;
+  /* Or tune per-theme using light-dark() */
+  --jazz-primary: light-dark(#4f46e5, #818cf8);
 
   --jazz-neutral:      #6b7280;
+  --jazz-constructive: #5dbb55;
+  --jazz-destructive:  #ef5655;
 }
 ```
 
-Jazz responds to `prefers-color-scheme` automatically. Force a theme with a class on any ancestor element:
+Jazz responds to `prefers-color-scheme` automatically. Force a theme with `color-scheme` on any ancestor element:
 
 ```html
-<html class="jazz-light">...</html>
-<html class="jazz-dark">...</html>
+<html style="color-scheme: light">...</html>
+<html style="color-scheme: dark">...</html>
 ```
 
 ## Philosophy

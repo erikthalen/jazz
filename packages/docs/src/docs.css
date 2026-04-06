@@ -39,7 +39,11 @@ body {
 }
 
 .docs-logo {
-  text-decoration: none;
+  svg {
+    fill: var(--color);
+    height: auto;
+    width: auto;
+  }
 }
 
 .docs-burger {
