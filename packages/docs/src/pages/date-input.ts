@@ -15,12 +15,14 @@ export async function DateInputPage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>Date Input</h1>
-        <p class="lead">
-          Styled native date and time inputs. Supports
-          <code>date</code>, <code>time</code>, <code>datetime-local</code>,
-          <code>month</code>, and <code>week</code> types.
-        </p>
+        <hgroup>
+          <h1>Date Input</h1>
+          <p>
+            Styled native date and time inputs. Supports
+            <code>date</code>, <code>time</code>, <code>datetime-local</code>,
+            <code>month</code>, and <code>week</code> types.
+          </p>
+        </hgroup>
 
         <h2 id="default">Default</h2>
       </div>

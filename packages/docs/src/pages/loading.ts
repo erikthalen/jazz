@@ -15,11 +15,13 @@ export async function LoadingPage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>Loading</h1>
-        <p class="lead">
-          An animated SVG spinner injected via CSS whenever
-          <code>aria-busy="true"</code> is set.
-        </p>
+        <hgroup>
+          <h1>Loading</h1>
+          <p>
+            An animated SVG spinner injected via CSS whenever
+            <code>aria-busy="true"</code> is set.
+          </p>
+        </hgroup>
 
         <h2 id="button">Button</h2>
       </div>

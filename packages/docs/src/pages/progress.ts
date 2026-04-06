@@ -15,11 +15,13 @@ export async function ProgressPage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>Progress</h1>
-        <p class="lead">
-          Displays a completion state using the native
-          <code>&lt;progress&gt;</code> element.
-        </p>
+        <hgroup>
+          <h1>Progress</h1>
+          <p>
+            Displays a completion state using the native
+            <code>&lt;progress&gt;</code> element.
+          </p>
+        </hgroup>
 
         <h2 id="default">Default</h2>
       </div>

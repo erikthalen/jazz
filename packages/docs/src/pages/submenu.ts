@@ -14,11 +14,13 @@ export async function SubmenuPage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>Submenu</h1>
-        <p class="lead">
-          A nested menu that opens to the side of a parent menu item. Built with
-          the native Popover API — no JavaScript required.
-        </p>
+        <hgroup>
+          <h1>Submenu</h1>
+          <p>
+            A nested menu that opens to the side of a parent menu item. Built
+            with the native Popover API — no JavaScript required.
+          </p>
+        </hgroup>
 
         <h2 id="default">Default</h2>
       </div>
@@ -80,14 +82,22 @@ export async function SubmenuPage(path: string) {
               <li><button class="ghost">Bold</button></li>
               <li><button class="ghost">Italic</button></li>
               <li>
-                <button class="ghost" popovertarget="submenu-lists">Lists</button>
+                <button class="ghost" popovertarget="submenu-lists">
+                  Lists
+                </button>
                 <div id="submenu-lists" popover data-placement="right top">
                   <menu>
                     <li><button class="ghost">Bullet List</button></li>
                     <li><button class="ghost">Numbered List</button></li>
                     <li>
-                      <button class="ghost" popovertarget="submenu-indent">Indent</button>
-                      <div id="submenu-indent" popover data-placement="right top">
+                      <button class="ghost" popovertarget="submenu-indent">
+                        Indent
+                      </button>
+                      <div
+                        id="submenu-indent"
+                        popover
+                        data-placement="right top"
+                      >
                         <menu>
                           <li><button class="ghost">Increase</button></li>
                           <li><button class="ghost">Decrease</button></li>

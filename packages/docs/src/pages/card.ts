@@ -14,11 +14,13 @@ export async function CardPage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>Card</h1>
-        <p class="lead">
-          A surface for grouping related content using the native
-          <code>&lt;article&gt;</code> element.
-        </p>
+        <hgroup>
+          <h1>Card</h1>
+          <p>
+            A surface for grouping related content using the native
+            <code>&lt;article&gt;</code> element.
+          </p>
+        </hgroup>
 
         <h2 id="default">Default</h2>
       </div>

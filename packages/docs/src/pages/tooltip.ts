@@ -14,11 +14,18 @@ export async function TooltipPage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>Tooltip</h1>
-        <p class="lead">
-          Show a tooltip on hover using the <code>data-tooltip</code> attribute.
+        <hgroup>
+          <h1>Tooltip</h1>
+          <p>
+            Show a tooltip on hover using the
+            <code>data-tooltip</code> attribute.
+          </p>
+        </hgroup>
+
+        <p>
+          Tooltips only appear on devices that support hover. On touch screens,
+          consider using a different pattern to surface this information.
         </p>
-        <p>Tooltips only appear on devices that support hover. On touch screens, consider using a different pattern to surface this information.</p>
 
         <h2 id="default">Default</h2>
       </div>
@@ -44,10 +51,18 @@ export async function TooltipPage(path: string) {
       </div>
       <div class="example">
         <div class="preview" style="gap:1rem">
-          <button class="outline" data-tooltip="Top" data-placement="top">Top</button>
-          <button class="outline" data-tooltip="Bottom" data-placement="bottom">Bottom</button>
-          <button class="outline" data-tooltip="Left" data-placement="left">Left</button>
-          <button class="outline" data-tooltip="Right" data-placement="right">Right</button>
+          <button class="outline" data-tooltip="Top" data-placement="top">
+            Top
+          </button>
+          <button class="outline" data-tooltip="Bottom" data-placement="bottom">
+            Bottom
+          </button>
+          <button class="outline" data-tooltip="Left" data-placement="left">
+            Left
+          </button>
+          <button class="outline" data-tooltip="Right" data-placement="right">
+            Right
+          </button>
         </div>
         <div class="code-block">
           ${raw(

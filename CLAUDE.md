@@ -90,7 +90,7 @@ export async function MyPage(path: string) {
     toc,
     content: html`
       <h1>My Component</h1>
-      <p class="lead">Short description.</p>
+      <p>Short description.</p>
 
       <h2 id="example">Example</h2>
       <div class="example">

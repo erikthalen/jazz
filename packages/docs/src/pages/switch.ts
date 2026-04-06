@@ -16,11 +16,13 @@ export async function SwitchPage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>Switch</h1>
-        <p class="lead">
-          A toggle switch using
-          <code>&lt;input type="checkbox" class="switch"&gt;</code>.
-        </p>
+        <hgroup>
+          <h1>Switch</h1>
+          <p>
+            A toggle switch using
+            <code>&lt;input type="checkbox" class="switch"&gt;</code>.
+          </p>
+        </hgroup>
 
         <h2 id="default">Default</h2>
       </div>
@@ -51,12 +53,19 @@ export async function SwitchPage(path: string) {
         <h2 id="with-label">With label</h2>
       </div>
       <div class="example">
-        <div class="preview" style="flex-direction:column;align-items:flex-start;gap:0.5rem">
-          <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer">
+        <div
+          class="preview"
+          style="flex-direction:column;align-items:flex-start;gap:0.5rem"
+        >
+          <label
+            style="display:flex;align-items:center;gap:0.5rem;cursor:pointer"
+          >
             <input type="checkbox" class="switch" checked />
             Notifications
           </label>
-          <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer">
+          <label
+            style="display:flex;align-items:center;gap:0.5rem;cursor:pointer"
+          >
             <input type="checkbox" class="switch" />
             Dark mode
           </label>

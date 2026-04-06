@@ -14,11 +14,13 @@ export async function SelectPage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>Select</h1>
-        <p class="lead">
-          A styled native <code>&lt;select&gt;</code> element. Accessible and
-          keyboard-navigable out of the box.
-        </p>
+        <hgroup>
+          <h1>Select</h1>
+          <p>
+            A styled native <code>&lt;select&gt;</code> element. Accessible and
+            keyboard-navigable out of the box.
+          </p>
+        </hgroup>
 
         <h2 id="default">Default</h2>
       </div>

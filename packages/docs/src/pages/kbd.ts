@@ -14,11 +14,13 @@ export async function KbdPage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>Kbd</h1>
-        <p class="lead">
-          Represents a keyboard input using the native
-          <code>&lt;kbd&gt;</code> element.
-        </p>
+        <hgroup>
+          <h1>Kbd</h1>
+          <p>
+            Represents a keyboard input using the native
+            <code>&lt;kbd&gt;</code> element.
+          </p>
+        </hgroup>
 
         <h2 id="default">Default</h2>
       </div>

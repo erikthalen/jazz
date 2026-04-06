@@ -1,35 +1,7 @@
 import { html, raw } from "hono/html";
 import { Layout } from "../../layout";
 import { highlight } from "../../highlight";
-
-const svg = (paths: string, size = 16) =>
-  `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${paths}</svg>`;
-
-const I = {
-  file: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2" />`,
-  folder: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2" />`,
-  folderOpen: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 19l2.757 -7.351a1 1 0 0 1 .936 -.649h12.307a1 1 0 0 1 .986 1.164l-.996 5.211a2 2 0 0 1 -1.964 1.625h-14.026a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2h4l3 3h7a2 2 0 0 1 2 2v2" />`,
-  save: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 4h10l4 4v10a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2" /><path d="M10 14a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M14 4l0 4l-6 0l0 -4" />`,
-  download: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" /><path d="M7 11l5 5l5 -5" /><path d="M12 4l0 12" />`,
-  layoutSidebar: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2l0 -12" /><path d="M9 4l0 16" />`,
-  layoutBottombar: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2l0 -12" /><path d="M4 15l16 0" />`,
-  palette: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" /><path d="M7.5 10.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M11.5 7.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M15.5 10.5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />`,
-  user: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />`,
-  creditCard: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 8a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3l0 -8" /><path d="M3 10l18 0" /><path d="M7 15l.01 0" /><path d="M11 15l2 0" />`,
-  settings: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />`,
-  helpCircle: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M12 16v.01" /><path d="M12 13a2 2 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483" />`,
-  fileText: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2" /><path d="M9 9l1 0" /><path d="M9 13l6 0" /><path d="M9 17l6 0" />`,
-  logout: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" /><path d="M9 12h12l-3 -3" /><path d="M18 15l3 -3" />`,
-  dots: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M11 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M18 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />`,
-  keyboard: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M2 8a2 2 0 0 1 2 -2h16a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-16a2 2 0 0 1 -2 -2l0 -8" /><path d="M6 10l0 .01" /><path d="M10 10l0 .01" /><path d="M14 10l0 .01" /><path d="M18 10l0 .01" /><path d="M6 14l0 .01" /><path d="M18 14l0 .01" /><path d="M10 14l4 .01" />`,
-  language: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6.371c0 4.418 -2.239 6.629 -5 6.629" /><path d="M4 6.371h7" /><path d="M5 9c0 2.144 2.252 3.908 6 4" /><path d="M12 20l4 -9l4 9" /><path d="M19.1 18h-6.2" /><path d="M6.694 3l.793 .582" />`,
-  bell: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 5a2 2 0 1 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" /><path d="M9 17v1a3 3 0 0 0 6 0v-1" />`,
-  shield: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3" />`,
-  mail: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10" /><path d="M3 7l9 6l9 -6" />`,
-  sun: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" />`,
-  moon: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454l0 .008" />`,
-  monitor: `<path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10" /><path d="M7 20h10" /><path d="M9 16v4" /><path d="M15 16v4" />`,
-};
+import { icon } from "../../icon";
 
 export async function ComplexMenuPage(path: string) {
   return Layout({
@@ -37,12 +9,14 @@ export async function ComplexMenuPage(path: string) {
     path,
     content: html`
       <div class="prose">
-        <h1>Complex Menu</h1>
-        <p class="lead">
-          A multi-section dropdown with keyboard shortcuts, checkable items, and
-          nested submenus. Built entirely with the Popover API and Jazz
-          components.
-        </p>
+        <hgroup>
+          <h1>Complex Menu</h1>
+          <p>
+            A multi-section dropdown with keyboard shortcuts, checkable items,
+            and nested submenus. Built entirely with the Popover API and Jazz
+            components.
+          </p>
+        </hgroup>
       </div>
 
       <div class="example">
@@ -54,37 +28,37 @@ export async function ComplexMenuPage(path: string) {
               <li><small>File</small></li>
               <li>
                 <button class="ghost">
-                  ${raw(svg(I.file))} New File
+                  ${raw(icon("file"))} New File
                   <kbd class="shortcut">⌘N</kbd>
                 </button>
               </li>
               <li>
                 <button class="ghost">
-                  ${raw(svg(I.folder))} New Folder
+                  ${raw(icon("folder"))} New Folder
                   <kbd class="shortcut">⇧⌘N</kbd>
                 </button>
               </li>
               <li>
                 <button class="ghost" popovertarget="cmenu-recent">
-                  ${raw(svg(I.folderOpen))} Open Recent
+                  ${raw(icon("folder-open"))} Open Recent
                 </button>
                 <div id="cmenu-recent" popover data-placement="right top">
                   <menu>
                     <li><small>Recent Projects</small></li>
                     <li>
                       <button class="ghost">
-                        ${raw(svg(I.file))} Project Alpha
+                        ${raw(icon("file"))} Project Alpha
                       </button>
                     </li>
                     <li>
                       <button class="ghost">
-                        ${raw(svg(I.file))} Project Beta
+                        ${raw(icon("file"))} Project Beta
                       </button>
                     </li>
                     <li><hr /></li>
                     <li>
                       <button class="ghost" popovertarget="cmenu-more-projects">
-                        ${raw(svg(I.dots))} More Projects
+                        ${raw(icon("dots"))} More Projects
                       </button>
                       <div
                         id="cmenu-more-projects"
@@ -94,12 +68,12 @@ export async function ComplexMenuPage(path: string) {
                         <menu>
                           <li>
                             <button class="ghost">
-                              ${raw(svg(I.file))} Project Gamma
+                              ${raw(icon("file"))} Project Gamma
                             </button>
                           </li>
                           <li>
                             <button class="ghost">
-                              ${raw(svg(I.file))} Project Delta
+                              ${raw(icon("file"))} Project Delta
                             </button>
                           </li>
                         </menu>
@@ -107,7 +81,7 @@ export async function ComplexMenuPage(path: string) {
                     </li>
                     <li>
                       <button class="ghost">
-                        ${raw(svg(I.folderOpen))} Browse&hellip;
+                        ${raw(icon("folder-open"))} Browse&hellip;
                       </button>
                     </li>
                   </menu>
@@ -116,13 +90,13 @@ export async function ComplexMenuPage(path: string) {
               <li><hr /></li>
               <li>
                 <button class="ghost">
-                  ${raw(svg(I.save))} Save
+                  ${raw(icon("device-floppy"))} Save
                   <kbd class="shortcut">⌘S</kbd>
                 </button>
               </li>
               <li>
                 <button class="ghost">
-                  ${raw(svg(I.download))} Export
+                  ${raw(icon("download"))} Export
                   <kbd class="shortcut">⇧⌘E</kbd>
                 </button>
               </li>
@@ -131,18 +105,18 @@ export async function ComplexMenuPage(path: string) {
               <li>
                 <label>
                   <input type="checkbox" name="cmenu-sidebar" checked />
-                  ${raw(svg(I.layoutSidebar))} Show Sidebar
+                  ${raw(icon("layout-sidebar"))} Show Sidebar
                 </label>
               </li>
               <li>
                 <label>
                   <input type="checkbox" name="cmenu-statusbar" />
-                  ${raw(svg(I.layoutBottombar))} Show Status Bar
+                  ${raw(icon("layout-bottombar"))} Show Status Bar
                 </label>
               </li>
               <li>
                 <button class="ghost" popovertarget="cmenu-theme">
-                  ${raw(svg(I.palette))} Theme
+                  ${raw(icon("palette"))} Theme
                 </button>
                 <div id="cmenu-theme" popover data-placement="right top">
                   <menu>
@@ -150,19 +124,19 @@ export async function ComplexMenuPage(path: string) {
                     <li>
                       <label>
                         <input type="radio" name="cmenu-appearance" checked />
-                        ${raw(svg(I.sun))} Light
+                        ${raw(icon("sun"))} Light
                       </label>
                     </li>
                     <li>
                       <label>
                         <input type="radio" name="cmenu-appearance" />
-                        ${raw(svg(I.moon))} Dark
+                        ${raw(icon("moon"))} Dark
                       </label>
                     </li>
                     <li>
                       <label>
                         <input type="radio" name="cmenu-appearance" />
-                        ${raw(svg(I.monitor))} System
+                        ${raw(icon("device-desktop"))} System
                       </label>
                     </li>
                   </menu>
@@ -172,33 +146,35 @@ export async function ComplexMenuPage(path: string) {
               <li><small>Account</small></li>
               <li>
                 <button class="ghost">
-                  ${raw(svg(I.user))} Profile
+                  ${raw(icon("user"))} Profile
                   <kbd class="shortcut">⇧⌘P</kbd>
                 </button>
               </li>
               <li>
-                <button class="ghost">${raw(svg(I.creditCard))} Billing</button>
+                <button class="ghost">
+                  ${raw(icon("credit-card"))} Billing
+                </button>
               </li>
               <li>
                 <button class="ghost" popovertarget="cmenu-settings">
-                  ${raw(svg(I.settings))} Settings
+                  ${raw(icon("settings"))} Settings
                 </button>
                 <div id="cmenu-settings" popover data-placement="right top">
                   <menu>
                     <li><small>Preferences</small></li>
                     <li>
                       <button class="ghost">
-                        ${raw(svg(I.keyboard))} Keyboard Shortcuts
+                        ${raw(icon("keyboard"))} Keyboard Shortcuts
                       </button>
                     </li>
                     <li>
                       <button class="ghost">
-                        ${raw(svg(I.language))} Language
+                        ${raw(icon("language"))} Language
                       </button>
                     </li>
                     <li>
                       <button class="ghost" popovertarget="cmenu-notifications">
-                        ${raw(svg(I.bell))} Notifications
+                        ${raw(icon("bell"))} Notifications
                       </button>
                       <div
                         id="cmenu-notifications"
@@ -214,7 +190,7 @@ export async function ComplexMenuPage(path: string) {
                                 name="cmenu-notif-push"
                                 checked
                               />
-                              ${raw(svg(I.bell))} Push Notifications
+                              ${raw(icon("bell"))} Push Notifications
                             </label>
                           </li>
                           <li>
@@ -224,7 +200,7 @@ export async function ComplexMenuPage(path: string) {
                                 name="cmenu-notif-email"
                                 checked
                               />
-                              ${raw(svg(I.mail))} Email Notifications
+                              ${raw(icon("mail"))} Email Notifications
                             </label>
                           </li>
                         </menu>
@@ -233,7 +209,7 @@ export async function ComplexMenuPage(path: string) {
                     <li><hr /></li>
                     <li>
                       <button class="ghost">
-                        ${raw(svg(I.shield))} Privacy &amp; Security
+                        ${raw(icon("shield"))} Privacy &amp; Security
                       </button>
                     </li>
                   </menu>
@@ -242,18 +218,18 @@ export async function ComplexMenuPage(path: string) {
               <li><hr /></li>
               <li>
                 <button class="ghost">
-                  ${raw(svg(I.helpCircle))} Help &amp; Support
+                  ${raw(icon("help-circle"))} Help &amp; Support
                 </button>
               </li>
               <li>
                 <button class="ghost">
-                  ${raw(svg(I.fileText))} Documentation
+                  ${raw(icon("file-text"))} Documentation
                 </button>
               </li>
               <li><hr /></li>
               <li>
                 <button class="ghost destructive">
-                  ${raw(svg(I.logout))} Sign Out
+                  ${raw(icon("logout"))} Sign Out
                   <kbd class="shortcut">⇧⌘Q</kbd>
                 </button>
               </li>

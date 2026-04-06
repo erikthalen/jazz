@@ -17,11 +17,13 @@ export async function CheckboxPage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>Checkbox</h1>
-        <p class="lead">
-          A native <code>&lt;input type="checkbox"&gt;</code> for toggling
-          options.
-        </p>
+        <hgroup>
+          <h1>Checkbox</h1>
+          <p>
+            A native <code>&lt;input type="checkbox"&gt;</code> for toggling
+            options.
+          </p>
+        </hgroup>
 
         <h2 id="default">Default</h2>
       </div>

@@ -15,11 +15,13 @@ export async function PopoverPage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>Popover</h1>
-        <p class="lead">
-          A floating panel anchored to a trigger using the native
-          <code>popover</code> API and CSS anchor positioning.
-        </p>
+        <hgroup>
+          <h1>Popover</h1>
+          <p>
+            A floating panel anchored to a trigger using the native
+            <code>popover</code> API and CSS anchor positioning.
+          </p>
+        </hgroup>
 
         <h2 id="default">Default</h2>
         <p>

@@ -23,12 +23,14 @@ export async function ExpanderPage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>Expander</h1>
-        <p class="lead">
-          Reveal hidden content by transitioning from a user-defined height to
-          <code>height: auto</code>. Set the closed height via
-          <code>--height</code>.
-        </p>
+        <hgroup>
+          <h1>Expander</h1>
+          <p>
+            Reveal hidden content by transitioning from a user-defined height to
+            <code>height: auto</code>. Set the closed height via
+            <code>--height</code>.
+          </p>
+        </hgroup>
 
         <h2 id="default">Default</h2>
       </div>

@@ -7,11 +7,13 @@ export async function BlocksPage(path: string) {
     path,
     content: html`
       <div class="prose">
-        <h1>Blocks</h1>
-        <p class="lead">
-          Larger compositions built entirely from Jazz components, with minimal
-          extra CSS. Showing how they combine into real UI patterns.
-        </p>
+        <hgroup>
+          <h1>Blocks</h1>
+          <p>
+            Larger compositions built entirely from Jazz components, with minimal
+            extra CSS. Showing how they combine into real UI patterns.
+          </p>
+        </hgroup>
       </div>
       <div
         style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:var(--spacing-4);margin-top:var(--spacing-6)"

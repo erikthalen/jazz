@@ -15,10 +15,12 @@ export async function FileDropPage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>File Drop</h1>
-        <p class="lead">
-          A styled file input drop zone using <code>label.file-drop</code>.
-        </p>
+        <hgroup>
+          <h1>File Drop</h1>
+          <p>
+            A styled file input drop zone using <code>label.file-drop</code>.
+          </p>
+        </hgroup>
 
         <h2 id="default">Default</h2>
       </div>

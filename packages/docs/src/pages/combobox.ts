@@ -14,12 +14,14 @@ export async function ComboboxPage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>Combobox <sup class="badge">WIP</sup></h1>
-        <p class="lead">
-          A searchable dropdown built from a text input and the native Popover
-          API. CSS handles all visual presentation; a small inline script
-          filters the list and wires up selection.
-        </p>
+        <hgroup>
+          <h1>Combobox <sup class="badge">WIP</sup></h1>
+          <p>
+            A searchable dropdown built from a text input and the native Popover
+            API. CSS handles all visual presentation; a small inline script
+            filters the list and wires up selection.
+          </p>
+        </hgroup>
         <p>
           Each <code>anchor-name</code> must be unique per combobox on the page.
           Set it via an inline style and reference the same value as

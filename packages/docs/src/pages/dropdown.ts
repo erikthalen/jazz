@@ -1,6 +1,7 @@
 import { html, raw } from "hono/html";
 import { Layout } from "../layout";
 import { highlight } from "../highlight";
+import { icon } from "../icon";
 
 const toc = [
   { id: "default", label: "Default" },
@@ -19,11 +20,13 @@ export async function DropdownPage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>Dropdown</h1>
-        <p class="lead">
-          A menu of actions anchored to a trigger, built with the native
-          <code>popover</code> API and a <code>&lt;menu&gt;</code>.
-        </p>
+        <hgroup>
+          <h1>Dropdown</h1>
+          <p>
+            A menu of actions anchored to a trigger, built with the native
+            <code>popover</code> API and a <code>&lt;menu&gt;</code>.
+          </p>
+        </hgroup>
 
         <h2 id="default">Default</h2>
       </div>
@@ -271,19 +274,7 @@ export async function DropdownPage(path: string) {
             style="min-width: 10rem; justify-content: space-between"
           >
             <span>Choose a fruit</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="m6 9 6 6 6-6" />
-            </svg>
+            ${raw(icon("chevron-down", { size: 14 }))}
           </button>
           <div
             id="select-dropdown"
@@ -363,19 +354,7 @@ export async function DropdownPage(path: string) {
               style="min-width: 10rem; justify-content: space-between"
             >
               <span>Choose a color</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="m6 9 6 6 6-6" />
-              </svg>
+              ${raw(icon("chevron-down", { size: 14 }))}
             </button>
             <div
               id="form-select-dropdown"

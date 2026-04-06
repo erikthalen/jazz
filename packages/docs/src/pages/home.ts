@@ -1,6 +1,7 @@
 import { html, raw } from "hono/html";
 import { HomeLayout, url } from "../layout";
 import { highlight } from "../highlight";
+import { icon } from "../icon";
 import pkg from "../../../core/package.json";
 import { readFileSync } from "node:fs";
 import { brotliCompressSync } from "node:zlib";
@@ -64,21 +65,7 @@ export async function HomePage(path: string) {
 
         <div class="showcase-cell">
           <label style="width:100%">
-            <svg
-              data-prefix
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.3-4.3" />
-            </svg>
+            ${raw(icon("search", { attrs: "data-prefix" }))}
             <input type="search" placeholder="Search..." />
             <kbd data-suffix>⌘K</kbd>
           </label>
@@ -97,112 +84,29 @@ export async function HomePage(path: string) {
             <fieldset role="group">
               <label class="toggle square" aria-label="Align left">
                 <input type="radio" name="home-align" />
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <line x1="21" x2="3" y1="6" y2="6" />
-                  <line x1="15" x2="3" y1="12" y2="12" />
-                  <line x1="17" x2="3" y1="18" y2="18" />
-                </svg>
+                ${raw(icon("align-left"))}
               </label>
               <label class="toggle square" aria-label="Align center">
                 <input type="radio" name="home-align" checked />
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <line x1="21" x2="3" y1="6" y2="6" />
-                  <line x1="17" x2="7" y1="12" y2="12" />
-                  <line x1="19" x2="5" y1="18" y2="18" />
-                </svg>
+                ${raw(icon("align-center"))}
               </label>
               <label class="toggle square" aria-label="Align right">
                 <input type="radio" name="home-align" />
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <line x1="21" x2="3" y1="6" y2="6" />
-                  <line x1="21" x2="9" y1="12" y2="12" />
-                  <line x1="21" x2="7" y1="18" y2="18" />
-                </svg>
+                ${raw(icon("align-right"))}
               </label>
             </fieldset>
             <fieldset role="group">
               <label class="toggle square" aria-label="Bold">
                 <input type="checkbox" />
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path
-                    d="M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8"
-                  />
-                </svg>
+                ${raw(icon("bold"))}
               </label>
               <label class="toggle square" aria-label="Italic">
                 <input type="checkbox" checked />
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <line x1="19" x2="10" y1="4" y2="4" />
-                  <line x1="14" x2="5" y1="20" y2="20" />
-                  <line x1="15" x2="9" y1="4" y2="20" />
-                </svg>
+                ${raw(icon("italic"))}
               </label>
               <label class="toggle square" aria-label="Underline">
                 <input type="checkbox" />
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M6 4v6a6 6 0 0 0 12 0V4" />
-                  <line x1="4" x2="20" y1="20" y2="20" />
-                </svg>
+                ${raw(icon("underline"))}
               </label>
             </fieldset>
           </div>
@@ -298,38 +202,12 @@ export async function HomePage(path: string) {
         <div class="showcase-cell">
           <label class="toggle fill">
             <input type="checkbox" />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
-            </svg>
+            ${raw(icon("bookmark"))}
             Bookmark
           </label>
           <label class="toggle fill">
             <input type="checkbox" checked />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <polygon
-                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-              />
-            </svg>
+            ${raw(icon("star"))}
             Star
           </label>
         </div>

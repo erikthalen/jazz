@@ -17,12 +17,14 @@ export async function DialogPage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>Dialog</h1>
-        <p class="lead">
-          A native <code>&lt;dialog&gt;</code> element for popovers and modal
-          overlays. Use an <code>&lt;article&gt;</code> inside for the card
-          styling.
-        </p>
+        <hgroup>
+          <h1>Dialog</h1>
+          <p>
+            A native <code>&lt;dialog&gt;</code> element for popovers and modal
+            overlays. Use an <code>&lt;article&gt;</code> inside for the card
+            styling.
+          </p>
+        </hgroup>
 
         <h2 id="default">Default</h2>
         <p>

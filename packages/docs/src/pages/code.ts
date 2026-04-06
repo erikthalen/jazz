@@ -14,11 +14,13 @@ export async function CodePage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>Code</h1>
-        <p class="lead">
-          Displays inline code using the native <code>&lt;code&gt;</code>
-          element.
-        </p>
+        <hgroup>
+          <h1>Code</h1>
+          <p>
+            Displays inline code using the native <code>&lt;code&gt;</code>
+            element.
+          </p>
+        </hgroup>
 
         <h2 id="default">Default</h2>
       </div>

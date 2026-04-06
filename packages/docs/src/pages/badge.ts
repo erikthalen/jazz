@@ -1,6 +1,7 @@
 import { html, raw } from "hono/html";
 import { Layout } from "../layout";
 import { highlight } from "../highlight";
+import { icon } from "../icon";
 
 const toc = [
   { id: "default", label: "Default" },
@@ -17,10 +18,12 @@ export async function BadgePage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>Badge</h1>
-        <p class="lead">
-          Small status labels using <code>&lt;span class="badge"&gt;</code>.
-        </p>
+        <hgroup>
+          <h1>Badge</h1>
+          <p>
+            Small status labels using <code>&lt;span class="badge"&gt;</code>.
+          </p>
+        </hgroup>
 
         <h2 id="default">Default</h2>
       </div>
@@ -84,15 +87,15 @@ export async function BadgePage(path: string) {
       <div class="example">
         <div class="preview" style="gap:0.5rem">
           <span class="badge constructive">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            ${raw(icon("check"))}
             Verified
           </span>
           <span class="badge destructive">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+            ${raw(icon("alert-circle"))}
             Failed
           </span>
           <span class="badge outline">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            ${raw(icon("info-circle"))}
             Info
           </span>
         </div>

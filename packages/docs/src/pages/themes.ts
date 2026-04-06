@@ -39,11 +39,13 @@ export async function ThemesPage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>Themes</h1>
-        <p class="lead">
-          Jazz is themed entirely through CSS custom properties — override the
-          seed colors to match your brand.
-        </p>
+        <hgroup>
+          <h1>Themes</h1>
+          <p>
+            Jazz is themed entirely through CSS custom properties — override the
+            seed colors to match your brand.
+          </p>
+        </hgroup>
 
         <h2 id="primary-scale">Primary scale</h2>
         <p>
@@ -85,8 +87,8 @@ export async function ThemesPage(path: string) {
         <h2 id="color-scales">Color scales</h2>
         <p>
           General-purpose accent colors. Override
-          <code>--jazz-color1</code> through <code>--jazz-color6</code> to
-          suit your palette.
+          <code>--jazz-color1</code> through <code>--jazz-color6</code> to suit
+          your palette.
         </p>
       </div>
       ${[1, 2, 3, 4, 5, 6].map((n) => colorScale(`color${n}`))}

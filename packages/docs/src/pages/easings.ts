@@ -51,10 +51,12 @@ export async function EasingsPage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>Easings</h1>
-        <p class="lead">
-          Custom easing curves for natural-feeling transitions and animations.
-        </p>
+        <hgroup>
+          <h1>Easings</h1>
+          <p>
+            Custom easing curves for natural-feeling transitions and animations.
+          </p>
+        </hgroup>
       </div>
       <label class="easings-animate-toggle">
         <input type="checkbox" class="switch" />

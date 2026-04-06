@@ -20,10 +20,12 @@ export async function IntroPage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>Jazz</h1>
-        <p class="lead">
-          A CSS reset and a small UI library in one stylesheet.
-        </p>
+        <hgroup>
+          <h1>Jazz</h1>
+          <p>
+            A CSS reset and a small UI library in one stylesheet.
+          </p>
+        </hgroup>
         <p>
           Jazz is somewhere between a CSS reset and a classless CSS project. It
           styles native HTML elements directly, so plain semantic markup looks

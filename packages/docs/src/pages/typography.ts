@@ -1,25 +1,30 @@
-import { html, raw } from 'hono/html'
-import { Layout } from '../layout'
-import { highlight } from '../highlight'
+import { html, raw } from "hono/html";
+import { Layout } from "../layout";
+import { highlight } from "../highlight";
 
 const toc = [
-  { id: 'headings', label: 'Headings' },
-  { id: 'paragraphs', label: 'Paragraphs' },
-  { id: 'inline', label: 'Inline text' },
-  { id: 'lists', label: 'Lists' },
-  { id: 'blockquote', label: 'Blockquote' },
-  { id: 'code', label: 'Code' },
-]
+  { id: "headings", label: "Headings" },
+  { id: "paragraphs", label: "Paragraphs" },
+  { id: "inline", label: "Inline text" },
+  { id: "lists", label: "Lists" },
+  { id: "blockquote", label: "Blockquote" },
+  { id: "code", label: "Code" },
+];
 
 export async function TypographyPage(path: string) {
   return Layout({
-    title: 'Typography',
+    title: "Typography",
     path,
     toc,
     content: html`
       <div class="prose">
-        <h1>Typography</h1>
-        <p class="lead">Native HTML text elements, unstyled and ready to inherit your design.</p>
+        <hgroup>
+          <h1>Typography</h1>
+          <p>
+            Native HTML text elements, unstyled and ready to inherit your
+            design.
+          </p>
+        </hgroup>
 
         <h2 id="headings">Headings</h2>
       </div>
@@ -33,12 +38,14 @@ export async function TypographyPage(path: string) {
           <h6>Heading 6</h6>
         </div>
         <div class="code-block">
-          ${raw(await highlight(`<h1>Heading 1</h1>
+          ${raw(
+            await highlight(`<h1>Heading 1</h1>
 <h2>Heading 2</h2>
 <h3>Heading 3</h3>
 <h4>Heading 4</h4>
 <h5>Heading 5</h5>
-<h6>Heading 6</h6>`))}
+<h6>Heading 6</h6>`),
+          )}
         </div>
       </div>
 
@@ -47,12 +54,20 @@ export async function TypographyPage(path: string) {
       </div>
       <div class="example">
         <div class="preview preview-padded">
-          <p>A paragraph of text. Jazz styles native HTML elements directly with no class names needed for basic usage.</p>
-          <p>A second paragraph. Spacing between paragraphs is handled automatically.</p>
+          <p>
+            A paragraph of text. Jazz styles native HTML elements directly with
+            no class names needed for basic usage.
+          </p>
+          <p>
+            A second paragraph. Spacing between paragraphs is handled
+            automatically.
+          </p>
         </div>
         <div class="code-block">
-          ${raw(await highlight(`<p>A paragraph of text.</p>
-<p>A second paragraph.</p>`))}
+          ${raw(
+            await highlight(`<p>A paragraph of text.</p>
+<p>A second paragraph.</p>`),
+          )}
         </div>
       </div>
 
@@ -71,7 +86,9 @@ export async function TypographyPage(path: string) {
           <p><small>Fine print or side comment</small></p>
           <p>H<sub>2</sub>O (subscript)</p>
           <p>E = mc<sup>2</sup> (superscript)</p>
-          <p><abbr title="HyperText Markup Language">HTML</abbr> (abbreviation)</p>
+          <p>
+            <abbr title="HyperText Markup Language">HTML</abbr> (abbreviation)
+          </p>
           <p><cite>The Elements of Typographic Style</cite></p>
           <q>An inline quotation pulls text into context.</q>
           <p><del>Removed from the document</del></p>
@@ -83,7 +100,8 @@ export async function TypographyPage(path: string) {
           <p>Visit the <a href="#">documentation</a> to learn more.</p>
         </div>
         <div class="code-block">
-          ${raw(await highlight(`<strong>Strong importance</strong>
+          ${raw(
+            await highlight(`<strong>Strong importance</strong>
 <em>Emphasized text</em>
 <b>Bold, no added importance</b>
 <i>Idiomatic or technical term</i>
@@ -102,7 +120,8 @@ E = mc<sup>2</sup>
 <code>const x = 42</code>
 Let <var>x</var> be an unknown quantity.
 Output: <samp>Error: file not found</samp>
-<a href="#">documentation</a>`))}
+<a href="#">documentation</a>`),
+          )}
         </div>
       </div>
 
@@ -129,7 +148,8 @@ Output: <samp>Error: file not found</samp>
           </dl>
         </div>
         <div class="code-block">
-          ${raw(await highlight(`<ul>
+          ${raw(
+            await highlight(`<ul>
   <li>Unordered item</li>
 </ul>
 
@@ -140,7 +160,8 @@ Output: <samp>Error: file not found</samp>
 <dl>
   <dt>Term</dt>
   <dd>Description.</dd>
-</dl>`))}
+</dl>`),
+          )}
         </div>
       </div>
 
@@ -155,10 +176,12 @@ Output: <samp>Error: file not found</samp>
           </blockquote>
         </div>
         <div class="code-block">
-          ${raw(await highlight(`<blockquote>
+          ${raw(
+            await highlight(`<blockquote>
   <p>The details are not the details. They make the design.</p>
   <footer>Charles Eames</footer>
-</blockquote>`))}
+</blockquote>`),
+          )}
         </div>
       </div>
 
@@ -171,10 +194,12 @@ Output: <samp>Error: file not found</samp>
 console.log(greeting)</code></pre>
         </div>
         <div class="code-block">
-          ${raw(await highlight(`<pre><code>const greeting = "hello, world"
-console.log(greeting)</code></pre>`))}
+          ${raw(
+            await highlight(`<pre><code>const greeting = "hello, world"
+console.log(greeting)</code></pre>`),
+          )}
         </div>
       </div>
     `,
-  })
+  });
 }

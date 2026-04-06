@@ -15,11 +15,13 @@ export async function CustomizationPage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>Customization</h1>
-        <p class="lead">
-          Jazz uses <code>@layer</code> to stay out of your way. Any styles you
-          write outside of a layer automatically win over Jazz's defaults.
-        </p>
+        <hgroup>
+          <h1>Customization</h1>
+          <p>
+            Jazz uses <code>@layer</code> to stay out of your way. Any styles you
+            write outside of a layer automatically win over Jazz's defaults.
+          </p>
+        </hgroup>
 
         <h2 id="how-it-works">How it works</h2>
         <p>

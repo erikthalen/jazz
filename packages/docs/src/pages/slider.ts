@@ -16,10 +16,12 @@ export async function SliderPage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>Slider</h1>
-        <p class="lead">
-          A range input using <code>&lt;input type="range"&gt;</code>.
-        </p>
+        <hgroup>
+          <h1>Slider</h1>
+          <p>
+            A range input using <code>&lt;input type="range"&gt;</code>.
+          </p>
+        </hgroup>
 
         <h2 id="default">Default</h2>
       </div>

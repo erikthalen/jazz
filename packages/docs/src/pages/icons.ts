@@ -49,15 +49,17 @@ export function IconsPage(path: string) {
     path,
     content: html`
       <div class="prose">
-        <h1>Icons</h1>
-        <p class="lead">
-          Jazz doesn't ship icons. The examples below use
-          <a href="https://tabler.io/icons" target="_blank" rel="noopener"
-            >Tabler Icons</a
-          >
-          — over ${outlineTotal} free, open-source SVG icons with a consistent
-          stroke style.
-        </p>
+        <hgroup>
+          <h1>Icons</h1>
+          <p>
+            Jazz doesn't ship icons. The examples below use
+            <a href="https://tabler.io/icons" target="_blank" rel="noopener"
+              >Tabler Icons</a
+            >
+            — over ${outlineTotal} free, open-source SVG icons with a consistent
+            stroke style.
+          </p>
+        </hgroup>
         <p>
           Inline SVGs work especially well with Jazz since they inherit
           <code>currentColor</code> and scale with <code>font-size</code>. Click

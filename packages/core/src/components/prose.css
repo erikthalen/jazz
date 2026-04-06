@@ -47,11 +47,29 @@
       padding-inline-start: var(--spacing-4);
       margin: 0 0 var(--jazz-typography-spacing-vertical) 0;
 
-      footer, cite {
+      footer,
+      cite {
         display: block;
         margin-top: var(--spacing-2);
         color: var(--jazz-neutral-500);
         font-style: italic;
+      }
+    }
+
+    > hgroup {
+      margin: 0 0 calc(var(--jazz-typography-spacing-vertical) * 2) 0;
+
+      > h1,
+      > h2,
+      > h3,
+      > h4,
+      > h5,
+      > h6 {
+        margin: 0 0 var(--jazz-typography-spacing-vertical) 0;
+      }
+
+      > p {
+        color: var(--jazz-neutral-500);
       }
     }
 

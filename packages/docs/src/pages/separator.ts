@@ -12,10 +12,12 @@ export async function SeparatorPage(path: string) {
     ],
     content: html`
       <div class="prose">
-        <h1>Separator</h1>
-        <p class="lead">
-          A horizontal divider using the native <code>&lt;hr&gt;</code> element.
-        </p>
+        <hgroup>
+          <h1>Separator</h1>
+          <p>
+            A horizontal divider using the native <code>&lt;hr&gt;</code> element.
+          </p>
+        </hgroup>
 
         <h2 id="default">Default</h2>
       </div>

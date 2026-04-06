@@ -16,11 +16,13 @@ export async function AccordionPage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>Accordion</h1>
-        <p class="lead">
-          Collapsible content sections using the native
-          <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> elements.
-        </p>
+        <hgroup>
+          <h1>Accordion</h1>
+          <p>
+            Collapsible content sections using the native
+            <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> elements.
+          </p>
+        </hgroup>
 
         <h2 id="default">Default</h2>
       </div>

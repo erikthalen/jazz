@@ -14,14 +14,16 @@ export async function ToastPage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>Toast <sup class="badge">WIP</sup></h1>
-        <p class="lead">
-          Temporary notification messages using the native
-          <code>&lt;output&gt;</code> element — a semantic live region with
-          implicit <code>aria-live="polite"</code>. CSS handles the animation
-          lifecycle; the View Transitions API smoothly repositions existing toasts
-          when new ones arrive.
-        </p>
+        <hgroup>
+          <h1>Toast <sup class="badge">WIP</sup></h1>
+          <p>
+            Temporary notification messages using the native
+            <code>&lt;output&gt;</code> element — a semantic live region with
+            implicit <code>aria-live="polite"</code>. CSS handles the animation
+            lifecycle; the View Transitions API smoothly repositions existing
+            toasts when new ones arrive.
+          </p>
+        </hgroup>
 
         <h2 id="default">Default</h2>
       </div>
@@ -29,8 +31,12 @@ export async function ToastPage(path: string) {
         <div class="preview">
           <div style="display:flex;gap:var(--spacing-2)">
             <button onclick="toast('File saved')">Save</button>
-            <button onclick="toast('Link copied to clipboard')">Copy link</button>
-            <button onclick="toast('Changes discarded')" class="ghost">Discard</button>
+            <button onclick="toast('Link copied to clipboard')">
+              Copy link
+            </button>
+            <button onclick="toast('Changes discarded')" class="ghost">
+              Discard
+            </button>
           </div>
           <output id="toasts"></output>
         </div>
@@ -93,31 +99,31 @@ export async function ToastPage(path: string) {
       </div>
 
       <script>
-        let toastId = 0
+        let toastId = 0;
 
         function toast(text, seconds) {
-          const out = document.getElementById('toasts')
-          const p = document.createElement('p')
-          p.textContent = text
-          if (seconds) p.style.setProperty('--toast-duration', seconds + 's')
+          const out = document.getElementById("toasts");
+          const p = document.createElement("p");
+          p.textContent = text;
+          if (seconds) p.style.setProperty("--toast-duration", seconds + "s");
 
-          const add = () => out.appendChild(p)
+          const add = () => out.appendChild(p);
 
           if (document.startViewTransition) {
-            const vt = document.startViewTransition(add)
+            const vt = document.startViewTransition(add);
             vt.finished.then(() => {
-              p.style.viewTransitionName = 'toast-' + toastId++
-            })
+              p.style.viewTransitionName = "toast-" + toastId++;
+            });
           } else {
-            add()
+            add();
           }
 
-          p.addEventListener('animationend', () => {
-            const remove = () => p.remove()
+          p.addEventListener("animationend", () => {
+            const remove = () => p.remove();
             document.startViewTransition
               ? document.startViewTransition(remove)
-              : remove()
-          })
+              : remove();
+          });
         }
       </script>
     `,

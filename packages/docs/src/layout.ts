@@ -40,6 +40,12 @@ export const blocks: { label: string; path: string; description: string }[] = [
     description:
       "A multi-section dropdown with keyboard shortcuts, checkable items, and nested submenus.",
   },
+  {
+    label: "Admin Dashboard",
+    path: "/blocks/admin-dashboard",
+    description:
+      "A task management dashboard with sidebar navigation, filterable data table, and row actions.",
+  },
 ];
 
 export const components: { label: string; path: string; badge?: string }[] = [

@@ -14,12 +14,14 @@ export async function DatalistPage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>Datalist</h1>
-        <p class="lead">
-          A native browser combobox. Pair any text input with a
-          <code>&lt;datalist&gt;</code> to get autocomplete suggestions for
-          free, no CSS or JavaScript required.
-        </p>
+        <hgroup>
+          <h1>Datalist</h1>
+          <p>
+            A native browser combobox. Pair any text input with a
+            <code>&lt;datalist&gt;</code> to get autocomplete suggestions for
+            free, no CSS or JavaScript required.
+          </p>
+        </hgroup>
         <p>
           The browser handles filtering, keyboard navigation, and
           accessibility. The tradeoff is that the suggestion popup is

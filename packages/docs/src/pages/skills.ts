@@ -8,10 +8,12 @@ export async function SkillsPage(path: string) {
     toc: [],
     content: html`
       <div class="prose">
-        <h1>Skills</h1>
-        <p class="lead">
-          Teach your AI coding agent how to use Jazz with one command.
-        </p>
+        <hgroup>
+          <h1>Skills</h1>
+          <p>
+            Teach your AI coding agent how to use Jazz with one command.
+          </p>
+        </hgroup>
 
         <p>
           Jazz ships a <code>SKILL.md</code> file that gives agents like Claude

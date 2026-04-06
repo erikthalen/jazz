@@ -4,6 +4,7 @@ import { highlight } from '../highlight'
 
 const toc = [
   { id: 'headings', label: 'Headings' },
+  { id: 'lead', label: 'Lead' },
   { id: 'paragraphs', label: 'Paragraphs' },
   { id: 'lists', label: 'Lists' },
   { id: 'blockquote', label: 'Blockquote' },
@@ -17,11 +18,13 @@ export async function ProsePage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>Prose</h1>
-        <p class="lead">
-          Add <code>.prose</code> to any container to give headings and paragraphs
-          consistent vertical spacing.
-        </p>
+        <hgroup>
+          <h1>Prose</h1>
+          <p>
+            Add <code>.prose</code> to any container to give headings and paragraphs
+            consistent vertical spacing.
+          </p>
+        </hgroup>
 
         <h2 id="headings">Headings</h2>
       </div>
@@ -45,6 +48,28 @@ export async function ProsePage(path: string) {
   <h6>Heading 6</h6>
 </div>`),
           )}
+        </div>
+      </div>
+
+      <div class="prose">
+        <h2 id="lead">Lead</h2>
+        <p>
+          An <code>&lt;hgroup&gt;</code> pairs a heading with a muted subtitle.
+          Any <code>&lt;p&gt;</code> inside is automatically dimmed.
+        </p>
+      </div>
+      <div class="example">
+        <div class="preview preview-padded prose">
+          <hgroup>
+            <h2>Tasks</h2>
+            <p>Here's a list of your tasks for this month.</p>
+          </hgroup>
+        </div>
+        <div class="code-block">
+          ${raw(await highlight(`<hgroup>
+  <h2>Tasks</h2>
+  <p>Here's a list of your tasks for this month.</p>
+</hgroup>`))}
         </div>
       </div>
 

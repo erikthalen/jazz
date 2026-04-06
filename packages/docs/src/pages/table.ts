@@ -1,6 +1,7 @@
 import { html, raw } from "hono/html";
 import { Layout } from "../layout";
 import { highlight } from "../highlight";
+import { icon } from "../icon";
 
 const toc = [
   { id: "default", label: "Default" },
@@ -17,7 +18,7 @@ export async function TablePage(path: string) {
     content: html`
       <div class="prose">
         <h1>Table</h1>
-        <p class="lead">
+        <p>
           A data table built with the native <code>&lt;table&gt;</code> element,
           laid out using CSS grid and subgrid for precise column alignment.
         </p>
@@ -257,7 +258,7 @@ export async function TablePage(path: string) {
                 <td>Active</td>
                 <td>
                   <button class="ghost square" popovertarget="table-actions-1" style="anchor-name:--table-actions-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M11 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M18 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /></svg>
+                    ${raw(icon("dots"))}
                   </button>
                   <div id="table-actions-1" popover style="position-anchor:--table-actions-1;top:anchor(bottom);right:anchor(right);left:unset;margin:0">
                     <menu>
@@ -275,7 +276,7 @@ export async function TablePage(path: string) {
                 <td>Away</td>
                 <td>
                   <button class="ghost square" popovertarget="table-actions-2" style="anchor-name:--table-actions-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M11 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M18 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /></svg>
+                    ${raw(icon("dots"))}
                   </button>
                   <div id="table-actions-2" popover style="position-anchor:--table-actions-2;top:anchor(bottom);right:anchor(right);left:unset;margin:0">
                     <menu>
@@ -293,7 +294,7 @@ export async function TablePage(path: string) {
                 <td>Active</td>
                 <td>
                   <button class="ghost square" popovertarget="table-actions-3" style="anchor-name:--table-actions-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M11 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M18 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /></svg>
+                    ${raw(icon("dots"))}
                   </button>
                   <div id="table-actions-3" popover style="position-anchor:--table-actions-3;top:anchor(bottom);right:anchor(right);left:unset;margin:0">
                     <menu>

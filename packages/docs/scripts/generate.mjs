@@ -53,6 +53,7 @@ const routes = [
   "/blocks/signup-form",
   "/blocks/sidebar",
   "/blocks/complex-menu",
+  "/blocks/admin-dashboard",
   "/easings",
   "/typography",
   "/skills",

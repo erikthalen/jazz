@@ -16,11 +16,13 @@ export async function RadioGroupPage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>Radio Group</h1>
-        <p class="lead">
-          A <code>fieldset</code> that groups radio buttons or checkboxes under
-          a shared <code>legend</code>. No class name needed.
-        </p>
+        <hgroup>
+          <h1>Radio Group</h1>
+          <p>
+            A <code>fieldset</code> that groups radio buttons or checkboxes under
+            a shared <code>legend</code>. No class name needed.
+          </p>
+        </hgroup>
 
         <h2 id="radio">Radio</h2>
       </div>

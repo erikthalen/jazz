@@ -16,11 +16,13 @@ export async function RadioPage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>Radio</h1>
-        <p class="lead">
-          A native <code>&lt;input type="radio"&gt;</code> for selecting one
-          option from a group.
-        </p>
+        <hgroup>
+          <h1>Radio</h1>
+          <p>
+            A native <code>&lt;input type="radio"&gt;</code> for selecting one
+            option from a group.
+          </p>
+        </hgroup>
 
         <h2 id="default">Default</h2>
       </div>
