@@ -148,6 +148,7 @@
     mask-size: 1rem;
     width: 1rem;
     height: 1rem;
+    mask-repeat: no-repeat;
   }
 
   button[popovertarget]:has(+ [popover]:popover-open),

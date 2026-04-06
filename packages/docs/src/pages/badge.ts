@@ -8,6 +8,7 @@ const toc = [
   { id: "colors", label: "Colors" },
   { id: "outline", label: "Outline" },
   { id: "with-icon", label: "With icon" },
+  { id: "sup", label: "Sup" },
   { id: "loading", label: "Loading" },
 ];
 
@@ -33,8 +34,10 @@ export async function BadgePage(path: string) {
           <span class="badge secondary">Secondary</span>
         </div>
         <div class="code-block">
-          ${raw(await highlight(`<span class="badge">Badge</span>\n
-<span class="badge secondary">Secondary</span>`))}
+          ${raw(
+            await highlight(`<span class="badge">Badge</span>\n
+<span class="badge secondary">Secondary</span>`),
+          )}
         </div>
       </div>
 
@@ -47,7 +50,10 @@ export async function BadgePage(path: string) {
         </p>
       </div>
       <div class="example">
-        <div class="preview" style="gap:0.5rem;flex-wrap:wrap;flex-direction:column;">
+        <div
+          class="preview"
+          style="gap:0.5rem;flex-wrap:wrap;flex-direction:column;"
+        >
           <span class="badge primary">Primary</span>
           <span class="badge constructive">Constructive</span>
           <span class="badge destructive">Destructive</span>
@@ -87,17 +93,12 @@ export async function BadgePage(path: string) {
       <div class="example">
         <div class="preview" style="gap:0.5rem">
           <span class="badge constructive">
-            ${raw(icon("check"))}
-            Verified
+            ${raw(icon("check"))} Verified
           </span>
           <span class="badge destructive">
-            ${raw(icon("alert-circle"))}
-            Failed
+            ${raw(icon("alert-circle"))} Failed
           </span>
-          <span class="badge outline">
-            ${raw(icon("info-circle"))}
-            Info
-          </span>
+          <span class="badge outline"> ${raw(icon("info-circle"))} Info </span>
         </div>
         <div class="code-block">
           ${raw(
@@ -105,6 +106,25 @@ export async function BadgePage(path: string) {
   <svg><!-- icon --></svg>
   Verified
 </span>`),
+          )}
+        </div>
+      </div>
+
+      <div class="prose">
+        <h2 id="sup">Sup</h2>
+        <p>
+          Make a badge of a <code>&lt;sup&gt;</code> and it automatically aligns
+          to the top.
+        </p>
+      </div>
+      <div class="example">
+        <div class="preview" style="flex-direction:column;gap:0.5rem">
+          <h1>Bob <sup class="badge color6">Admin</sup></h1>
+          <h1>Alice <sup class="badge color4">User</sup></h1>
+        </div>
+        <div class="code-block">
+          ${raw(
+            await highlight(`<h1>Bob <sup class="badge">Admin</sup></h1>`),
           )}
         </div>
       </div>

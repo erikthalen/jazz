@@ -10,4 +10,5 @@
   mask-size: 1em;
   width: 1em;
   aspect-ratio: 1;
+  mask-repeat: no-repeat;
 }
