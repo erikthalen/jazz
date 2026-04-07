@@ -260,9 +260,17 @@ export async function HomePage(path: string) {
         </div>
 
         <div class="showcase-cell">
-          <span class="badge">Badge</span>
+          <span class="badge">Default</span>
+          <span class="badge primary">Primary</span>
           <span class="badge secondary">Secondary</span>
+          <span class="badge constructive">Constructive</span>
           <span class="badge destructive">Destructive</span>
+          <span class="badge color1">Color 1</span>
+          <span class="badge color2">Color 2</span>
+          <span class="badge color3">Color 3</span>
+          <span class="badge color4">Color 4</span>
+          <span class="badge color5">Color 5</span>
+          <span class="badge color6">Color 6</span>
           <span class="badge outline">Outline</span>
         </div>
 
