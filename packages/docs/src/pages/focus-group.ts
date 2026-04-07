@@ -22,14 +22,14 @@ export async function FocusGroupPage(path: string) {
 
         <h2 id="default">Default</h2>
         <p>
-          Add <code>data-focus-parent</code> to the container and
-          <code>data-focus-child</code> to the focusable elements inside it. The
+          Add <code>data-focus-within</code> to the container and
+          <code>data-focus</code> to the focusable elements inside it. The
           parent shows the outline; the children suppress their own.
         </p>
       </div>
       <div class="example">
         <div class="preview preview-padded">
-          <article data-focus-parent style="width:100%">
+          <article data-focus-within style="width:100%">
             <header>
               ${raw(icon("brand-javascript", { size: 18 }))}
               <span style="margin-right:auto">script.js</span>
@@ -41,7 +41,7 @@ export async function FocusGroupPage(path: string) {
               </button>
             </header>
             <textarea
-              data-focus-child
+              data-focus
               style="box-shadow:none;resize:none;font-family:monospace"
               rows="6"
               placeholder="console.log('Hello, world!');"
@@ -78,14 +78,14 @@ export async function FocusGroupPage(path: string) {
   }
 </style>
 
-<article data-focus-parent>
+<article data-focus-within>
   <header>
     <svg>...</svg>
     <span>script.js</span>
     <button class="ghost square" aria-label="Reload"><svg>...</svg></button>
     <button class="ghost square" aria-label="Copy"><svg>...</svg></button>
   </header>
-  <textarea data-focus-child rows="6" placeholder="console.log('Hello, world!');"></textarea>
+  <textarea data-focus rows="6" placeholder="console.log('Hello, world!');"></textarea>
   <footer>
     <span>Line 1, Column 1</span>
     <button>Run <svg>...</svg></button>
