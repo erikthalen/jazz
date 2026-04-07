@@ -445,7 +445,7 @@ function header(path: string) {
 
 export function HomeLayout({ title, path, content }: Omit<LayoutProps, "toc">) {
   return html`<!doctype html>
-    <html lang="en">
+    <html lang="en" data-theme="system">
       <head>
         ${head(title)}
       </head>
@@ -459,7 +459,7 @@ export function HomeLayout({ title, path, content }: Omit<LayoutProps, "toc">) {
 
 export function Layout({ title, path, toc, content }: LayoutProps) {
   return html`<!doctype html>
-    <html lang="en">
+    <html lang="en" data-theme="system">
       <head>
         ${head(title)}
       </head>

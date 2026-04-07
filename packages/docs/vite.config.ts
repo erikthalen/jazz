@@ -2,11 +2,17 @@ import { defineConfig } from "vite";
 import devServer from "@hono/vite-dev-server";
 import { fileURLToPath } from "node:url";
 import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
 
 const coreCssPath = fileURLToPath(new URL("../../jazz.css", import.meta.url));
 const miniSearchPath = fileURLToPath(new URL("./node_modules/minisearch/dist/es/index.js", import.meta.url));
 
 export default defineConfig({
+  define: {
+    __TABLER_ICONS_DIR__: JSON.stringify(
+      resolve(import.meta.dirname, "node_modules/@tabler/icons/icons"),
+    ),
+  },
   plugins: [
     {
       name: "serve-and-watch-core-css",

@@ -1,10 +1,8 @@
 import { readFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { join } from "node:path";
 
-const tablerDir = resolve(
-  import.meta.dirname,
-  "../node_modules/@tabler/icons/icons",
-);
+declare const __TABLER_ICONS_DIR__: string;
+const tablerDir = __TABLER_ICONS_DIR__;
 
 export function icon(
   name: string,
@@ -15,7 +13,7 @@ export function icon(
   }: { size?: number; filled?: boolean; attrs?: string } = {},
 ): string {
   const variant = filled ? "filled" : "outline";
-  const file = resolve(tablerDir, variant, `${name}.svg`);
+  const file = join(tablerDir, variant, `${name}.svg`);
   const raw = readFileSync(file, "utf-8");
 
   return raw
