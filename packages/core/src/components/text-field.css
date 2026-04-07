@@ -33,12 +33,11 @@
     font: inherit;
     line-height: calc((16 / 14) * 1rem);
 
-    /* &:focus-visible {
-      outline: 2px solid var(--jazz-neutral-950);
-      outline-offset: 2px;
-    } */
+    transition-property: padding-inline-start;
+    transition-duration: 150ms;
+    transition-timing-function: var(--ease-glide);
 
-    &:focus {
+    &:focus-visible {
       box-shadow: 0 0 0 1px currentColor inset;
       outline: none;
     }
@@ -67,21 +66,10 @@
     align-items: center;
     cursor: text;
 
-    box-shadow: 0 0 0 1px var(--jazz-neutral-200) inset;
-    border-radius: var(--spacing-2);
-
-    &:has(> input:focus) {
-      box-shadow: 0 0 0 1px currentColor inset;
-    }
-
     /* Input spans all columns as the full-width background */
     > input:is([type="text"], [type="email"], [type="search"], [type="password"], [type="number"], [type="tel"], [type="url"], :not([type])) {
       grid-column: 1 / -1;
       grid-row: 1;
-      padding-inline: var(--spacing-3);
-      box-shadow: none;
-      border-radius: 0;
-      background: transparent;
     }
 
     /* Adornments sit on top */
@@ -96,6 +84,7 @@
     > [data-prefix] {
       grid-column: 1;
       margin-inline: var(--spacing-3) var(--spacing-2);
+      transition: opacity 150ms var(--ease-glide);
     }
 
     > [data-suffix]:last-child {
@@ -107,20 +96,83 @@
       grid-column: 3;
       margin-inline: var(--spacing-2) 0;
     }
+
+    /* Spinner always rendered in column 1; crossfades with data-prefix */
+    &::before {
+      content: "";
+      display: block;
+      grid-column: 1;
+      grid-row: 1;
+      z-index: 2;
+      position: relative;
+      width: 1em;
+      height: 1em;
+      background-color: var(--jazz-neutral-400);
+      mask-image: var(--jazz-loading);
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      margin-inline: var(--spacing-3) var(--spacing-2);
+      opacity: 0;
+      transition: opacity 150ms var(--ease-glide);
+    }
+
+    &:has(> input[aria-busy="true"]) {
+      > [data-prefix] { opacity: 0; }
+      &::before { opacity: 1; }
+    }
+  }
+
+  /* aria-busy spinner for inputs without adornments */
+  label:not(.toggle):not(:has(> [data-prefix], > [data-suffix])):has(> input[aria-busy="true"]) {
+    &::before { opacity: 1; }
+  }
+
+  label:not(.toggle):not(:has(> [data-prefix], > [data-suffix])):has(> input[aria-busy="true"]) {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    cursor: text;
+
+    &::before {
+      content: "";
+      display: block;
+      grid-column: 1;
+      grid-row: 1;
+      z-index: 1;
+      position: relative;
+      width: 1em;
+      height: 1em;
+      background-color: var(--jazz-neutral-400);
+      mask-image: var(--jazz-loading);
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      margin-inline: var(--spacing-3) var(--spacing-2);
+      transition: opacity 150ms;
+
+      @starting-style {
+        opacity: 0;
+      }
+    }
+
+    > input:is([type="text"], [type="email"], [type="search"], [type="password"], [type="number"], [type="tel"], [type="url"], :not([type])) {
+      grid-column: 1 / -1;
+      grid-row: 1;
+      padding-inline-start: calc(var(--spacing-3) + 1rem + var(--spacing-2));
+    }
   }
 
   /* Offset input text to clear leading adornment */
   label:not(.toggle):has(> [data-prefix]) > input:is([type="text"], [type="email"], [type="search"], [type="password"], [type="number"], [type="tel"], [type="url"], :not([type])) {
-    padding-inline-start: calc(var(--spacing) * 3 + 1rem + var(--spacing) * 2);
+    padding-inline-start: calc(var(--spacing-3) + 1rem + var(--spacing-2));
   }
 
   /* Offset input text to clear one trailing adornment */
   label:not(.toggle):has(> [data-suffix]) > input:is([type="text"], [type="email"], [type="search"], [type="password"], [type="number"], [type="tel"], [type="url"], :not([type])) {
-    padding-inline-end: calc(var(--spacing) * 3 + 1rem + var(--spacing) * 2);
+    padding-inline-end: calc(var(--spacing-3) + 1rem + var(--spacing-2));
   }
 
   /* Offset input text to clear two trailing adornments */
   label:not(.toggle):has(> [data-suffix]:not(:last-child)) > input:is([type="text"], [type="email"], [type="search"], [type="password"], [type="number"], [type="tel"], [type="url"], :not([type])) {
-    padding-inline-end: calc(var(--spacing) * 3 + 2rem + var(--spacing) * 4);
+    padding-inline-end: calc(var(--spacing-3) + 2rem + var(--spacing-2));
   }
 }

@@ -135,6 +135,15 @@ function head(title: string) {
           storedColor,
         );
       }
+      document.addEventListener("DOMContentLoaded", function () {
+        var sidebar = document.querySelector(".docs-sidebar");
+        if (!sidebar) return;
+        var saved = sessionStorage.getItem("sidebar-scroll");
+        if (saved) sidebar.scrollTop = parseInt(saved, 10);
+        window.addEventListener("pagehide", function () {
+          sessionStorage.setItem("sidebar-scroll", sidebar.scrollTop);
+        });
+      });
     </script>
     <script defer>
       document.addEventListener("DOMContentLoaded", () => {

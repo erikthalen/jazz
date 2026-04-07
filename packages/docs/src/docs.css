@@ -1,3 +1,7 @@
+@view-transition {
+  navigation: auto;
+}
+
 /* Override core's body max-width so it doesn't constrain the docs layout */
 body {
   max-width: none;
@@ -656,4 +660,14 @@ body:has(.sidebar-toggle:checked) .docs-sidebar {
       color: var(--color);
     }
   }
+}
+
+.callout {
+  background-color: var(--jazz-neutral-50);
+  border: 1px solid var(--jazz-neutral-200);
+  border-radius: var(--spacing-2);
+  padding: var(--spacing-3) var(--spacing-4);
+  font-size: 0.875rem;
+  color: var(--jazz-neutral-700);
+  margin-bottom: 1rem;
 }

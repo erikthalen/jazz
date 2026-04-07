@@ -28,7 +28,7 @@ export async function AccordionPage(path: string) {
       </div>
       <div class="example">
         <div class="preview preview-padded">
-          <details style="width:100%">
+          <details>
             <summary>What is Jazz?</summary>
             <div>
               Jazz is a minimal CSS design system that styles native HTML
@@ -59,19 +59,19 @@ export async function AccordionPage(path: string) {
       </div>
       <div class="example">
         <div class="preview preview-padded">
-          <details style="width:100%">
+          <details>
             <summary>Getting started</summary>
             <div>
               Import <code>@jazz/core</code> and start writing HTML.
             </div>
           </details>
-          <details style="width:100%">
+          <details>
             <summary>Customization</summary>
             <div>
               Override CSS custom properties to match your brand.
             </div>
           </details>
-          <details style="width:100%">
+          <details>
             <summary>Dark mode</summary>
             <div>
               Jazz responds to <code>prefers-color-scheme</code> automatically.
@@ -105,15 +105,15 @@ export async function AccordionPage(path: string) {
       </div>
       <div class="example">
         <div class="preview preview-padded">
-          <details name="faq" style="width:100%">
+          <details name="faq">
             <summary>Getting started</summary>
             <div>Import <code>@jazz/core</code> and start writing HTML.</div>
           </details>
-          <details name="faq" style="width:100%">
+          <details name="faq">
             <summary>Customization</summary>
             <div>Override CSS custom properties to match your brand.</div>
           </details>
-          <details name="faq" style="width:100%">
+          <details name="faq">
             <summary>Dark mode</summary>
             <div>
               Jazz responds to <code>prefers-color-scheme</code> automatically.
@@ -146,7 +146,7 @@ export async function AccordionPage(path: string) {
       </div>
       <div class="example">
         <div class="preview preview-padded">
-          <details open style="width:100%">
+          <details open>
             <summary>This one is open</summary>
             <div>
               Use the <code>open</code> attribute to expand by default.

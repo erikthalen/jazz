@@ -17,11 +17,13 @@ export async function TablePage(path: string) {
     toc,
     content: html`
       <div class="prose">
-        <h1>Table</h1>
-        <p>
-          A data table built with the native <code>&lt;table&gt;</code> element,
-          laid out using CSS grid and subgrid for precise column alignment.
-        </p>
+        <hgroup>
+          <h1>Table</h1>
+          <p class="lead">
+            A data table built with the native <code>&lt;table&gt;</code> element,
+            laid out using CSS grid and subgrid for precise column alignment.
+          </p>
+        </hgroup>
 
         <h2 id="default">Default</h2>
         <p>

@@ -30,8 +30,14 @@
 
     > button,
     > a,
-    > .button {
+    > .button,
+    > footer {
       margin-top: var(--spacing-2);
+    }
+
+    > footer {
+      display: flex;
+      gap: var(--spacing-2);
     }
   }
 }

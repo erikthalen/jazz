@@ -1,9 +1,11 @@
 import { html, raw } from 'hono/html'
 import { Layout } from '../layout'
 import { highlight } from '../highlight'
+import { icon } from '../icon'
 
 const toc = [
   { id: 'default', label: 'Default' },
+  { id: 'with-hint', label: 'With hint' },
   { id: 'with-filename', label: 'With filename' },
   { id: 'with-field', label: 'With field' },
 ]
@@ -28,6 +30,7 @@ export async function FileDropPage(path: string) {
         <div class="preview">
           <label class="file-drop" style="width:100%">
             <input type="file" />
+            ${raw(icon("upload"))}
             Drag files here or choose from folder
           </label>
         </div>
@@ -35,18 +38,42 @@ export async function FileDropPage(path: string) {
           ${raw(
             await highlight(`<label class="file-drop">
   <input type="file" />
+  <svg><!-- upload icon --></svg>
   Drag files here or choose from folder
 </label>`),
           )}
         </div>
       </div>
       <div class="prose">
+        <h2 id="with-hint">With hint</h2>
+      </div>
+      <div class="example">
+        <div class="preview">
+          <label class="file-drop" style="width:100%">
+            <input type="file" accept="image/*" />
+            ${raw(icon("upload"))}
+            Drag image here or choose from folder
+            <small>PNG, JPG or WebP up to 10 MB</small>
+          </label>
+        </div>
+        <div class="code-block">
+          ${raw(await highlight(`<label class="file-drop">
+  <input type="file" accept="image/*" />
+  <svg><!-- upload icon --></svg>
+  Drag image here or choose from folder
+  <small>PNG, JPG or WebP up to 10 MB</small>
+</label>`))}
+        </div>
+      </div>
+
+      <div class="prose">
         <h2 id="with-filename">With filename</h2>
       </div>
       <div class="example">
         <div class="preview">
           <label class="file-drop" style="width:100%">
-            <input type="file" onchange="this.nextElementSibling.textContent = this.files[0]?.name ?? 'Drag files here or choose from folder'" />
+            <input type="file" onchange="this.nextElementSibling.nextElementSibling.textContent = this.files[0]?.name ?? 'Drag files here or choose from folder'" />
+            ${raw(icon("upload"))}
             <span>Drag files here or choose from folder</span>
           </label>
         </div>
@@ -54,8 +81,9 @@ export async function FileDropPage(path: string) {
           ${raw(
             await highlight(`<label class="file-drop">
   <input type="file"
-    onchange="this.nextElementSibling.textContent =
+    onchange="this.nextElementSibling.nextElementSibling.textContent =
       this.files[0]?.name ?? 'Drag files here or choose from folder'" />
+  <svg><!-- upload icon --></svg>
   <span>Drag files here or choose from folder</span>
 </label>`),
           )}
@@ -70,6 +98,7 @@ export async function FileDropPage(path: string) {
             <span>Attachment</span>
             <label class="file-drop">
               <input type="file" />
+              ${raw(icon("upload"))}
               Drag files here or choose from folder
             </label>
             <small>Max 10 MB.</small>
@@ -81,6 +110,7 @@ export async function FileDropPage(path: string) {
   <span>Attachment</span>
   <label class="file-drop">
     <input type="file" />
+    <svg><!-- upload icon --></svg>
     Drag files here or choose from folder
   </label>
   <small>Max 10 MB.</small>
