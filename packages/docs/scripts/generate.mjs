@@ -47,6 +47,7 @@ const routes = [
   "/components/toast",
   "/components/submenu",
   "/components/field",
+  "/components/focus-group",
   "/components/radio-group",
   "/blocks",
   "/blocks/richtext-editor",

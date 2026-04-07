@@ -78,6 +78,10 @@
       grid-row: 1;
       position: relative;
       z-index: 1;
+    }
+
+    > [data-prefix]:not(button),
+    > [data-suffix]:not(button) {
       color: var(--jazz-neutral-400);
     }
 
@@ -95,6 +99,12 @@
     > [data-suffix]:not(:last-child) {
       grid-column: 3;
       margin-inline: var(--spacing-2) 0;
+    }
+
+    > button[data-suffix] {
+      padding: var(--spacing-2) var(--spacing-2);
+      font-size: smaller;
+      height: calc(100% - 8px);
     }
 
     /* Spinner always rendered in column 1; crossfades with data-prefix */
@@ -117,14 +127,20 @@
     }
 
     &:has(> input[aria-busy="true"]) {
-      > [data-prefix] { opacity: 0; }
-      &::before { opacity: 1; }
+      > [data-prefix] {
+        opacity: 0;
+      }
+      &::before {
+        opacity: 1;
+      }
     }
   }
 
   /* aria-busy spinner for inputs without adornments */
   label:not(.toggle):not(:has(> [data-prefix], > [data-suffix])):has(> input[aria-busy="true"]) {
-    &::before { opacity: 1; }
+    &::before {
+      opacity: 1;
+    }
   }
 
   label:not(.toggle):not(:has(> [data-prefix], > [data-suffix])):has(> input[aria-busy="true"]) {

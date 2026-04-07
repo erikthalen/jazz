@@ -66,6 +66,7 @@ export const components: { label: string; path: string; badge?: string }[] = [
   { label: "Expander", path: "/components/expander" },
   { label: "Field", path: "/components/field" },
   { label: "File Drop", path: "/components/file-drop" },
+  { label: "Focus Group", path: "/components/focus-group" },
   { label: "Kbd", path: "/components/kbd" },
   { label: "Loading", path: "/components/loading" },
   { label: "Menu", path: "/components/menu" },
@@ -406,7 +407,7 @@ function header(path: string) {
         <li>
           <button
             class="color-swatch-btn"
-            style="background:linear-gradient(135deg, #111 50%, #fff 50%);outline:1px solid var(--jazz-neutral-200);outline-offset:-1px"
+            style="background:linear-gradient(135deg, #111 50%, #fff 50%);box-shadow: 0 0 0 1px var(--jazz-neutral-200) inset;"
             aria-label="Black / White"
             onclick="
                 const val = 'light-dark(#111111, #ffffff)';

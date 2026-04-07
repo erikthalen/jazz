@@ -57,4 +57,10 @@
       appearance: none;
     }
   }
+
+  a:focus-visible {
+    border-radius: 8px;
+    outline: 2px solid var(--jazz-neutral-950);
+    outline-offset: 2px;
+  }
 }

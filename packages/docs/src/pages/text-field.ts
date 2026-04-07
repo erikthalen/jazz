@@ -73,6 +73,10 @@ export async function TextFieldPage(path: string) {
             <input type="number" placeholder="0.00" />
             <small data-suffix>USD</small>
           </label>
+          <label style="width:100%">
+            <input type="text" placeholder="Enter invite code" />
+            <button data-suffix>Apply</button>
+          </label>
         </div>
         <div class="code-block">
           ${raw(
@@ -106,6 +110,12 @@ export async function TextFieldPage(path: string) {
 <label>
   <input type="number" placeholder="0.00" />
   <small data-suffix>USD</small>
+</label>
+
+<!-- button suffix -->
+<label>
+  <input type="text" placeholder="Enter invite code" />
+  <button data-suffix>Apply</button>
 </label>`),
           )}
         </div>

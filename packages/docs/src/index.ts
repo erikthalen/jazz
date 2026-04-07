@@ -41,6 +41,7 @@ import { SubmenuPage } from './pages/submenu'
 import { EmptyPage } from './pages/empty'
 import { MenuPage } from './pages/menu'
 import { FieldPage } from './pages/field'
+import { FocusGroupPage } from './pages/focus-group'
 import { BlocksPage } from './pages/blocks'
 import { RichtextEditorPage } from './pages/blocks/richtext-editor'
 import { SignupFormPage } from './pages/blocks/signup-form'
@@ -98,6 +99,7 @@ app.get('/components/submenu', (c) => c.html(SubmenuPage(c.req.path)))
 app.get('/components/empty', (c) => c.html(EmptyPage(c.req.path)))
 app.get('/components/menu', (c) => c.html(MenuPage(c.req.path)))
 app.get('/components/field', (c) => c.html(FieldPage(c.req.path)))
+app.get('/components/focus-group', (c) => c.html(FocusGroupPage(c.req.path)))
 app.get('/components/radio-group', (c) => c.html(RadioGroupPage(c.req.path)))
 app.get('/blocks', (c) => c.html(BlocksPage(c.req.path)))
 app.get('/blocks/richtext-editor', (c) => c.html(RichtextEditorPage(c.req.path)))

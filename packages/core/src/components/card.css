@@ -1,9 +1,9 @@
 @layer jazz {
   article {
-    border: 1px solid var(--jazz-neutral-100);
+    box-shadow: 0 0 0 1px inset var(--jazz-neutral-100);
     border-radius: 12px;
     overflow: hidden;
-    padding: var(--spacing-6);
+    padding: var(--spacing-4);
 
     &:has(> header, > footer) {
       padding: 0;
@@ -11,19 +11,22 @@
 
     & > header,
     & > footer {
-      padding: var(--spacing-4) var(--spacing-6);
+      padding: var(--spacing-4) var(--spacing-4);
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-2)
     }
 
     & > header {
-      border-bottom: 1px solid var(--jazz-neutral-100);
+      box-shadow: 0 -1px 0 0 inset var(--jazz-neutral-100);
     }
 
     & > footer {
-      border-top: 1px solid var(--jazz-neutral-100);
+      box-shadow: 0 1px 0 0 inset var(--jazz-neutral-100);
     }
 
     &:has(> header, > footer) > :not(header):not(footer) {
-      padding: var(--spacing-6);
+      padding: var(--spacing-4);
     }
   }
 
@@ -35,6 +38,7 @@
       & > header,
       & > footer {
         padding: var(--spacing-3);
+        gap: var(--spacing);
       }
 
       &:has(> header, > footer) > :not(header):not(footer) {

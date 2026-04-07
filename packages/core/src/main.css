@@ -18,6 +18,7 @@
 @import "./components/text-field.css";
 @import "./components/file-drop.css";
 @import "./components/expander.css";
+@import "./components/focus-group.css";
 @import "./components/textarea.css";
 @import "./components/field.css";
 @import "./components/radio-group.css";

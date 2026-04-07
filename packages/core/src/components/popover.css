@@ -24,15 +24,15 @@
     box-shadow: 0 4px 16px oklch(0% 0 0 / 0.08);
 
     & > article {
-      border: none;
+      box-shadow: none;
 
       & > header,
       & > footer {
-        padding: var(--spacing-2) var(--spacing-3);
+        padding: var(--spacing-2) var(--spacing-2);
       }
 
       &:has(> header, > footer) > :not(header):not(footer) {
-        padding: var(--spacing-3);
+        padding: var(--spacing-2);
       }
     }
 
