@@ -74,35 +74,33 @@ export async function LoadingPage(path: string) {
       </div>
       <div class="example">
         <div class="preview">
-          <article
-            style="border-style:dashed;text-align:center;display:grid;place-items:center;gap:var(--spacing-4);max-width:22rem"
-          >
-            <div
+          <article class="empty">
+            <span
               aria-busy="true"
               style="width:2.5rem;height:2.5rem;border-radius:8px;background:var(--jazz-neutral-100);display:grid;place-items:center;"
-            ></div>
-            <div>
-              <p style="margin-bottom:var(--spacing-2)">
-                <strong>Processing your request</strong>
-              </p>
-              <p style="color:var(--jazz-neutral-500)">
-                Please wait while we process your request. Do not refresh the
-                page.
-              </p>
-            </div>
+            ></span>
+            <h4>Processing your request</h4>
+            <p>
+              Please wait while we process your request. Do not refresh the
+              page.
+            </p>
             <button class="outline">Cancel</button>
           </article>
         </div>
         <div class="code-block">
           ${raw(
-            await highlight(`<article style="border-style:dashed;text-align:center;display:grid;place-items:center;gap:var(--spacing-4)">
-  <div aria-busy="true" style="width:2.5rem;height:2.5rem;border-radius:8px;background:var(--jazz-neutral-100);display:grid;place-items:center;"></div>
-  <div>
-    <p style="margin-bottom:var(--spacing-2)"><strong>Processing your request</strong></p>
-    <p style="color:var(--jazz-neutral-500)">Please wait while we process your request. Do not refresh the page.</p>
-  </div>
-  <button class="outline">Cancel</button>
-</article>`),
+            await highlight(`<article class="empty">
+              <span
+                aria-busy="true"
+                style="width:2.5rem;height:2.5rem;border-radius:8px;background:var(--jazz-neutral-100);display:grid;place-items:center;"
+              ></span>
+              <h4>Processing your request</h4>
+              <p>
+                Please wait while we process your request. Do not refresh the
+                page.
+              </p>
+              <button class="outline">Cancel</button>
+          </article>`),
           )}
         </div>
       </div>

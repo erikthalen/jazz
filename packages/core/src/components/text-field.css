@@ -105,6 +105,11 @@
       padding: var(--spacing-2) var(--spacing-2);
       font-size: smaller;
       height: calc(100% - 8px);
+      border-radius: 4px;
+
+      &:last-child {
+        margin-inline-end: 4px;
+      }
     }
 
     /* Spinner always rendered in column 1; crossfades with data-prefix */
@@ -163,7 +168,7 @@
       mask-size: contain;
       mask-repeat: no-repeat;
       margin-inline: var(--spacing-3) var(--spacing-2);
-      transition: opacity 150ms;
+      transition: opacity 150ms var(--ease-glide);
 
       @starting-style {
         opacity: 0;

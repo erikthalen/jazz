@@ -75,7 +75,7 @@ export async function TextFieldPage(path: string) {
           </label>
           <label style="width:100%">
             <input type="text" placeholder="Enter invite code" />
-            <button data-suffix>Apply</button>
+            <button data-suffix class="secondary">Apply</button>
           </label>
         </div>
         <div class="code-block">

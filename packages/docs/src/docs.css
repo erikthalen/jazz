@@ -113,6 +113,7 @@ html[data-theme="system"] .theme-toggle [data-scheme="system"] {
   padding: 0.5rem;
   display: flex;
   gap: 0.375rem;
+  overflow: visible;
 }
 
 .color-picker-popover:not(:popover-open) {
@@ -124,6 +125,7 @@ html[data-theme="system"] .theme-toggle [data-scheme="system"] {
   width: 1.25rem;
   height: 1.25rem;
   border-radius: 50%;
+  vertical-align: bottom;
 
   padding: 0;
 
