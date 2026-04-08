@@ -14,9 +14,12 @@
 
     resize: vertical;
     field-sizing: content;
-    min-height: 6lh;
     display: block;
     width: 100%;
+
+    &:not([rows]) {
+      min-height: 6lh;
+    }
 
     &:focus {
       box-shadow: 0 0 0 1px currentColor inset;
