@@ -13,11 +13,11 @@
     font: inherit;
 
     resize: vertical;
-    field-sizing: content;
     display: block;
     width: 100%;
 
     &:not([rows]) {
+      field-sizing: content;
       min-height: 6lh;
     }
 
