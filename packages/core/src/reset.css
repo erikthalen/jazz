@@ -1,12 +1,16 @@
 @layer reset {
-  :where(*) {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  :root {
     text-rendering: geometricPrecision;
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: transparent;
     -moz-osx-font-smoothing: grayscale;
+    text-size-adjust: 100%;
+  }
+  
+  :where(*) {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     text-wrap-style: pretty;
   }
 
@@ -16,6 +20,7 @@
   h4,
   h5,
   h6 {
+    text-wrap-style: balance;
     font-weight: 600;
   }
 
