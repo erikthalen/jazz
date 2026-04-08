@@ -22,31 +22,27 @@ export function IconsSearchDialog() {
   return html`<dialog id="icons-dialog" class="icons-dialog" scroll-lock>
     <article>
       <header>
-        <div class="icons-search-bar">
-          <label>
-            ${raw(icon("search", { size: 14, attrs: "data-prefix" }))}
-            <input
-              type="search"
-              id="icon-search"
-              placeholder="Search ${outlineTotal} icons..."
-              autocomplete="off"
-              autofocus
-            />
-            <span data-suffix id="icon-count" aria-live="polite"
-              >${outlineTotal}</span
-            >
-          </label>
-          <label
-            style="display:flex;align-items:center;gap:0.5rem;white-space:nowrap"
-          >
-            <input type="checkbox" class="switch" id="icon-style-switch" />
-            Filled
-          </label>
-        </div>
+        <label>
+          ${raw(icon("search", { size: 14, attrs: "data-prefix" }))}
+          <input
+            type="search"
+            id="icon-search"
+            placeholder="Search ${outlineTotal} icons..."
+            autocomplete="off"
+            autofocus
+          />
+          <span data-suffix id="icon-count" aria-live="polite">
+            ${outlineTotal}
+          </span>
+        </label>
+        <label
+          style="display:flex;align-items:center;gap:0.5rem;white-space:nowrap"
+        >
+          <input type="checkbox" class="switch" id="icon-style-switch" />
+          Filled
+        </label>
       </header>
       <div class="icons-dialog-content">
-        
-
         <div id="icons-hint" class="empty" style="margin: 25% 0;">
           ${raw(icon("search", { size: 24 }))}
           <h3>Search ${outlineTotal} icons</h3>
@@ -127,7 +123,7 @@ export function IconsSearchDialog() {
         grid.innerHTML = results
           .map(
             ({ id: name }) =>
-              '<li class="icon-item" data-tooltip="' +
+              '<li class="icon-item" aria-label="' +
               name +
               '">' +
               '<button class="icon-copy-btn ghost square" data-icon="' +

@@ -567,6 +567,10 @@ body:has(.sidebar-toggle:checked) .docs-sidebar {
       top: 0;
       background: var(--background-color);
       z-index: 1;
+
+      label:first-of-type {
+        width: 100%;
+      }
     }
   }
 
@@ -592,9 +596,6 @@ body:has(.sidebar-toggle:checked) .docs-sidebar {
 }
 
 .icons-grid {
-  list-style: none;
-  padding: 0;
-  margin: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
   gap: 0.5rem;

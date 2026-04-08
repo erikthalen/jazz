@@ -213,7 +213,6 @@ function header(path: string) {
         popovertarget="theme-menu"
         aria-label="Toggle theme"
         style="anchor-name:--theme-menu"
-        data-tooltip="Theme"
         data-placement="bottom"
       >
         <svg
@@ -348,11 +347,12 @@ function header(path: string) {
           </li>
         </menu>
       </div>
-      <div data-tooltip="Color scheme" data-placement="bottom">
+      <div>
         <button
           class="ghost square"
           popovertarget="color-picker"
           aria-label="Change primary color"
+          data-placement="bottom"
           style="anchor-name:--color-picker"
         >
           <svg
@@ -425,7 +425,6 @@ function header(path: string) {
         rel="noopener"
         class="button ghost square"
         aria-label="GitHub"
-        data-tooltip="Github"
         data-placement="bottom"
       >
         <svg

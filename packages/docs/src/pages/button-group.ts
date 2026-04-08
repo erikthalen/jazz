@@ -55,8 +55,7 @@ export async function ButtonGroupPage(path: string) {
           <fieldset role="group">
             <button
               class="ghost square"
-              aria-label="Back"
-              data-tooltip="Go back"
+              aria-label="Go back"
             >
               ${raw(icon("chevron-left"))}
             </button>
@@ -84,7 +83,7 @@ export async function ButtonGroupPage(path: string) {
         <div class="code-block">
           ${raw(
             await highlight(`<fieldset role="group">
-  <button class="ghost square" aria-label="Back" data-tooltip="Go back">←</button>
+  <button class="ghost square" aria-label="Go back">←</button>
   <button class="ghost">Archive</button>
   <button class="ghost">Report</button>
   <button class="ghost">Snooze</button>

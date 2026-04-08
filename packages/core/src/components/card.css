@@ -1,5 +1,7 @@
 @layer jazz {
   article {
+    --card-border-radius: 12px;
+
     box-shadow: 0 0 0 1px inset var(--jazz-neutral-100);
     border-radius: 12px;
     overflow: hidden;
@@ -18,11 +20,13 @@
     }
 
     & > header {
-      box-shadow: 0 -1px 0 0 inset var(--jazz-neutral-100);
+      box-shadow: 0 0 0 1px inset var(--jazz-neutral-100);
+      border-radius: var(--card-border-radius) var(--card-border-radius) 0 0;
     }
 
     & > footer {
-      box-shadow: 0 1px 0 0 inset var(--jazz-neutral-100);
+      box-shadow: 0 0 0 1px inset var(--jazz-neutral-100);
+      border-radius: 0 0 var(--card-border-radius) var(--card-border-radius);
     }
 
     &:has(> header, > footer) > :not(header):not(footer) {

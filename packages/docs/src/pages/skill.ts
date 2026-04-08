@@ -276,8 +276,8 @@ A \`[popover]\` that is a sibling of a \`<button>\` inside a menu \`<li>\` becom
 ## Tooltip
 
 \`\`\`html
-<button data-tooltip="Save changes">Save</button>
-<button data-tooltip="Left side" data-placement="left">Info</button>
+<button aria-label="Save changes">Save</button>
+<button aria-label="Left side" data-placement="left">Info</button>
 \`\`\`
 
 ## Table

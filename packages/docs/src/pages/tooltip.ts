@@ -17,26 +17,21 @@ export async function TooltipPage(path: string) {
         <hgroup>
           <h1>Tooltip</h1>
           <p>
-            Show a tooltip on hover using the
-            <code>data-tooltip</code> attribute.
+            Show a tooltip using the <code>aria-label</code> attribute. Appears
+            on hover and on keyboard focus.
           </p>
         </hgroup>
-
-        <p>
-          Tooltips only appear on devices that support hover. On touch screens,
-          consider using a different pattern to surface this information.
-        </p>
 
         <h2 id="default">Default</h2>
       </div>
       <div class="example">
         <div class="preview">
-          <button class="outline" data-tooltip="Add to library">Hover</button>
+          <button class="outline" aria-label="Add to library">Hover or focus</button>
         </div>
         <div class="code-block">
           ${raw(
             await highlight(
-              `<button data-tooltip="Add to library">Hover</button>`,
+              `<button aria-label="Add to library">Hover or focus</button>`,
             ),
           )}
         </div>
@@ -51,26 +46,26 @@ export async function TooltipPage(path: string) {
       </div>
       <div class="example">
         <div class="preview" style="gap:1rem">
-          <button class="outline" data-tooltip="Top" data-placement="top">
+          <button class="outline" aria-label="Top" data-placement="top">
             Top
           </button>
-          <button class="outline" data-tooltip="Bottom" data-placement="bottom">
+          <button class="outline" aria-label="Bottom" data-placement="bottom">
             Bottom
           </button>
-          <button class="outline" data-tooltip="Left" data-placement="left">
+          <button class="outline" aria-label="Left" data-placement="left">
             Left
           </button>
-          <button class="outline" data-tooltip="Right" data-placement="right">
+          <button class="outline" aria-label="Right" data-placement="right">
             Right
           </button>
         </div>
         <div class="code-block">
           ${raw(
             await highlight(
-              `<button data-tooltip="Top" data-placement="top">Top</button>
-<button data-tooltip="Bottom" data-placement="bottom">Bottom</button>
-<button data-tooltip="Left" data-placement="left">Left</button>
-<button data-tooltip="Right" data-placement="right">Right</button>`,
+              `<button aria-label="Top" data-placement="top">Top</button>
+<button aria-label="Bottom" data-placement="bottom">Bottom</button>
+<button aria-label="Left" data-placement="left">Left</button>
+<button aria-label="Right" data-placement="right">Right</button>`,
             ),
           )}
         </div>
