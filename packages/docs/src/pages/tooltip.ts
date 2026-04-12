@@ -26,7 +26,7 @@ export async function TooltipPage(path: string) {
       </div>
       <div class="example">
         <div class="preview">
-          <button class="outline" aria-label="Add to library">Hover or focus</button>
+          <button class="outlined" aria-label="Add to library">Hover or focus</button>
         </div>
         <div class="code-block">
           ${raw(
@@ -46,16 +46,16 @@ export async function TooltipPage(path: string) {
       </div>
       <div class="example">
         <div class="preview" style="gap:1rem">
-          <button class="outline" aria-label="Top" data-placement="top">
+          <button class="outlined" aria-label="Top" data-placement="top">
             Top
           </button>
-          <button class="outline" aria-label="Bottom" data-placement="bottom">
+          <button class="outlined" aria-label="Bottom" data-placement="bottom">
             Bottom
           </button>
-          <button class="outline" aria-label="Left" data-placement="left">
+          <button class="outlined" aria-label="Left" data-placement="left">
             Left
           </button>
-          <button class="outline" aria-label="Right" data-placement="right">
+          <button class="outlined" aria-label="Right" data-placement="right">
             Right
           </button>
         </div>

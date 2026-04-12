@@ -4,7 +4,7 @@ import { highlight } from "../../highlight";
 import { icon } from "../../icon";
 
 export async function RichtextEditorPage(path: string) {
-  return Layout({
+  return Layout({ wide: true,
     title: "Richtext Editor",
     path,
     content: html`
@@ -23,7 +23,7 @@ export async function RichtextEditorPage(path: string) {
           <section style="max-width:500px">
             <!-- Block type -->
             <button
-              class="outline"
+              class="outlined"
               id="rte-format-btn"
               popovertarget="rte-format-menu"
               style="justify-content:space-between;min-width:8rem"
@@ -174,7 +174,7 @@ export async function RichtextEditorPage(path: string) {
           ${raw(
             await highlight(
               `<!-- Block type dropdown -->
-<button class="outline" id="format-btn" popovertarget="format-menu">
+<button class="outlined" id="format-btn" popovertarget="format-menu">
   <span>Paragraph</span> <svg>...</svg>
 </button>
 <div id="format-menu" popover onchange="document.getElementById('format-btn').querySelector('span').textContent=event.target.closest('label').textContent.trim();this.hidePopover()">
@@ -229,7 +229,7 @@ export async function RichtextEditorPage(path: string) {
       </label>
     </form>
     <footer>
-      <button type="button" class="outline">Cancel</button>
+      <button type="button" class="outlined">Cancel</button>
       <button type="submit" form="image-form">Insert</button>
     </footer>
   </article>
@@ -259,7 +259,7 @@ export async function RichtextEditorPage(path: string) {
           >
             <button
               type="button"
-              class="outline"
+              class="outlined"
               onclick="document.getElementById('rte-image-dialog').close()"
             >
               Cancel

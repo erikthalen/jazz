@@ -32,7 +32,7 @@ export async function PopoverPage(path: string) {
       </div>
       <div class="example">
         <div class="preview">
-          <button class="outline" popovertarget="popover-demo">Open</button>
+          <button class="outlined" popovertarget="popover-demo">Open</button>
           <div id="popover-demo" popover style="padding: 1rem">
             <p>This is a popover.</p>
           </div>
@@ -57,7 +57,7 @@ export async function PopoverPage(path: string) {
       </div>
       <div class="example">
         <div class="preview">
-          <button class="outline" popovertarget="popover-card">Options</button>
+          <button class="outlined" popovertarget="popover-card">Options</button>
           <div id="popover-card" popover>
             <article>
               <header><strong>Settings</strong></header>
@@ -106,28 +106,28 @@ export async function PopoverPage(path: string) {
       <div class="example">
         <div class="preview">
           <div style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center">
-            <button class="outline" popovertarget="pop-bl">bottom left</button>
+            <button class="outlined" popovertarget="pop-bl">bottom left</button>
             <div id="pop-bl" popover data-placement="bottom left" style="padding:1rem;width:14rem"><strong>bottom left</strong><p style="margin:0.5rem 0 0;font-size:0.875rem;color:var(--jazz-neutral-500)">Appears below the trigger, left edges aligned.</p></div>
 
-            <button class="outline" popovertarget="pop-br">bottom right</button>
+            <button class="outlined" popovertarget="pop-br">bottom right</button>
             <div id="pop-br" popover data-placement="bottom right" style="padding:1rem;width:14rem"><strong>bottom right</strong><p style="margin:0.5rem 0 0;font-size:0.875rem;color:var(--jazz-neutral-500)">Appears below the trigger, right edges aligned.</p></div>
 
-            <button class="outline" popovertarget="pop-tl">top left</button>
+            <button class="outlined" popovertarget="pop-tl">top left</button>
             <div id="pop-tl" popover data-placement="top left" style="padding:1rem;width:14rem"><strong>top left</strong><p style="margin:0.5rem 0 0;font-size:0.875rem;color:var(--jazz-neutral-500)">Appears above the trigger, left edges aligned.</p></div>
 
-            <button class="outline" popovertarget="pop-tr">top right</button>
+            <button class="outlined" popovertarget="pop-tr">top right</button>
             <div id="pop-tr" popover data-placement="top right" style="padding:1rem;width:14rem"><strong>top right</strong><p style="margin:0.5rem 0 0;font-size:0.875rem;color:var(--jazz-neutral-500)">Appears above the trigger, right edges aligned.</p></div>
 
-            <button class="outline" popovertarget="pop-lt">left top</button>
+            <button class="outlined" popovertarget="pop-lt">left top</button>
             <div id="pop-lt" popover data-placement="left top" style="padding:1rem;width:14rem"><strong>left top</strong><p style="margin:0.5rem 0 0;font-size:0.875rem;color:var(--jazz-neutral-500)">Appears left of the trigger, top edges aligned.</p></div>
 
-            <button class="outline" popovertarget="pop-lb">left bottom</button>
+            <button class="outlined" popovertarget="pop-lb">left bottom</button>
             <div id="pop-lb" popover data-placement="left bottom" style="padding:1rem;width:14rem"><strong>left bottom</strong><p style="margin:0.5rem 0 0;font-size:0.875rem;color:var(--jazz-neutral-500)">Appears left of the trigger, bottom edges aligned.</p></div>
 
-            <button class="outline" popovertarget="pop-rt">right top</button>
+            <button class="outlined" popovertarget="pop-rt">right top</button>
             <div id="pop-rt" popover data-placement="right top" style="padding:1rem;width:14rem"><strong>right top</strong><p style="margin:0.5rem 0 0;font-size:0.875rem;color:var(--jazz-neutral-500)">Appears right of the trigger, top edges aligned.</p></div>
 
-            <button class="outline" popovertarget="pop-rb">right bottom</button>
+            <button class="outlined" popovertarget="pop-rb">right bottom</button>
             <div id="pop-rb" popover data-placement="right bottom" style="padding:1rem;width:14rem"><strong>right bottom</strong><p style="margin:0.5rem 0 0;font-size:0.875rem;color:var(--jazz-neutral-500)">Appears right of the trigger, bottom edges aligned.</p></div>
           </div>
         </div>

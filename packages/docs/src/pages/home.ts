@@ -44,7 +44,7 @@ export async function HomePage(path: string) {
           </p>
           <div class="home-cta">
             <a href="${url("/introduction")}" class="button">Get started</a>
-            <a href="${url("/components/button")}" class="button outline"
+            <a href="${url("/components/button")}" class="button outlined"
               >Components</a
             >
           </div>
@@ -59,7 +59,7 @@ export async function HomePage(path: string) {
       <section class="home-showcase">
         <div class="showcase-cell">
           <button>Primary</button>
-          <button class="outline">Outline</button>
+          <button class="outlined">Outline</button>
           <button class="ghost">Ghost</button>
         </div>
 
@@ -271,7 +271,7 @@ export async function HomePage(path: string) {
           <span class="badge color4">Color 4</span>
           <span class="badge color5">Color 5</span>
           <span class="badge color6">Color 6</span>
-          <span class="badge outline">Outline</span>
+          <span class="badge outlined">Outline</span>
         </div>
 
         <div class="showcase-cell">
@@ -287,7 +287,7 @@ export async function HomePage(path: string) {
               <footer style="display:flex;gap:0.5rem">
                 <button class="destructive">Delete</button>
                 <form method="dialog">
-                  <button class="outline">Cancel</button>
+                  <button class="outlined">Cancel</button>
                 </form>
               </footer>
             </article>
@@ -296,7 +296,7 @@ export async function HomePage(path: string) {
 
         <div class="showcase-cell">
           <button aria-busy="true">Loading</button>
-          <button class="outline" aria-busy="true">Saving</button>
+          <button class="outlined" aria-busy="true">Saving</button>
         </div>
 
         <div class="showcase-cell">
@@ -372,7 +372,7 @@ export async function HomePage(path: string) {
           ${raw(
             await highlight(
               `<button>Save changes</button>\n` +
-                `<button class="outline">Cancel</button>\n` +
+                `<button class="outlined">Cancel</button>\n` +
                 `<button class="ghost">Reset</button>\n` +
                 `\n` +
                 `<label>\n` +

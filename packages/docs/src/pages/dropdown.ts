@@ -32,7 +32,7 @@ export async function DropdownPage(path: string) {
       </div>
       <div class="example">
         <div class="preview">
-          <button class="outline" popovertarget="dropdown-default">
+          <button class="outlined" popovertarget="dropdown-default">
             Actions
           </button>
           <div id="dropdown-default" popover>
@@ -69,7 +69,7 @@ export async function DropdownPage(path: string) {
       </div>
       <div class="example">
         <div class="preview">
-          <button class="outline" popovertarget="dropdown-separator">
+          <button class="outlined" popovertarget="dropdown-separator">
             Actions
           </button>
           <div id="dropdown-separator" popover>
@@ -109,7 +109,7 @@ export async function DropdownPage(path: string) {
       </div>
       <div class="example">
         <div class="preview">
-          <button class="outline" popovertarget="dropdown-labels">
+          <button class="outlined" popovertarget="dropdown-labels">
             File
           </button>
           <div id="dropdown-labels" popover>
@@ -149,7 +149,7 @@ export async function DropdownPage(path: string) {
       </div>
       <div class="example">
         <div class="preview">
-          <button class="outline" popovertarget="dropdown-radios">
+          <button class="outlined" popovertarget="dropdown-radios">
             Sort by
           </button>
           <div id="dropdown-radios" popover>
@@ -213,7 +213,7 @@ export async function DropdownPage(path: string) {
       </div>
       <div class="example">
         <div class="preview">
-          <button class="outline" popovertarget="dropdown-checkboxes">
+          <button class="outlined" popovertarget="dropdown-checkboxes">
             Columns
           </button>
           <div id="dropdown-checkboxes" popover>
@@ -268,7 +268,7 @@ export async function DropdownPage(path: string) {
       <div class="example">
         <div class="preview">
           <button
-            class="outline"
+            class="outlined"
             id="select-trigger"
             popovertarget="select-dropdown"
             style="min-width: 10rem; justify-content: space-between"
@@ -349,7 +349,7 @@ export async function DropdownPage(path: string) {
           <form onchange="alert('Selected: ' + event.target.value)">
             <button
               type="button"
-              class="outline"
+              class="outlined"
               popovertarget="form-select-dropdown"
               style="min-width: 10rem; justify-content: space-between"
             >

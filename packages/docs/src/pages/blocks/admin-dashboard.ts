@@ -106,6 +106,7 @@ const typeColor: Record<string, string> = {
 
 export async function AdminDashboardPage(path: string) {
   return Layout({
+    wide: true,
     title: "Admin Dashboard",
     path,
     content: html`
@@ -128,16 +129,11 @@ export async function AdminDashboardPage(path: string) {
             .admin-layout {
               display: grid;
               grid-template-columns: 220px 1fr;
-              width: 100%;
-              min-height: 560px;
             }
 
             .admin-sidebar {
               border-right: 1px solid var(--jazz-neutral-200);
               padding: 1rem 0.5rem;
-              display: flex;
-              flex-direction: column;
-              gap: 0.25rem;
             }
 
             .admin-main {
@@ -145,7 +141,6 @@ export async function AdminDashboardPage(path: string) {
               flex-direction: column;
               padding: 1.5rem 2rem;
               gap: 1rem;
-              min-width: 0;
             }
 
             .admin-toolbar {
@@ -155,33 +150,10 @@ export async function AdminDashboardPage(path: string) {
               flex-wrap: wrap;
             }
 
-            .admin-toolbar label:has(input[type="search"]) {
-              flex: 0 1 240px;
-            }
-
-            .task-table {
-              table-layout: fixed;
-              white-space: normal;
-            }
-
-            .task-table td,
-            .task-table th {
-              overflow: hidden;
-              text-overflow: ellipsis;
-              white-space: nowrap;
-            }
-
             .task-table td:nth-child(3) {
               white-space: nowrap;
               overflow: hidden;
               text-overflow: ellipsis;
-            }
-
-            .task-row-actions {
-              display: flex;
-              justify-content: flex-end;
-              align-items: center;
-              gap: 0.25rem;
             }
           </style>
 
@@ -191,55 +163,41 @@ export async function AdminDashboardPage(path: string) {
               <menu>
                 <li><small>General</small></li>
                 <li>
-                  <small
-                    ><a class="button ghost" href="#">
-                      ${raw(icon("home", { size: 14 }))} Dashboard
-                    </a></small
-                  >
+                  <a class="button ghost" href="#">
+                    ${raw(icon("home", { size: 14 }))} Dashboard
+                  </a>
                 </li>
                 <li>
-                  <small
-                    ><a class="button ghost" href="#" aria-current="page">
-                      ${raw(icon("clipboard-list", { size: 14 }))} Tasks
-                    </a></small
-                  >
+                  <a class="button ghost" href="#" aria-current="page">
+                    ${raw(icon("clipboard-list", { size: 14 }))} Tasks
+                  </a>
                 </li>
                 <li>
-                  <small
-                    ><a class="button ghost" href="#">
-                      ${raw(icon("download", { size: 14 }))} Apps
-                    </a></small
-                  >
+                  <a class="button ghost" href="#">
+                    ${raw(icon("download", { size: 14 }))} Apps
+                  </a>
                 </li>
                 <li>
-                  <small
-                    ><a class="button ghost" href="#">
-                      ${raw(icon("message", { size: 14 }))} Chats
-                      <span class="badge" style="margin-left:auto">3</span>
-                    </a></small
-                  >
+                  <a class="button ghost" href="#">
+                    ${raw(icon("message", { size: 14 }))} Chats
+                    <span class="badge" style="margin-left:auto">3</span>
+                  </a>
                 </li>
                 <li>
-                  <small
-                    ><a class="button ghost" href="#">
-                      ${raw(icon("users", { size: 14 }))} Users
-                    </a></small
-                  >
+                  <a class="button ghost" href="#">
+                    ${raw(icon("users", { size: 14 }))} Users
+                  </a>
                 </li>
                 <li><small>Settings</small></li>
                 <li>
-                  <small
-                    ><a class="button ghost" href="#">
-                      ${raw(icon("settings", { size: 14 }))} Settings
-                    </a></small
-                  >
+                  <a class="button ghost" href="#">
+                    ${raw(icon("settings", { size: 14 }))} Settings
+                  </a>
                 </li>
                 <li>
-                  <small
-                    ><a class="button ghost" href="#">
-                      ${raw(icon("help-circle", { size: 14 }))} Help Center
-                    </a></small
-                  >
+                  <a class="button ghost" href="#">
+                    ${raw(icon("help-circle", { size: 14 }))} Help Center
+                  </a>
                 </li>
               </menu>
             </aside>
@@ -251,14 +209,12 @@ export async function AdminDashboardPage(path: string) {
               >
                 <div>
                   <h2 style="margin:0 0 0.25rem">Tasks</h2>
-                  <p
-                    style="margin:0;color:var(--jazz-neutral-500);font-size:0.875rem"
-                  >
-                    Here's a list of your tasks for this month.
+                  <p style="color:var(--jazz-neutral-500)">
+                    <small> Here's a list of your tasks for this month. </small>
                   </p>
                 </div>
                 <div style="display:flex;gap:0.5rem;flex-shrink:0">
-                  <button class="outline">
+                  <button class="outlined">
                     ${raw(icon("download", { size: 14 }))} Import
                   </button>
                   <button>${raw(icon("plus", { size: 14 }))} Create</button>
@@ -268,16 +224,112 @@ export async function AdminDashboardPage(path: string) {
               <!-- Toolbar -->
               <div class="admin-toolbar">
                 <label>
-                  ${raw(icon("search", { size: 14 }))}
+                  ${raw(icon("search", { size: 14, attrs: "data-prefix" }))}
                   <input type="search" placeholder="Filter tasks..." />
                 </label>
-                <button class="outline">
+                <button class="outlined" popovertarget="status-filter">
                   ${raw(icon("circle-dot", { size: 14 }))} Status
                 </button>
-                <button class="outline">
+                <div id="status-filter" popover>
+                  <menu>
+                    <li>
+                      <label>
+                        <input
+                          type="checkbox"
+                          checked
+                          name="status"
+                          value="todo"
+                        />
+                        ${raw(icon("circle", { size: 14 }))} Todo
+                      </label>
+                    </li>
+                    <li>
+                      <label>
+                        <input
+                          type="checkbox"
+                          checked
+                          name="status"
+                          value="in-progress"
+                        />
+                        ${raw(icon("loader-2", { size: 14 }))} In Progress
+                      </label>
+                    </li>
+                    <li>
+                      <label>
+                        <input
+                          type="checkbox"
+                          checked
+                          name="status"
+                          value="done"
+                        />
+                        ${raw(icon("circle-check", { size: 14 }))} Done
+                      </label>
+                    </li>
+                    <li>
+                      <label>
+                        <input
+                          type="checkbox"
+                          checked
+                          name="status"
+                          value="canceled"
+                        />
+                        ${raw(icon("circle-x", { size: 14 }))} Canceled
+                      </label>
+                    </li>
+                    <li>
+                      <label>
+                        <input
+                          type="checkbox"
+                          checked
+                          name="status"
+                          value="backlog"
+                        />
+                        ${raw(icon("circle-dashed", { size: 14 }))} Backlog
+                      </label>
+                    </li>
+                  </menu>
+                </div>
+                <button class="outlined" popovertarget="priority-filter">
                   ${raw(icon("arrow-up", { size: 14 }))} Priority
                 </button>
-                <button class="outline" style="margin-left:auto">
+                <div id="priority-filter" popover>
+                  <menu>
+                    <li>
+                      <label>
+                        <input
+                          type="checkbox"
+                          checked
+                          name="priority"
+                          value="high"
+                        />
+                        ${raw(icon("arrow-up", { size: 14 }))} High
+                      </label>
+                    </li>
+                    <li>
+                      <label>
+                        <input
+                          type="checkbox"
+                          checked
+                          name="priority"
+                          value="medium"
+                        />
+                        ${raw(icon("minus", { size: 14 }))} Medium
+                      </label>
+                    </li>
+                    <li>
+                      <label>
+                        <input
+                          type="checkbox"
+                          checked
+                          name="priority"
+                          value="low"
+                        />
+                        ${raw(icon("arrow-down", { size: 14 }))} Low
+                      </label>
+                    </li>
+                  </menu>
+                </div>
+                <button class="outlined" style="margin-left:auto">
                   ${raw(icon("adjustments-horizontal", { size: 14 }))} View
                 </button>
               </div>
@@ -285,7 +337,7 @@ export async function AdminDashboardPage(path: string) {
               <!-- Table -->
               <table
                 class="task-table"
-                style="--cols: 90px 80px 1fr 130px 100px 36px"
+                style="--cols: 90px 120px 1fr 130px 100px 51px"
               >
                 <thead>
                   <tr>
@@ -301,15 +353,13 @@ export async function AdminDashboardPage(path: string) {
                   ${tasks.map(
                     (task, i) => html`
                       <tr>
-                        <td
-                          style="color:var(--jazz-neutral-500);font-size:0.8125rem"
-                        >
-                          ${task.id}
+                        <td style="color:var(--jazz-neutral-500);">
+                          <small> ${task.id} </small>
                         </td>
                         <td>
-                          <span class="badge ${typeColor[task.type]}"
-                            >${task.type}</span
-                          >
+                          <span class="badge ${typeColor[task.type]}">
+                            ${task.type}
+                          </span>
                         </td>
                         <td>${task.title}</td>
                         <td>
@@ -328,36 +378,34 @@ export async function AdminDashboardPage(path: string) {
                           </span>
                         </td>
                         <td>
-                          <div class="task-row-actions">
-                            <button
-                              class="ghost square"
-                              style="anchor-name:--task-actions-${i}"
-                              popovertarget="task-actions-${i}"
-                            >
-                              ${raw(icon("dots", { size: 14 }))}
-                            </button>
-                            <div
-                              id="task-actions-${i}"
-                              popover
-                              style="position-anchor:--task-actions-${i};top:anchor(bottom);right:anchor(right);left:unset;margin:0"
-                            >
-                              <menu>
-                                <li><button class="ghost">Edit</button></li>
-                                <li>
-                                  <button class="ghost">Duplicate</button>
-                                </li>
-                                <li><hr /></li>
-                                <li>
-                                  <button class="ghost">Mark as done</button>
-                                </li>
-                                <li><hr /></li>
-                                <li>
-                                  <button class="ghost destructive">
-                                    Delete
-                                  </button>
-                                </li>
-                              </menu>
-                            </div>
+                          <button
+                            class="ghost square"
+                            style="anchor-name:--task-actions-${i}"
+                            popovertarget="task-actions-${i}"
+                          >
+                            ${raw(icon("dots", { size: 14 }))}
+                          </button>
+                          <div
+                            id="task-actions-${i}"
+                            popover
+                            style="position-anchor:--task-actions-${i};top:anchor(bottom);right:anchor(right);left:unset;margin:0"
+                          >
+                            <menu>
+                              <li><button class="ghost">Edit</button></li>
+                              <li>
+                                <button class="ghost">Duplicate</button>
+                              </li>
+                              <li><hr /></li>
+                              <li>
+                                <button class="ghost">Mark as done</button>
+                              </li>
+                              <li><hr /></li>
+                              <li>
+                                <button class="ghost destructive">
+                                  Delete
+                                </button>
+                              </li>
+                            </menu>
                           </div>
                         </td>
                       </tr>
@@ -367,8 +415,8 @@ export async function AdminDashboardPage(path: string) {
               </table>
 
               <!-- Pagination -->
-              <div
-                style="display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:auto;padding-top:0.5rem;font-size:0.875rem;color:var(--jazz-neutral-500)"
+              <small
+                style="display:flex;align-items:center;justify-content:space-between"
               >
                 <span>0 of 100 row(s) selected.</span>
                 <div style="display:flex;align-items:center;gap:1rem">
@@ -380,21 +428,21 @@ export async function AdminDashboardPage(path: string) {
                   </select>
                   <span>Page 1 of 10</span>
                   <fieldset role="group">
-                    <button class="outline square" disabled>
+                    <button class="outlined square" disabled>
                       ${raw(icon("chevrons-left", { size: 14 }))}
                     </button>
-                    <button class="outline square" disabled>
+                    <button class="outlined square" disabled>
                       ${raw(icon("chevron-left", { size: 14 }))}
                     </button>
-                    <button class="outline square">
+                    <button class="outlined square">
                       ${raw(icon("chevron-right", { size: 14 }))}
                     </button>
-                    <button class="outline square">
+                    <button class="outlined square">
                       ${raw(icon("chevrons-right", { size: 14 }))}
                     </button>
                   </fieldset>
                 </div>
-              </div>
+              </small>
             </main>
           </div>
         </div>
@@ -418,8 +466,17 @@ export async function AdminDashboardPage(path: string) {
     gap: 1rem;
   }
 
-  .task-table {
-    --cols: 90px 80px 1fr 130px 100px 36px;
+  .admin-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .task-table td:nth-child(3) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 </style>
 
@@ -427,60 +484,80 @@ export async function AdminDashboardPage(path: string) {
   <aside class="admin-sidebar">
     <menu>
       <li><small>General</small></li>
-      <li><small><a class="button ghost" href="#">Dashboard</a></small></li>
-      <li><small><a class="button ghost" href="#" aria-current="page">Tasks</a></small></li>
-      <li><small><a class="button ghost" href="#">
+      <li><a class="button ghost" href="#">Dashboard</a></li>
+      <li><a class="button ghost" href="#" aria-current="page">Tasks</a></li>
+      <li><a class="button ghost" href="#">
         Chats
         <span class="badge" style="margin-left:auto">3</span>
-      </a></small></li>
+      </a></li>
       <li><small>Settings</small></li>
-      <li><small><a class="button ghost" href="#">Settings</a></small></li>
-      <li><small><a class="button ghost" href="#">Help Center</a></small></li>
+      <li><a class="button ghost" href="#">Settings</a></li>
+      <li><a class="button ghost" href="#">Help Center</a></li>
     </menu>
   </aside>
 
   <main class="admin-main">
-    <div style="display:flex;justify-content:space-between;gap:1rem">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem">
       <div>
-        <h2>Tasks</h2>
-        <p>Here's a list of your tasks for this month.</p>
+        <h2 style="margin:0 0 0.25rem">Tasks</h2>
+        <p style="color:var(--jazz-neutral-500)">Here's a list of your tasks for this month.</p>
       </div>
-      <div style="display:flex;gap:0.5rem">
-        <button class="outline">Import</button>
-        <button>Create</button>
+      <div style="display:flex;gap:0.5rem;flex-shrink:0">
+        <button class="outlined"><svg><!-- download --></svg> Import</button>
+        <button><svg><!-- plus --></svg> Create</button>
       </div>
     </div>
 
-    <div style="display:flex;gap:0.5rem">
+    <div class="admin-toolbar">
       <label>
-        <svg><!-- search icon --></svg>
+        <svg data-prefix><!-- search --></svg>
         <input type="search" placeholder="Filter tasks..." />
       </label>
-      <button class="outline">Status</button>
-      <button class="outline">Priority</button>
-      <button class="outline" style="margin-left:auto">View</button>
+      <button class="outlined" popovertarget="status-filter">
+        <svg><!-- circle-dot --></svg> Status
+      </button>
+      <div id="status-filter" popover>
+        <menu>
+          <li><label><input type="checkbox" checked name="status" value="todo" /> <svg><!-- circle --></svg> Todo</label></li>
+          <li><label><input type="checkbox" checked name="status" value="in-progress" /> <svg><!-- loader-2 --></svg> In Progress</label></li>
+          <li><label><input type="checkbox" checked name="status" value="done" /> <svg><!-- circle-check --></svg> Done</label></li>
+          <li><label><input type="checkbox" checked name="status" value="canceled" /> <svg><!-- circle-x --></svg> Canceled</label></li>
+          <li><label><input type="checkbox" checked name="status" value="backlog" /> <svg><!-- circle-dashed --></svg> Backlog</label></li>
+        </menu>
+      </div>
+      <button class="outlined" popovertarget="priority-filter">
+        <svg><!-- arrow-up --></svg> Priority
+      </button>
+      <div id="priority-filter" popover>
+        <menu>
+          <li><label><input type="checkbox" checked name="priority" value="high" /> <svg><!-- arrow-up --></svg> High</label></li>
+          <li><label><input type="checkbox" checked name="priority" value="medium" /> <svg><!-- minus --></svg> Medium</label></li>
+          <li><label><input type="checkbox" checked name="priority" value="low" /> <svg><!-- arrow-down --></svg> Low</label></li>
+        </menu>
+      </div>
+      <button class="outlined" style="margin-left:auto">
+        <svg><!-- adjustments-horizontal --></svg> View
+      </button>
     </div>
 
-    <table class="task-table">
+    <table class="task-table" style="--cols: 90px 120px 1fr 130px 100px 51px">
       <thead>
         <tr>
-          <th>Task</th>
-          <th>Type</th>
-          <th>Title</th>
-          <th>Status</th>
-          <th>Priority</th>
-          <th></th>
+          <th>Task</th><th>Type</th><th>Title</th>
+          <th>Status</th><th>Priority</th><th></th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>TASK-8782</td>
+          <td><small>TASK-8782</small></td>
           <td><span class="badge color2">Feature</span></td>
           <td>You can't compress the program without quantifying...</td>
-          <td>In Progress</td>
-          <td>Medium</td>
+          <td><svg><!-- circle --></svg> In Progress</td>
+          <td><svg><!-- minus --></svg> Medium</td>
           <td>
-            <button class="ghost square" style="anchor-name:--row-1" popovertarget="row-actions-1">...</button>
+            <button class="ghost square" style="anchor-name:--row-1" popovertarget="row-actions-1">
+              <svg><!-- dots --></svg>
+            </button>
             <div id="row-actions-1" popover style="position-anchor:--row-1;top:anchor(bottom);right:anchor(right);left:unset;margin:0">
               <menu>
                 <li><button class="ghost">Edit</button></li>
@@ -496,20 +573,20 @@ export async function AdminDashboardPage(path: string) {
       </tbody>
     </table>
 
-    <div style="display:flex;justify-content:space-between;align-items:center">
+    <small style="display:flex;align-items:center;justify-content:space-between">
       <span>0 of 100 row(s) selected.</span>
       <div style="display:flex;align-items:center;gap:1rem">
         <span>Rows per page</span>
         <select style="width:auto"><option>10</option></select>
         <span>Page 1 of 10</span>
         <fieldset role="group">
-          <button class="outline square" disabled>«</button>
-          <button class="outline square" disabled>‹</button>
-          <button class="outline square">›</button>
-          <button class="outline square">»</button>
+          <button class="outlined square" disabled><svg><!-- chevrons-left --></svg></button>
+          <button class="outlined square" disabled><svg><!-- chevron-left --></svg></button>
+          <button class="outlined square"><svg><!-- chevron-right --></svg></button>
+          <button class="outlined square"><svg><!-- chevrons-right --></svg></button>
         </fieldset>
       </div>
-    </div>
+    </small>
   </main>
 </div>`),
           )}

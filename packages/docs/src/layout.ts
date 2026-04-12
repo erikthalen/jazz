@@ -12,6 +12,7 @@ type LayoutProps = {
   title: string;
   path: string;
   toc?: TocItem[];
+  wide?: boolean;
   content: HtmlEscapedString | Promise<HtmlEscapedString>;
 };
 
@@ -82,7 +83,6 @@ export const components: { label: string; path: string; badge?: string }[] = [
   { label: "Table", path: "/components/table" },
   { label: "Text Field", path: "/components/text-field" },
   { label: "Textarea", path: "/components/textarea" },
-  { label: "Toast", path: "/components/toast", badge: "WIP" },
   { label: "Toggle", path: "/components/toggle" },
   { label: "Toggle Group", path: "/components/toggle-group" },
   { label: "Tooltip", path: "/components/tooltip" },
@@ -458,7 +458,7 @@ export function HomeLayout({ title, path, content }: Omit<LayoutProps, "toc">) {
     </html>`;
 }
 
-export function Layout({ title, path, toc, content }: LayoutProps) {
+export function Layout({ title, path, toc, wide, content }: LayoutProps) {
   return html`<!doctype html>
     <html lang="en" data-theme="system">
       <head>
@@ -471,7 +471,7 @@ export function Layout({ title, path, toc, content }: LayoutProps) {
           class="sidebar-backdrop"
           aria-hidden="true"
         ></label>
-        <div class="docs-layout">
+        <div class="docs-layout${wide ? " docs-layout-wide" : ""}">
           <aside class="docs-sidebar">
             <menu>
               <li><small>Sections</small></li>

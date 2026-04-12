@@ -7,7 +7,7 @@ const toc = [
   { id: "default", label: "Default" },
   { id: "with-icon", label: "With icon" },
   { id: "with-kbd", label: "With kbd" },
-  { id: "outline", label: "Outline" },
+  { id: "outlined", label: "Outlined" },
   { id: "secondary", label: "Secondary" },
   { id: "ghost", label: "Ghost" },
   { id: "destructive", label: "Destructive" },
@@ -67,26 +67,26 @@ export async function ButtonPage(path: string) {
       <div class="example">
         <div class="preview" style="gap:0.5rem">
           <button style="min-width:10rem">${raw(icon("device-floppy"))} Save <kbd>⌘S</kbd></button>
-          <button class="outline" style="min-width:10rem">Find <kbd>⌘K</kbd></button>
+          <button class="outlined" style="min-width:10rem">Find <kbd>⌘K</kbd></button>
         </div>
         <div class="code-block">
           ${raw(
             await highlight(
-              `<style>\n  button {\n    min-width: 10rem;\n  }\n</style>\n\n<button>\n  <svg><!-- save --></svg>\n  Save\n<kbd>⌘S</kbd>\n</button>\n\n<button class="outline">Find\n<kbd>⌘K</kbd>\n</button>`,
+              `<style>\n  button {\n    min-width: 10rem;\n  }\n</style>\n\n<button>\n  <svg><!-- save --></svg>\n  Save\n<kbd>⌘S</kbd>\n</button>\n\n<button class="outlined">Find\n<kbd>⌘K</kbd>\n</button>`,
             ),
           )}
         </div>
       </div>
 
       <div class="prose">
-        <h2 id="outline">Outline</h2>
+        <h2 id="outlined">Outlined</h2>
       </div>
       <div class="example">
         <div class="preview">
-          <button class="outline">Click me</button>
+          <button class="outlined">Click me</button>
         </div>
         <div class="code-block">
-          ${raw(await highlight('<button class="outline">Click me</button>'))}
+          ${raw(await highlight('<button class="outlined">Click me</button>'))}
         </div>
       </div>
 

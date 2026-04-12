@@ -39,8 +39,8 @@
       background-color: var(--jazz-primary-600);
     }
 
-    button.outline:not(:disabled):hover,
-    .button.outline:not(:disabled):hover {
+    button.outlined:not(:disabled):hover,
+    .button.outlined:not(:disabled):hover {
       background-color: var(--jazz-neutral-100);
     }
 
@@ -76,8 +76,8 @@
     opacity: 0.4;
   }
 
-  button.outline,
-  .button.outline {
+  button.outlined,
+  .button.outlined {
     color: var(--jazz-neutral-950);
     background-color: transparent;
     box-shadow: 0 0 0 1px var(--jazz-neutral-200) inset;
@@ -156,8 +156,8 @@
     background-color: var(--jazz-primary-600);
   }
 
-  button.outline[popovertarget]:has(+ [popover]:popover-open),
-  .button.outline[popovertarget]:has(+ [popover]:popover-open) {
+  button.outlined[popovertarget]:has(+ [popover]:popover-open),
+  .button.outlined[popovertarget]:has(+ [popover]:popover-open) {
     background-color: var(--jazz-neutral-100);
   }
 
@@ -199,8 +199,8 @@
     background-color: var(--jazz-primary-700);
   }
 
-  button.outline:not(:disabled):active,
-  .button.outline:not(:disabled):active {
+  button.outlined:not(:disabled):active,
+  .button.outlined:not(:disabled):active {
     background-color: var(--jazz-neutral-200);
   }
 

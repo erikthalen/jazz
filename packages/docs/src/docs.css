@@ -151,6 +151,15 @@ html[data-theme="system"] .theme-toggle [data-scheme="system"] {
   min-height: calc(100vh - var(--header-h));
 }
 
+.docs-layout-wide {
+  grid-template-columns: var(--sidebar-w) 1fr;
+
+  .docs-content {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
 /* Sidebar */
 .docs-sidebar {
   position: fixed;

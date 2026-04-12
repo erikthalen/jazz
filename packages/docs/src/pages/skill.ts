@@ -50,7 +50,7 @@ Jazz does not provide layout utilities. Use CSS \`flex\` and \`grid\` directly.
 
 \`\`\`html
 <button>Primary</button>
-<button class="outline">Outline</button>
+<button class="outlined">Outline</button>
 <button class="ghost">Ghost</button>
 <button class="secondary">Secondary</button>
 <button class="destructive">Delete</button>
@@ -163,7 +163,7 @@ el.addEventListener('input', () =>
 <span class="badge">Default</span>
 <span class="badge secondary">Secondary</span>
 <span class="badge destructive">Error</span>
-<span class="badge outline">Outline</span>
+<span class="badge outlined">Outline</span>
 \`\`\`
 
 ## Card
@@ -395,22 +395,6 @@ Put a \`<kbd>\` inside a button to show a keyboard shortcut hint:
 \`\`\`html
 <button class="ghost">Save <kbd>⌘S</kbd></button>
 \`\`\`
-
-## Toast (notification)
-
-Append children to an \`<output>\` element fixed in the corner. Each child auto-animates in and out:
-
-\`\`\`html
-<output id="toasts"></output>
-\`\`\`
-
-\`\`\`js
-const p = document.createElement('p')
-p.textContent = 'Saved!'
-document.getElementById('toasts').appendChild(p)
-\`\`\`
-
-Control duration with \`--toast-duration\` (default: 3s).
 
 ## Color Input
 

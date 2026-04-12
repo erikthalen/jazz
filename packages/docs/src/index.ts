@@ -36,7 +36,6 @@ import { DropdownPage } from './pages/dropdown'
 import { SelectPage } from './pages/select'
 import { DatalistPage } from './pages/datalist'
 import { ComboboxPage } from './pages/combobox'
-import { ToastPage } from './pages/toast'
 import { SubmenuPage } from './pages/submenu'
 import { EmptyPage } from './pages/empty'
 import { MenuPage } from './pages/menu'
@@ -94,7 +93,6 @@ app.get('/components/dropdown', (c) => c.html(DropdownPage(c.req.path)))
 app.get('/components/select', (c) => c.html(SelectPage(c.req.path)))
 app.get('/components/datalist', (c) => c.html(DatalistPage(c.req.path)))
 app.get('/components/combobox', (c) => c.html(ComboboxPage(c.req.path)))
-app.get('/components/toast', (c) => c.html(ToastPage(c.req.path)))
 app.get('/components/submenu', (c) => c.html(SubmenuPage(c.req.path)))
 app.get('/components/empty', (c) => c.html(EmptyPage(c.req.path)))
 app.get('/components/menu', (c) => c.html(MenuPage(c.req.path)))

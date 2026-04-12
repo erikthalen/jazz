@@ -218,7 +218,7 @@ export async function FieldPage(path: string) {
               </label>
               <div class="field">
                 <span>Country</span>
-                <button type="button" class="outline" popovertarget="field-country-dropdown" style="justify-content:space-between">
+                <button type="button" class="outlined" popovertarget="field-country-dropdown" style="justify-content:space-between">
                   <span>United States</span>
                   ${raw(icon("chevron-down", { size: 14 }))}
                 </button>
@@ -262,7 +262,7 @@ export async function FieldPage(path: string) {
     </label>
     <div class="field">
       <span>Country</span>
-      <button type="button" class="outline" popovertarget="country-dropdown"
+      <button type="button" class="outlined" popovertarget="country-dropdown"
         style="justify-content:space-between">
         <span>United States</span>
         <svg><!-- chevron --></svg>

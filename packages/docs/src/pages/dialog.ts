@@ -42,7 +42,7 @@ export async function DialogPage(path: string) {
             <article>
               <p style="margin-bottom: 1rem;">This is a non-modal dialog.</p>
               <form method="dialog">
-                <button class="outline">Close</button>
+                <button class="outlined">Close</button>
               </form>
             </article>
           </dialog>
@@ -57,7 +57,7 @@ export async function DialogPage(path: string) {
   <article>
     <p style="margin-bottom: 1rem;">This is a non-modal dialog.</p>
     <form method="dialog">
-      <button class="outline">Close</button>
+      <button class="outlined">Close</button>
     </form>
   </article>
 </dialog>`),
@@ -84,7 +84,7 @@ export async function DialogPage(path: string) {
               </p>
               <form method="dialog" style="display:flex;gap:0.5rem">
                 <button>Confirm</button>
-                <button class="outline">Cancel</button>
+                <button class="outlined">Cancel</button>
               </form>
             </article>
           </dialog>
@@ -100,7 +100,7 @@ export async function DialogPage(path: string) {
     <p>This is a modal dialog.</p>
     <form method="dialog">
       <button>Confirm</button>
-      <button class="outline">Cancel</button>
+      <button class="outlined">Cancel</button>
     </form>
   </article>
 </dialog>`),
@@ -131,7 +131,7 @@ export async function DialogPage(path: string) {
               <footer>
                 <form method="dialog" style="display:flex;gap:0.5rem">
                   <button class="destructive">Delete</button>
-                  <button class="outline">Cancel</button>
+                  <button class="outlined">Cancel</button>
                 </form>
               </footer>
             </article>
@@ -148,7 +148,7 @@ export async function DialogPage(path: string) {
     <footer>
       <form method="dialog">
         <button class="destructive">Delete</button>
-        <button class="outline">Cancel</button>
+        <button class="outlined">Cancel</button>
       </form>
     </footer>
   </article>
@@ -191,7 +191,7 @@ export async function DialogPage(path: string) {
                 This dialog can only be closed via the button.
               </p>
               <form method="dialog">
-                <button class="outline">Close</button>
+                <button class="outlined">Close</button>
               </form>
             </article>
           </dialog>
@@ -221,7 +221,7 @@ export async function DialogPage(path: string) {
                 Page scrolling is locked while this dialog is open.
               </p>
               <form method="dialog">
-                <button class="outline">Close</button>
+                <button class="outlined">Close</button>
               </form>
             </article>
           </dialog>

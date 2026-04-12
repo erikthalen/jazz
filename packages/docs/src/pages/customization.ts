@@ -80,7 +80,7 @@ export async function CustomizationPage(path: string) {
         <div class="preview" style="gap: 1rem; flex-direction: column; align-items: flex-start">
           <div style="display: flex; gap: 0.5rem; align-items: center">
             <button>Default</button>
-            <button class="outline">Default</button>
+            <button class="outlined">Default</button>
             <button class="ghost">Default</button>
           </div>
           <div style="display: flex; gap: 0.5rem; align-items: center">
@@ -88,7 +88,7 @@ export async function CustomizationPage(path: string) {
               .btn-sharp { border-radius: 0; }
             </style>
             <button class="btn-sharp">Sharp</button>
-            <button class="outline btn-sharp">Sharp</button>
+            <button class="outlined btn-sharp">Sharp</button>
             <button class="ghost btn-sharp">Sharp</button>
           </div>
         </div>

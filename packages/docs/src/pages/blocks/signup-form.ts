@@ -4,7 +4,7 @@ import { highlight } from "../../highlight";
 import { icon } from "../../icon";
 
 export async function SignupFormPage(path: string) {
-  return Layout({
+  return Layout({ wide: true,
     title: "Signup Form",
     path,
     content: html`
@@ -71,13 +71,13 @@ export async function SignupFormPage(path: string) {
             <div
               style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--spacing-3)"
             >
-              <button type="button" class="outline">
+              <button type="button" class="outlined">
                 ${raw(icon("brand-apple", { size: 14, filled: true }))}
               </button>
-              <button type="button" class="outline">
+              <button type="button" class="outlined">
                 ${raw(icon("brand-google", { size: 14, filled: true }))}
               </button>
-              <button type="button" class="outline">
+              <button type="button" class="outlined">
                 ${raw(icon("brand-facebook", { size: 14, filled: true }))}
               </button>
             </div>
@@ -161,9 +161,9 @@ export async function SignupFormPage(path: string) {
   </div>
 
   <div class="social-row">
-    <button type="button" class="outline"><svg>...</svg></button>
-    <button type="button" class="outline"><svg>...</svg></button>
-    <button type="button" class="outline"><svg>...</svg></button>
+    <button type="button" class="outlined"><svg>...</svg></button>
+    <button type="button" class="outlined"><svg>...</svg></button>
+    <button type="button" class="outlined"><svg>...</svg></button>
   </div>
 
   <footer style="color:var(--jazz-neutral-400)">Already have an account? <a href="#">Sign in</a></footer>

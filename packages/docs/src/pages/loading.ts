@@ -84,7 +84,7 @@ export async function LoadingPage(path: string) {
               Please wait while we process your request. Do not refresh the
               page.
             </p>
-            <button class="outline">Cancel</button>
+            <button class="outlined">Cancel</button>
           </article>
         </div>
         <div class="code-block">
@@ -99,7 +99,7 @@ export async function LoadingPage(path: string) {
                 Please wait while we process your request. Do not refresh the
                 page.
               </p>
-              <button class="outline">Cancel</button>
+              <button class="outlined">Cancel</button>
           </article>`),
           )}
         </div>

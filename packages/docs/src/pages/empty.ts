@@ -109,7 +109,7 @@ export async function EmptyPage(path: string) {
             <h3>No results found</h3>
             <p>Try adjusting your search or filters to find what you're looking for.</p>
             <footer>
-              <button class="outline">Clear filters</button>
+              <button class="outlined">Clear filters</button>
               <button>New item</button>
             </footer>
           </section>
@@ -121,7 +121,7 @@ export async function EmptyPage(path: string) {
   <h3>No results found</h3>
   <p>Try adjusting your search or filters to find what you're looking for.</p>
   <footer>
-    <button class="outline">Clear filters</button>
+    <button class="outlined">Clear filters</button>
     <button>New item</button>
   </footer>
 </section>`),

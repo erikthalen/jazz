@@ -63,7 +63,7 @@
       color: var(--jazz-color6-900);
     }
 
-    &.outline {
+    &.outlined {
       background-color: transparent;
       box-shadow: 0 0 0 1px currentColor inset;
     }

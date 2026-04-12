@@ -44,7 +44,6 @@ const routes = [
   "/components/badge",
   "/components/dropdown",
   "/components/select",
-  "/components/toast",
   "/components/submenu",
   "/components/field",
   "/components/focus-group",

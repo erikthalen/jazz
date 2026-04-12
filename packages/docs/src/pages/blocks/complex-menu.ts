@@ -4,7 +4,7 @@ import { highlight } from "../../highlight";
 import { icon } from "../../icon";
 
 export async function ComplexMenuPage(path: string) {
-  return Layout({
+  return Layout({ wide: true,
     title: "Complex Menu",
     path,
     content: html`

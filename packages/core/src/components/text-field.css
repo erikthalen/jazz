@@ -184,16 +184,16 @@
 
   /* Offset input text to clear leading adornment */
   label:not(.toggle):has(> [data-prefix]) > input:is([type="text"], [type="email"], [type="search"], [type="password"], [type="number"], [type="tel"], [type="url"], :not([type])) {
-    padding-inline-start: calc(var(--spacing-3) + 1rem + var(--spacing-2));
+    padding-inline-start: calc(var(--spacing-3) + 1lh + var(--spacing-2));
   }
 
   /* Offset input text to clear one trailing adornment */
   label:not(.toggle):has(> [data-suffix]) > input:is([type="text"], [type="email"], [type="search"], [type="password"], [type="number"], [type="tel"], [type="url"], :not([type])) {
-    padding-inline-end: calc(var(--spacing-3) + 1rem + var(--spacing-2));
+    padding-inline-end: calc(var(--spacing-3) + 1lh + var(--spacing-2));
   }
 
   /* Offset input text to clear two trailing adornments */
   label:not(.toggle):has(> [data-suffix]:not(:last-child)) > input:is([type="text"], [type="email"], [type="search"], [type="password"], [type="number"], [type="tel"], [type="url"], :not([type])) {
-    padding-inline-end: calc(var(--spacing-3) + 2rem + var(--spacing-2));
+    padding-inline-end: calc(var(--spacing-3) + 2lh + var(--spacing-2));
   }
 }

@@ -4,7 +4,7 @@ import { highlight } from "../../highlight";
 import { icon } from "../../icon";
 
 export async function SidebarPage(path: string) {
-  return Layout({
+  return Layout({ wide: true,
     title: "Sidebar",
     path,
     content: html`

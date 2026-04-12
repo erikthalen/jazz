@@ -6,7 +6,7 @@ import { icon } from "../icon";
 const toc = [
   { id: "default", label: "Default" },
   { id: "colors", label: "Colors" },
-  { id: "outline", label: "Outline" },
+  { id: "outlined", label: "Outlined" },
   { id: "with-icon", label: "With icon" },
   { id: "sup", label: "Sup" },
   { id: "loading", label: "Loading" },
@@ -75,14 +75,14 @@ export async function BadgePage(path: string) {
       </div>
 
       <div class="prose">
-        <h2 id="outline">Outline</h2>
+        <h2 id="outlined">Outlined</h2>
       </div>
       <div class="example">
         <div class="preview">
-          <span class="badge outline">Outline</span>
+          <span class="badge outlined">Outlined</span>
         </div>
         <div class="code-block">
-          ${raw(await highlight(`<span class="badge outline">Outline</span>`))}
+          ${raw(await highlight(`<span class="badge outlined">Outlined</span>`))}
         </div>
       </div>
 
@@ -98,7 +98,7 @@ export async function BadgePage(path: string) {
           <span class="badge destructive">
             ${raw(icon("alert-circle"))} Failed
           </span>
-          <span class="badge outline"> ${raw(icon("info-circle"))} Info </span>
+          <span class="badge outlined"> ${raw(icon("info-circle"))} Info </span>
         </div>
         <div class="code-block">
           ${raw(
@@ -140,7 +140,7 @@ export async function BadgePage(path: string) {
         <div class="preview" style="gap:0.5rem">
           <span class="badge" aria-busy="true">Syncing</span>
           <span class="badge secondary" aria-busy="true">Uploading</span>
-          <span class="badge outline" aria-busy="true">Processing</span>
+          <span class="badge outlined" aria-busy="true">Processing</span>
         </div>
         <div class="code-block">
           ${raw(
