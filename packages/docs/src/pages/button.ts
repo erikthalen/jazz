@@ -62,12 +62,13 @@ export async function ButtonPage(path: string) {
       </div>
 
       <div class="prose">
-        <h2 id="with-kbd">With kbd</h2>
+        <h2 id="with-kbd">With kbd or Badge</h2>
       </div>
       <div class="example">
         <div class="preview" style="gap:0.5rem">
           <button style="min-width:10rem">${raw(icon("device-floppy"))} Save <kbd>⌘S</kbd></button>
           <button class="outlined" style="min-width:10rem">Find <kbd>⌘K</kbd></button>
+          <button class="outlined" style="min-width:10rem">Chat <span class="badge color3">6</span></button>
         </div>
         <div class="code-block">
           ${raw(

@@ -29,6 +29,12 @@
     }
 
     kbd {
+      padding-block: 0;
+      padding-inline: var(--spacing);
+      margin-left: auto;
+    }
+
+    .badge {
       margin-left: auto;
     }
   }
