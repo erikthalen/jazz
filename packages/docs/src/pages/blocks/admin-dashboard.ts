@@ -180,7 +180,7 @@ export async function AdminDashboardPage(path: string) {
                 <li>
                   <a class="button ghost" href="#">
                     ${raw(icon("message", { size: 14 }))} Chats
-                    <span class="badge" style="margin-left:auto">3</span>
+                    <span class="badge">3</span>
                   </a>
                 </li>
                 <li>
@@ -488,7 +488,7 @@ export async function AdminDashboardPage(path: string) {
       <li><a class="button ghost" href="#" aria-current="page">Tasks</a></li>
       <li><a class="button ghost" href="#">
         Chats
-        <span class="badge" style="margin-left:auto">3</span>
+        <span class="badge">3</span>
       </a></li>
       <li><small>Settings</small></li>
       <li><a class="button ghost" href="#">Settings</a></li>

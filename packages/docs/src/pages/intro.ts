@@ -10,6 +10,7 @@ const toc = [
   { id: "usage", label: "Usage" },
   { id: "overview", label: "Overview" },
   { id: "ui-not-layout", label: "UI, not layout" },
+  { id: "with-tailwind", label: "With Tailwind" },
   { id: "philosophy", label: "Philosophy" },
 ];
 
@@ -98,6 +99,34 @@ export async function IntroPage(path: string) {
           ${raw(
             await highlight(
               `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem">\n  <input type="text" placeholder="First name" />\n  <input type="text" placeholder="Last name" />\n  <input type="email" placeholder="Email" style="grid-column:1/-1" />\n  <button style="grid-column:1/-1;justify-self:end">Submit</button>\n</div>`,
+            ),
+          )}
+        </div>
+      </div>
+
+      <div class="prose">
+        <h2 id="with-tailwind">With Tailwind</h2>
+        <p>
+          Jazz and Tailwind work well together. Jazz handles component styles,
+          Tailwind handles layout and one-off utilities. There is no conflict
+          because Jazz wraps all its styles in <code>@layer jazz {}</code>,
+          which means any Tailwind utility class wins automatically without
+          needing <code>!</code>.
+        </p>
+        <p>
+          To get the layering right, declare the layer order before importing
+          either library. This ensures Tailwind's reset sits below Jazz, and
+          Tailwind's utilities sit above it:
+        </p>
+      </div>
+
+      <div class="example">
+        <div class="code-block">
+          ${raw(
+            await highlight(
+              `/* main.css */\n@layer theme, base, reset, jazz, components, utilities;\n\n@import "https://esm.sh/gh/erikthalen/jazz/jazz.css";\n@import "tailwindcss";`,
+              80,
+              "css",
             ),
           )}
         </div>

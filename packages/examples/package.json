@@ -1,0 +1,21 @@
+{
+  "name": "@jazz/examples",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite"
+  },
+  "dependencies": {
+    "hono": "^4.0.0",
+    "prettier": "^3.8.1",
+    "shiki": "^4.0.2"
+  },
+  "devDependencies": {
+    "@hono/vite-dev-server": "^0.25.1",
+    "@tailwindcss/vite": "^4.2.2",
+    "@types/node": "^25.5.0",
+    "tailwindcss": "^4.2.2",
+    "vite": "catalog:"
+  }
+}
