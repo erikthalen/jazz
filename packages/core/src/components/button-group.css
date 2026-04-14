@@ -30,6 +30,13 @@
       }
     }
 
+    & > button:not(.ghost),
+    & > .button:not(.ghost) {
+      box-shadow: none;
+      margin-left: 1px;
+      margin-right: 0;
+    }
+
     & > :only-child:not(.field) {
       border-radius: 9px;
     }
