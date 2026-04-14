@@ -9,8 +9,8 @@
 
     & > li > label {
       width: 100%;
-      padding-block: var(--spacing-2);
-      padding-inline: var(--spacing-3);
+      padding-block: var(--jazz-spacing-2);
+      padding-inline: var(--jazz-spacing-3);
       border-radius: 8px;
       white-space: nowrap;
       cursor: pointer;
@@ -43,7 +43,7 @@
         &::after {
           --icon-size: calc(1em - 4px);
           position: absolute;
-          right: var(--spacing-3);
+          right: var(--jazz-spacing-3);
           top: 50%;
           translate: -12.5% -50%;
           margin-left: 0;
@@ -79,12 +79,12 @@
     }
 
     & hr {
-      margin-block: var(--spacing-1);
+      margin-block: var(--jazz-spacing-1);
     }
 
     & > li > small:only-child:not(:has(*)) {
       display: block;
-      padding: var(--spacing-2) var(--spacing-3) var(--spacing-1);
+      padding: var(--jazz-spacing-2) var(--jazz-spacing-3) var(--jazz-spacing-1);
       color: var(--jazz-neutral-500);
       font-size: 0.8125rem;
       margin-left: 2px;

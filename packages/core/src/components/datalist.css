@@ -2,9 +2,9 @@
   input[list] {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6l6 -6'/%3E%3C%2Fsvg%3E");
     background-repeat: no-repeat;
-    background-position: right var(--spacing-3) center;
+    background-position: right var(--jazz-spacing-3) center;
     background-size: 1rem;
-    /* padding-inline-end: calc(1rem + var(--spacing-6)); */
+    /* padding-inline-end: calc(1rem + var(--jazz-spacing-6)); */
 
     /* keep the native indicator functional but invisible so clicks still open the list */
     &::-webkit-calendar-picker-indicator {

@@ -10,13 +10,13 @@ export async function BlocksPage(path: string) {
         <hgroup>
           <h1>Blocks</h1>
           <p>
-            Larger compositions built entirely from Jazz components, with minimal
-            extra CSS. Showing how they combine into real UI patterns.
+            Larger compositions built entirely from Jazz components, with
+            minimal extra CSS. Showing how they combine into real UI patterns.
           </p>
         </hgroup>
       </div>
       <div
-        style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:var(--spacing-4);margin-top:var(--spacing-6)"
+        style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:var(--jazz-spacing-4);margin-top:var(--jazz-spacing-6)"
       >
         ${blocks.map(
           (b) => html`
@@ -24,7 +24,7 @@ export async function BlocksPage(path: string) {
               <article style="height:100%;cursor:pointer">
                 <strong>${b.label}</strong>
                 <p
-                  style="margin:var(--spacing-2) 0 0;color:var(--jazz-neutral-500);font-size:0.875rem"
+                  style="margin:var(--jazz-spacing-2) 0 0;color:var(--jazz-neutral-500);font-size:0.875rem"
                 >
                   ${b.description}
                 </p>

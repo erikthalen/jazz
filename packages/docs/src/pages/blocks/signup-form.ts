@@ -4,7 +4,8 @@ import { highlight } from "../../highlight";
 import { icon } from "../../icon";
 
 export async function SignupFormPage(path: string) {
-  return Layout({ wide: true,
+  return Layout({
+    wide: true,
     title: "Signup Form",
     path,
     content: html`
@@ -21,10 +22,10 @@ export async function SignupFormPage(path: string) {
       <div class="example">
         <div class="preview" style="justify-content:center">
           <form
-            style="display:flex;flex-direction:column;gap:var(--spacing-4);width:100%;max-width:420px;"
+            style="display:flex;flex-direction:column;gap:var(--jazz-spacing-4);width:100%;max-width:420px;"
           >
             <header style="text-align:center">
-              <h2 style="margin-bottom:var(--spacing-1)">
+              <h2 style="margin-bottom:var(--jazz-spacing-1)">
                 Create your account
               </h2>
               <p style="color:var(--jazz-neutral-400)">
@@ -42,7 +43,7 @@ export async function SignupFormPage(path: string) {
             </label>
 
             <div
-              style="display:grid;grid-template-columns:1fr 1fr;gap:var(--spacing-3)"
+              style="display:grid;grid-template-columns:1fr 1fr;gap:var(--jazz-spacing-3)"
             >
               <label class="field">
                 Password
@@ -54,13 +55,15 @@ export async function SignupFormPage(path: string) {
               </label>
             </div>
             <small
-              style="text-align:left;margin-top:calc(var(--spacing-1) * -1)"
+              style="text-align:left;margin-top:calc(var(--jazz-spacing-1) * -1)"
               >Must be at least 8 characters long.</small
             >
 
             <button type="submit">Create Account</button>
 
-            <div style="display:flex;align-items:center;gap:var(--spacing-3)">
+            <div
+              style="display:flex;align-items:center;gap:var(--jazz-spacing-3)"
+            >
               <hr style="flex:1" />
               <small style="color:var(--jazz-neutral-400)"
                 >Or continue with</small
@@ -69,7 +72,7 @@ export async function SignupFormPage(path: string) {
             </div>
 
             <div
-              style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--spacing-3)"
+              style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--jazz-spacing-3)"
             >
               <button type="button" class="outlined">
                 ${raw(icon("brand-apple", { size: 14, filled: true }))}
@@ -93,7 +96,7 @@ export async function SignupFormPage(path: string) {
   form {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-4);
+    gap: var(--jazz-spacing-4);
     width: 100%;
     max-width: 420px;
     }
@@ -105,14 +108,14 @@ export async function SignupFormPage(path: string) {
   .password-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-3);
+    gap: var(--jazz-spacing-3);
     text-align: left;
   }
 
   .divider {
     display: flex;
     align-items: center;
-    gap: var(--spacing-3);
+    gap: var(--jazz-spacing-3);
   }
 
   .divider hr {
@@ -122,7 +125,7 @@ export async function SignupFormPage(path: string) {
   .social-row {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: var(--spacing-3);
+    gap: var(--jazz-spacing-3);
   }
 </style>
 

@@ -5,8 +5,8 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    gap: var(--spacing-3);
-    padding: var(--spacing-8);
+    gap: var(--jazz-spacing-3);
+    padding: var(--jazz-spacing-8);
     color: var(--jazz-neutral-400);
 
     margin: auto;
@@ -32,12 +32,12 @@
     > a,
     > .button,
     > footer {
-      margin-top: var(--spacing-2);
+      margin-top: var(--jazz-spacing-2);
     }
 
     > footer {
       display: flex;
-      gap: var(--spacing-2);
+      gap: var(--jazz-spacing-2);
     }
   }
 }

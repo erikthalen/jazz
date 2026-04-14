@@ -11,7 +11,16 @@ const toc = [
   { id: "ease-in-out", label: "In Out" },
 ];
 
-const families = ["sine", "quad", "cubic", "quart", "quint", "expo", "circ", "back"];
+const families = [
+  "sine",
+  "quad",
+  "cubic",
+  "quart",
+  "quint",
+  "expo",
+  "circ",
+  "back",
+];
 
 function easingDemo(variable: string, label: string) {
   return html`
@@ -24,18 +33,32 @@ function easingDemo(variable: string, label: string) {
           ></div>
         </div>
       </div>
-      <p style="color:var(--jazz-neutral-400);font-size:0.8em;margin-top:var(--spacing-1)">${label}</p>
+      <p
+        style="color:var(--jazz-neutral-400);font-size:0.8em;margin-top:var(--jazz-spacing-1)"
+      >
+        ${label}
+      </p>
     </div>
   `;
 }
 
 async function directionGroup(direction: string) {
   const varName = (family: string) => `--ease-${direction}-${family}`;
-  const codeLines = families.map(f => `  transition: transform 300ms var(${varName(f)});`).join("\n");
+  const codeLines = families
+    .map((f) => `  transition: transform 300ms var(${varName(f)});`)
+    .join("\n");
   return html`
     <div class="example">
-      <div class="preview preview-padded" style="display:flex;flex-direction:column;gap:var(--spacing-4)">
-        ${families.map(f => html`<div style="width:100%">${easingDemo(`var(${varName(f)})`, f)}</div>`)}
+      <div
+        class="preview preview-padded"
+        style="display:flex;flex-direction:column;gap:var(--jazz-spacing-4)"
+      >
+        ${families.map(
+          (f) =>
+            html`<div style="width:100%">
+              ${easingDemo(`var(${varName(f)})`, f)}
+            </div>`,
+        )}
       </div>
       <div class="code-block">
         ${raw(await highlight(`.element {\n${codeLines}\n}`, 80, "css"))}
@@ -73,7 +96,13 @@ export async function EasingsPage(path: string) {
       <div class="example">
         <div class="preview">${easingDemo("var(--ease-glide)", "glide")}</div>
         <div class="code-block">
-          ${raw(await highlight(`.element {\n  transition: transform 300ms var(--ease-glide);\n}`, 80, "css"))}
+          ${raw(
+            await highlight(
+              `.element {\n  transition: transform 300ms var(--ease-glide);\n}`,
+              80,
+              "css",
+            ),
+          )}
         </div>
       </div>
 
@@ -88,7 +117,13 @@ export async function EasingsPage(path: string) {
       <div class="example">
         <div class="preview">${easingDemo("var(--ease-snap)", "snap")}</div>
         <div class="code-block">
-          ${raw(await highlight(`.element {\n  transition: transform 300ms var(--ease-snap);\n}`, 80, "css"))}
+          ${raw(
+            await highlight(
+              `.element {\n  transition: transform 300ms var(--ease-snap);\n}`,
+              80,
+              "css",
+            ),
+          )}
         </div>
       </div>
 
@@ -102,7 +137,13 @@ export async function EasingsPage(path: string) {
       <div class="example">
         <div class="preview">${easingDemo("var(--ease-heavy)", "heavy")}</div>
         <div class="code-block">
-          ${raw(await highlight(`.element {\n  transition: transform 300ms var(--ease-heavy);\n}`, 80, "css"))}
+          ${raw(
+            await highlight(
+              `.element {\n  transition: transform 300ms var(--ease-heavy);\n}`,
+              80,
+              "css",
+            ),
+          )}
         </div>
       </div>
 

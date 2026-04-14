@@ -42,7 +42,7 @@ export function Layout({ title, path, extraHead, content }: LayoutProps) {
             padding: 0 1.5rem;
             height: 52px;
             border-bottom: 1px solid var(--jazz-neutral-200);
-            background: var(--background-color);
+            background: var(--jazz-background-color);
           }
 
           .examples-header a {
@@ -65,7 +65,7 @@ export function Layout({ title, path, extraHead, content }: LayoutProps) {
           }
 
           .examples-header nav a[aria-current] {
-            color: var(--color);
+            color: var(--jazz-text-color);
             font-weight: 500;
           }
 
@@ -154,7 +154,8 @@ export function Layout({ title, path, extraHead, content }: LayoutProps) {
       <body>
         <header class="examples-header">
           <a href="/"
-            ><strong>Jazz</strong> <span style="font-weight:400">Examples</span></a
+            ><strong>Jazz</strong>
+            <span style="font-weight:400">Examples</span></a
           >
           ${path !== "/"
             ? html`<span class="examples-header-sep">/</span>

@@ -1,22 +1,22 @@
-import { html, raw } from 'hono/html'
-import { Layout } from '../layout'
-import { highlight } from '../highlight'
-import { icon } from '../icon'
+import { html, raw } from "hono/html";
+import { Layout } from "../layout";
+import { highlight } from "../highlight";
+import { icon } from "../icon";
 
 const toc = [
-  { id: 'default', label: 'Default' },
-  { id: 'required', label: 'Required' },
-  { id: 'with-textarea', label: 'With textarea' },
-  { id: 'with-progress', label: 'With progress' },
-  { id: 'with-slider', label: 'With slider' },
-  { id: 'with-checkbox', label: 'With checkbox' },
-  { id: 'with-radio', label: 'With radio' },
-  { id: 'form', label: 'Form' },
-]
+  { id: "default", label: "Default" },
+  { id: "required", label: "Required" },
+  { id: "with-textarea", label: "With textarea" },
+  { id: "with-progress", label: "With progress" },
+  { id: "with-slider", label: "With slider" },
+  { id: "with-checkbox", label: "With checkbox" },
+  { id: "with-radio", label: "With radio" },
+  { id: "form", label: "Form" },
+];
 
 export async function FieldPage(path: string) {
   return Layout({
-    title: 'Field',
+    title: "Field",
     path,
     toc,
     content: html`
@@ -54,8 +54,8 @@ export async function FieldPage(path: string) {
       <div class="prose">
         <h2 id="required">Required</h2>
         <p>
-          Add <code>required</code> to the input and a
-          <code>*</code> appears automatically on the label.
+          Add <code>required</code> to the input and a <code>*</code> appears
+          automatically on the label.
         </p>
       </div>
       <div class="example">
@@ -101,7 +101,10 @@ export async function FieldPage(path: string) {
         <h2 id="with-progress">With progress</h2>
       </div>
       <div class="example">
-        <div class="preview preview-padded" style="display:flex;flex-direction:column;gap:1rem;width:100%">
+        <div
+          class="preview preview-padded"
+          style="display:flex;flex-direction:column;gap:1rem;width:100%"
+        >
           <label class="field" style="width:100%">
             <span>Uploading…</span>
             <progress value="65" max="100"></progress>
@@ -201,7 +204,10 @@ export async function FieldPage(path: string) {
       </div>
       <div class="example">
         <div class="preview preview-padded">
-          <form style="display:flex;flex-direction:column;gap:var(--spacing-4);width:100%;max-width:400px;margin:auto;" onsubmit="return false">
+          <form
+            style="display:flex;flex-direction:column;gap:var(--jazz-spacing-4);width:100%;max-width:400px;margin:auto;"
+            onsubmit="return false"
+          >
             <label class="field">
               <span>Name</span>
               <input type="text" placeholder="Evil Rabbit" required />
@@ -211,22 +217,53 @@ export async function FieldPage(path: string) {
               <input type="email" placeholder="john@example.com" required />
               <small>We'll never share your email with anyone.</small>
             </label>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--spacing-4)">
+            <div
+              style="display:grid;grid-template-columns:1fr 1fr;gap:var(--jazz-spacing-4)"
+            >
               <label class="field">
                 <span>Phone</span>
                 <input type="tel" placeholder="+1 (555) 123-4567" />
               </label>
               <div class="field">
                 <span>Country</span>
-                <button type="button" class="outlined" popovertarget="field-country-dropdown" style="justify-content:space-between">
+                <button
+                  type="button"
+                  class="outlined"
+                  popovertarget="field-country-dropdown"
+                  style="justify-content:space-between"
+                >
                   <span>United States</span>
                   ${raw(icon("chevron-down", { size: 14 }))}
                 </button>
-                <div id="field-country-dropdown" popover onchange="document.querySelector('[popovertarget='+this.id+'] span').textContent=event.target.closest('label').textContent.trim();this.hidePopover()">
+                <div
+                  id="field-country-dropdown"
+                  popover
+                  onchange="document.querySelector('[popovertarget='+this.id+'] span').textContent=event.target.closest('label').textContent.trim();this.hidePopover()"
+                >
                   <menu>
-                    <li><label><input type="radio" name="field-country" value="us" checked /> United States</label></li>
-                    <li><label><input type="radio" name="field-country" value="uk" /> United Kingdom</label></li>
-                    <li><label><input type="radio" name="field-country" value="ca" /> Canada</label></li>
+                    <li>
+                      <label
+                        ><input
+                          type="radio"
+                          name="field-country"
+                          value="us"
+                          checked
+                        />
+                        United States</label
+                      >
+                    </li>
+                    <li>
+                      <label
+                        ><input type="radio" name="field-country" value="uk" />
+                        United Kingdom</label
+                      >
+                    </li>
+                    <li>
+                      <label
+                        ><input type="radio" name="field-country" value="ca" />
+                        Canada</label
+                      >
+                    </li>
                   </menu>
                 </div>
               </div>
@@ -235,7 +272,7 @@ export async function FieldPage(path: string) {
               <span>Address</span>
               <input type="text" placeholder="123 Main St" />
             </label>
-            <div style="display:flex;gap:var(--spacing-2)">
+            <div style="display:flex;gap:var(--jazz-spacing-2)">
               <button class="ghost">Cancel</button>
               <button>Submit</button>
             </div>
@@ -292,5 +329,5 @@ export async function FieldPage(path: string) {
         </div>
       </div>
     `,
-  })
+  });
 }

@@ -19,12 +19,14 @@ pnpm build      # Build core CSS + generate static docs
 ```
 
 From `packages/docs`:
+
 ```bash
 pnpm dev        # Vite dev server with HMR
 pnpm build      # Build + generate all static HTML pages
 ```
 
 From `packages/core`:
+
 ```bash
 pnpm build      # Bundle src/main.css → ../../main.css (minified)
 ```
@@ -34,10 +36,11 @@ pnpm build      # Bundle src/main.css → ../../main.css (minified)
 All styles live inside `@layer jazz { }`. This is important — it means any unlayered user styles always win without needing `!important`.
 
 Key files:
+
 - `src/main.css` — entry point, imports everything
 - `src/colors.css` — color scales derived from seed variables
 - `src/easings.css` — `--ease-glide`, `--ease-snap`, `--ease-heavy`
-- `src/spacing.css` — `--spacing`, `--spacing-1` through `--spacing-8`
+- `src/spacing.css` — `--jazz-spacing`, `--jazz-spacing-1` through `--jazz-spacing-8`
 - `src/components/*.css` — one file per component
 
 ### Adding a component
@@ -50,7 +53,7 @@ Key files:
 ### CSS conventions
 
 - Colors: always use `var(--jazz-neutral-*)`, `var(--jazz-primary)`, etc. Never hardcode hex values
-- Spacing: use `var(--spacing-*)` tokens
+- Spacing: use `var(--jazz-spacing-*)` tokens
 - Transitions: use `var(--ease-glide)` / `var(--ease-snap)` / `var(--ease-heavy)`
 - Dark mode: handled automatically via `color-scheme` and the `.jazz-light` / `.jazz-dark` classes
 - No em dashes in any text (copy, comments, docs)
@@ -60,6 +63,7 @@ Key files:
 Built with Hono (server-side rendering) + Vite. Pages are TypeScript files that return HTML strings using Hono's `html` tagged template literal.
 
 Key files:
+
 - `src/index.ts` — route definitions
 - `src/layout.ts` — shared layout, sidebar nav, `components` array
 - `src/pages/*.ts` — one file per page
@@ -77,15 +81,15 @@ Key files:
 ### Page structure
 
 ```ts
-import { html, raw } from 'hono/html'
-import { Layout } from '../layout'
-import { highlight } from '../highlight'
+import { html, raw } from "hono/html";
+import { Layout } from "../layout";
+import { highlight } from "../highlight";
 
-const toc = [{ id: 'example', label: 'Example' }]
+const toc = [{ id: "example", label: "Example" }];
 
 export async function MyPage(path: string) {
   return Layout({
-    title: 'My Component',
+    title: "My Component",
     path,
     toc,
     content: html`
@@ -102,7 +106,7 @@ export async function MyPage(path: string) {
         </div>
       </div>
     `,
-  })
+  });
 }
 ```
 

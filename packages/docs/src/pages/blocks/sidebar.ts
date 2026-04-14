@@ -4,7 +4,8 @@ import { highlight } from "../../highlight";
 import { icon } from "../../icon";
 
 export async function SidebarPage(path: string) {
-  return Layout({ wide: true,
+  return Layout({
+    wide: true,
     title: "Sidebar",
     path,
     content: html`
@@ -25,27 +26,27 @@ export async function SidebarPage(path: string) {
           header {
             display: flex;
             align-items: center;
-            gap: var(--spacing-3);
+            gap: var(--jazz-spacing-3);
           }
 
           section > menu {
-            padding-top: var(--spacing-2);
+            padding-top: var(--jazz-spacing-2);
           }
 
           details {
             border-bottom: 0;
-            padding-inline: var(--spacing-3);
+            padding-inline: var(--jazz-spacing-3);
 
             summary {
-              padding-block: var(--spacing-2);
+              padding-block: var(--jazz-spacing-2);
             }
 
             menu {
               border-left: 1px solid var(--jazz-neutral-200);
-              margin-left: var(--spacing-2);
-              margin-block: 0 var(--spacing-4);
+              margin-left: var(--jazz-spacing-2);
+              margin-block: 0 var(--jazz-spacing-4);
               padding-block: 0;
-              padding-left: var(--spacing-1);
+              padding-left: var(--jazz-spacing-1);
             }
           }
 
@@ -260,7 +261,7 @@ export async function SidebarPage(path: string) {
               <div id="sidebar-user-menu" popover data-placement="right bottom">
                 <menu>
                   <li
-                    style="display:flex;align-items:center;gap:var(--spacing-3);padding:var(--spacing-2) var(--spacing-3)"
+                    style="display:flex;align-items:center;gap:var(--jazz-spacing-3);padding:var(--jazz-spacing-2) var(--jazz-spacing-3)"
                   >
                     <img
                       src="https://api.dicebear.com/9.x/pixel-art/svg?seed=jazz"
@@ -319,27 +320,27 @@ export async function SidebarPage(path: string) {
     header {
       display: flex;
       align-items: center;
-      gap: var(--spacing-3);
+      gap: var(--jazz-spacing-3);
     }
 
     section > menu {
-      padding-top: var(--spacing-2);
+      padding-top: var(--jazz-spacing-2);
     }
 
     details {
       border-bottom: 0;
-      padding-inline: var(--spacing-3);
+      padding-inline: var(--jazz-spacing-3);
 
       summary {
-        padding-block: var(--spacing-2);
+        padding-block: var(--jazz-spacing-2);
       }
 
       menu {
         border-left: 1px solid var(--jazz-neutral-200);
-        margin-left: var(--spacing-2);
-        margin-block: 0 var(--spacing-4);
+        margin-left: var(--jazz-spacing-2);
+        margin-block: 0 var(--jazz-spacing-4);
         padding-block: 0;
-        padding-left: var(--spacing-1);
+        padding-left: var(--jazz-spacing-1);
       }
     }
 
@@ -477,7 +478,7 @@ export async function SidebarPage(path: string) {
     </button>
     <div id="user-menu" popover data-placement="right bottom">
       <menu>
-        <li style="display:flex;align-items:center;gap:var(--spacing-3);padding:var(--spacing-2) var(--spacing-3)">
+        <li style="display:flex;align-items:center;gap:var(--jazz-spacing-3);padding:var(--jazz-spacing-2) var(--jazz-spacing-3)">
           <img src="avatar.png" width="32" height="32" alt="" />
           <div style="display:grid">
             <strong>miles</strong>

@@ -5,6 +5,8 @@
 /* Override core's body max-width so it doesn't constrain the docs layout */
 body {
   max-width: none;
+  background-color: var(--jazz-background-color);
+  color: var(--jazz-text-color);
 }
 
 :root {
@@ -31,9 +33,9 @@ body {
   border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
-  padding: 0 var(--spacing-4);
-  gap: var(--spacing-4);
-  background: var(--background-color);
+  padding: 0 var(--jazz-spacing-4);
+  gap: var(--jazz-spacing-4);
+  background: var(--jazz-background-color);
   z-index: 100;
 
   @media (min-width: 769px) {
@@ -44,7 +46,7 @@ body {
 
 .docs-logo {
   svg {
-    fill: var(--color);
+    fill: var(--jazz-text-color);
     height: auto;
     width: auto;
   }
@@ -175,7 +177,7 @@ html[data-theme="system"] .theme-toggle [data-scheme="system"] {
   overscroll-behavior: contain;
   border-right: 1px solid var(--border);
   padding-block: 1rem;
-  background: var(--background-color);
+  background: var(--jazz-background-color);
 
   @media (min-width: 769px) {
     position: sticky;
@@ -208,7 +210,7 @@ body:has(.sidebar-toggle:checked) .docs-sidebar {
 /* Main content */
 .docs-content {
   container-type: inline-size;
-  padding: 2.5rem var(--spacing-4);
+  padding: 2.5rem var(--jazz-spacing-4);
   min-width: 0;
   width: min(680px, 100vw);
   margin-inline: auto;
@@ -382,7 +384,7 @@ body:has(.sidebar-toggle:checked) .docs-sidebar {
 }
 
 .docs-toc nav a:hover {
-  color: var(--color);
+  color: var(--jazz-text-color);
 }
 
 /* Home page */
@@ -457,7 +459,7 @@ body:has(.sidebar-toggle:checked) .docs-sidebar {
   justify-content: center;
   gap: 0.5rem;
   padding: 1.5rem;
-  background: var(--background-color);
+  background: var(--jazz-background-color);
 }
 
 .showcase-cell--wide {
@@ -527,10 +529,10 @@ body:has(.sidebar-toggle:checked) .docs-sidebar {
   z-index: 10;
   display: flex;
   align-items: center;
-  gap: var(--spacing-3);
-  padding: var(--spacing-3) var(--spacing-4);
-  margin-inline: calc(var(--spacing-4) * -1);
-  background: var(--background-color);
+  gap: var(--jazz-spacing-3);
+  padding: var(--jazz-spacing-3) var(--jazz-spacing-4);
+  margin-inline: calc(var(--jazz-spacing-4) * -1);
+  background: var(--jazz-background-color);
   border-bottom: 1px solid var(--border);
 }
 
@@ -576,7 +578,7 @@ body:has(.sidebar-toggle:checked) .docs-sidebar {
     header {
       position: sticky;
       top: 0;
-      background: var(--background-color);
+      background: var(--jazz-background-color);
       z-index: 1;
 
       label:first-of-type {
@@ -592,7 +594,7 @@ body:has(.sidebar-toggle:checked) .docs-sidebar {
 
 .icons-dialog-content {
   flex: 1;
-  padding: var(--spacing-4);
+  padding: var(--jazz-spacing-4);
 }
 
 /* Icons page */
@@ -669,7 +671,7 @@ body:has(.sidebar-toggle:checked) .docs-sidebar {
     margin-left: auto;
 
     &:hover {
-      color: var(--color);
+      color: var(--jazz-text-color);
     }
   }
 }
@@ -677,8 +679,8 @@ body:has(.sidebar-toggle:checked) .docs-sidebar {
 .callout {
   background-color: var(--jazz-neutral-50);
   border: 1px solid var(--jazz-neutral-200);
-  border-radius: var(--spacing-2);
-  padding: var(--spacing-3) var(--spacing-4);
+  border-radius: var(--jazz-spacing-2);
+  padding: var(--jazz-spacing-3) var(--jazz-spacing-4);
   font-size: 0.875rem;
   color: var(--jazz-neutral-700);
   margin-bottom: 1rem;

@@ -2,7 +2,7 @@
   label:not(.field):has(> input:where([type="checkbox"])) {
     display: flex;
     align-items: center;
-    gap: var(--spacing-2);
+    gap: var(--jazz-spacing-2);
     cursor: pointer;
     user-select: none;
 
@@ -18,7 +18,7 @@
     aspect-ratio: 1;
     border-radius: 4px;
     box-shadow: 0 0 0 1.5px var(--jazz-neutral-300) inset;
-    background-color: var(--background-color);
+    background-color: var(--jazz-background-color);
     cursor: pointer;
     flex-shrink: 0;
     transition:

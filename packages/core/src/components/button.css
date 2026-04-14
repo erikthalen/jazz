@@ -14,8 +14,8 @@
     justify-content: center;
     gap: 0.5em;
 
-    padding-block: var(--spacing-2);
-    padding-inline: var(--spacing-3);
+    padding-block: var(--jazz-spacing-2);
+    padding-inline: var(--jazz-spacing-3);
     border-radius: 8px;
 
     font: inherit;
@@ -30,7 +30,7 @@
 
     kbd {
       padding-block: 0;
-      padding-inline: var(--spacing);
+      padding-inline: var(--jazz-spacing);
       margin-left: auto;
     }
 
@@ -136,13 +136,13 @@
 
   button.round,
   .button.round {
-    padding-inline: var(--spacing-2);
+    padding-inline: var(--jazz-spacing-2);
     border-radius: 100px;
   }
 
   button.square,
   .button.square {
-    padding-inline: var(--spacing-2);
+    padding-inline: var(--jazz-spacing-2);
   }
 
   button[aria-busy="true"]:before,

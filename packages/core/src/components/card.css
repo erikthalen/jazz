@@ -5,7 +5,7 @@
     box-shadow: 0 0 0 1px inset var(--jazz-neutral-100);
     border-radius: 12px;
     overflow: hidden;
-    padding: var(--spacing-4);
+    padding: var(--jazz-spacing-4);
 
     &:has(> header, > footer) {
       padding: 0;
@@ -13,10 +13,9 @@
 
     & > header,
     & > footer {
-      padding: var(--spacing-4) var(--spacing-4);
       display: flex;
       align-items: center;
-      gap: var(--spacing-2)
+      gap: var(--jazz-spacing-2);
     }
 
     & > header {
@@ -29,24 +28,38 @@
       border-radius: 0 0 var(--card-border-radius) var(--card-border-radius);
     }
 
+    &:has(> header, > footer) > * {
+      padding: var(--jazz-spacing-4);
+    }
+
     &:has(> header, > footer) > :not(header):not(footer) {
-      padding: var(--spacing-4);
+      margin-inline: 1px;
+
+      &:first-child {
+        margin-top: 1px;
+        border-radius: 11px 11px 0 0;
+      }
+
+      &:last-child {
+        margin-bottom: 1px;
+        border-radius: 0 0 11px 11px;
+      }
     }
   }
 
   /* Reduce padding when the card's parent container is narrow */
   @container (max-width: 320px) {
     article {
-      padding: var(--spacing-3);
+      padding: var(--jazz-spacing-3);
 
       & > header,
       & > footer {
-        padding: var(--spacing-3);
-        gap: var(--spacing);
+        padding: var(--jazz-spacing-3);
+        gap: var(--jazz-spacing);
       }
 
       &:has(> header, > footer) > :not(header):not(footer) {
-        padding: var(--spacing-3);
+        padding: var(--jazz-spacing-3);
       }
     }
   }

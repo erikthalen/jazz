@@ -9,7 +9,7 @@ Given the component name `$ARGUMENTS`:
 1. **Create the CSS file** at `packages/core/src/components/<name>.css`
    - Wrap everything in `@layer jazz { }`
    - Style native HTML elements or use a minimal class name matching the component name
-   - Use `var(--jazz-*)` color tokens, `var(--spacing-*)` for spacing, `var(--ease-*)` for transitions
+   - Use `var(--jazz-*)` color tokens, `var(--jazz-spacing-*)` for spacing, `var(--ease-*)` for transitions
    - No hardcoded hex colors, no JavaScript, no em dashes in comments
 
 2. **Import it** in `packages/core/src/main.css`

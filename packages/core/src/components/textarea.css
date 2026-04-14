@@ -6,9 +6,9 @@
     background-color: transparent;
     box-shadow: 0 0 0 1px var(--jazz-neutral-200) inset;
 
-    padding-block: var(--spacing-2);
-    padding-inline: var(--spacing-3);
-    border-radius: var(--spacing-2);
+    padding-block: var(--jazz-spacing-2);
+    padding-inline: var(--jazz-spacing-3);
+    border-radius: var(--jazz-spacing-2);
 
     font: inherit;
 

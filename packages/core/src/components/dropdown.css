@@ -1,5 +1,5 @@
 @layer jazz {
   [popover] > menu {
-    padding: var(--spacing-1);
+    padding: var(--jazz-spacing-1);
   }
 }

@@ -4,7 +4,8 @@ import { highlight } from "../../highlight";
 import { icon } from "../../icon";
 
 export async function RichtextEditorPage(path: string) {
-  return Layout({ wide: true,
+  return Layout({
+    wide: true,
     title: "Richtext Editor",
     path,
     content: html`
@@ -167,7 +168,7 @@ export async function RichtextEditorPage(path: string) {
               </menu>
             </div>
 
-            <textarea style="margin-top:var(--spacing-3)"></textarea>
+            <textarea style="margin-top:var(--jazz-spacing-3)"></textarea>
           </section>
         </div>
         <div class="code-block">
@@ -255,7 +256,7 @@ export async function RichtextEditorPage(path: string) {
             </label>
           </form>
           <footer
-            style="display:flex;gap:var(--spacing-2);justify-content:flex-end"
+            style="display:flex;gap:var(--jazz-spacing-2);justify-content:flex-end"
           >
             <button
               type="button"

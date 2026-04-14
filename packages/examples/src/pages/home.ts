@@ -21,7 +21,7 @@ export function HomePage() {
           (e) => html`
             <a
               href="${e.path}"
-              style="display:block;padding:1.5rem;background:var(--background-color);text-decoration:none;color:inherit"
+              style="display:block;padding:1.5rem;background:var(--jazz-background-color);text-decoration:none;color:inherit"
             >
               <strong style="display:block;margin-bottom:0.375rem"
                 >${e.label}</strong

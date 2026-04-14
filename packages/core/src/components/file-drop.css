@@ -4,10 +4,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: var(--spacing-2);
-    padding: var(--spacing-8);
+    gap: var(--jazz-spacing-2);
+    padding: var(--jazz-spacing-8);
     border: 1px dashed var(--jazz-neutral-400);
-    border-radius: var(--spacing-3);
+    border-radius: var(--jazz-spacing-3);
     position: relative;
     cursor: pointer;
     color: var(--jazz-neutral-500);

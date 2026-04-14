@@ -50,7 +50,7 @@ export async function TextareaPage(path: string) {
         <div class="preview preview-padded">
           <article style="width:100%">
             <header
-              style="display:flex;align-items:center;gap:var(--spacing-2)"
+              style="display:flex;align-items:center;gap:var(--jazz-spacing-2)"
             >
               ${raw(icon("brand-javascript", { size: 18 }))}
               <span style="font-size:0.875rem">script.js</span>

@@ -22,7 +22,7 @@
       aspect-ratio: 1;
       margin-inline: 1px;
       border-radius: 50%;
-      background-color: var(--background-color);
+      background-color: var(--jazz-background-color);
       transition: left 300ms var(--ease-glide);
     }
 

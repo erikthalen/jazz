@@ -1,12 +1,12 @@
-import { components } from '../layout'
-import pkg from '../../../core/package.json'
+import { components } from "../layout";
+import pkg from "../../../core/package.json";
 
-const cdnUrl = `https://esm.sh/gh/erikthalen/jazz@v${pkg.version}/jazz.css`
+const cdnUrl = `https://esm.sh/gh/erikthalen/jazz@v${pkg.version}/jazz.css`;
 
 export function SkillPage() {
   const componentList = components
-    .map(c => `- \`${c.label}\`${c.badge ? ` (${c.badge})` : ''}`)
-    .join('\n')
+    .map((c) => `- \`${c.label}\`${c.badge ? ` (${c.badge})` : ""}`)
+    .join("\n");
 
   return `---
 name: jazz
@@ -473,7 +473,7 @@ Or inline:
 
 ## Spacing tokens
 
-\`--spacing-1\` through \`--spacing-8\` (multiples of \`--spacing: 0.25em\`).
+\`--jazz-spacing-1\` through \`--jazz-spacing-8\` (multiples of \`--jazz-spacing: 0.25em\`).
 
 ## Easing tokens
 
@@ -484,5 +484,5 @@ Or inline:
 ## Available components
 
 ${componentList}
-`
+`;
 }

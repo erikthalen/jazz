@@ -32,7 +32,11 @@ export async function RadioPage(path: string) {
           <input type="radio" name="bare" checked />
         </div>
         <div class="code-block">
-          ${raw(await highlight(`<input type="radio" name="group" />\n<input type="radio" name="group" checked />`))}
+          ${raw(
+            await highlight(
+              `<input type="radio" name="group" />\n<input type="radio" name="group" checked />`,
+            ),
+          )}
         </div>
       </div>
 
@@ -122,10 +126,10 @@ export async function RadioPage(path: string) {
               display: flex;
               justify-content: space-between;
               align-items: flex-start;
-              gap: var(--spacing-4);
-              padding: var(--spacing-4);
+              gap: var(--jazz-spacing-4);
+              padding: var(--jazz-spacing-4);
               border: 1px solid var(--jazz-neutral-300);
-              border-radius: var(--spacing-3);
+              border-radius: var(--jazz-spacing-3);
 
               > div {
                 display: grid;
@@ -142,7 +146,7 @@ export async function RadioPage(path: string) {
             }
           </style>
           <fieldset
-            style="border:none;display:flex;flex-direction:column;gap:var(--spacing-3);width:100%;flex-direction:column;width:100%;max-width:400px;margin:auto"
+            style="border:none;display:flex;flex-direction:column;gap:var(--jazz-spacing-3);width:100%;flex-direction:column;width:100%;max-width:400px;margin:auto"
           >
             <label class="choice-card">
               <div>
@@ -174,10 +178,10 @@ export async function RadioPage(path: string) {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: var(--spacing-2);
-    padding: var(--spacing-4);
+    gap: var(--jazz-spacing-2);
+    padding: var(--jazz-spacing-4);
     border: 1px solid var(--jazz-neutral-300);
-    border-radius: var(--spacing-3);
+    border-radius: var(--jazz-spacing-3);
 
     > div {
       display: grid;

@@ -12,7 +12,10 @@ Docs: https://erikthalen.github.io/jazz/
 ## Setup
 
 ```html
-<link rel="stylesheet" href="https://esm.sh/gh/erikthalen/jazz@v0.1.0-beta.23/jazz.css" />
+<link
+  rel="stylesheet"
+  href="https://esm.sh/gh/erikthalen/jazz@v0.1.0-beta.23/jazz.css"
+/>
 ```
 
 ## Core idea
@@ -22,7 +25,9 @@ Jazz styles native elements. A `<button>` is already a styled button. An `<input
 ```html
 <button>Click me</button>
 <input type="text" placeholder="Type here" />
-<select><option>Option</option></select>
+<select>
+  <option>Option</option>
+</select>
 ```
 
 ## Layout
@@ -133,18 +138,18 @@ Add `required` to the input and a `*` appears on the label automatically.
 ```
 
 Note: Jazz uses a `--pct` CSS custom property for the fill. Set it via JS:
+
 ```js
-el.style.setProperty('--pct', (el.value - el.min) / (el.max - el.min))
-el.addEventListener('input', () =>
-  el.style.setProperty('--pct', (el.value - el.min) / (el.max - el.min))
-)
+el.style.setProperty("--pct", (el.value - el.min) / (el.max - el.min));
+el.addEventListener("input", () =>
+  el.style.setProperty("--pct", (el.value - el.min) / (el.max - el.min)),
+);
 ```
 
 ## Progress
 
 ```html
-<progress value="65" max="100"></progress>
-<progress></progress>
+<progress value="65" max="100"></progress> <progress></progress>
 ```
 
 ## Badge
@@ -185,7 +190,12 @@ el.addEventListener('input', () =>
     <header>Title</header>
     <p>Content</p>
     <footer>
-      <button class="ghost" onclick="document.getElementById('my-dialog').close()">Cancel</button>
+      <button
+        class="ghost"
+        onclick="document.getElementById('my-dialog').close()"
+      >
+        Cancel
+      </button>
       <button>Confirm</button>
     </footer>
   </article>
@@ -220,8 +230,12 @@ Radio and checkbox inputs inside `<label>`s show a checkmark indicator:
 
 ```html
 <menu>
-  <li><label><input type="radio" name="sort" checked /> Newest</label></li>
-  <li><label><input type="radio" name="sort" /> Oldest</label></li>
+  <li>
+    <label><input type="radio" name="sort" checked /> Newest</label>
+  </li>
+  <li>
+    <label><input type="radio" name="sort" /> Oldest</label>
+  </li>
 </menu>
 ```
 
@@ -274,9 +288,17 @@ A `[popover]` that is a sibling of a `<button>` inside a menu `<li>` becomes a s
 
 ```html
 <table>
-  <thead><tr><th>Name</th><th>Status</th></tr></thead>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Status</th>
+    </tr>
+  </thead>
   <tbody>
-    <tr><td>Alice</td><td>Active</td></tr>
+    <tr>
+      <td>Alice</td>
+      <td>Active</td>
+    </tr>
   </tbody>
 </table>
 ```
@@ -287,7 +309,9 @@ A `[popover]` that is a sibling of a `<button>` inside a menu `<li>` becomes a s
 <div class="prose">
   <h1>Title</h1>
   <p>Body text with correct spacing.</p>
-  <ul><li>List item</li></ul>
+  <ul>
+    <li>List item</li>
+  </ul>
 </div>
 ```
 
@@ -317,6 +341,7 @@ A `[popover]` that is a sibling of a `<button>` inside a menu `<li>` becomes a s
 ```
 
 Control the number of visible lines with `--lines` (default: 3):
+
 ```html
 <div class="expander" style="--lines:5">...</div>
 ```
@@ -395,9 +420,9 @@ Append children to an `<output>` element fixed in the corner. Each child auto-an
 ```
 
 ```js
-const p = document.createElement('p')
-p.textContent = 'Saved!'
-document.getElementById('toasts').appendChild(p)
+const p = document.createElement("p");
+p.textContent = "Saved!";
+document.getElementById("toasts").appendChild(p);
 ```
 
 Control duration with `--toast-duration` (default: 3s).
@@ -427,6 +452,7 @@ Control duration with `--toast-duration` (default: 3s).
 ```
 
 Add a button to give the user a clear next step:
+
 ```html
 <div class="empty">
   <svg><!-- icon --></svg>
@@ -453,11 +479,11 @@ Override seed variables on `:root` after the stylesheet. All color scales are de
 
 ```css
 :root {
-  --jazz-primary: dodgerblue;               /* or light-dark(blue, lightblue) */
+  --jazz-primary: dodgerblue; /* or light-dark(blue, lightblue) */
   --jazz-neutral: #8b8c93;
-  --jazz-constructive: #5dbb55;             /* success/positive actions */
-  --jazz-destructive: #ef5655;             /* danger/error actions */
-  --jazz-color1: crimson;                  /* accent colors 1-6 */
+  --jazz-constructive: #5dbb55; /* success/positive actions */
+  --jazz-destructive: #ef5655; /* danger/error actions */
+  --jazz-color1: crimson; /* accent colors 1-6 */
   --jazz-color2: gold;
 }
 ```
@@ -467,19 +493,25 @@ Override seed variables on `:root` after the stylesheet. All color scales are de
 Jazz responds to `prefers-color-scheme` automatically (via `color-scheme: light dark`). To force a theme, set `color-scheme` on the root:
 
 ```css
-:root { color-scheme: dark; }
-:root { color-scheme: light; }
+:root {
+  color-scheme: dark;
+}
+:root {
+  color-scheme: light;
+}
 ```
 
 Or inline:
 
 ```html
-<html style="color-scheme:dark">...</html>
+<html style="color-scheme:dark">
+  ...
+</html>
 ```
 
 ## Spacing tokens
 
-`--spacing-1` through `--spacing-8` (multiples of `--spacing: 0.25em`).
+`--jazz-spacing-1` through `--jazz-spacing-8` (multiples of `--jazz-spacing: 0.25em`).
 
 ## Easing tokens
 

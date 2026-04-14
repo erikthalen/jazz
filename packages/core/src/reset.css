@@ -1,4 +1,4 @@
-@layer reset {
+@layer jazz-reset {
   :root {
     text-rendering: geometricPrecision;
     -webkit-font-smoothing: antialiased;
@@ -6,7 +6,7 @@
     -moz-osx-font-smoothing: grayscale;
     text-size-adjust: 100%;
   }
-  
+
   :where(*) {
     margin: 0;
     padding: 0;

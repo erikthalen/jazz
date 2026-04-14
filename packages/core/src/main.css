@@ -1,3 +1,5 @@
+@layer jazz-reset, jazz;
+
 @import "./reset.css";
 
 @import "./easings.css";
@@ -43,27 +45,20 @@
 
 @layer jazz {
   :root {
-    --spacing: 0.25em;
+    --jazz-spacing: 0.25em;
 
-    --spacing-1: calc(var(--spacing) * 1);
-    --spacing-2: calc(var(--spacing) * 2);
-    --spacing-3: calc(var(--spacing) * 3);
-    --spacing-4: calc(var(--spacing) * 4);
-    --spacing-5: calc(var(--spacing) * 5);
-    --spacing-6: calc(var(--spacing) * 6);
-    --spacing-7: calc(var(--spacing) * 7);
-    --spacing-8: calc(var(--spacing) * 8);
+    --jazz-spacing-1: calc(var(--jazz-spacing) * 1);
+    --jazz-spacing-2: calc(var(--jazz-spacing) * 2);
+    --jazz-spacing-3: calc(var(--jazz-spacing) * 3);
+    --jazz-spacing-4: calc(var(--jazz-spacing) * 4);
+    --jazz-spacing-5: calc(var(--jazz-spacing) * 5);
+    --jazz-spacing-6: calc(var(--jazz-spacing) * 6);
+    --jazz-spacing-7: calc(var(--jazz-spacing) * 7);
+    --jazz-spacing-8: calc(var(--jazz-spacing) * 8);
 
     interpolate-size: allow-keywords;
 
-    --background-color: var(--jazz-neutral-50);
-    --color: var(--jazz-neutral-950);
-  }
-
-  body {
-    background-color: var(--background-color);
-    color: var(--color);
+    --jazz-background-color: var(--jazz-neutral-50);
+    --jazz-text-color: var(--jazz-neutral-950);
   }
 }
-
-@layer reset, jazz;

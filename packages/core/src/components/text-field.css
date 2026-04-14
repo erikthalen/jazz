@@ -26,9 +26,9 @@
     background-color: transparent;
     box-shadow: 0 0 0 1px var(--jazz-neutral-200) inset;
 
-    padding-block: var(--spacing-2);
-    padding-inline: var(--spacing-3);
-    border-radius: var(--spacing-2);
+    padding-block: var(--jazz-spacing-2);
+    padding-inline: var(--jazz-spacing-3);
+    border-radius: var(--jazz-spacing-2);
 
     font: inherit;
     line-height: calc((16 / 14) * 1rem);
@@ -87,22 +87,22 @@
 
     > [data-prefix] {
       grid-column: 1;
-      margin-inline: var(--spacing-3) var(--spacing-2);
+      margin-inline: var(--jazz-spacing-3) var(--jazz-spacing-2);
       transition: opacity 150ms var(--ease-glide);
     }
 
     > [data-suffix]:last-child {
       grid-column: 4;
-      margin-inline: var(--spacing-2) var(--spacing-3);
+      margin-inline: var(--jazz-spacing-2) var(--jazz-spacing-3);
     }
 
     > [data-suffix]:not(:last-child) {
       grid-column: 3;
-      margin-inline: var(--spacing-2) 0;
+      margin-inline: var(--jazz-spacing-2) 0;
     }
 
     > button[data-suffix] {
-      padding: var(--spacing-2) var(--spacing-2);
+      padding: var(--jazz-spacing-2) var(--jazz-spacing-2);
       font-size: smaller;
       height: calc(100% - 8px);
       border-radius: 4px;
@@ -126,7 +126,7 @@
       mask-image: var(--jazz-loading);
       mask-size: contain;
       mask-repeat: no-repeat;
-      margin-inline: var(--spacing-3) var(--spacing-2);
+      margin-inline: var(--jazz-spacing-3) var(--jazz-spacing-2);
       opacity: 0;
       transition: opacity 150ms var(--ease-glide);
     }
@@ -167,7 +167,7 @@
       mask-image: var(--jazz-loading);
       mask-size: contain;
       mask-repeat: no-repeat;
-      margin-inline: var(--spacing-3) var(--spacing-2);
+      margin-inline: var(--jazz-spacing-3) var(--jazz-spacing-2);
       transition: opacity 150ms var(--ease-glide);
 
       @starting-style {
@@ -178,22 +178,22 @@
     > input:is([type="text"], [type="email"], [type="search"], [type="password"], [type="number"], [type="tel"], [type="url"], :not([type])) {
       grid-column: 1 / -1;
       grid-row: 1;
-      padding-inline-start: calc(var(--spacing-3) + 1rem + var(--spacing-2));
+      padding-inline-start: calc(var(--jazz-spacing-3) + 1rem + var(--jazz-spacing-2));
     }
   }
 
   /* Offset input text to clear leading adornment */
   label:not(.toggle):has(> [data-prefix]) > input:is([type="text"], [type="email"], [type="search"], [type="password"], [type="number"], [type="tel"], [type="url"], :not([type])) {
-    padding-inline-start: calc(var(--spacing-3) + 1lh + var(--spacing-2));
+    padding-inline-start: calc(var(--jazz-spacing-3) + 1lh + var(--jazz-spacing-2));
   }
 
   /* Offset input text to clear one trailing adornment */
   label:not(.toggle):has(> [data-suffix]) > input:is([type="text"], [type="email"], [type="search"], [type="password"], [type="number"], [type="tel"], [type="url"], :not([type])) {
-    padding-inline-end: calc(var(--spacing-3) + 1lh + var(--spacing-2));
+    padding-inline-end: calc(var(--jazz-spacing-3) + 1lh + var(--jazz-spacing-2));
   }
 
   /* Offset input text to clear two trailing adornments */
   label:not(.toggle):has(> [data-suffix]:not(:last-child)) > input:is([type="text"], [type="email"], [type="search"], [type="password"], [type="number"], [type="tel"], [type="url"], :not([type])) {
-    padding-inline-end: calc(var(--spacing-3) + 2lh + var(--spacing-2));
+    padding-inline-end: calc(var(--jazz-spacing-3) + 2lh + var(--jazz-spacing-2));
   }
 }
