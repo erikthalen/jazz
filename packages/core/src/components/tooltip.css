@@ -16,7 +16,7 @@
       background: var(--jazz-neutral-950);
       color: var(--jazz-neutral-50);
       padding: 0.4em 0.75em;
-      border-radius: 8px;
+      border-radius: 6px;
       font-size: 0.875rem;
       line-height: 1.4;
       white-space: nowrap;
@@ -24,7 +24,10 @@
 
     &::after {
       content: "";
-      border: 6px solid transparent;
+      width: 8px;
+      height: 8px;
+      rotate: 45deg;
+      background: var(--jazz-neutral-950);
     }
 
     /* top (default) */
@@ -38,8 +41,9 @@
     &[data-placement="top"]::after {
       bottom: calc(100% + 0.5rem);
       left: 50%;
-      translate: -50% 100%;
-      border-top-color: var(--jazz-neutral-950);
+      translate: -50% 50%;
+      mask-image: linear-gradient(-45deg, black 51%, transparent 50%);
+      border-end-end-radius: 2px;
     }
 
     /* bottom */
@@ -51,8 +55,9 @@
     &[data-placement="bottom"]::after {
       top: calc(100% + 0.5rem);
       left: 50%;
-      translate: -50% -100%;
-      border-bottom-color: var(--jazz-neutral-950);
+      translate: -50% -50%;
+      mask-image: linear-gradient(-45deg, transparent 50%, black 50%);
+      border-start-start-radius: 2px;
     }
 
     /* left */
@@ -64,8 +69,9 @@
     &[data-placement="left"]::after {
       right: calc(100% + 0.5rem);
       top: 50%;
-      translate: 100% -50%;
-      border-left-color: var(--jazz-neutral-950);
+      translate: 50% -50%;
+      mask-image: linear-gradient(45deg, transparent 50%, black 50%);
+      border-start-end-radius: 2px;
     }
 
     /* right */
@@ -77,8 +83,9 @@
     &[data-placement="right"]::after {
       left: calc(100% + 0.5rem);
       top: 50%;
-      translate: -100% -50%;
-      border-right-color: var(--jazz-neutral-950);
+      translate: -50% -50%;
+      mask-image: linear-gradient(45deg, black 50%, transparent 50%);
+      border-end-start-radius: 2px;
     }
 
     @media (hover: hover) {
