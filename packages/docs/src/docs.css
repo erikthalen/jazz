@@ -45,6 +45,8 @@ body {
 }
 
 .docs-logo {
+  view-transition-name: docs-logo;
+  
   svg {
     fill: var(--jazz-text-color);
     height: auto;

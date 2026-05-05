@@ -37,13 +37,17 @@ export async function ComboboxPage(path: string) {
               type="search"
               placeholder="Search fruits..."
               style="anchor-name: --combobox-demo"
-              onfocus="setTimeout(()=>!this.nextElementSibling.matches(':popover-open')&&this.nextElementSibling.showPopover())"
+              onfocus="if(!this.dataset.skip&&!this.nextElementSibling.matches(':popover-open'))this.nextElementSibling.showPopover();delete this.dataset.skip"
+              onblur="if(!this.nextElementSibling.contains(event.relatedTarget))setTimeout(()=>this.nextElementSibling.matches(':popover-open')&&this.nextElementSibling.hidePopover())"
+              onkeydown="if(event.key==='ArrowDown'){event.preventDefault();const f=this.nextElementSibling.querySelector('li:not([hidden]) button');f&&f.focus()}"
               oninput="this.nextElementSibling.querySelectorAll('li').forEach(li=>li.hidden=!li.textContent.toLowerCase().includes(this.value.toLowerCase()))"
             />
             <div
-              popover
+              popover="manual"
               style="position-anchor: --combobox-demo"
-              onpointerdown="const b=event.target.closest('button');if(b){event.preventDefault();this.previousElementSibling.value=b.textContent.trim();setTimeout(()=>this.hidePopover())}"
+              onpointerdown="const b=event.target.closest('button');if(b){event.preventDefault();this.previousElementSibling.value=b.textContent.trim();this.hidePopover()}"
+              onkeydown="const btns=[...this.querySelectorAll('li:not([hidden]) button')],i=btns.indexOf(event.target);if(event.key==='ArrowDown'){event.preventDefault();(btns[i+1]||btns[0])?.focus()}else if(event.key==='ArrowUp'){event.preventDefault();i>0?btns[i-1].focus():this.previousElementSibling.focus()}else if(event.key==='Escape'){this.previousElementSibling.dataset.skip=1;this.hidePopover();this.previousElementSibling.focus()}else if(event.key==='Enter'){event.preventDefault();const b=event.target.closest('button');if(b){this.previousElementSibling.value=b.textContent.trim();this.hidePopover();this.previousElementSibling.focus()}}"
+              onfocusout="if(!this.contains(event.relatedTarget)&&event.relatedTarget!==this.previousElementSibling)setTimeout(()=>this.matches(':popover-open')&&this.hidePopover())"
             >
               <menu>
                 <li><button class="ghost">Apple</button></li>
@@ -60,10 +64,14 @@ export async function ComboboxPage(path: string) {
             await highlight(`<div class="combobox">
   <input type="search" placeholder="Search fruits..."
     style="anchor-name: --my-combobox"
-    onfocus="setTimeout(()=>!this.nextElementSibling.matches(':popover-open')&&this.nextElementSibling.showPopover())"
+    onfocus="if(!this.dataset.skip&&!this.nextElementSibling.matches(':popover-open'))this.nextElementSibling.showPopover();delete this.dataset.skip"
+    onblur="if(!this.nextElementSibling.contains(event.relatedTarget))setTimeout(()=>this.nextElementSibling.matches(':popover-open')&&this.nextElementSibling.hidePopover())"
+    onkeydown="if(event.key==='ArrowDown'){event.preventDefault();const f=this.nextElementSibling.querySelector('li:not([hidden]) button');f&&f.focus()}"
     oninput="this.nextElementSibling.querySelectorAll('li').forEach(li=>li.hidden=!li.textContent.toLowerCase().includes(this.value.toLowerCase()))">
-  <div popover style="position-anchor: --my-combobox"
-    onpointerdown="const b=event.target.closest('button');if(b){event.preventDefault();this.previousElementSibling.value=b.textContent.trim();setTimeout(()=>this.hidePopover())}">
+  <div popover="manual" style="position-anchor: --my-combobox"
+    onpointerdown="const b=event.target.closest('button');if(b){event.preventDefault();this.previousElementSibling.value=b.textContent.trim();this.hidePopover()}"
+    onkeydown="const btns=[...this.querySelectorAll('li:not([hidden]) button')],i=btns.indexOf(event.target);if(event.key==='ArrowDown'){event.preventDefault();(btns[i+1]||btns[0])?.focus()}else if(event.key==='ArrowUp'){event.preventDefault();i>0?btns[i-1].focus():this.previousElementSibling.focus()}else if(event.key==='Escape'){this.previousElementSibling.dataset.skip=1;this.hidePopover();this.previousElementSibling.focus()}else if(event.key==='Enter'){event.preventDefault();const b=event.target.closest('button');if(b){this.previousElementSibling.value=b.textContent.trim();this.hidePopover();this.previousElementSibling.focus()}}"
+    onfocusout="if(!this.contains(event.relatedTarget)&&event.relatedTarget!==this.previousElementSibling)setTimeout(()=>this.matches(':popover-open')&&this.hidePopover())">
     <menu>
       <li><button class="ghost">Apple</button></li>
       <li><button class="ghost">Banana</button></li>
@@ -83,20 +91,24 @@ export async function ComboboxPage(path: string) {
       </div>
       <div class="example">
         <div class="preview">
-          <label>
-            Favourite fruit
+          <label class="field">
+            <span>Favourite fruit</span>
             <div class="combobox">
               <input
                 type="search"
                 placeholder="Search..."
                 style="anchor-name: --combobox-field-demo"
-                onfocus="setTimeout(()=>!this.nextElementSibling.matches(':popover-open')&&this.nextElementSibling.showPopover())"
+                onfocus="if(!this.dataset.skip&&!this.nextElementSibling.matches(':popover-open'))this.nextElementSibling.showPopover();delete this.dataset.skip"
+                onblur="if(!this.nextElementSibling.contains(event.relatedTarget))setTimeout(()=>this.nextElementSibling.matches(':popover-open')&&this.nextElementSibling.hidePopover())"
+                onkeydown="if(event.key==='ArrowDown'){event.preventDefault();const f=this.nextElementSibling.querySelector('li:not([hidden]) button');f&&f.focus()}"
                 oninput="this.nextElementSibling.querySelectorAll('li').forEach(li=>li.hidden=!li.textContent.toLowerCase().includes(this.value.toLowerCase()))"
               />
               <div
-                popover
+                popover="manual"
                 style="position-anchor: --combobox-field-demo"
-                onpointerdown="const b=event.target.closest('button');if(b){event.preventDefault();this.previousElementSibling.value=b.textContent.trim();setTimeout(()=>this.hidePopover())}"
+                onpointerdown="const b=event.target.closest('button');if(b){event.preventDefault();this.previousElementSibling.value=b.textContent.trim();this.hidePopover()}"
+                onkeydown="const btns=[...this.querySelectorAll('li:not([hidden]) button')],i=btns.indexOf(event.target);if(event.key==='ArrowDown'){event.preventDefault();(btns[i+1]||btns[0])?.focus()}else if(event.key==='ArrowUp'){event.preventDefault();i>0?btns[i-1].focus():this.previousElementSibling.focus()}else if(event.key==='Escape'){this.previousElementSibling.dataset.skip=1;this.hidePopover();this.previousElementSibling.focus()}else if(event.key==='Enter'){event.preventDefault();const b=event.target.closest('button');if(b){this.previousElementSibling.value=b.textContent.trim();this.hidePopover();this.previousElementSibling.focus()}}"
+                onfocusout="if(!this.contains(event.relatedTarget)&&event.relatedTarget!==this.previousElementSibling)setTimeout(()=>this.matches(':popover-open')&&this.hidePopover())"
               >
                 <menu>
                   <li><button class="ghost">Apple</button></li>
@@ -111,15 +123,19 @@ export async function ComboboxPage(path: string) {
         </div>
         <div class="code-block">
           ${raw(
-            await highlight(`<label>
-  Favourite fruit
+            await highlight(`<label class="field">
+  <span>Favourite fruit</span>
   <div class="combobox">
     <input type="search" placeholder="Search..."
       style="anchor-name: --my-combobox"
-      onfocus="setTimeout(()=>!this.nextElementSibling.matches(':popover-open')&&this.nextElementSibling.showPopover())"
+      onfocus="if(!this.dataset.skip&&!this.nextElementSibling.matches(':popover-open'))this.nextElementSibling.showPopover();delete this.dataset.skip"
+      onblur="if(!this.nextElementSibling.contains(event.relatedTarget))setTimeout(()=>this.nextElementSibling.matches(':popover-open')&&this.nextElementSibling.hidePopover())"
+      onkeydown="if(event.key==='ArrowDown'){event.preventDefault();const f=this.nextElementSibling.querySelector('li:not([hidden]) button');f&&f.focus()}"
       oninput="this.nextElementSibling.querySelectorAll('li').forEach(li=>li.hidden=!li.textContent.toLowerCase().includes(this.value.toLowerCase()))">
-    <div popover style="position-anchor: --my-combobox"
-      onpointerdown="const b=event.target.closest('button');if(b){event.preventDefault();this.previousElementSibling.value=b.textContent.trim();setTimeout(()=>this.hidePopover())}">
+    <div popover="manual" style="position-anchor: --my-combobox"
+      onpointerdown="const b=event.target.closest('button');if(b){event.preventDefault();this.previousElementSibling.value=b.textContent.trim();this.hidePopover()}"
+      onkeydown="const btns=[...this.querySelectorAll('li:not([hidden]) button')],i=btns.indexOf(event.target);if(event.key==='ArrowDown'){event.preventDefault();(btns[i+1]||btns[0])?.focus()}else if(event.key==='ArrowUp'){event.preventDefault();i>0?btns[i-1].focus():this.previousElementSibling.focus()}else if(event.key==='Escape'){this.previousElementSibling.dataset.skip=1;this.hidePopover();this.previousElementSibling.focus()}else if(event.key==='Enter'){event.preventDefault();const b=event.target.closest('button');if(b){this.previousElementSibling.value=b.textContent.trim();this.hidePopover();this.previousElementSibling.focus()}}"
+      onfocusout="if(!this.contains(event.relatedTarget)&&event.relatedTarget!==this.previousElementSibling)setTimeout(()=>this.matches(':popover-open')&&this.hidePopover())">
       <menu>
         <li><button class="ghost">Apple</button></li>
         <li><button class="ghost">Banana</button></li>

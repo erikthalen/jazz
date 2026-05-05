@@ -171,7 +171,7 @@ function head(title: string) {
 function header(path: string) {
   return html`
     <header class="docs-header">
-      <label class="toggle square docs-burger" aria-label="Toggle navigation">
+      <label class="toggle square docs-burger" aria-label="Toggle navigation" data-placement="right">
         <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle" />
         <svg
           xmlns="http://www.w3.org/2000/svg"
