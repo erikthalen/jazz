@@ -1,7 +1,11 @@
 :root {
   color-scheme: light dark;
 
-  --jazz-primary: light-dark(dodgerblue, color-mix(in oklab, dodgerblue, white 20%));
+  --jazz-primary-light: dodgerblue;
+  --jazz-primary-dark: color-mix(in oklab, dodgerblue, white 20%);
+
+  --jazz-primary: light-dark(var(--jazz-primary-light), var(--jazz-primary-dark));
+  
   --jazz-neutral: #8b8c93;
   --jazz-constructive: #5dbb55;
   --jazz-destructive: #ef5655;
@@ -13,533 +17,227 @@
   --jazz-color5: slateblue;
   --jazz-color6: plum;
 
-  --jazz-primary-50: light-dark(
-    color-mix(in oklab, var(--jazz-primary), white 95%),
-    color-mix(in oklab, var(--jazz-primary), black 73.75%)
-  );
+  --jazz-primary-50: light-dark(color-mix(in oklab, var(--jazz-primary), white 95%), color-mix(in oklab, var(--jazz-primary), black 73.75%));
 
-  --jazz-primary-100: light-dark(
-    color-mix(in oklab, var(--jazz-primary), white 87%),
-    color-mix(in oklab, var(--jazz-primary), black 58.5%)
-  );
+  --jazz-primary-100: light-dark(color-mix(in oklab, var(--jazz-primary), white 87%), color-mix(in oklab, var(--jazz-primary), black 58.5%));
 
-  --jazz-primary-200: light-dark(
-    color-mix(in oklab, var(--jazz-primary), white 70%),
-    color-mix(in oklab, var(--jazz-primary), black 43.5%)
-  );
+  --jazz-primary-200: light-dark(color-mix(in oklab, var(--jazz-primary), white 70%), color-mix(in oklab, var(--jazz-primary), black 43.5%));
 
-  --jazz-primary-300: light-dark(
-    color-mix(in oklab, var(--jazz-primary), white 47%),
-    color-mix(in oklab, var(--jazz-primary), black 28.25%)
-  );
+  --jazz-primary-300: light-dark(color-mix(in oklab, var(--jazz-primary), white 47%), color-mix(in oklab, var(--jazz-primary), black 28.25%));
 
-  --jazz-primary-400: light-dark(
-    color-mix(in oklab, var(--jazz-primary), white 23%),
-    color-mix(in oklab, var(--jazz-primary), black 15.5%)
-  );
+  --jazz-primary-400: light-dark(color-mix(in oklab, var(--jazz-primary), white 23%), color-mix(in oklab, var(--jazz-primary), black 15.5%));
 
   --jazz-primary-500: var(--jazz-primary);
 
-  --jazz-primary-600: light-dark(
-    color-mix(in oklab, var(--jazz-primary), black 15.5%),
-    color-mix(in oklab, var(--jazz-primary), white 23%)
-  );
+  --jazz-primary-600: light-dark(color-mix(in oklab, var(--jazz-primary), black 15.5%), color-mix(in oklab, var(--jazz-primary), white 23%));
 
-  --jazz-primary-700: light-dark(
-    color-mix(in oklab, var(--jazz-primary), black 28.25%),
-    color-mix(in oklab, var(--jazz-primary), white 47%)
-  );
+  --jazz-primary-700: light-dark(color-mix(in oklab, var(--jazz-primary), black 28.25%), color-mix(in oklab, var(--jazz-primary), white 47%));
 
-  --jazz-primary-800: light-dark(
-    color-mix(in oklab, var(--jazz-primary), black 43.5%),
-    color-mix(in oklab, var(--jazz-primary), white 70%)
-  );
+  --jazz-primary-800: light-dark(color-mix(in oklab, var(--jazz-primary), black 43.5%), color-mix(in oklab, var(--jazz-primary), white 70%));
 
-  --jazz-primary-900: light-dark(
-    color-mix(in oklab, var(--jazz-primary), black 58.5%),
-    color-mix(in oklab, var(--jazz-primary), white 87%)
-  );
+  --jazz-primary-900: light-dark(color-mix(in oklab, var(--jazz-primary), black 58.5%), color-mix(in oklab, var(--jazz-primary), white 87%));
 
-  --jazz-primary-950: light-dark(
-    color-mix(in oklab, var(--jazz-primary), black 73.75%),
-    color-mix(in oklab, var(--jazz-primary), white 95%)
-  );
+  --jazz-primary-950: light-dark(color-mix(in oklab, var(--jazz-primary), black 73.75%), color-mix(in oklab, var(--jazz-primary), white 95%));
 
-  --jazz-neutral-0: light-dark(
-    color-mix(in oklab, var(--jazz-neutral), white 100%),
-    color-mix(in oklab, var(--jazz-neutral), black 100%)
-  );
+  --jazz-neutral-0: light-dark(color-mix(in oklab, var(--jazz-neutral), white 100%), color-mix(in oklab, var(--jazz-neutral), black 100%));
 
-  --jazz-neutral-50: light-dark(
-    color-mix(in oklab, var(--jazz-neutral), white 95%),
-    color-mix(in oklab, var(--jazz-neutral), black 73.75%)
-  );
+  --jazz-neutral-50: light-dark(color-mix(in oklab, var(--jazz-neutral), white 95%), color-mix(in oklab, var(--jazz-neutral), black 73.75%));
 
-  --jazz-neutral-100: light-dark(
-    color-mix(in oklab, var(--jazz-neutral), white 87%),
-    color-mix(in oklab, var(--jazz-neutral), black 58.5%)
-  );
+  --jazz-neutral-100: light-dark(color-mix(in oklab, var(--jazz-neutral), white 87%), color-mix(in oklab, var(--jazz-neutral), black 58.5%));
 
-  --jazz-neutral-200: light-dark(
-    color-mix(in oklab, var(--jazz-neutral), white 70%),
-    color-mix(in oklab, var(--jazz-neutral), black 43.5%)
-  );
+  --jazz-neutral-200: light-dark(color-mix(in oklab, var(--jazz-neutral), white 70%), color-mix(in oklab, var(--jazz-neutral), black 43.5%));
 
-  --jazz-neutral-300: light-dark(
-    color-mix(in oklab, var(--jazz-neutral), white 47%),
-    color-mix(in oklab, var(--jazz-neutral), black 28.25%)
-  );
+  --jazz-neutral-300: light-dark(color-mix(in oklab, var(--jazz-neutral), white 47%), color-mix(in oklab, var(--jazz-neutral), black 28.25%));
 
-  --jazz-neutral-400: light-dark(
-    color-mix(in oklab, var(--jazz-neutral), white 23%),
-    color-mix(in oklab, var(--jazz-neutral), black 15.5%)
-  );
+  --jazz-neutral-400: light-dark(color-mix(in oklab, var(--jazz-neutral), white 23%), color-mix(in oklab, var(--jazz-neutral), black 15.5%));
 
   --jazz-neutral-500: var(--jazz-neutral);
 
-  --jazz-neutral-600: light-dark(
-    color-mix(in oklab, var(--jazz-neutral), black 15.5%),
-    color-mix(in oklab, var(--jazz-neutral), white 23%)
-  );
+  --jazz-neutral-600: light-dark(color-mix(in oklab, var(--jazz-neutral), black 15.5%), color-mix(in oklab, var(--jazz-neutral), white 23%));
 
-  --jazz-neutral-700: light-dark(
-    color-mix(in oklab, var(--jazz-neutral), black 28.25%),
-    color-mix(in oklab, var(--jazz-neutral), white 47%)
-  );
+  --jazz-neutral-700: light-dark(color-mix(in oklab, var(--jazz-neutral), black 28.25%), color-mix(in oklab, var(--jazz-neutral), white 47%));
 
-  --jazz-neutral-800: light-dark(
-    color-mix(in oklab, var(--jazz-neutral), black 43.5%),
-    color-mix(in oklab, var(--jazz-neutral), white 70%)
-  );
+  --jazz-neutral-800: light-dark(color-mix(in oklab, var(--jazz-neutral), black 43.5%), color-mix(in oklab, var(--jazz-neutral), white 70%));
 
-  --jazz-neutral-900: light-dark(
-    color-mix(in oklab, var(--jazz-neutral), black 58.5%),
-    color-mix(in oklab, var(--jazz-neutral), white 87%)
-  );
+  --jazz-neutral-900: light-dark(color-mix(in oklab, var(--jazz-neutral), black 58.5%), color-mix(in oklab, var(--jazz-neutral), white 87%));
 
-  --jazz-neutral-950: light-dark(
-    color-mix(in oklab, var(--jazz-neutral), black 73.75%),
-    color-mix(in oklab, var(--jazz-neutral), white 95%)
-  );
+  --jazz-neutral-950: light-dark(color-mix(in oklab, var(--jazz-neutral), black 73.75%), color-mix(in oklab, var(--jazz-neutral), white 95%));
 
-  --jazz-neutral-1000: light-dark(
-    color-mix(in oklab, var(--jazz-neutral), black 100%),
-    color-mix(in oklab, var(--jazz-neutral), white 100%)
-  );
+  --jazz-neutral-1000: light-dark(color-mix(in oklab, var(--jazz-neutral), black 100%), color-mix(in oklab, var(--jazz-neutral), white 100%));
 
-  --jazz-constructive-50: light-dark(
-    color-mix(in oklab, var(--jazz-constructive), white 95%),
-    color-mix(in oklab, var(--jazz-constructive), black 73.75%)
-  );
+  --jazz-constructive-50: light-dark(color-mix(in oklab, var(--jazz-constructive), white 95%), color-mix(in oklab, var(--jazz-constructive), black 73.75%));
 
-  --jazz-constructive-100: light-dark(
-    color-mix(in oklab, var(--jazz-constructive), white 87%),
-    color-mix(in oklab, var(--jazz-constructive), black 58.5%)
-  );
+  --jazz-constructive-100: light-dark(color-mix(in oklab, var(--jazz-constructive), white 87%), color-mix(in oklab, var(--jazz-constructive), black 58.5%));
 
-  --jazz-constructive-200: light-dark(
-    color-mix(in oklab, var(--jazz-constructive), white 70%),
-    color-mix(in oklab, var(--jazz-constructive), black 43.5%)
-  );
+  --jazz-constructive-200: light-dark(color-mix(in oklab, var(--jazz-constructive), white 70%), color-mix(in oklab, var(--jazz-constructive), black 43.5%));
 
-  --jazz-constructive-300: light-dark(
-    color-mix(in oklab, var(--jazz-constructive), white 47%),
-    color-mix(in oklab, var(--jazz-constructive), black 28.25%)
-  );
+  --jazz-constructive-300: light-dark(color-mix(in oklab, var(--jazz-constructive), white 47%), color-mix(in oklab, var(--jazz-constructive), black 28.25%));
 
-  --jazz-constructive-400: light-dark(
-    color-mix(in oklab, var(--jazz-constructive), white 23%),
-    color-mix(in oklab, var(--jazz-constructive), black 15.5%)
-  );
+  --jazz-constructive-400: light-dark(color-mix(in oklab, var(--jazz-constructive), white 23%), color-mix(in oklab, var(--jazz-constructive), black 15.5%));
 
   --jazz-constructive-500: var(--jazz-constructive);
 
-  --jazz-constructive-600: light-dark(
-    color-mix(in oklab, var(--jazz-constructive), black 15.5%),
-    color-mix(in oklab, var(--jazz-constructive), white 23%)
-  );
+  --jazz-constructive-600: light-dark(color-mix(in oklab, var(--jazz-constructive), black 15.5%), color-mix(in oklab, var(--jazz-constructive), white 23%));
 
-  --jazz-constructive-700: light-dark(
-    color-mix(in oklab, var(--jazz-constructive), black 28.25%),
-    color-mix(in oklab, var(--jazz-constructive), white 47%)
-  );
+  --jazz-constructive-700: light-dark(color-mix(in oklab, var(--jazz-constructive), black 28.25%), color-mix(in oklab, var(--jazz-constructive), white 47%));
 
-  --jazz-constructive-800: light-dark(
-    color-mix(in oklab, var(--jazz-constructive), black 43.5%),
-    color-mix(in oklab, var(--jazz-constructive), white 70%)
-  );
+  --jazz-constructive-800: light-dark(color-mix(in oklab, var(--jazz-constructive), black 43.5%), color-mix(in oklab, var(--jazz-constructive), white 70%));
 
-  --jazz-constructive-900: light-dark(
-    color-mix(in oklab, var(--jazz-constructive), black 58.5%),
-    color-mix(in oklab, var(--jazz-constructive), white 87%)
-  );
+  --jazz-constructive-900: light-dark(color-mix(in oklab, var(--jazz-constructive), black 58.5%), color-mix(in oklab, var(--jazz-constructive), white 87%));
 
-  --jazz-constructive-950: light-dark(
-    color-mix(in oklab, var(--jazz-constructive), black 73.75%),
-    color-mix(in oklab, var(--jazz-constructive), white 95%)
-  );
+  --jazz-constructive-950: light-dark(color-mix(in oklab, var(--jazz-constructive), black 73.75%), color-mix(in oklab, var(--jazz-constructive), white 95%));
 
-  --jazz-destructive-50: light-dark(
-    color-mix(in oklab, var(--jazz-destructive), white 95%),
-    color-mix(in oklab, var(--jazz-destructive), black 73.75%)
-  );
+  --jazz-destructive-50: light-dark(color-mix(in oklab, var(--jazz-destructive), white 95%), color-mix(in oklab, var(--jazz-destructive), black 73.75%));
 
-  --jazz-destructive-100: light-dark(
-    color-mix(in oklab, var(--jazz-destructive), white 87%),
-    color-mix(in oklab, var(--jazz-destructive), black 58.5%)
-  );
+  --jazz-destructive-100: light-dark(color-mix(in oklab, var(--jazz-destructive), white 87%), color-mix(in oklab, var(--jazz-destructive), black 58.5%));
 
-  --jazz-destructive-200: light-dark(
-    color-mix(in oklab, var(--jazz-destructive), white 70%),
-    color-mix(in oklab, var(--jazz-destructive), black 43.5%)
-  );
+  --jazz-destructive-200: light-dark(color-mix(in oklab, var(--jazz-destructive), white 70%), color-mix(in oklab, var(--jazz-destructive), black 43.5%));
 
-  --jazz-destructive-300: light-dark(
-    color-mix(in oklab, var(--jazz-destructive), white 47%),
-    color-mix(in oklab, var(--jazz-destructive), black 28.25%)
-  );
+  --jazz-destructive-300: light-dark(color-mix(in oklab, var(--jazz-destructive), white 47%), color-mix(in oklab, var(--jazz-destructive), black 28.25%));
 
-  --jazz-destructive-400: light-dark(
-    color-mix(in oklab, var(--jazz-destructive), white 23%),
-    color-mix(in oklab, var(--jazz-destructive), black 15.5%)
-  );
+  --jazz-destructive-400: light-dark(color-mix(in oklab, var(--jazz-destructive), white 23%), color-mix(in oklab, var(--jazz-destructive), black 15.5%));
 
   --jazz-destructive-500: var(--jazz-destructive);
 
-  --jazz-destructive-600: light-dark(
-    color-mix(in oklab, var(--jazz-destructive), black 15.5%),
-    color-mix(in oklab, var(--jazz-destructive), white 23%)
-  );
+  --jazz-destructive-600: light-dark(color-mix(in oklab, var(--jazz-destructive), black 15.5%), color-mix(in oklab, var(--jazz-destructive), white 23%));
 
-  --jazz-destructive-700: light-dark(
-    color-mix(in oklab, var(--jazz-destructive), black 28.25%),
-    color-mix(in oklab, var(--jazz-destructive), white 47%)
-  );
+  --jazz-destructive-700: light-dark(color-mix(in oklab, var(--jazz-destructive), black 28.25%), color-mix(in oklab, var(--jazz-destructive), white 47%));
 
-  --jazz-destructive-800: light-dark(
-    color-mix(in oklab, var(--jazz-destructive), black 43.5%),
-    color-mix(in oklab, var(--jazz-destructive), white 70%)
-  );
+  --jazz-destructive-800: light-dark(color-mix(in oklab, var(--jazz-destructive), black 43.5%), color-mix(in oklab, var(--jazz-destructive), white 70%));
 
-  --jazz-destructive-900: light-dark(
-    color-mix(in oklab, var(--jazz-destructive), black 58.5%),
-    color-mix(in oklab, var(--jazz-destructive), white 87%)
-  );
+  --jazz-destructive-900: light-dark(color-mix(in oklab, var(--jazz-destructive), black 58.5%), color-mix(in oklab, var(--jazz-destructive), white 87%));
 
-  --jazz-destructive-950: light-dark(
-    color-mix(in oklab, var(--jazz-destructive), black 73.75%),
-    color-mix(in oklab, var(--jazz-destructive), white 95%)
-  );
+  --jazz-destructive-950: light-dark(color-mix(in oklab, var(--jazz-destructive), black 73.75%), color-mix(in oklab, var(--jazz-destructive), white 95%));
 
-  --jazz-color1-50: light-dark(
-    color-mix(in oklab, var(--jazz-color1), white 95%),
-    color-mix(in oklab, var(--jazz-color1), black 73.75%)
-  );
+  --jazz-color1-50: light-dark(color-mix(in oklab, var(--jazz-color1), white 95%), color-mix(in oklab, var(--jazz-color1), black 73.75%));
 
-  --jazz-color1-100: light-dark(
-    color-mix(in oklab, var(--jazz-color1), white 87%),
-    color-mix(in oklab, var(--jazz-color1), black 58.5%)
-  );
+  --jazz-color1-100: light-dark(color-mix(in oklab, var(--jazz-color1), white 87%), color-mix(in oklab, var(--jazz-color1), black 58.5%));
 
-  --jazz-color1-200: light-dark(
-    color-mix(in oklab, var(--jazz-color1), white 70%),
-    color-mix(in oklab, var(--jazz-color1), black 43.5%)
-  );
+  --jazz-color1-200: light-dark(color-mix(in oklab, var(--jazz-color1), white 70%), color-mix(in oklab, var(--jazz-color1), black 43.5%));
 
-  --jazz-color1-300: light-dark(
-    color-mix(in oklab, var(--jazz-color1), white 47%),
-    color-mix(in oklab, var(--jazz-color1), black 28.25%)
-  );
+  --jazz-color1-300: light-dark(color-mix(in oklab, var(--jazz-color1), white 47%), color-mix(in oklab, var(--jazz-color1), black 28.25%));
 
-  --jazz-color1-400: light-dark(
-    color-mix(in oklab, var(--jazz-color1), white 23%),
-    color-mix(in oklab, var(--jazz-color1), black 15.5%)
-  );
+  --jazz-color1-400: light-dark(color-mix(in oklab, var(--jazz-color1), white 23%), color-mix(in oklab, var(--jazz-color1), black 15.5%));
 
   --jazz-color1-500: var(--jazz-color1);
 
-  --jazz-color1-600: light-dark(
-    color-mix(in oklab, var(--jazz-color1), black 15.5%),
-    color-mix(in oklab, var(--jazz-color1), white 15%)
-  );
+  --jazz-color1-600: light-dark(color-mix(in oklab, var(--jazz-color1), black 15.5%), color-mix(in oklab, var(--jazz-color1), white 15%));
 
-  --jazz-color1-700: light-dark(
-    color-mix(in oklab, var(--jazz-color1), black 28.25%),
-    color-mix(in oklab, var(--jazz-color1), white 47%)
-  );
+  --jazz-color1-700: light-dark(color-mix(in oklab, var(--jazz-color1), black 28.25%), color-mix(in oklab, var(--jazz-color1), white 47%));
 
-  --jazz-color1-800: light-dark(
-    color-mix(in oklab, var(--jazz-color1), black 43.5%),
-    color-mix(in oklab, var(--jazz-color1), white 70%)
-  );
+  --jazz-color1-800: light-dark(color-mix(in oklab, var(--jazz-color1), black 43.5%), color-mix(in oklab, var(--jazz-color1), white 70%));
 
-  --jazz-color1-900: light-dark(
-    color-mix(in oklab, var(--jazz-color1), black 58.5%),
-    color-mix(in oklab, var(--jazz-color1), white 87%)
-  );
+  --jazz-color1-900: light-dark(color-mix(in oklab, var(--jazz-color1), black 58.5%), color-mix(in oklab, var(--jazz-color1), white 87%));
 
-  --jazz-color1-950: light-dark(
-    color-mix(in oklab, var(--jazz-color1), black 73.75%),
-    color-mix(in oklab, var(--jazz-color1), white 95%)
-  );
+  --jazz-color1-950: light-dark(color-mix(in oklab, var(--jazz-color1), black 73.75%), color-mix(in oklab, var(--jazz-color1), white 95%));
 
-  --jazz-color2-50: light-dark(
-    color-mix(in oklab, var(--jazz-color2), white 95%),
-    color-mix(in oklab, var(--jazz-color2), black 73.75%)
-  );
+  --jazz-color2-50: light-dark(color-mix(in oklab, var(--jazz-color2), white 95%), color-mix(in oklab, var(--jazz-color2), black 73.75%));
 
-  --jazz-color2-100: light-dark(
-    color-mix(in oklab, var(--jazz-color2), white 87%),
-    color-mix(in oklab, var(--jazz-color2), black 58.5%)
-  );
+  --jazz-color2-100: light-dark(color-mix(in oklab, var(--jazz-color2), white 87%), color-mix(in oklab, var(--jazz-color2), black 58.5%));
 
-  --jazz-color2-200: light-dark(
-    color-mix(in oklab, var(--jazz-color2), white 70%),
-    color-mix(in oklab, var(--jazz-color2), black 43.5%)
-  );
+  --jazz-color2-200: light-dark(color-mix(in oklab, var(--jazz-color2), white 70%), color-mix(in oklab, var(--jazz-color2), black 43.5%));
 
-  --jazz-color2-300: light-dark(
-    color-mix(in oklab, var(--jazz-color2), white 47%),
-    color-mix(in oklab, var(--jazz-color2), black 28.25%)
-  );
+  --jazz-color2-300: light-dark(color-mix(in oklab, var(--jazz-color2), white 47%), color-mix(in oklab, var(--jazz-color2), black 28.25%));
 
-  --jazz-color2-400: light-dark(
-    color-mix(in oklab, var(--jazz-color2), white 23%),
-    color-mix(in oklab, var(--jazz-color2), black 15.5%)
-  );
+  --jazz-color2-400: light-dark(color-mix(in oklab, var(--jazz-color2), white 23%), color-mix(in oklab, var(--jazz-color2), black 15.5%));
 
   --jazz-color2-500: var(--jazz-color2);
 
-  --jazz-color2-600: light-dark(
-    color-mix(in oklab, var(--jazz-color2), black 15.5%),
-    color-mix(in oklab, var(--jazz-color2), white 15%)
-  );
+  --jazz-color2-600: light-dark(color-mix(in oklab, var(--jazz-color2), black 15.5%), color-mix(in oklab, var(--jazz-color2), white 15%));
 
-  --jazz-color2-700: light-dark(
-    color-mix(in oklab, var(--jazz-color2), black 28.25%),
-    color-mix(in oklab, var(--jazz-color2), white 47%)
-  );
+  --jazz-color2-700: light-dark(color-mix(in oklab, var(--jazz-color2), black 28.25%), color-mix(in oklab, var(--jazz-color2), white 47%));
 
-  --jazz-color2-800: light-dark(
-    color-mix(in oklab, var(--jazz-color2), black 43.5%),
-    color-mix(in oklab, var(--jazz-color2), white 70%)
-  );
+  --jazz-color2-800: light-dark(color-mix(in oklab, var(--jazz-color2), black 43.5%), color-mix(in oklab, var(--jazz-color2), white 70%));
 
-  --jazz-color2-900: light-dark(
-    color-mix(in oklab, var(--jazz-color2), black 58.5%),
-    color-mix(in oklab, var(--jazz-color2), white 87%)
-  );
+  --jazz-color2-900: light-dark(color-mix(in oklab, var(--jazz-color2), black 58.5%), color-mix(in oklab, var(--jazz-color2), white 87%));
 
-  --jazz-color2-950: light-dark(
-    color-mix(in oklab, var(--jazz-color2), black 73.75%),
-    color-mix(in oklab, var(--jazz-color2), white 95%)
-  );
+  --jazz-color2-950: light-dark(color-mix(in oklab, var(--jazz-color2), black 73.75%), color-mix(in oklab, var(--jazz-color2), white 95%));
 
-  --jazz-color3-50: light-dark(
-    color-mix(in oklab, var(--jazz-color3), white 95%),
-    color-mix(in oklab, var(--jazz-color3), black 73.75%)
-  );
+  --jazz-color3-50: light-dark(color-mix(in oklab, var(--jazz-color3), white 95%), color-mix(in oklab, var(--jazz-color3), black 73.75%));
 
-  --jazz-color3-100: light-dark(
-    color-mix(in oklab, var(--jazz-color3), white 87%),
-    color-mix(in oklab, var(--jazz-color3), black 58.5%)
-  );
+  --jazz-color3-100: light-dark(color-mix(in oklab, var(--jazz-color3), white 87%), color-mix(in oklab, var(--jazz-color3), black 58.5%));
 
-  --jazz-color3-200: light-dark(
-    color-mix(in oklab, var(--jazz-color3), white 70%),
-    color-mix(in oklab, var(--jazz-color3), black 43.5%)
-  );
+  --jazz-color3-200: light-dark(color-mix(in oklab, var(--jazz-color3), white 70%), color-mix(in oklab, var(--jazz-color3), black 43.5%));
 
-  --jazz-color3-300: light-dark(
-    color-mix(in oklab, var(--jazz-color3), white 47%),
-    color-mix(in oklab, var(--jazz-color3), black 28.25%)
-  );
+  --jazz-color3-300: light-dark(color-mix(in oklab, var(--jazz-color3), white 47%), color-mix(in oklab, var(--jazz-color3), black 28.25%));
 
-  --jazz-color3-400: light-dark(
-    color-mix(in oklab, var(--jazz-color3), white 23%),
-    color-mix(in oklab, var(--jazz-color3), black 15.5%)
-  );
+  --jazz-color3-400: light-dark(color-mix(in oklab, var(--jazz-color3), white 23%), color-mix(in oklab, var(--jazz-color3), black 15.5%));
 
   --jazz-color3-500: var(--jazz-color3);
 
-  --jazz-color3-600: light-dark(
-    color-mix(in oklab, var(--jazz-color3), black 15.5%),
-    color-mix(in oklab, var(--jazz-color3), white 15%)
-  );
+  --jazz-color3-600: light-dark(color-mix(in oklab, var(--jazz-color3), black 15.5%), color-mix(in oklab, var(--jazz-color3), white 15%));
 
-  --jazz-color3-700: light-dark(
-    color-mix(in oklab, var(--jazz-color3), black 28.25%),
-    color-mix(in oklab, var(--jazz-color3), white 47%)
-  );
+  --jazz-color3-700: light-dark(color-mix(in oklab, var(--jazz-color3), black 28.25%), color-mix(in oklab, var(--jazz-color3), white 47%));
 
-  --jazz-color3-800: light-dark(
-    color-mix(in oklab, var(--jazz-color3), black 43.5%),
-    color-mix(in oklab, var(--jazz-color3), white 70%)
-  );
+  --jazz-color3-800: light-dark(color-mix(in oklab, var(--jazz-color3), black 43.5%), color-mix(in oklab, var(--jazz-color3), white 70%));
 
-  --jazz-color3-900: light-dark(
-    color-mix(in oklab, var(--jazz-color3), black 58.5%),
-    color-mix(in oklab, var(--jazz-color3), white 87%)
-  );
+  --jazz-color3-900: light-dark(color-mix(in oklab, var(--jazz-color3), black 58.5%), color-mix(in oklab, var(--jazz-color3), white 87%));
 
-  --jazz-color3-950: light-dark(
-    color-mix(in oklab, var(--jazz-color3), black 73.75%),
-    color-mix(in oklab, var(--jazz-color3), white 95%)
-  );
+  --jazz-color3-950: light-dark(color-mix(in oklab, var(--jazz-color3), black 73.75%), color-mix(in oklab, var(--jazz-color3), white 95%));
 
-  --jazz-color4-50: light-dark(
-    color-mix(in oklab, var(--jazz-color4), white 95%),
-    color-mix(in oklab, var(--jazz-color4), black 73.75%)
-  );
+  --jazz-color4-50: light-dark(color-mix(in oklab, var(--jazz-color4), white 95%), color-mix(in oklab, var(--jazz-color4), black 73.75%));
 
-  --jazz-color4-100: light-dark(
-    color-mix(in oklab, var(--jazz-color4), white 87%),
-    color-mix(in oklab, var(--jazz-color4), black 58.5%)
-  );
+  --jazz-color4-100: light-dark(color-mix(in oklab, var(--jazz-color4), white 87%), color-mix(in oklab, var(--jazz-color4), black 58.5%));
 
-  --jazz-color4-200: light-dark(
-    color-mix(in oklab, var(--jazz-color4), white 70%),
-    color-mix(in oklab, var(--jazz-color4), black 43.5%)
-  );
+  --jazz-color4-200: light-dark(color-mix(in oklab, var(--jazz-color4), white 70%), color-mix(in oklab, var(--jazz-color4), black 43.5%));
 
-  --jazz-color4-300: light-dark(
-    color-mix(in oklab, var(--jazz-color4), white 47%),
-    color-mix(in oklab, var(--jazz-color4), black 28.25%)
-  );
+  --jazz-color4-300: light-dark(color-mix(in oklab, var(--jazz-color4), white 47%), color-mix(in oklab, var(--jazz-color4), black 28.25%));
 
-  --jazz-color4-400: light-dark(
-    color-mix(in oklab, var(--jazz-color4), white 23%),
-    color-mix(in oklab, var(--jazz-color4), black 15.5%)
-  );
+  --jazz-color4-400: light-dark(color-mix(in oklab, var(--jazz-color4), white 23%), color-mix(in oklab, var(--jazz-color4), black 15.5%));
 
   --jazz-color4-500: var(--jazz-color4);
 
-  --jazz-color4-600: light-dark(
-    color-mix(in oklab, var(--jazz-color4), black 15.5%),
-    color-mix(in oklab, var(--jazz-color4), white 15%)
-  );
+  --jazz-color4-600: light-dark(color-mix(in oklab, var(--jazz-color4), black 15.5%), color-mix(in oklab, var(--jazz-color4), white 15%));
 
-  --jazz-color4-700: light-dark(
-    color-mix(in oklab, var(--jazz-color4), black 28.25%),
-    color-mix(in oklab, var(--jazz-color4), white 47%)
-  );
+  --jazz-color4-700: light-dark(color-mix(in oklab, var(--jazz-color4), black 28.25%), color-mix(in oklab, var(--jazz-color4), white 47%));
 
-  --jazz-color4-800: light-dark(
-    color-mix(in oklab, var(--jazz-color4), black 43.5%),
-    color-mix(in oklab, var(--jazz-color4), white 70%)
-  );
+  --jazz-color4-800: light-dark(color-mix(in oklab, var(--jazz-color4), black 43.5%), color-mix(in oklab, var(--jazz-color4), white 70%));
 
-  --jazz-color4-900: light-dark(
-    color-mix(in oklab, var(--jazz-color4), black 58.5%),
-    color-mix(in oklab, var(--jazz-color4), white 87%)
-  );
+  --jazz-color4-900: light-dark(color-mix(in oklab, var(--jazz-color4), black 58.5%), color-mix(in oklab, var(--jazz-color4), white 87%));
 
-  --jazz-color4-950: light-dark(
-    color-mix(in oklab, var(--jazz-color4), black 73.75%),
-    color-mix(in oklab, var(--jazz-color4), white 95%)
-  );
+  --jazz-color4-950: light-dark(color-mix(in oklab, var(--jazz-color4), black 73.75%), color-mix(in oklab, var(--jazz-color4), white 95%));
 
-  --jazz-color5-50: light-dark(
-    color-mix(in oklab, var(--jazz-color5), white 95%),
-    color-mix(in oklab, var(--jazz-color5), black 73.75%)
-  );
+  --jazz-color5-50: light-dark(color-mix(in oklab, var(--jazz-color5), white 95%), color-mix(in oklab, var(--jazz-color5), black 73.75%));
 
-  --jazz-color5-100: light-dark(
-    color-mix(in oklab, var(--jazz-color5), white 87%),
-    color-mix(in oklab, var(--jazz-color5), black 58.5%)
-  );
+  --jazz-color5-100: light-dark(color-mix(in oklab, var(--jazz-color5), white 87%), color-mix(in oklab, var(--jazz-color5), black 58.5%));
 
-  --jazz-color5-200: light-dark(
-    color-mix(in oklab, var(--jazz-color5), white 70%),
-    color-mix(in oklab, var(--jazz-color5), black 43.5%)
-  );
+  --jazz-color5-200: light-dark(color-mix(in oklab, var(--jazz-color5), white 70%), color-mix(in oklab, var(--jazz-color5), black 43.5%));
 
-  --jazz-color5-300: light-dark(
-    color-mix(in oklab, var(--jazz-color5), white 47%),
-    color-mix(in oklab, var(--jazz-color5), black 28.25%)
-  );
+  --jazz-color5-300: light-dark(color-mix(in oklab, var(--jazz-color5), white 47%), color-mix(in oklab, var(--jazz-color5), black 28.25%));
 
-  --jazz-color5-400: light-dark(
-    color-mix(in oklab, var(--jazz-color5), white 23%),
-    color-mix(in oklab, var(--jazz-color5), black 15.5%)
-  );
+  --jazz-color5-400: light-dark(color-mix(in oklab, var(--jazz-color5), white 23%), color-mix(in oklab, var(--jazz-color5), black 15.5%));
 
   --jazz-color5-500: var(--jazz-color5);
 
-  --jazz-color5-600: light-dark(
-    color-mix(in oklab, var(--jazz-color5), black 15.5%),
-    color-mix(in oklab, var(--jazz-color5), white 15%)
-  );
+  --jazz-color5-600: light-dark(color-mix(in oklab, var(--jazz-color5), black 15.5%), color-mix(in oklab, var(--jazz-color5), white 15%));
 
-  --jazz-color5-700: light-dark(
-    color-mix(in oklab, var(--jazz-color5), black 28.25%),
-    color-mix(in oklab, var(--jazz-color5), white 47%)
-  );
+  --jazz-color5-700: light-dark(color-mix(in oklab, var(--jazz-color5), black 28.25%), color-mix(in oklab, var(--jazz-color5), white 47%));
 
-  --jazz-color5-800: light-dark(
-    color-mix(in oklab, var(--jazz-color5), black 43.5%),
-    color-mix(in oklab, var(--jazz-color5), white 70%)
-  );
+  --jazz-color5-800: light-dark(color-mix(in oklab, var(--jazz-color5), black 43.5%), color-mix(in oklab, var(--jazz-color5), white 70%));
 
-  --jazz-color5-900: light-dark(
-    color-mix(in oklab, var(--jazz-color5), black 58.5%),
-    color-mix(in oklab, var(--jazz-color5), white 87%)
-  );
+  --jazz-color5-900: light-dark(color-mix(in oklab, var(--jazz-color5), black 58.5%), color-mix(in oklab, var(--jazz-color5), white 87%));
 
-  --jazz-color5-950: light-dark(
-    color-mix(in oklab, var(--jazz-color5), black 73.75%),
-    color-mix(in oklab, var(--jazz-color5), white 95%)
-  );
+  --jazz-color5-950: light-dark(color-mix(in oklab, var(--jazz-color5), black 73.75%), color-mix(in oklab, var(--jazz-color5), white 95%));
 
-  --jazz-color6-50: light-dark(
-    color-mix(in oklab, var(--jazz-color6), white 95%),
-    color-mix(in oklab, var(--jazz-color6), black 73.75%)
-  );
+  --jazz-color6-50: light-dark(color-mix(in oklab, var(--jazz-color6), white 95%), color-mix(in oklab, var(--jazz-color6), black 73.75%));
 
-  --jazz-color6-100: light-dark(
-    color-mix(in oklab, var(--jazz-color6), white 87%),
-    color-mix(in oklab, var(--jazz-color6), black 58.5%)
-  );
+  --jazz-color6-100: light-dark(color-mix(in oklab, var(--jazz-color6), white 87%), color-mix(in oklab, var(--jazz-color6), black 58.5%));
 
-  --jazz-color6-200: light-dark(
-    color-mix(in oklab, var(--jazz-color6), white 70%),
-    color-mix(in oklab, var(--jazz-color6), black 43.5%)
-  );
+  --jazz-color6-200: light-dark(color-mix(in oklab, var(--jazz-color6), white 70%), color-mix(in oklab, var(--jazz-color6), black 43.5%));
 
-  --jazz-color6-300: light-dark(
-    color-mix(in oklab, var(--jazz-color6), white 47%),
-    color-mix(in oklab, var(--jazz-color6), black 28.25%)
-  );
+  --jazz-color6-300: light-dark(color-mix(in oklab, var(--jazz-color6), white 47%), color-mix(in oklab, var(--jazz-color6), black 28.25%));
 
-  --jazz-color6-400: light-dark(
-    color-mix(in oklab, var(--jazz-color6), white 23%),
-    color-mix(in oklab, var(--jazz-color6), black 15.5%)
-  );
+  --jazz-color6-400: light-dark(color-mix(in oklab, var(--jazz-color6), white 23%), color-mix(in oklab, var(--jazz-color6), black 15.5%));
 
   --jazz-color6-500: var(--jazz-color6);
 
-  --jazz-color6-600: light-dark(
-    color-mix(in oklab, var(--jazz-color6), black 15.5%),
-    color-mix(in oklab, var(--jazz-color6), white 15%)
-  );
+  --jazz-color6-600: light-dark(color-mix(in oklab, var(--jazz-color6), black 15.5%), color-mix(in oklab, var(--jazz-color6), white 15%));
 
-  --jazz-color6-700: light-dark(
-    color-mix(in oklab, var(--jazz-color6), black 28.25%),
-    color-mix(in oklab, var(--jazz-color6), white 47%)
-  );
+  --jazz-color6-700: light-dark(color-mix(in oklab, var(--jazz-color6), black 28.25%), color-mix(in oklab, var(--jazz-color6), white 47%));
 
-  --jazz-color6-800: light-dark(
-    color-mix(in oklab, var(--jazz-color6), black 43.5%),
-    color-mix(in oklab, var(--jazz-color6), white 70%)
-  );
+  --jazz-color6-800: light-dark(color-mix(in oklab, var(--jazz-color6), black 43.5%), color-mix(in oklab, var(--jazz-color6), white 70%));
 
-  --jazz-color6-900: light-dark(
-    color-mix(in oklab, var(--jazz-color6), black 58.5%),
-    color-mix(in oklab, var(--jazz-color6), white 87%)
-  );
+  --jazz-color6-900: light-dark(color-mix(in oklab, var(--jazz-color6), black 58.5%), color-mix(in oklab, var(--jazz-color6), white 87%));
 
-  --jazz-color6-950: light-dark(
-    color-mix(in oklab, var(--jazz-color6), black 73.75%),
-    color-mix(in oklab, var(--jazz-color6), white 95%)
-  );
+  --jazz-color6-950: light-dark(color-mix(in oklab, var(--jazz-color6), black 73.75%), color-mix(in oklab, var(--jazz-color6), white 95%));
 }

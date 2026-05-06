@@ -1,5 +1,7 @@
 @layer jazz {
   .prose {
+    --jazz-typography-spacing-vertical: 0.61em;
+
     > h1,
     > h2,
     > h3,

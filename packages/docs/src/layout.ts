@@ -73,6 +73,7 @@ export const components: { label: string; path: string; badge?: string }[] = [
   { label: "Menu", path: "/components/menu" },
   { label: "Popover", path: "/components/popover" },
   { label: "Progress", path: "/components/progress" },
+  { label: "Prose", path: "/components/prose" },
   { label: "Radio", path: "/components/radio" },
   { label: "Radio Group", path: "/components/radio-group" },
   { label: "Select", path: "/components/select" },
@@ -519,23 +520,13 @@ export function Layout({ title, path, toc, wide, content }: LayoutProps) {
                 <small
                   ><a
                     class="button ghost"
-                    href="${url("/components/prose")}"
-                    ${path === "/components/prose" ? 'aria-current="page"' : ""}
-                    >Prose</a
-                  ></small
-                >
-              </li>
-              <li>
-                <small
-                  ><a
-                    class="button ghost"
                     href="${url("/easings")}"
                     ${path === "/easings" ? 'aria-current="page"' : ""}
                     >Easings</a
                   ></small
                 >
               </li>
-              <li>
+              <!-- <li>
                 <small
                   ><a
                     class="button ghost"
@@ -544,7 +535,7 @@ export function Layout({ title, path, toc, wide, content }: LayoutProps) {
                     >Typography</a
                   ></small
                 >
-              </li>
+              </li> -->
               <li>
                 <small
                   ><a

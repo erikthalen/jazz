@@ -4,7 +4,7 @@ import { highlight } from "../highlight";
 import { icon } from "../icon";
 import pkg from "../../../core/package.json";
 import { readFileSync } from "node:fs";
-import { brotliCompressSync } from "node:zlib";
+import { gzipSync } from "node:zlib";
 import { resolve } from "node:path";
 
 const cdnUrl = `https://esm.sh/gh/erikthalen/jazz@v${pkg.version}/jazz.css`;
@@ -13,7 +13,7 @@ function getMainCssSize() {
   try {
     const cssPath = resolve(import.meta.dirname, "../../../../jazz.css");
     const css = readFileSync(cssPath);
-    const compressed = brotliCompressSync(css);
+    const compressed = gzipSync(css);
     return (compressed.byteLength / 1024).toFixed(1);
   } catch {
     return null;
@@ -35,10 +35,10 @@ export async function HomePage(path: string) {
             and dark mode.
             ${cssSize
               ? html` <span
-                    style="white-space:break-spaces;background-color:var(--jazz-constructive-200);color:var(--jazz-constructive-600);padding:0.25rem 0.5rem;border-radius:8px;"
+                    style="white-space:break-spaces;background-color:var(--jazz-constructive-200);color:var(--jazz-constructive-600);padding:0.15rem 0.4rem;border-radius:8px;"
                     >${cssSize} kB</span
                   >
-                  brotli compressed`
+                  gziped`
               : ""}
             packing all that jazz.
           </p>
@@ -202,13 +202,11 @@ export async function HomePage(path: string) {
         <div class="showcase-cell">
           <label class="toggle fill">
             <input type="checkbox" />
-            ${raw(icon("bookmark"))}
-            Bookmark
+            ${raw(icon("bookmark"))} Bookmark
           </label>
           <label class="toggle fill">
             <input type="checkbox" checked />
-            ${raw(icon("star"))}
-            Star
+            ${raw(icon("star"))} Star
           </label>
         </div>
 

@@ -3,7 +3,6 @@
 @import "./reset.css";
 
 @import "./easings.css";
-@import "./typography.css";
 @import "./colors.css";
 
 @import "./components/badge.css";
@@ -55,8 +54,6 @@
     --jazz-spacing-6: calc(var(--jazz-spacing) * 6);
     --jazz-spacing-7: calc(var(--jazz-spacing) * 7);
     --jazz-spacing-8: calc(var(--jazz-spacing) * 8);
-
-    interpolate-size: allow-keywords;
 
     --jazz-background-color: var(--jazz-neutral-50);
     --jazz-text-color: var(--jazz-neutral-950);

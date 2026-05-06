@@ -171,14 +171,14 @@ export async function ProsePage(path: string) {
         <p>
           Vertical spacing between elements is controlled by
           <code>--jazz-typography-spacing-vertical</code>, which defaults to
-          <code>1rem</code>.
+          <code>.61em</code>.
         </p>
       </div>
       <div class="example">
         <div class="code-block">
           ${raw(
             await highlight(`:root {
-  --jazz-typography-spacing-vertical: 1.5rem;
+  --jazz-typography-spacing-vertical: .61em;
 }`, 80, 'css'),
           )}
         </div>
