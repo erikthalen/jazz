@@ -14,7 +14,7 @@
 
     resize: vertical;
     display: block;
-    width: 100%;
+    width: stretch;
 
     &:not([rows]) {
       field-sizing: content;
