@@ -1,6 +1,6 @@
 @layer jazz {
   .prose {
-    --jazz-typography-spacing-vertical: 0.61em;
+    --jazz-typography-spacing: 0.61em;
 
     > h1,
     > h2,
@@ -9,8 +9,21 @@
     > h5,
     > h6,
     > p,
-    > label {
-      margin: 0 0 var(--jazz-typography-spacing-vertical) 0;
+    > label,
+    > ul,
+    > ol {
+      margin-bottom: var(--jazz-typography-spacing);
+    }
+
+    > h1,
+    > h2,
+    > h3,
+    > h4,
+    > h5,
+    > h6 {
+      &:not(:first-child) {
+        margin-top: 1em;
+      }
     }
 
     p {
@@ -23,7 +36,7 @@
       padding-inline-start: 0;
       list-style: revert;
       list-style-position: outside;
-      margin: 0 0 var(--jazz-typography-spacing-vertical) 0;
+      margin-block: 1em;
 
       display: flex;
       flex-direction: column;
@@ -47,7 +60,7 @@
     > blockquote {
       border-inline-start: 3px solid var(--jazz-neutral-200);
       padding-inline-start: var(--jazz-spacing-4);
-      margin: 0 0 var(--jazz-typography-spacing-vertical) 0;
+      margin: 0 0 var(--jazz-typography-spacing) 0;
 
       footer,
       cite {
@@ -59,7 +72,7 @@
     }
 
     > hgroup {
-      margin: 0 0 calc(var(--jazz-typography-spacing-vertical) * 2) 0;
+      margin-bottom: calc(var(--jazz-typography-spacing) * 2);
 
       > h1,
       > h2,
@@ -67,7 +80,7 @@
       > h4,
       > h5,
       > h6 {
-        margin: 0 0 var(--jazz-typography-spacing-vertical) 0;
+        margin-bottom: calc(var(--jazz-typography-spacing) / 2);
       }
 
       > p {
