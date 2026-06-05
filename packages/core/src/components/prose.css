@@ -1,18 +1,7 @@
 @layer jazz {
   .prose {
-    --jazz-typography-spacing: 0.61em;
-
-    > h1,
-    > h2,
-    > h3,
-    > h4,
-    > h5,
-    > h6,
-    > p,
-    > label,
-    > ul,
-    > ol {
-      margin-bottom: var(--jazz-typography-spacing);
+    > * + * {
+      margin-block-start: 1em;
     }
 
     > h1,
@@ -21,9 +10,7 @@
     > h4,
     > h5,
     > h6 {
-      &:not(:first-child) {
-        margin-top: 1em;
-      }
+      line-height: 1.4;
     }
 
     p {
@@ -33,34 +20,30 @@
 
     > ul,
     > ol {
-      padding-inline-start: 0;
       list-style: revert;
       list-style-position: outside;
-      margin-block: 1em;
 
       display: flex;
       flex-direction: column;
       gap: 0.5lh;
+
+      margin-block: 1.61em;
 
       li {
         margin-inline-start: 1.5em;
 
         &::marker {
           color: var(--jazz-neutral-400);
+          font-variant-numeric: tabular-nums;
         }
-      }
-    }
-
-    > ol {
-      li::marker {
-        font-variant-numeric: tabular-nums;
       }
     }
 
     > blockquote {
       border-inline-start: 3px solid var(--jazz-neutral-200);
       padding-inline-start: var(--jazz-spacing-4);
-      margin: 0 0 var(--jazz-typography-spacing) 0;
+
+      margin-block: 1.61em;
 
       footer,
       cite {
@@ -72,24 +55,12 @@
     }
 
     > hgroup {
-      margin-bottom: calc(var(--jazz-typography-spacing) * 2);
-
-      > h1,
-      > h2,
-      > h3,
-      > h4,
-      > h5,
-      > h6 {
-        margin-bottom: calc(var(--jazz-typography-spacing) / 2);
-      }
+      margin-block-end: 1.61em;
 
       > p {
+        margin-block-start: 0.61em;
         color: var(--jazz-neutral-500);
       }
-    }
-
-    > :last-child {
-      margin-bottom: 0;
     }
 
     a:not(.button) {
