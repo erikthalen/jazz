@@ -35,7 +35,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          TAG="v${{ steps.version.outputs.current }}"
+          TAG="${{ steps.version.outputs.current }}"
           gh release create "$TAG" \
             --title "$TAG" \
             --generate-notes

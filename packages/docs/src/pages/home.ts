@@ -7,7 +7,7 @@ import { readFileSync } from "node:fs";
 import { gzipSync } from "node:zlib";
 import { resolve } from "node:path";
 
-const cdnUrl = `https://esm.sh/gh/erikthalen/jazz@v${pkg.version}/jazz.css`;
+const cdnUrl = `https://esm.sh/gh/erikthalen/jazz@${pkg.version}/jazz.css`;
 
 function getMainCssSize() {
   try {
