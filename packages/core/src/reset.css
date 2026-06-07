@@ -11,6 +11,10 @@
     text-size-adjust: 100%;
   }
 
+  html {
+    scrollbar-gutter: stable;
+  }
+
   :where(*) {
     margin: 0;
     padding: 0;
