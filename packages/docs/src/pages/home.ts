@@ -188,6 +188,34 @@ export async function HomePage(path: string) {
           </details>
         </div>
 
+        <div class="showcase-cell showcase-cell--wide" style="align-items:stretch">
+          <section class="tabs" style="width:100%">
+            <header role="tablist" aria-label="Settings">
+              <label>
+                <input type="radio" name="home-tabs" id="home-tab-1" checked aria-controls="home-panel-1" />
+                Profile
+              </label>
+              <label>
+                <input type="radio" name="home-tabs" id="home-tab-2" aria-controls="home-panel-2" />
+                Activity
+              </label>
+              <label>
+                <input type="radio" name="home-tabs" id="home-tab-3" aria-controls="home-panel-3" />
+                Settings
+              </label>
+            </header>
+            <div role="tabpanel" id="home-panel-1" aria-labelledby="home-tab-1" tabindex="0">
+              <p style="font-size:0.875rem;color:var(--jazz-neutral-500);margin:0">Manage your public profile and personal details.</p>
+            </div>
+            <div role="tabpanel" id="home-panel-2" aria-labelledby="home-tab-2" tabindex="0">
+              <p style="font-size:0.875rem;color:var(--jazz-neutral-500);margin:0">Recent actions and events will appear here.</p>
+            </div>
+            <div role="tabpanel" id="home-panel-3" aria-labelledby="home-tab-3" tabindex="0">
+              <p style="font-size:0.875rem;color:var(--jazz-neutral-500);margin:0">Configure notifications, privacy, and preferences.</p>
+            </div>
+          </section>
+        </div>
+
         <div class="showcase-cell">
           <label> <input type="radio" name="plan" checked /> Free </label>
           <label> <input type="radio" name="plan" /> Pro </label>
@@ -251,6 +279,20 @@ export async function HomePage(path: string) {
               <button>Save</button>
             </footer>
           </article>
+        </div>
+
+        <div class="showcase-cell">
+          <textarea placeholder="Leave a comment..." style="width:100%;resize:vertical"></textarea>
+        </div>
+
+        <div class="showcase-cell">
+          <menu style="width:180px">
+            <li><button class="ghost">${raw(icon("pencil"))} Edit</button></li>
+            <li><button class="ghost">${raw(icon("copy"))} Duplicate</button></li>
+            <li><button class="ghost">${raw(icon("share"))} Share</button></li>
+            <li><hr /></li>
+            <li><button class="ghost destructive">${raw(icon("trash"))} Delete</button></li>
+          </menu>
         </div>
 
         <div class="showcase-cell">

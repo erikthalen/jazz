@@ -123,7 +123,7 @@ export function IconsSearchDialog() {
         grid.innerHTML = results
           .map(
             ({ id: name }) =>
-              '<li class="icon-item" aria-label="' +
+              '<li class="icon-item" data-tooltip aria-label="' +
               name +
               '">' +
               '<button class="icon-copy-btn ghost square" data-icon="' +

@@ -7,7 +7,7 @@
     z-index: 2147483647;
     pointer-events: none;
     opacity: 0;
-    transition: opacity 100ms 100ms;
+    transition: opacity 100ms;
   }
 
   &::before {
@@ -89,13 +89,11 @@
     &:hover::before,
     &:hover::after {
       opacity: 1;
-      transition-delay: 0ms;
     }
   }
 
   &:focus-visible::before,
   &:focus-visible::after {
     opacity: 1;
-    transition-delay: 0ms;
   }
 }

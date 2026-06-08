@@ -2,6 +2,7 @@ import { html, raw } from "hono/html";
 import type { HtmlEscapedString } from "hono/utils/html";
 import docsCss from "./docs.css?raw";
 import { IconsSearchDialog } from "./pages/icons-dialog";
+import { icon } from "./icon";
 
 const b = (process.env.BASE_URL ?? "/").replace(/\/$/, "");
 export const url = (path: string) => b + path;
@@ -148,7 +149,15 @@ function head(title: string) {
           storedColor,
         );
       }
+      function syncSwatch() {
+        var stored = localStorage.getItem("jazz-primary");
+        document.querySelectorAll(".color-swatch-btn").forEach(function (b) {
+          b.classList.toggle("secondary", b.dataset.primary === stored);
+          b.classList.toggle("ghost", b.dataset.primary !== stored);
+        });
+      }
       document.addEventListener("DOMContentLoaded", function () {
+        syncSwatch();
         var sidebar = document.querySelector(".docs-sidebar");
         if (!sidebar) return;
         var saved = sessionStorage.getItem("sidebar-scroll");
@@ -180,7 +189,18 @@ function head(title: string) {
   `;
 }
 
-function header(path: string) {
+async function fetchStars(): Promise<number | null> {
+  try {
+    const res = await fetch("https://api.github.com/repos/erikthalen/jazz");
+    const data = (await res.json()) as { stargazers_count?: number };
+    return data.stargazers_count ?? null;
+  } catch {
+    return null;
+  }
+}
+
+async function header(path: string) {
+  const stars = await fetchStars();
   return html`
     <header class="docs-header">
       <label
@@ -220,251 +240,164 @@ function header(path: string) {
       </a>
 
       <nav>
-        <a href="${url("/introduction")}" class="button ghost">Docs</a>
-        <a href="${url("/components/button")}" class="button ghost">
-          Components
+        <a href="${url("/introduction")}" class="button ghost">
+          ${raw(icon("book"))} Getting started
         </a>
-        <a href="${url("/blocks")}" class="button ghost">Blocks</a>
+        <a href="${url("/components/button")}" class="button ghost">
+          ${raw(icon("components"))} Components
+        </a>
+        <a href="${url("/blocks")}" class="button ghost">
+          ${raw(icon("layout"))} Blocks
+        </a>
         <button
           class="ghost"
           onclick="document.getElementById('icons-dialog').showModal()"
         >
-          Icons
+          ${raw(icon("icons"))} Icons
         </button>
       </nav>
-      <button
-        class="ghost square theme-toggle"
-        popovertarget="theme-menu"
-        aria-label="Toggle theme"
-        style="anchor-name:--theme-menu"
-        data-tooltip="bottom"
-      >
-        <svg
-          data-scheme="light"
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <circle cx="12" cy="12" r="4" />
-          <path
-            d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
-          />
-        </svg>
-        <svg
-          data-scheme="dark"
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-        </svg>
-        <svg
-          data-scheme="system"
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <rect width="20" height="14" x="2" y="3" rx="2" />
-          <path d="M8 21h8M12 17v4" />
-        </svg>
-      </button>
-      <div
-        id="theme-menu"
-        popover
-        class="theme-menu-popover"
-        data-tooltip="bottom right"
-      >
-        <menu>
-          <li>
-            <label>
-              <input
-                type="radio"
-                name="theme"
-                value="light"
-                onchange="applyColorScheme(this.value);document.getElementById('theme-menu').hidePopover()"
-              />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="12" cy="12" r="4" />
-                <path
-                  d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
-                />
-              </svg>
-              Light
-            </label>
-          </li>
-          <li>
-            <label>
-              <input
-                type="radio"
-                name="theme"
-                value="dark"
-                onchange="applyColorScheme(this.value);document.getElementById('theme-menu').hidePopover()"
-              />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-              </svg>
-              Dark
-            </label>
-          </li>
-          <li>
-            <label>
-              <input
-                type="radio"
-                name="theme"
-                value="system"
-                onchange="applyColorScheme(this.value);document.getElementById('theme-menu').hidePopover()"
-              />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <rect width="20" height="14" x="2" y="3" rx="2" />
-                <path d="M8 21h8M12 17v4" />
-              </svg>
-              System
-            </label>
-          </li>
-        </menu>
-      </div>
-      <div>
-        <button
-          class="ghost square"
-          popovertarget="color-picker"
-          aria-label="Change primary color"
-          data-tooltip="bottom"
-          style="anchor-name:--color-picker"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" />
-            <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" />
-            <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" />
-            <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" />
-            <path
-              d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"
+
+      <div style="display: flex; gap: 1rem; margin-left: auto;">
+        <fieldset role="group">
+          <label class="toggle square" aria-label="Light" data-tooltip="bottom">
+            <input
+              type="radio"
+              name="theme"
+              value="light"
+              onchange="applyColorScheme(this.value)"
             />
-          </svg>
-        </button>
-      </div>
-      <menu id="color-picker" popover class="color-picker-popover">
-        ${(
-          [
-            "dodgerblue",
-            "#7c3aed",
-            "#db2777",
-            "#dc2626",
-            "#ea580c",
-            "#16a34a",
-            "#0891b2",
-          ] as const
-        ).map(
-          (color) => html`
-            <li>
-              <button
-                class="color-swatch-btn"
-                style="background:${color}"
-                aria-label="${color}"
-                data-tooltip
-                onclick="
+            ${raw(icon("sun"))}
+          </label>
+          <label class="toggle square" aria-label="Dark" data-tooltip="bottom">
+            <input
+              type="radio"
+              name="theme"
+              value="dark"
+              onchange="applyColorScheme(this.value)"
+            />
+            ${raw(icon("moon"))}
+          </label>
+          <label
+            class="toggle square"
+            aria-label="System"
+            data-tooltip="bottom"
+          >
+            <input
+              type="radio"
+              name="theme"
+              value="system"
+              onchange="applyColorScheme(this.value)"
+            />
+            ${raw(icon("device-desktop"))}
+          </label>
+        </fieldset>
+        <div>
+          <button
+            class="secondary"
+            popovertarget="color-picker"
+            style="anchor-name:--color-picker"
+          >
+            ${raw(icon("palette"))} <small>Theme</small>
+          </button>
+        </div>
+        <menu id="color-picker" popover class="color-picker-popover">
+          ${(
+            [
+              { color: "dodgerblue", name: "Blue" },
+              { color: "#7c3aed", name: "Violet" },
+              { color: "#db2777", name: "Pink" },
+              { color: "#dc2626", name: "Red" },
+              { color: "#ea580c", name: "Orange" },
+              { color: "#16a34a", name: "Green" },
+              { color: "#0891b2", name: "Cyan" },
+            ] as const
+          ).map(
+            ({ color, name }) => html`
+              <li>
+                <button
+                  class="color-swatch-btn ghost"
+                  style="--swatch-color:${color}"
+                  aria-label="${name}"
+                  data-primary="light-dark(${color}, color-mix(in oklab, ${color}, white 20%))"
+                  onclick="
                   const val = 'light-dark(${color}, color-mix(in oklab, ${color}, white 20%))';
                   document.documentElement.style.setProperty('--jazz-primary', val);
                   localStorage.setItem('jazz-primary', val);
                   document.getElementById('color-picker').hidePopover();
+                  syncSwatch();
                 "
-              ></button>
-            </li>
-          `,
-        )}
-        <li>
-          <button
-            class="color-swatch-btn"
-            style="background:linear-gradient(135deg, #111 50%, #fff 50%);box-shadow: 0 0 0 1px var(--jazz-neutral-200) inset;"
-            aria-label="Black / White"
-            data-tooltip
-            onclick="
+                >
+                  <span class="swatch-circle"></span>
+                  <span class="swatch-name">${name}</span>
+                </button>
+              </li>
+            `,
+          )}
+          <li>
+            <button
+              class="color-swatch-btn ghost"
+              style="--swatch-color:linear-gradient(135deg, #111 50%, #fff 50%)"
+              aria-label="Mono"
+              data-primary="light-dark(#111111, #ffffff)"
+              onclick="
                 const val = 'light-dark(#111111, #ffffff)';
                 document.documentElement.style.setProperty('--jazz-primary', val);
                 localStorage.setItem('jazz-primary', val);
                 document.getElementById('color-picker').hidePopover();
+                syncSwatch();
               "
-          ></button>
-        </li>
-      </menu>
+            >
+              <span
+                class="swatch-circle"
+                style="box-shadow:0 0 0 1px var(--jazz-neutral-300) inset"
+              ></span>
+              <span class="swatch-name">Mono</span>
+            </button>
+          </li>
+          <li class="color-picker-custom">
+            <label class="field">
+              <span>Custom</span>
+              <input
+                type="color"
+                value="#6366f1"
+                oninput="
+                document.documentElement.style.setProperty('--jazz-primary', this.value);
+                localStorage.setItem('jazz-primary', this.value);
+              "
+              />
+            </label>
+          </li>
+        </menu>
 
-      <a
-        href="https://github.com/erikthalen/jazz"
-        target="_blank"
-        rel="noopener"
-        class="button ghost square"
-        aria-label="GitHub"
-        data-tooltip="bottom"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="currentColor"
+        <a
+          id="github-link"
+          href="https://github.com/erikthalen/jazz"
+          target="_blank"
+          rel="noopener"
+          class="button secondary ${stars === null ? "square" : ""}"
+          aria-label="GitHub"
+          data-tooltip="bottom"
         >
-          <path
-            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"
-          />
-        </svg>
-      </a>
+          ${raw(icon("brand-github"))}
+          <small id="github-stars" ${stars === null ? " hidden" : ""}
+            >${stars ?? ""}</small
+          >
+        </a>
+      </div>
+
+      <!-- <script>
+        fetch("https://api.github.com/repos/erikthalen/jazz")
+          .then(r => r.json())
+          .then(({ stargazers_count: n }) => {
+            if (!n) return;
+            const link = document.getElementById("github-link");
+            const small = document.getElementById("github-stars");
+            small.textContent = n;
+            small.removeAttribute("hidden");
+            link.classList.remove("square");
+          })
+          .catch(() => {});
+      </script> -->
     </header>
   `;
 }
@@ -501,101 +434,82 @@ export function Layout({ title, path, toc, wide, content }: LayoutProps) {
             <menu>
               <li><small>Sections</small></li>
               <li>
-                <small
-                  ><a
-                    class="button ghost"
-                    href="${url("/introduction")}"
-                    ${path === "/introduction" ? 'aria-current="page"' : ""}
-                    >Introduction</a
-                  ></small
+                <a
+                  class="button ghost"
+                  href="${url("/introduction")}"
+                  ${path === "/introduction" ? 'aria-current="page"' : ""}
                 >
+                  Introduction
+                </a>
               </li>
               <li>
-                <small
-                  ><a
-                    class="button ghost"
-                    href="${url("/customization")}"
-                    ${path === "/customization" ? 'aria-current="page"' : ""}
-                    >Customization</a
-                  ></small
+                <a
+                  class="button ghost"
+                  href="${url("/customization")}"
+                  ${path === "/customization" ? 'aria-current="page"' : ""}
                 >
+                  Customization
+                </a>
               </li>
               <li>
-                <small
-                  ><a
-                    class="button ghost"
-                    href="${url("/themes")}"
-                    ${path === "/themes" ? 'aria-current="page"' : ""}
-                    >Themes</a
-                  ></small
+                <a
+                  class="button ghost"
+                  href="${url("/themes")}"
+                  ${path === "/themes" ? 'aria-current="page"' : ""}
                 >
+                  Themes
+                </a>
               </li>
               <li>
-                <small
-                  ><a
-                    class="button ghost"
-                    href="${url("/icons")}"
-                    ${path === "/icons" ? 'aria-current="page"' : ""}
-                    >Icons</a
-                  ></small
+                <a
+                  class="button ghost"
+                  href="${url("/icons")}"
+                  ${path === "/icons" ? 'aria-current="page"' : ""}
                 >
+                  Icons
+                </a>
               </li>
               <li>
-                <small
-                  ><a
-                    class="button ghost"
-                    href="${url("/easings")}"
-                    ${path === "/easings" ? 'aria-current="page"' : ""}
-                    >Easings</a
-                  ></small
+                <a
+                  class="button ghost"
+                  href="${url("/easings")}"
+                  ${path === "/easings" ? 'aria-current="page"' : ""}
                 >
-              </li>
-              <!-- <li>
-                <small
-                  ><a
-                    class="button ghost"
-                    href="${url("/typography")}"
-                    ${path === "/typography" ? 'aria-current="page"' : ""}
-                    >Typography</a
-                  ></small
-                >
-              </li> -->
-              <li>
-                <small
-                  ><a
-                    class="button ghost"
-                    href="${url("/skills")}"
-                    ${path === "/skills" ? 'aria-current="page"' : ""}
-                    >Skills</a
-                  ></small
-                >
+                  Easings
+                </a>
               </li>
               <li>
-                <small
-                  ><a
-                    class="button ghost"
-                    href="${url("/llms.txt")}"
-                    target="_blank"
-                    rel="noopener"
-                    >llms.txt</a
-                  ></small
+                <a
+                  class="button ghost"
+                  href="${url("/skills")}"
+                  ${path === "/skills" ? 'aria-current="page"' : ""}
                 >
+                  Skills
+                </a>
+              </li>
+              <li>
+                <a
+                  class="button ghost"
+                  href="${url("/llms.txt")}"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  llms.txt
+                </a>
               </li>
               <li><small>Components</small></li>
               ${components.map(
                 (c) =>
                   html`<li>
-                    <small
-                      ><a
-                        class="button ghost"
-                        href="${url(c.path)}"
-                        ${path === c.path ? 'aria-current="page"' : ""}
-                        >${c.label}${c.badge
-                          ? html` <span class="badge ${c.badgeClass ?? ""}"
-                              >${c.badge}</span
-                            >`
-                          : ""}</a
-                      ></small
+                    <a
+                      class="button ghost"
+                      href="${url(c.path)}"
+                      ${path === c.path ? 'aria-current="page"' : ""}
+                      >${c.label}${c.badge
+                        ? html` <span class="badge ${c.badgeClass ?? ""}"
+                            >${c.badge}</span
+                          >`
+                        : ""}</a
                     >
                   </li>`,
               )}
@@ -603,14 +517,13 @@ export function Layout({ title, path, toc, wide, content }: LayoutProps) {
               ${blocks.map(
                 (b) =>
                   html`<li>
-                    <small
-                      ><a
-                        class="button ghost"
-                        href="${url(b.path)}"
-                        ${path === b.path ? 'aria-current="page"' : ""}
-                        >${b.label}</a
-                      ></small
+                    <a
+                      class="button ghost"
+                      href="${url(b.path)}"
+                      ${path === b.path ? 'aria-current="page"' : ""}
                     >
+                      ${b.label}
+                    </a>
                   </li>`,
               )}
             </menu>
@@ -621,7 +534,9 @@ export function Layout({ title, path, toc, wide, content }: LayoutProps) {
           ${toc && toc.length > 0
             ? html`
                 <aside class="docs-toc">
-                  <p class="sidebar-label">On This Page</p>
+                  <p class="sidebar-label">
+                    ${raw(icon("list-tree"))} On This Page
+                  </p>
                   <nav>
                     ${toc.map(
                       (item) => html`<a href="#${item.id}">${item.label}</a>`,

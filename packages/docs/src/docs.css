@@ -89,34 +89,16 @@ body:has(.sidebar-toggle:checked) .sidebar-backdrop {
   pointer-events: auto;
 }
 
-.theme-toggle {
-  margin-left: auto;
-}
-
-.theme-toggle [data-scheme] {
-  display: none;
-}
-
-html[data-theme="light"] .theme-toggle [data-scheme="light"],
-html[data-theme="dark"] .theme-toggle [data-scheme="dark"],
-html[data-theme="system"] .theme-toggle [data-scheme="system"] {
-  display: block;
-}
-
-.theme-menu-popover {
-  position-anchor: --theme-menu;
-}
-
 .color-picker-popover {
   position-anchor: --color-picker;
-  top: calc(var(--header-h) + 0.5rem);
-  right: 1rem;
+  top: calc(var(--header-h) - 0.5rem);
   left: unset;
   right: anchor(right);
   list-style: none;
-  padding: 0.5rem;
-  display: flex;
-  gap: 0.375rem;
+  padding: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.25rem;
   overflow: visible;
 }
 
@@ -125,16 +107,39 @@ html[data-theme="system"] .theme-toggle [data-scheme="system"] {
 }
 
 .color-swatch-btn {
-  transition: scale 100ms;
-  width: 1.25rem;
-  height: 1.25rem;
-  border-radius: 50%;
-  vertical-align: bottom;
-
-  padding: 0;
+  flex-direction: column;
 
   &:hover {
-    scale: 1.15;
+    background: var(--jazz-neutral-100);
+  }
+}
+
+.swatch-circle {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--swatch-color);
+  transition: scale 100ms;
+
+  .color-swatch-btn:hover & {
+    scale: 1.08;
+  }
+}
+
+.swatch-name {
+  font-size: 0.6875rem;
+  color: var(--jazz-neutral-600);
+  white-space: nowrap;
+}
+
+.color-picker-custom {
+  grid-column: 1 / -1;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--jazz-neutral-200);
+  margin-top: 0.25rem;
+
+  input[type="color"] {
+    width: 100%;
   }
 }
 
@@ -374,20 +379,21 @@ body:has(.sidebar-toggle:checked) .docs-sidebar {
 }
 
 .docs-toc .sidebar-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   margin-bottom: 0.5rem;
 }
 
 .docs-toc nav {
   display: flex;
   flex-direction: column;
-  gap: 0.125rem;
 }
 
 .docs-toc nav a {
-  font-size: 0.8125rem;
   color: var(--jazz-neutral-600);
   text-decoration: none;
-  padding: 0.2rem 0;
+  padding: 0.5rem 0;
 }
 
 .docs-toc nav a:hover {

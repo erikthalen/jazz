@@ -3,6 +3,7 @@
 
   display: grid;
   grid-template-rows: auto auto;
+  align-content: baseline;
   gap: var(--jazz-spacing-6);
 
   > header {
@@ -10,7 +11,6 @@
     display: flex;
     width: fit-content;
 
-    /* border-bottom: 2px solid var(--jazz-neutral-200); */
     background-color: var(--jazz-neutral-100);
     border-radius: 8px;
 
@@ -45,7 +45,7 @@
       gap: var(--jazz-spacing-2);
       padding-block: var(--jazz-spacing-2);
       padding-inline: var(--jazz-spacing-4);
-      color: var(--jazz-neutral-500);
+      color: var(--jazz-neutral-800);
       white-space: nowrap;
       transition: color 100ms;
       line-height: 1.14286rem;
@@ -60,7 +60,7 @@
 
       @media (hover: hover) {
         &:hover {
-          color: var(--jazz-neutral-700);
+          color: var(--jazz-neutral-950);
         }
       }
 
@@ -71,7 +71,7 @@
       &:has(input:focus-visible) {
         outline: 2px solid var(--jazz-neutral-950);
         outline-offset: 2px;
-        border-radius: 8px 8px 0 0;
+        border-radius: 8px;
       }
 
       &:has(input:disabled) {

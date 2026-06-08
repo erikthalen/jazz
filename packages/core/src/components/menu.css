@@ -58,22 +58,24 @@ menu {
       }
     }
 
-    &::after {
-      content: "";
-      display: inline-block;
-      background-color: currentColor;
-      mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
-      mask-size: 1rem;
-      mask-repeat: no-repeat;
-      mask-position: center;
-      width: 1rem;
-      height: 1rem;
-      visibility: hidden;
-      margin-left: auto;
-    }
+    &:has(input[type="checkbox"], input[type="radio"]) {
+      &::after {
+        content: "";
+        display: inline-block;
+        background-color: currentColor;
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+        mask-size: 1rem;
+        mask-repeat: no-repeat;
+        mask-position: center;
+        width: 1rem;
+        height: 1rem;
+        visibility: hidden;
+        margin-left: auto;
+      }
 
-    &:has(input:checked)::after {
-      visibility: visible;
+      &:has(input:checked)::after {
+        visibility: visible;
+      }
     }
   }
 
