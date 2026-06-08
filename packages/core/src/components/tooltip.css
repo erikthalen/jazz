@@ -1,103 +1,101 @@
-@layer jazz {
-  [aria-label]:not(input, select, textarea) {
-    position: relative;
+[aria-label]:not(input, select, textarea) {
+  position: relative;
 
-    &::before,
-    &::after {
-      position: absolute;
-      z-index: 2147483647;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 100ms;
-    }
+  &::before,
+  &::after {
+    position: absolute;
+    z-index: 2147483647;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 100ms;
+  }
 
-    &::before {
-      content: attr(aria-label);
-      background: var(--jazz-neutral-950);
-      color: var(--jazz-neutral-50);
-      padding: 0.4em 0.75em;
-      border-radius: 6px;
-      font-size: 0.875rem;
-      line-height: 1.4;
-      white-space: nowrap;
-    }
+  &::before {
+    content: attr(aria-label);
+    background: var(--jazz-neutral-950);
+    color: var(--jazz-neutral-50);
+    padding: 0.4em 0.75em;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
 
-    &::after {
-      content: "";
-      width: 8px;
-      height: 8px;
-      rotate: 45deg;
-      background: var(--jazz-neutral-950);
-    }
+  &::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    rotate: 45deg;
+    background: var(--jazz-neutral-950);
+  }
 
-    /* top (default) */
-    &:not([data-placement])::before,
-    &[data-placement="top"]::before {
-      bottom: calc(100% + 0.5rem);
-      left: 50%;
-      translate: -50% 0;
-    }
-    &:not([data-placement])::after,
-    &[data-placement="top"]::after {
-      bottom: calc(100% + 0.5rem);
-      left: 50%;
-      translate: -50% 50%;
-      mask-image: linear-gradient(-45deg, black 51%, transparent 50%);
-      border-end-end-radius: 2px;
-    }
+  /* top (default) */
+  &:not([data-placement])::before,
+  &[data-placement="top"]::before {
+    bottom: calc(100% + 0.5rem);
+    left: 50%;
+    translate: -50% 0;
+  }
+  &:not([data-placement])::after,
+  &[data-placement="top"]::after {
+    bottom: calc(100% + 0.5rem);
+    left: 50%;
+    translate: -50% 50%;
+    mask-image: linear-gradient(-45deg, black 51%, transparent 50%);
+    border-end-end-radius: 2px;
+  }
 
-    /* bottom */
-    &[data-placement="bottom"]::before {
-      top: calc(100% + 0.5rem);
-      left: 50%;
-      translate: -50% 0;
-    }
-    &[data-placement="bottom"]::after {
-      top: calc(100% + 0.5rem);
-      left: 50%;
-      translate: -50% -50%;
-      mask-image: linear-gradient(-45deg, transparent 50%, black 50%);
-      border-start-start-radius: 2px;
-    }
+  /* bottom */
+  &[data-placement="bottom"]::before {
+    top: calc(100% + 0.5rem);
+    left: 50%;
+    translate: -50% 0;
+  }
+  &[data-placement="bottom"]::after {
+    top: calc(100% + 0.5rem);
+    left: 50%;
+    translate: -50% -50%;
+    mask-image: linear-gradient(-45deg, transparent 50%, black 50%);
+    border-start-start-radius: 2px;
+  }
 
-    /* left */
-    &[data-placement="left"]::before {
-      right: calc(100% + 0.5rem);
-      top: 50%;
-      translate: 0 -50%;
-    }
-    &[data-placement="left"]::after {
-      right: calc(100% + 0.5rem);
-      top: 50%;
-      translate: 50% -50%;
-      mask-image: linear-gradient(45deg, transparent 50%, black 50%);
-      border-start-end-radius: 2px;
-    }
+  /* left */
+  &[data-placement="left"]::before {
+    right: calc(100% + 0.5rem);
+    top: 50%;
+    translate: 0 -50%;
+  }
+  &[data-placement="left"]::after {
+    right: calc(100% + 0.5rem);
+    top: 50%;
+    translate: 50% -50%;
+    mask-image: linear-gradient(45deg, transparent 50%, black 50%);
+    border-start-end-radius: 2px;
+  }
 
-    /* right */
-    &[data-placement="right"]::before {
-      left: calc(100% + 0.5rem);
-      top: 50%;
-      translate: 0 -50%;
-    }
-    &[data-placement="right"]::after {
-      left: calc(100% + 0.5rem);
-      top: 50%;
-      translate: -50% -50%;
-      mask-image: linear-gradient(45deg, black 50%, transparent 50%);
-      border-end-start-radius: 2px;
-    }
+  /* right */
+  &[data-placement="right"]::before {
+    left: calc(100% + 0.5rem);
+    top: 50%;
+    translate: 0 -50%;
+  }
+  &[data-placement="right"]::after {
+    left: calc(100% + 0.5rem);
+    top: 50%;
+    translate: -50% -50%;
+    mask-image: linear-gradient(45deg, black 50%, transparent 50%);
+    border-end-start-radius: 2px;
+  }
 
-    @media (hover: hover) {
-      &:hover::before,
-      &:hover::after {
-        opacity: 1;
-      }
-    }
-
-    &:focus-visible::before,
-    &:focus-visible::after {
+  @media (hover: hover) {
+    &:hover::before,
+    &:hover::after {
       opacity: 1;
     }
+  }
+
+  &:focus-visible::before,
+  &:focus-visible::after {
+    opacity: 1;
   }
 }

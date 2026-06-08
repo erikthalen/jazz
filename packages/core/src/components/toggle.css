@@ -1,55 +1,80 @@
-@layer jazz {
-  label:not(.field).toggle {
-    display: inline-grid;
-    text-align: center;
-    grid-auto-flow: column;
-    align-items: center;
-    gap: var(--jazz-spacing);
-    padding-block: var(--jazz-spacing-2);
-    padding-inline: var(--jazz-spacing-3);
-    border-radius: var(--jazz-spacing-3);
-    box-shadow: 0 0 0 1px var(--jazz-neutral-200) inset;
-    cursor: pointer;
-    user-select: none;
-    interpolate-size: allow-keywords;
+label:not(.field).toggle {
+  display: inline-grid;
+  text-align: center;
+  grid-auto-flow: column;
+  align-items: center;
+  gap: var(--jazz-spacing);
+  padding-block: var(--jazz-spacing-2);
+  padding-inline: var(--jazz-spacing-3);
+  border-radius: var(--jazz-spacing-3);
+  box-shadow: 0 0 0 1px var(--jazz-neutral-200) inset;
+  cursor: pointer;
+  user-select: none;
+  interpolate-size: allow-keywords;
+  transition:
+    background-color 100ms,
+    box-shadow 100ms,
+    color 100ms,
+    grid-template-columns var(--toggle-duration) var(--ease-glide);
+
+  --toggle-duration: 150ms;
+
+  font-weight: 500;
+  line-height: calc(16 / 14 * 1rem);
+
+  > input[type="checkbox"],
+  > input[type="radio"] {
+    appearance: none;
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+  }
+
+  svg {
+    transition: background-color 100ms;
+  }
+
+  [data-checked],
+  [data-unchecked] {
+    overflow: hidden;
+    white-space: nowrap;
     transition:
-      background-color 100ms,
-      box-shadow 100ms,
-      color 100ms,
-      grid-template-columns var(--toggle-duration) var(--ease-glide);
+      opacity var(--toggle-duration) ease,
+      scale var(--toggle-duration) ease,
+      display var(--toggle-duration) allow-discrete;
+  }
 
-    --toggle-duration: 150ms;
+  [data-unchecked] {
+    grid-column: 1;
+    grid-row: 1;
+    display: revert;
+    opacity: 1;
+    scale: 1;
 
-    font-weight: 500;
-    line-height: calc(16 / 14 * 1rem);
-
-    > input[type="checkbox"],
-    > input[type="radio"] {
-      appearance: none;
-      position: absolute;
+    @starting-style {
       opacity: 0;
-      width: 0;
-      height: 0;
-      pointer-events: none;
+      scale: 0.75;
     }
+  }
 
-    svg {
-      transition: background-color 100ms;
-    }
+  [data-checked] {
+    grid-column: 1;
+    grid-row: 1;
+    display: none;
+    opacity: 0;
+    scale: 0.75;
+  }
 
-    [data-checked],
-    [data-unchecked] {
-      overflow: hidden;
-      white-space: nowrap;
-      transition:
-        opacity var(--toggle-duration) ease,
-        scale var(--toggle-duration) ease,
-        display var(--toggle-duration) allow-discrete;
-    }
+  /* &:has([data-unchecked]) {
+    grid-template-columns: max-content 0px;
+  } */
 
-    [data-unchecked] {
-      grid-column: 1;
-      grid-row: 1;
+  &:has(> input:checked) {
+    background-color: var(--jazz-neutral-100);
+
+    [data-checked] {
       display: revert;
       opacity: 1;
       scale: 1;
@@ -60,72 +85,45 @@
       }
     }
 
-    [data-checked] {
-      grid-column: 1;
-      grid-row: 1;
+    [data-unchecked] {
       display: none;
       opacity: 0;
       scale: 0.75;
     }
 
     /* &:has([data-unchecked]) {
-      grid-template-columns: max-content 0px;
+      grid-template-columns: 0px max-content;
     } */
+  }
 
-    &:has(> input:checked) {
-      background-color: var(--jazz-neutral-100);
+  &.ghost {
+    background-color: transparent;
+    box-shadow: 0 0 0 1px transparent inset;
+  }
 
-      [data-checked] {
-        display: revert;
-        opacity: 1;
-        scale: 1;
+  &.ghost:has(> input:checked) {
+    background-color: var(--jazz-neutral-100);
+    box-shadow: 0 0 0 1px transparent inset;
+  }
 
-        @starting-style {
-          opacity: 0;
-          scale: 0.75;
-        }
-      }
-
-      [data-unchecked] {
-        display: none;
-        opacity: 0;
-        scale: 0.75;
-      }
-
-      /* &:has([data-unchecked]) {
-        grid-template-columns: 0px max-content;
-      } */
+  &.fill:has(> input:checked) {
+    svg {
+      fill: currentColor;
+      color: var(--jazz-primary);
     }
+  }
 
-    &.ghost {
-      background-color: transparent;
-      box-shadow: 0 0 0 1px transparent inset;
-    }
+  &:has(:focus-visible) {
+    outline: 2px solid var(--jazz-neutral-950);
+    outline-offset: 2px;
+  }
 
-    &.ghost:has(> input:checked) {
-      background-color: var(--jazz-neutral-100);
-      box-shadow: 0 0 0 1px transparent inset;
-    }
+  &:has(> input:disabled) {
+    opacity: 0.4;
+    cursor: default;
+  }
 
-    &.fill:has(> input:checked) {
-      svg {
-        fill: currentColor;
-        color: var(--jazz-primary);
-      }
-    }
-
-    &:has(:focus-visible) {
-      outline: 2px solid var(--jazz-neutral-950);
-      outline-offset: 2px;
-    }
-
-    &:has(> input:disabled) {
-      opacity: 0.4;
-      cursor: default;
-    }
-
-    &.square {
-      padding-inline: var(--jazz-spacing-2);
-    }
+  &.square {
+    padding-inline: var(--jazz-spacing-2);
   }
 }

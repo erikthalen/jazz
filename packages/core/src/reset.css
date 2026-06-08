@@ -1,79 +1,77 @@
-@layer jazz-reset {
-  :root {
-    interpolate-size: allow-keywords;
+:root {
+  interpolate-size: allow-keywords;
 
-    font-family: system-ui;
-    font-size: 14px;
-    text-rendering: geometricPrecision;
-    -webkit-font-smoothing: antialiased;
-    -webkit-tap-highlight-color: transparent;
-    -moz-osx-font-smoothing: grayscale;
-    text-size-adjust: 100%;
+  font-family: system-ui;
+  font-size: 14px;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+:where(*) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-wrap-style: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap-style: balance;
+  font-weight: 600;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+ul li,
+ol li {
+  list-style: revert;
+}
+
+a {
+  color: var(--jazz-primary);
+}
+
+img {
+  vertical-align: middle;
+  object-fit: cover;
+  max-width: 100%;
+}
+
+svg {
+  width: 1lh;
+  height: 1lh;
+}
+
+::selection {
+  background-color: var(--jazz-neutral-200);
+}
+
+input[type="number"] {
+  appearance: textfield;
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    appearance: none;
   }
+}
 
-  html {
-    scrollbar-gutter: stable;
-  }
-
-  :where(*) {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-wrap-style: pretty;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    text-wrap-style: balance;
-    font-weight: 600;
-  }
-
-  ul,
-  ol,
-  li {
-    list-style: none;
-  }
-
-  ul li,
-  ol li {
-    list-style: revert;
-  }
-
-  a {
-    color: var(--jazz-primary);
-  }
-
-  img {
-    vertical-align: middle;
-    object-fit: cover;
-    max-width: 100%;
-  }
-
-  svg {
-    width: 1lh;
-    height: 1lh;
-  }
-
-  ::selection {
-    background-color: var(--jazz-neutral-200);
-  }
-
-  input[type="number"] {
-    appearance: textfield;
-
-    &::-webkit-inner-spin-button,
-    &::-webkit-outer-spin-button {
-      appearance: none;
-    }
-  }
-
-  a:focus-visible {
-    border-radius: 8px;
-    outline: 2px solid var(--jazz-neutral-950);
-    outline-offset: 2px;
-  }
+a:focus-visible {
+  border-radius: 8px;
+  outline: 2px solid var(--jazz-neutral-950);
+  outline-offset: 2px;
 }

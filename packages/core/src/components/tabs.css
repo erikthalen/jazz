@@ -1,0 +1,107 @@
+.tabs {
+  width: stretch;
+
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: var(--jazz-spacing-6);
+
+  > header {
+    display: flex;
+    width: stretch;
+
+    border-bottom: 2px solid var(--jazz-neutral-200);
+
+    anchor-name: --hovered-link;
+    anchor-scope: --hovered-link;
+
+    > label:has(input:checked) {
+      anchor-name: --hovered-link;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: calc(anchor(bottom) - 0px);
+      left: anchor(left);
+      right: anchor(right);
+      bottom: calc(anchor(bottom) - 2px);
+
+      border-radius: 10px;
+      background-color: var(--jazz-primary);
+      pointer-events: none;
+
+      position-anchor: --hovered-link;
+
+      transition: var(--ease-glide) 200ms;
+    }
+
+    > label {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--jazz-spacing-2);
+      padding-block: var(--jazz-spacing-2);
+      padding-inline: var(--jazz-spacing-4);
+      color: var(--jazz-neutral-500);
+      white-space: nowrap;
+      user-select: none;
+      transition: color 100ms;
+
+      > input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          color: var(--jazz-text-color);
+        }
+      }
+
+      &:has(input:checked) {
+        color: var(--jazz-primary);
+      }
+
+      &:has(input:focus-visible) {
+        outline: 2px solid var(--jazz-neutral-950);
+        outline-offset: 2px;
+        border-radius: 8px 8px 0 0;
+      }
+
+      &:has(input:disabled) {
+        opacity: 0.4;
+        cursor: default;
+        pointer-events: none;
+      }
+    }
+  }
+
+  /* Panels go after the tab strip <header> */
+  > *:not(header) {
+    transition:
+      opacity 150ms var(--ease-glide),
+      display 150ms ease allow-discrete;
+
+    display: none;
+    opacity: 0;
+
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  &:has(> header label:nth-of-type(1) input:checked) > *:not(header):nth-of-type(1),
+  &:has(> header label:nth-of-type(2) input:checked) > *:not(header):nth-of-type(2),
+  &:has(> header label:nth-of-type(3) input:checked) > *:not(header):nth-of-type(3),
+  &:has(> header label:nth-of-type(4) input:checked) > *:not(header):nth-of-type(4),
+  &:has(> header label:nth-of-type(5) input:checked) > *:not(header):nth-of-type(5),
+  &:has(> header label:nth-of-type(6) input:checked) > *:not(header):nth-of-type(6),
+  &:has(> header label:nth-of-type(7) input:checked) > *:not(header):nth-of-type(7),
+  &:has(> header label:nth-of-type(8) input:checked) > *:not(header):nth-of-type(8) {
+    display: block;
+    opacity: 1;
+
+    @starting-style {
+      opacity: 0;
+    }
+  }
+}

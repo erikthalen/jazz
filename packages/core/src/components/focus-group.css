@@ -1,14 +1,12 @@
-@layer jazz {
-  [data-focus-within] {
-    [data-focus]:focus-visible {
-      outline: none;
-      box-shadow: none;
-    }
+[data-focus-within] {
+  [data-focus]:focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
 
-    &:has([data-focus]:focus-visible) {
-      border-radius: var(--jazz-spacing-2);
-      outline: 2px solid var(--jazz-neutral-950);
-      outline-offset: 2px;
-    }
+  &:has([data-focus]:focus-visible) {
+    border-radius: var(--jazz-spacing-2);
+    outline: 2px solid var(--jazz-neutral-950);
+    outline-offset: 2px;
   }
 }

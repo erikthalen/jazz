@@ -1,199 +1,197 @@
-@layer jazz {
-  /* @keyframes prevent-scroll {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  } */
+/* @keyframes prevent-scroll {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+} */
 
-  input[type="text"],
-  input[type="email"],
-  input[type="search"],
-  input[type="password"],
-  input[type="number"],
-  input[type="tel"],
-  input[type="url"],
-  input[type="date"],
-  input[type="time"],
-  input[type="datetime-local"],
-  input[type="month"],
-  input[type="week"] {
-    appearance: none;
-    border: none;
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"] {
+  appearance: none;
+  border: none;
 
-    background-color: transparent;
-    box-shadow: 0 0 0 1px var(--jazz-neutral-200) inset;
+  background-color: transparent;
+  box-shadow: 0 0 0 1px var(--jazz-neutral-200) inset;
 
-    padding-block: var(--jazz-spacing-2);
-    padding-inline: var(--jazz-spacing-3);
-    border-radius: var(--jazz-spacing-2);
+  padding-block: var(--jazz-spacing-2);
+  padding-inline: var(--jazz-spacing-3);
+  border-radius: var(--jazz-spacing-2);
 
-    font: inherit;
-    line-height: calc((16 / 14) * 1rem);
+  font: inherit;
+  line-height: calc((16 / 14) * 1rem);
 
-    transition-property: padding-inline-start;
-    transition-duration: 150ms;
-    transition-timing-function: var(--ease-glide);
+  transition-property: padding-inline-start;
+  transition-duration: 150ms;
+  transition-timing-function: var(--ease-glide);
 
-    &:focus-visible {
-      box-shadow: 0 0 0 1px currentColor inset;
-      outline: none;
+  &:focus-visible {
+    box-shadow: 0 0 0 1px currentColor inset;
+    outline: none;
+  }
+}
+
+label:has([data-suffix]) input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  appearance: none;
+  width: 1em;
+  height: 1em;
+  cursor: pointer;
+  background-color: var(--jazz-neutral-400);
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 6l-12 12'/%3E%3Cpath d='M6 6l12 12'/%3E%3C/svg%3E");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+/* Input with leading/trailing adornments (svg, kbd, button, etc.) */
+label:not(.toggle):has(> [data-prefix], > [data-suffix]) {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  cursor: text;
+
+  /* Input spans all columns as the full-width background */
+  > input:is([type="text"], [type="email"], [type="search"], [type="password"], [type="number"], [type="tel"], [type="url"], :not([type])) {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  /* Adornments sit on top */
+  > [data-prefix],
+  > [data-suffix] {
+    grid-row: 1;
+    position: relative;
+    z-index: 1;
+  }
+
+  > [data-prefix]:not(button),
+  > [data-suffix]:not(button) {
+    color: var(--jazz-neutral-400);
+  }
+
+  > [data-prefix] {
+    grid-column: 1;
+    margin-inline: var(--jazz-spacing-3) var(--jazz-spacing-2);
+    transition: opacity 150ms var(--ease-glide);
+  }
+
+  > [data-suffix]:last-child {
+    grid-column: 4;
+    margin-inline: var(--jazz-spacing-2) var(--jazz-spacing-3);
+  }
+
+  > [data-suffix]:not(:last-child) {
+    grid-column: 3;
+    margin-inline: var(--jazz-spacing-2) 0;
+  }
+
+  > button[data-suffix] {
+    padding: var(--jazz-spacing-2) var(--jazz-spacing-2);
+    font-size: smaller;
+    height: calc(100% - 8px);
+    border-radius: 4px;
+
+    &:last-child {
+      margin-inline-end: 4px;
     }
   }
 
-  label:has([data-suffix]) input[type="search"]::-webkit-search-cancel-button {
-    display: none;
-  }
-
-  input[type="search"]::-webkit-search-cancel-button {
-    appearance: none;
+  /* Spinner always rendered in column 1; crossfades with data-prefix */
+  &::before {
+    content: "";
+    display: block;
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 2;
+    position: relative;
     width: 1em;
     height: 1em;
-    cursor: pointer;
     background-color: var(--jazz-neutral-400);
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 6l-12 12'/%3E%3Cpath d='M6 6l12 12'/%3E%3C/svg%3E");
+    mask-image: var(--jazz-loading);
     mask-size: contain;
     mask-repeat: no-repeat;
-    mask-position: center;
+    margin-inline: var(--jazz-spacing-3) var(--jazz-spacing-2);
+    opacity: 0;
+    transition: opacity 150ms var(--ease-glide);
   }
 
-  /* Input with leading/trailing adornments (svg, kbd, button, etc.) */
-  label:not(.toggle):has(> [data-prefix], > [data-suffix]) {
-    display: grid;
-    grid-template-columns: auto 1fr auto auto;
-    align-items: center;
-    cursor: text;
-
-    /* Input spans all columns as the full-width background */
-    > input:is([type="text"], [type="email"], [type="search"], [type="password"], [type="number"], [type="tel"], [type="url"], :not([type])) {
-      grid-column: 1 / -1;
-      grid-row: 1;
-    }
-
-    /* Adornments sit on top */
-    > [data-prefix],
-    > [data-suffix] {
-      grid-row: 1;
-      position: relative;
-      z-index: 1;
-    }
-
-    > [data-prefix]:not(button),
-    > [data-suffix]:not(button) {
-      color: var(--jazz-neutral-400);
-    }
-
+  &:has(> input[aria-busy="true"]) {
     > [data-prefix] {
-      grid-column: 1;
-      margin-inline: var(--jazz-spacing-3) var(--jazz-spacing-2);
-      transition: opacity 150ms var(--ease-glide);
-    }
-
-    > [data-suffix]:last-child {
-      grid-column: 4;
-      margin-inline: var(--jazz-spacing-2) var(--jazz-spacing-3);
-    }
-
-    > [data-suffix]:not(:last-child) {
-      grid-column: 3;
-      margin-inline: var(--jazz-spacing-2) 0;
-    }
-
-    > button[data-suffix] {
-      padding: var(--jazz-spacing-2) var(--jazz-spacing-2);
-      font-size: smaller;
-      height: calc(100% - 8px);
-      border-radius: 4px;
-
-      &:last-child {
-        margin-inline-end: 4px;
-      }
-    }
-
-    /* Spinner always rendered in column 1; crossfades with data-prefix */
-    &::before {
-      content: "";
-      display: block;
-      grid-column: 1;
-      grid-row: 1;
-      z-index: 2;
-      position: relative;
-      width: 1em;
-      height: 1em;
-      background-color: var(--jazz-neutral-400);
-      mask-image: var(--jazz-loading);
-      mask-size: contain;
-      mask-repeat: no-repeat;
-      margin-inline: var(--jazz-spacing-3) var(--jazz-spacing-2);
       opacity: 0;
-      transition: opacity 150ms var(--ease-glide);
     }
-
-    &:has(> input[aria-busy="true"]) {
-      > [data-prefix] {
-        opacity: 0;
-      }
-      &::before {
-        opacity: 1;
-      }
-    }
-  }
-
-  /* aria-busy spinner for inputs without adornments */
-  label:not(.toggle):not(:has(> [data-prefix], > [data-suffix])):has(> input[aria-busy="true"]) {
     &::before {
       opacity: 1;
     }
   }
+}
 
-  label:not(.toggle):not(:has(> [data-prefix], > [data-suffix])):has(> input[aria-busy="true"]) {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: center;
-    cursor: text;
+/* aria-busy spinner for inputs without adornments */
+label:not(.toggle):not(:has(> [data-prefix], > [data-suffix])):has(> input[aria-busy="true"]) {
+  &::before {
+    opacity: 1;
+  }
+}
 
-    &::before {
-      content: "";
-      display: block;
-      grid-column: 1;
-      grid-row: 1;
-      z-index: 1;
-      position: relative;
-      width: 1em;
-      height: 1em;
-      background-color: var(--jazz-neutral-400);
-      mask-image: var(--jazz-loading);
-      mask-size: contain;
-      mask-repeat: no-repeat;
-      margin-inline: var(--jazz-spacing-3) var(--jazz-spacing-2);
-      transition: opacity 150ms var(--ease-glide);
+label:not(.toggle):not(:has(> [data-prefix], > [data-suffix])):has(> input[aria-busy="true"]) {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  cursor: text;
 
-      @starting-style {
-        opacity: 0;
-      }
+  &::before {
+    content: "";
+    display: block;
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 1;
+    position: relative;
+    width: 1em;
+    height: 1em;
+    background-color: var(--jazz-neutral-400);
+    mask-image: var(--jazz-loading);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    margin-inline: var(--jazz-spacing-3) var(--jazz-spacing-2);
+    transition: opacity 150ms var(--ease-glide);
+
+    @starting-style {
+      opacity: 0;
     }
-
-    > input:is([type="text"], [type="email"], [type="search"], [type="password"], [type="number"], [type="tel"], [type="url"], :not([type])) {
-      grid-column: 1 / -1;
-      grid-row: 1;
-      padding-inline-start: calc(var(--jazz-spacing-3) + 1rem + var(--jazz-spacing-2));
-    }
   }
 
-  /* Offset input text to clear leading adornment */
-  label:not(.toggle):has(> [data-prefix]) > input:is([type="text"], [type="email"], [type="search"], [type="password"], [type="number"], [type="tel"], [type="url"], :not([type])) {
-    padding-inline-start: calc(var(--jazz-spacing-3) + 1lh + var(--jazz-spacing-2));
+  > input:is([type="text"], [type="email"], [type="search"], [type="password"], [type="number"], [type="tel"], [type="url"], :not([type])) {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    padding-inline-start: calc(var(--jazz-spacing-3) + 1rem + var(--jazz-spacing-2));
   }
+}
 
-  /* Offset input text to clear one trailing adornment */
-  label:not(.toggle):has(> [data-suffix]) > input:is([type="text"], [type="email"], [type="search"], [type="password"], [type="number"], [type="tel"], [type="url"], :not([type])) {
-    padding-inline-end: calc(var(--jazz-spacing-3) + 1lh + var(--jazz-spacing-2));
-  }
+/* Offset input text to clear leading adornment */
+label:not(.toggle):has(> [data-prefix]) > input:is([type="text"], [type="email"], [type="search"], [type="password"], [type="number"], [type="tel"], [type="url"], :not([type])) {
+  padding-inline-start: calc(var(--jazz-spacing-3) + 1lh + var(--jazz-spacing-2));
+}
 
-  /* Offset input text to clear two trailing adornments */
-  label:not(.toggle):has(> [data-suffix]:not(:last-child)) > input:is([type="text"], [type="email"], [type="search"], [type="password"], [type="number"], [type="tel"], [type="url"], :not([type])) {
-    padding-inline-end: calc(var(--jazz-spacing-3) + 2lh + var(--jazz-spacing-2));
-  }
+/* Offset input text to clear one trailing adornment */
+label:not(.toggle):has(> [data-suffix]) > input:is([type="text"], [type="email"], [type="search"], [type="password"], [type="number"], [type="tel"], [type="url"], :not([type])) {
+  padding-inline-end: calc(var(--jazz-spacing-3) + 1lh + var(--jazz-spacing-2));
+}
+
+/* Offset input text to clear two trailing adornments */
+label:not(.toggle):has(> [data-suffix]:not(:last-child)) > input:is([type="text"], [type="email"], [type="search"], [type="password"], [type="number"], [type="tel"], [type="url"], :not([type])) {
+  padding-inline-end: calc(var(--jazz-spacing-3) + 2lh + var(--jazz-spacing-2));
 }

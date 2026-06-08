@@ -1,70 +1,68 @@
-@layer jazz {
-  .prose {
-    > * + * {
-      margin-block-start: 1em;
-    }
+.prose {
+  > * + * {
+    margin-block-start: 1em;
+  }
 
-    > h1,
-    > h2,
-    > h3,
-    > h4,
-    > h5,
-    > h6 {
-      line-height: 1.4;
-    }
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
+    line-height: 1.4;
+  }
 
-    p {
-      line-height: 1.6;
-      max-width: 65ch;
-    }
+  p {
+    line-height: 1.6;
+    max-width: 65ch;
+  }
 
-    > ul,
-    > ol {
-      list-style: revert;
-      list-style-position: outside;
+  > ul,
+  > ol {
+    list-style: revert;
+    list-style-position: outside;
 
-      display: flex;
-      flex-direction: column;
-      gap: 0.5lh;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5lh;
 
-      margin-block: 1.61em;
+    margin-block: 1.61em;
 
-      li {
-        margin-inline-start: 1.5em;
+    li {
+      margin-inline-start: 1.5em;
 
-        &::marker {
-          color: var(--jazz-neutral-400);
-          font-variant-numeric: tabular-nums;
-        }
+      &::marker {
+        color: var(--jazz-neutral-400);
+        font-variant-numeric: tabular-nums;
       }
     }
+  }
 
-    > blockquote {
-      border-inline-start: 3px solid var(--jazz-neutral-200);
-      padding-inline-start: var(--jazz-spacing-4);
+  > blockquote {
+    border-inline-start: 3px solid var(--jazz-neutral-200);
+    padding-inline-start: var(--jazz-spacing-4);
 
-      margin-block: 1.61em;
+    margin-block: 1.61em;
 
-      footer,
-      cite {
-        display: block;
-        margin-top: var(--jazz-spacing-2);
-        color: var(--jazz-neutral-500);
-        font-style: italic;
-      }
+    footer,
+    cite {
+      display: block;
+      margin-top: var(--jazz-spacing-2);
+      color: var(--jazz-neutral-500);
+      font-style: italic;
     }
+  }
 
-    > hgroup {
-      margin-block-end: 1.61em;
+  > hgroup {
+    margin-block-end: 1.61em;
 
-      > p {
-        margin-block-start: 0.61em;
-        color: var(--jazz-neutral-500);
-      }
+    > p {
+      margin-block-start: 0.61em;
+      color: var(--jazz-neutral-500);
     }
+  }
 
-    a:not(.button) {
-      color: var(--jazz-primary);
-    }
+  a:not(.button) {
+    color: var(--jazz-primary);
   }
 }

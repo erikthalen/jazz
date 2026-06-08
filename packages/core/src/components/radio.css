@@ -1,50 +1,48 @@
-@layer jazz {
-  label:has(> input:where([type="radio"])) {
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-    cursor: pointer;
-    user-select: none;
+label:has(> input:where([type="radio"])) {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  cursor: pointer;
+  user-select: none;
 
-    &:has(> input:disabled) {
-      opacity: 0.4;
-      cursor: default;
-    }
+  &:has(> input:disabled) {
+    opacity: 0.4;
+    cursor: default;
+  }
+}
+
+input[type="radio"] {
+  appearance: none;
+  width: 16px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1.5px var(--jazz-neutral-300) inset;
+  background-color: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition:
+    background-color 100ms,
+    box-shadow 100ms;
+
+  &:checked {
+    background-color: var(--jazz-primary);
+    box-shadow: 0 0 0 1.5px var(--jazz-primary) inset;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-8 -8 40 40' overflow='visible'%3E%3Crect x='-100' y='-100' width='200' height='200' fill='white'/%3E%3Ccircle cx='12' cy='12' r='6' fill='black'/%3E%3C/svg%3E");
+    mask-mode: luminance;
+    mask-size: 24px;
+    mask-position: 50%;
+    mask-repeat: no-repeat;
+    mask-clip: no-clip;
   }
 
-  input[type="radio"] {
-    appearance: none;
-    width: 16px;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    box-shadow: 0 0 0 1.5px var(--jazz-neutral-300) inset;
-    background-color: transparent;
-    cursor: pointer;
-    flex-shrink: 0;
-    transition:
-      background-color 100ms,
-      box-shadow 100ms;
+  &:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
 
-    &:checked {
-      background-color: var(--jazz-primary);
-      box-shadow: 0 0 0 1.5px var(--jazz-primary) inset;
-      mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-8 -8 40 40' overflow='visible'%3E%3Crect x='-100' y='-100' width='200' height='200' fill='white'/%3E%3Ccircle cx='12' cy='12' r='6' fill='black'/%3E%3C/svg%3E");
-      mask-mode: luminance;
-      mask-size: 24px;
-      mask-position: 50%;
-      mask-repeat: no-repeat;
-      mask-clip: no-clip;
-    }
-
-    &:disabled {
-      opacity: 0.4;
-      cursor: default;
-    }
-
-    &:focus-visible {
-      border-radius: 8px;
-      outline: 2px solid var(--jazz-neutral-950);
-      outline-offset: 2px;
-    }
+  &:focus-visible {
+    border-radius: 8px;
+    outline: 2px solid var(--jazz-neutral-950);
+    outline-offset: 2px;
   }
 }

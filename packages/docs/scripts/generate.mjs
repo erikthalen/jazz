@@ -48,6 +48,7 @@ const routes = [
   "/components/field",
   "/components/focus-group",
   "/components/radio-group",
+  "/components/tabs",
   "/blocks",
   "/blocks/richtext-editor",
   "/blocks/signup-form",

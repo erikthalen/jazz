@@ -1,94 +1,92 @@
-@layer jazz {
-  menu {
-    & > li > button,
-    & > li > .button {
-      width: 100%;
-      justify-content: flex-start;
-      white-space: nowrap;
+menu {
+  & > li > button,
+  & > li > .button {
+    width: 100%;
+    justify-content: flex-start;
+    white-space: nowrap;
+  }
+
+  & > li > label {
+    width: 100%;
+    padding-block: var(--jazz-spacing-2);
+    padding-inline: var(--jazz-spacing-3);
+    border-radius: 8px;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+
+    > input[type="radio"],
+    > input[type="checkbox"] {
+      appearance: none;
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+      pointer-events: none;
     }
 
-    & > li > label {
-      width: 100%;
-      padding-block: var(--jazz-spacing-2);
-      padding-inline: var(--jazz-spacing-3);
-      border-radius: 8px;
-      white-space: nowrap;
-      cursor: pointer;
-      user-select: none;
+    /* &:has(input[type="checkbox"]) {
+      position: relative;
 
-      > input[type="radio"],
-      > input[type="checkbox"] {
-        appearance: none;
-        position: absolute;
-        opacity: 0;
-        width: 0;
-        height: 0;
-        pointer-events: none;
-      }
-
-      /* &:has(input[type="checkbox"]) {
-        position: relative;
-
-        &::before {
-          content: "";
-          order: 9999;
-          margin-left: auto;
-          flex-shrink: 0;
-          width: 0.75rem;
-          height: 0.75rem;
-          border-radius: 3px;
-          border: 1px solid var(--jazz-neutral-300);
-        }
-
-        &::after {
-          --icon-size: calc(1em - 4px);
-          position: absolute;
-          right: var(--jazz-spacing-3);
-          top: 50%;
-          translate: -12.5% -50%;
-          margin-left: 0;
-          width: var(--icon-size);
-          height: var(--icon-size);
-          mask-size: var(--icon-size);
-        }
-      } */
-
-      @media (hover: hover) {
-        &:hover {
-          background: var(--jazz-neutral-100);
-        }
+      &::before {
+        content: "";
+        order: 9999;
+        margin-left: auto;
+        flex-shrink: 0;
+        width: 0.75rem;
+        height: 0.75rem;
+        border-radius: 3px;
+        border: 1px solid var(--jazz-neutral-300);
       }
 
       &::after {
-        content: "";
-        display: inline-block;
-        background-color: currentColor;
-        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
-        mask-size: 1rem;
-        mask-repeat: no-repeat;
-        mask-position: center;
-        width: 1rem;
-        height: 1rem;
-        visibility: hidden;
-        margin-left: auto;
+        --icon-size: calc(1em - 4px);
+        position: absolute;
+        right: var(--jazz-spacing-3);
+        top: 50%;
+        translate: -12.5% -50%;
+        margin-left: 0;
+        width: var(--icon-size);
+        height: var(--icon-size);
+        mask-size: var(--icon-size);
       }
+    } */
 
-      &:has(input:checked)::after {
-        visibility: visible;
+    @media (hover: hover) {
+      &:hover {
+        background: var(--jazz-neutral-100);
       }
     }
 
-    & hr {
-      margin-block: var(--jazz-spacing-1);
+    &::after {
+      content: "";
+      display: inline-block;
+      background-color: currentColor;
+      mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+      mask-size: 1rem;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      width: 1rem;
+      height: 1rem;
+      visibility: hidden;
+      margin-left: auto;
     }
 
-    & > li > small:only-child:not(:has(*)) {
-      display: block;
-      padding: var(--jazz-spacing-2) var(--jazz-spacing-3) var(--jazz-spacing-1);
-      color: var(--jazz-neutral-500);
-      font-size: 0.8125rem;
-      margin-left: 2px;
-      user-select: none;
+    &:has(input:checked)::after {
+      visibility: visible;
     }
+  }
+
+  & hr {
+    margin-block: var(--jazz-spacing-1);
+  }
+
+  & > li > small:only-child:not(:has(*)) {
+    display: block;
+    padding: var(--jazz-spacing-2) var(--jazz-spacing-3) var(--jazz-spacing-1);
+    color: var(--jazz-neutral-500);
+    font-size: 0.8125rem;
+    margin-left: 2px;
+    user-select: none;
   }
 }
