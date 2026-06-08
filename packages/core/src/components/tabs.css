@@ -2,10 +2,11 @@
   width: stretch;
 
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto auto;
   gap: var(--jazz-spacing-6);
 
   > header {
+    position: relative;
     display: flex;
     width: stretch;
 
@@ -80,7 +81,7 @@
   > *:not(header) {
     transition:
       opacity 150ms var(--ease-glide),
-      display 150ms ease allow-discrete;
+      display 50ms ease allow-discrete;
 
     display: none;
     opacity: 0;
