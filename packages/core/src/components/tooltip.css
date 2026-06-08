@@ -1,4 +1,4 @@
-[aria-label]:not(input, select, textarea) {
+[data-tooltip][aria-label]:not(input, select, textarea) {
   position: relative;
 
   &::before,
@@ -7,7 +7,7 @@
     z-index: 2147483647;
     pointer-events: none;
     opacity: 0;
-    transition: opacity 100ms;
+    transition: opacity 100ms 100ms;
   }
 
   &::before {
@@ -17,7 +17,7 @@
     padding: 0.4em 0.75em;
     border-radius: 6px;
     font-size: 0.875rem;
-    line-height: 1.4;
+    line-height: 1;
     white-space: nowrap;
   }
 
@@ -30,14 +30,12 @@
   }
 
   /* top (default) */
-  &:not([data-placement])::before,
-  &[data-placement="top"]::before {
+  &:not([data-tooltip="bottom"], [data-tooltip="left"], [data-tooltip="right"])::before {
     bottom: calc(100% + 0.5rem);
     left: 50%;
     translate: -50% 0;
   }
-  &:not([data-placement])::after,
-  &[data-placement="top"]::after {
+  &:not([data-tooltip="bottom"], [data-tooltip="left"], [data-tooltip="right"])::after {
     bottom: calc(100% + 0.5rem);
     left: 50%;
     translate: -50% 50%;
@@ -46,12 +44,12 @@
   }
 
   /* bottom */
-  &[data-placement="bottom"]::before {
+  &[data-tooltip="bottom"]::before {
     top: calc(100% + 0.5rem);
     left: 50%;
     translate: -50% 0;
   }
-  &[data-placement="bottom"]::after {
+  &[data-tooltip="bottom"]::after {
     top: calc(100% + 0.5rem);
     left: 50%;
     translate: -50% -50%;
@@ -60,12 +58,12 @@
   }
 
   /* left */
-  &[data-placement="left"]::before {
+  &[data-tooltip="left"]::before {
     right: calc(100% + 0.5rem);
     top: 50%;
     translate: 0 -50%;
   }
-  &[data-placement="left"]::after {
+  &[data-tooltip="left"]::after {
     right: calc(100% + 0.5rem);
     top: 50%;
     translate: 50% -50%;
@@ -74,12 +72,12 @@
   }
 
   /* right */
-  &[data-placement="right"]::before {
+  &[data-tooltip="right"]::before {
     left: calc(100% + 0.5rem);
     top: 50%;
     translate: 0 -50%;
   }
-  &[data-placement="right"]::after {
+  &[data-tooltip="right"]::after {
     left: calc(100% + 0.5rem);
     top: 50%;
     translate: -50% -50%;
@@ -91,11 +89,13 @@
     &:hover::before,
     &:hover::after {
       opacity: 1;
+      transition-delay: 0ms;
     }
   }
 
   &:focus-visible::before,
   &:focus-visible::after {
     opacity: 1;
+    transition-delay: 0ms;
   }
 }

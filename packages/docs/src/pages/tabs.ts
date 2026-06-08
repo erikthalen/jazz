@@ -29,48 +29,96 @@ export async function TabsPage(path: string) {
         <p>
           Each <code>label</code> wraps a radio <code>input</code>. Add
           <code>checked</code> to the first input to set the default tab. Panels
-          are plain <code>div</code> elements placed after the labels.
+          are plain <code>div</code> elements placed after the labels. Give the
+          <code>header</code> a <code>role="tablist"</code> and an
+          <code>aria-label</code>, connect each input to its panel via
+          <code>id</code> / <code>aria-controls</code>, and mark each panel with
+          <code>role="tabpanel"</code>, <code>aria-labelledby</code>, and
+          <code>tabindex="0"</code> so keyboard users can Tab into the content.
         </p>
       </div>
       <div class="example">
         <div class="preview preview-padded">
           <section class="tabs">
-            <header>
+            <header role="tablist" aria-label="Account settings">
               <label>
-                <input type="radio" name="tab-demo" checked /> Account
+                <input
+                  type="radio"
+                  name="tab-demo"
+                  id="tab-demo-account"
+                  checked
+                  aria-controls="panel-demo-account"
+                />
+                Account
               </label>
-              <label><input type="radio" name="tab-demo" /> Password</label>
               <label>
-                <input type="radio" name="tab-demo" /> Notifications
+                <input
+                  type="radio"
+                  name="tab-demo"
+                  id="tab-demo-password"
+                  aria-controls="panel-demo-password"
+                />
+                Password
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="tab-demo"
+                  id="tab-demo-notifications"
+                  aria-controls="panel-demo-notifications"
+                />
+                Notifications
               </label>
             </header>
 
-            <div>
+            <div
+              role="tabpanel"
+              id="panel-demo-account"
+              aria-labelledby="tab-demo-account"
+              tabindex="0"
+            >
               <p>Manage your account settings and preferences.</p>
             </div>
-            <div>
+            <div
+              role="tabpanel"
+              id="panel-demo-password"
+              aria-labelledby="tab-demo-password"
+              tabindex="0"
+            >
               <p>Change your password and security settings.</p>
             </div>
-            <div>
+            <div
+              role="tabpanel"
+              id="panel-demo-notifications"
+              aria-labelledby="tab-demo-notifications"
+              tabindex="0"
+            >
               <p>Configure how and when you receive notifications.</p>
             </div>
           </section>
         </div>
         <div class="code-block">
           ${raw(
-            await highlight(`<section class="tabs"><header>
-<label><input type="radio" name="tabs" checked /> Account</label>
-  <label><input type="radio" name="tabs" /> Password</label>
-  <label><input type="radio" name="tabs" /> Notifications</label>
-            </header>
-  
-  <div>
+            await highlight(`<section class="tabs">
+  <header role="tablist" aria-label="Account settings">
+    <label>
+    <input type="radio" name="tabs" id="tab-1" checked aria-controls="panel-1" /> Account
+    </label>
+    <label>
+    <input type="radio" name="tabs" id="tab-2" aria-controls="panel-2" /> Password
+    </label>
+    <label>
+    <input type="radio" name="tabs" id="tab-3" aria-controls="panel-3" /> Notifications
+    </label>
+  </header>
+
+  <div role="tabpanel" id="panel-1" aria-labelledby="tab-1" tabindex="0">
     <p>Manage your account settings and preferences.</p>
   </div>
-  <div>
+  <div role="tabpanel" id="panel-2" aria-labelledby="tab-2" tabindex="0">
     <p>Change your password and security settings.</p>
   </div>
-  <div>
+  <div role="tabpanel" id="panel-3" aria-labelledby="tab-3" tabindex="0">
     <p>Configure how and when you receive notifications.</p>
   </div>
 </section>`),
@@ -85,42 +133,123 @@ export async function TabsPage(path: string) {
       <div class="example">
         <div class="preview preview-padded">
           <section class="tabs">
-            <header>
-              <label
-                ><input type="radio" name="tab-disabled" checked />
-                Overview</label
-              >
-              <label
-                ><input type="radio" name="tab-disabled" /> Analytics</label
-              >
-              <label
-                ><input type="radio" name="tab-disabled" disabled />
-                Reports</label
-              >
+            <header role="tablist" aria-label="Dashboard">
+              <label>
+                <input
+                  type="radio"
+                  name="tab-disabled"
+                  id="tab-disabled-overview"
+                  checked
+                  aria-controls="panel-disabled-overview"
+                />
+                Overview
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="tab-disabled"
+                  id="tab-disabled-analytics"
+                  aria-controls="panel-disabled-analytics"
+                />
+                Analytics
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="tab-disabled"
+                  id="tab-disabled-reports"
+                  disabled
+                  aria-controls="panel-disabled-reports"
+                />
+                Reports
+              </label>
             </header>
-            <div>
+            <div
+              role="tabpanel"
+              id="panel-disabled-overview"
+              aria-labelledby="tab-disabled-overview"
+              tabindex="0"
+            >
               <p>Overview content goes here.</p>
             </div>
-            <div>
+            <div
+              role="tabpanel"
+              id="panel-disabled-analytics"
+              aria-labelledby="tab-disabled-analytics"
+              tabindex="0"
+            >
               <p>Analytics content goes here.</p>
             </div>
-            <div>
+            <div
+              role="tabpanel"
+              id="panel-disabled-reports"
+              aria-labelledby="tab-disabled-reports"
+              tabindex="0"
+            >
               <p>Reports content goes here.</p>
             </div>
           </section>
         </div>
         <div class="code-block">
           ${raw(
-            await highlight(`<section class="tabs"><header>
-<label><input type="radio" name="tabs" checked /> Overview</label>
-  <label><input type="radio" name="tabs" /> Analytics</label>
-  <label><input type="radio" name="tabs" disabled /> Reports</label>
-            </header>
-  
-  <div>Overview content goes here.</div>
-  <div>Analytics content goes here.</div>
-  <div>Reports content goes here.</div>
-</section>`),
+            await highlight(`<section class="tabs">
+                <header role="tablist" aria-label="Dashboard">
+                  <label>
+                    <input
+                      type="radio"
+                      name="tabs"
+                      id="tab-1"
+                      checked
+                      aria-controls="panel-1"
+                    />
+                    Overview
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      name="tabs"
+                      id="tab-2"
+                      aria-controls="panel-2"
+                    />
+                    Analytics
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      name="tabs"
+                      id="tab-3"
+                      disabled
+                      aria-controls="panel-3"
+                    />
+                    Reports
+                  </label>
+                </header>
+
+                <div
+                  role="tabpanel"
+                  id="panel-1"
+                  aria-labelledby="tab-1"
+                  tabindex="0"
+                >
+                  Overview content goes here.
+                </div>
+                <div
+                  role="tabpanel"
+                  id="panel-2"
+                  aria-labelledby="tab-2"
+                  tabindex="0"
+                >
+                  Analytics content goes here.
+                </div>
+                <div
+                  role="tabpanel"
+                  id="panel-3"
+                  aria-labelledby="tab-3"
+                  tabindex="0"
+                >
+                  Reports content goes here.
+                </div>
+              </section>`),
           )}
         </div>
       </div>
@@ -132,15 +261,43 @@ export async function TabsPage(path: string) {
       <div class="example">
         <div class="preview preview-padded">
           <section class="tabs" style="width:100%">
-            <header>
+            <header role="tablist" aria-label="Team">
               <label>
-                <input type="radio" name="tab-cards" checked /> Members
+                <input
+                  type="radio"
+                  name="tab-cards"
+                  id="tab-cards-members"
+                  checked
+                  aria-controls="panel-cards-members"
+                />
+                Members
               </label>
-              <label><input type="radio" name="tab-cards" /> Activity</label>
-              <label><input type="radio" name="tab-cards" /> Invite</label>
+              <label>
+                <input
+                  type="radio"
+                  name="tab-cards"
+                  id="tab-cards-activity"
+                  aria-controls="panel-cards-activity"
+                />
+                Activity
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="tab-cards"
+                  id="tab-cards-invite"
+                  aria-controls="panel-cards-invite"
+                />
+                Invite
+              </label>
             </header>
 
-            <div>
+            <div
+              role="tabpanel"
+              id="panel-cards-members"
+              aria-labelledby="tab-cards-members"
+              tabindex="0"
+            >
               <table>
                 <thead>
                   <tr>
@@ -168,14 +325,24 @@ export async function TabsPage(path: string) {
                 </tbody>
               </table>
             </div>
-            <div>
+            <div
+              role="tabpanel"
+              id="panel-cards-activity"
+              aria-labelledby="tab-cards-activity"
+              tabindex="0"
+            >
               <section class="empty">
                 ${raw(icon("inbox", { size: 24 }))}
                 <h3>No activity yet</h3>
                 <p>Actions taken by your team will appear here.</p>
               </section>
             </div>
-            <div>
+            <div
+              role="tabpanel"
+              id="panel-cards-invite"
+              aria-labelledby="tab-cards-invite"
+              tabindex="0"
+            >
               <form style="display: grid; gap: 1em;">
                 <label class="field">
                   <span>Email address</span>
@@ -240,13 +407,19 @@ export async function TabsPage(path: string) {
         <div class="code-block">
           ${raw(
             await highlight(`<section class="tabs">
-  <header>
-    <label><input type="radio" name="tabs" checked /> Members</label>
-    <label><input type="radio" name="tabs" /> Activity</label>
-    <label><input type="radio" name="tabs" /> Invite</label>
+  <header role="tablist" aria-label="Team">
+    <label>
+    <input type="radio" name="tabs" id="tab-1" checked aria-controls="panel-1" /> Members
+    </label>
+    <label>
+    <input type="radio" name="tabs" id="tab-2" aria-controls="panel-2" /> Activity
+    </label>
+    <label>
+    <input type="radio" name="tabs" id="tab-3" aria-controls="panel-3" /> Invite
+    </label>
   </header>
 
-  <div>
+  <div role="tabpanel" id="panel-1" aria-labelledby="tab-1" tabindex="0">
     <table>
       <thead>
         <tr>
@@ -263,7 +436,7 @@ export async function TabsPage(path: string) {
     </table>
   </div>
 
-  <div>
+  <div role="tabpanel" id="panel-2" aria-labelledby="tab-2" tabindex="0">
     <section class="empty">
       <svg><!-- icon --></svg>
       <h3>No activity yet</h3>
@@ -271,7 +444,7 @@ export async function TabsPage(path: string) {
     </section>
   </div>
 
-  <div>
+  <div role="tabpanel" id="panel-3" aria-labelledby="tab-3" tabindex="0">
     <form style="display: grid; gap: 1em;">
       <label class="field">
         <span>Email address</span>
@@ -282,9 +455,15 @@ export async function TabsPage(path: string) {
         <button type="button" class="outlined" popovertarget="role">Member</button>
         <div id="role" popover>
           <menu>
-            <li><label><input type="radio" name="role" value="member" checked /> Member</label></li>
-            <li><label><input type="radio" name="role" value="admin" /> Admin</label></li>
-            <li><label><input type="radio" name="role" value="viewer" /> Viewer</label></li>
+            <li><label>
+            <input type="radio" name="role" value="member" checked /> Member
+            </label></li>
+            <li><label>
+            <input type="radio" name="role" value="admin" /> Admin
+            </label></li>
+            <li><label>
+            <input type="radio" name="role" value="viewer" /> Viewer
+            </label></li>
           </menu>
         </div>
       </div>

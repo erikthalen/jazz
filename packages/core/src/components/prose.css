@@ -39,17 +39,27 @@
   }
 
   > blockquote {
-    border-inline-start: 3px solid var(--jazz-neutral-200);
+    /* border-inline-start: 3px solid var(--jazz-neutral-200); */
     padding-inline-start: var(--jazz-spacing-4);
 
+    position: relative;
     margin-block: 1.61em;
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 100%;
+      width: 3px;
+      left: 0;
+      background-color: var(--jazz-neutral-200);
+      border-radius: 3px;
+    }
 
     footer,
     cite {
-      display: block;
       margin-top: var(--jazz-spacing-2);
       color: var(--jazz-neutral-500);
-      font-style: italic;
     }
   }
 

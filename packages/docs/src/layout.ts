@@ -164,7 +164,7 @@ function head(title: string) {
           const btn = document.createElement("button");
           btn.className = "code-copy-btn ghost square";
           btn.setAttribute("aria-label", "Copy code");
-          btn.setAttribute("data-placement", "left");
+          btn.setAttribute("data-tooltip", "left");
           btn.innerHTML =
             '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>';
           btn.onclick = async () => {
@@ -186,7 +186,7 @@ function header(path: string) {
       <label
         class="toggle square docs-burger"
         aria-label="Toggle navigation"
-        data-placement="right"
+        data-tooltip="right"
       >
         <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle" />
         <svg
@@ -237,7 +237,7 @@ function header(path: string) {
         popovertarget="theme-menu"
         aria-label="Toggle theme"
         style="anchor-name:--theme-menu"
-        data-placement="bottom"
+        data-tooltip="bottom"
       >
         <svg
           data-scheme="light"
@@ -290,7 +290,7 @@ function header(path: string) {
         id="theme-menu"
         popover
         class="theme-menu-popover"
-        data-placement="bottom right"
+        data-tooltip="bottom right"
       >
         <menu>
           <li>
@@ -376,7 +376,7 @@ function header(path: string) {
           class="ghost square"
           popovertarget="color-picker"
           aria-label="Change primary color"
-          data-placement="bottom"
+          data-tooltip="bottom"
           style="anchor-name:--color-picker"
         >
           <svg
@@ -418,6 +418,7 @@ function header(path: string) {
                 class="color-swatch-btn"
                 style="background:${color}"
                 aria-label="${color}"
+                data-tooltip
                 onclick="
                   const val = 'light-dark(${color}, color-mix(in oklab, ${color}, white 20%))';
                   document.documentElement.style.setProperty('--jazz-primary', val);
@@ -433,6 +434,7 @@ function header(path: string) {
             class="color-swatch-btn"
             style="background:linear-gradient(135deg, #111 50%, #fff 50%);box-shadow: 0 0 0 1px var(--jazz-neutral-200) inset;"
             aria-label="Black / White"
+            data-tooltip
             onclick="
                 const val = 'light-dark(#111111, #ffffff)';
                 document.documentElement.style.setProperty('--jazz-primary', val);
@@ -449,7 +451,7 @@ function header(path: string) {
         rel="noopener"
         class="button ghost square"
         aria-label="GitHub"
-        data-placement="bottom"
+        data-tooltip="bottom"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
