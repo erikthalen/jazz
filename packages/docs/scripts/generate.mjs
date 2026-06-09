@@ -5,8 +5,8 @@ const { default: app } = await import("../dist/.server/index.js");
 
 const routes = [
   "/",
-  "/introduction",
-  "/themes",
+  "/getting-started/introduction",
+  "/getting-started/themes",
   "/components/prose",
   "/components/accordion",
   "/components/button",
@@ -37,10 +37,10 @@ const routes = [
   "/components/toggle",
   "/components/toggle-group",
   "/components/tooltip",
-  "/icons",
+  "/getting-started/icons",
   "/icons.json",
   "/icons-filled.json",
-  "/customization",
+  "/getting-started/customization",
   "/components/badge",
   "/components/dropdown",
   "/components/select",
@@ -55,9 +55,9 @@ const routes = [
   "/blocks/sidebar",
   "/blocks/complex-menu",
   "/blocks/admin-dashboard",
-  "/easings",
+  "/getting-started/easings",
   "/typography",
-  "/skills",
+  "/getting-started/skills",
   "/llms.txt",
 ];
 

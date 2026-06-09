@@ -5,33 +5,31 @@ export async function BlocksPage(path: string) {
   return Layout({
     title: "Blocks",
     path,
+    wide: true,
     content: html`
-      <div class="prose">
+      <div
+        class="prose"
+        style="text-align:center;padding:var(--jazz-spacing-8) 0 var(--jazz-spacing-8);max-width:640px;margin:0 auto"
+      >
+        <p class="badge">Ready-made UI patterns for Jazz</p>
+
         <hgroup>
-          <h1>Blocks</h1>
-          <p>
-            Larger compositions built entirely from Jazz components, with
-            minimal extra CSS. Showing how they combine into real UI patterns.
+          <h1>Copy-paste blocks for real interfaces</h1>
+          <p style="">
+            Full UI compositions built entirely from Jazz components wth minimal
+            extra CSS. No extra dependencies. Drop them straight into your
+            project.
           </p>
         </hgroup>
-      </div>
-      <div
-        style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:var(--jazz-spacing-4);margin-top:var(--jazz-spacing-6)"
-      >
-        ${blocks.map(
-          (b) => html`
-            <a href="${url(b.path)}" style="text-decoration:none">
-              <article style="height:100%;cursor:pointer">
-                <strong>${b.label}</strong>
-                <p
-                  style="margin:var(--jazz-spacing-2) 0 0;color:var(--jazz-neutral-500);font-size:0.875rem"
-                >
-                  ${b.description}
-                </p>
-              </article>
-            </a>
-          `,
-        )}
+
+        <div
+          style="display:flex;gap:var(--jazz-spacing-3);justify-content:center"
+        >
+          <a href="${url(blocks[0].path)}" class="button">Browse blocks</a>
+          <a href="${url("/components/button")}" class="button ghost">
+            View components
+          </a>
+        </div>
       </div>
     `,
   });

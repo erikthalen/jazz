@@ -3,6 +3,10 @@ import type { HtmlEscapedString } from "hono/utils/html";
 import docsCss from "./docs.css?raw";
 import { IconsSearchDialog } from "./pages/icons-dialog";
 import { icon } from "./icon";
+import { SchemePicker } from "./components/scheme-picker";
+import { ThemePicker } from "./components/theme-picker";
+import { SidebarNav } from "./components/sidebar-nav";
+import { TableOfContents } from "./components/table-of-contents";
 
 const b = (process.env.BASE_URL ?? "/").replace(/\/$/, "");
 export const url = (path: string) => b + path;
@@ -16,6 +20,17 @@ type LayoutProps = {
   wide?: boolean;
   content: HtmlEscapedString | Promise<HtmlEscapedString>;
 };
+
+const slug = (p: string) => "/" + p.split("/").pop();
+
+export const sections: { label: string; path: string }[] = [
+  { label: "Introduction", path: "/getting-started/introduction" },
+  { label: "Customization", path: "/getting-started/customization" },
+  { label: "Themes", path: "/getting-started/themes" },
+  { label: "Icons", path: "/getting-started/icons" },
+  { label: "Easings", path: "/getting-started/easings" },
+  { label: "Skills", path: "/getting-started/skills" },
+];
 
 export const blocks: { label: string; path: string; description: string }[] = [
   {
@@ -118,46 +133,7 @@ function head(title: string) {
       ? raw('<script type="module" src="/@vite/client"></script>')
       : ""}
     <script>
-      function applyColorScheme(scheme) {
-        let s = document.getElementById("jazz-theme-style");
-        if (scheme === "system") {
-          if (s) s.remove();
-          localStorage.removeItem("jazz-theme");
-        } else {
-          if (!s) {
-            s = document.createElement("style");
-            s.id = "jazz-theme-style";
-            document.head.appendChild(s);
-          }
-          s.textContent = ":root { color-scheme: " + scheme + "; }";
-          localStorage.setItem("jazz-theme", scheme);
-        }
-        document.documentElement.dataset.theme = scheme;
-        document.querySelectorAll('input[name="theme"]').forEach(function (r) {
-          r.checked = r.value === scheme;
-        });
-      }
-      applyColorScheme(localStorage.getItem("jazz-theme") || "system");
       document.addEventListener("DOMContentLoaded", function () {
-        applyColorScheme(localStorage.getItem("jazz-theme") || "system");
-      });
-      localStorage.removeItem("jazz-primary-dark");
-      const storedColor = localStorage.getItem("jazz-primary");
-      if (storedColor) {
-        document.documentElement.style.setProperty(
-          "--jazz-primary",
-          storedColor,
-        );
-      }
-      function syncSwatch() {
-        var stored = localStorage.getItem("jazz-primary");
-        document.querySelectorAll(".color-swatch-btn").forEach(function (b) {
-          b.classList.toggle("secondary", b.dataset.primary === stored);
-          b.classList.toggle("ghost", b.dataset.primary !== stored);
-        });
-      }
-      document.addEventListener("DOMContentLoaded", function () {
-        syncSwatch();
         var sidebar = document.querySelector(".docs-sidebar");
         if (!sidebar) return;
         var saved = sessionStorage.getItem("sidebar-scroll");
@@ -201,31 +177,9 @@ async function fetchStars(): Promise<number | null> {
 
 async function header(path: string) {
   const stars = await fetchStars();
+
   return html`
     <header class="docs-header">
-      <label
-        class="toggle square docs-burger"
-        aria-label="Toggle navigation"
-        data-tooltip="right"
-      >
-        <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle" />
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <line x1="4" x2="20" y1="6" y2="6" />
-          <line x1="4" x2="20" y1="12" y2="12" />
-          <line x1="4" x2="20" y1="18" y2="18" />
-        </svg>
-      </label>
-
       <a href="${url("/")}" class="docs-logo">
         <svg
           height="24"
@@ -240,13 +194,52 @@ async function header(path: string) {
       </a>
 
       <nav>
-        <a href="${url("/introduction")}" class="button ghost">
+        <label
+          class="toggle square docs-burger"
+          aria-label="Toggle navigation"
+          data-tooltip="right"
+        >
+          <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="12" y2="12" />
+            <line x1="4" x2="20" y1="18" y2="18" />
+          </svg>
+        </label>
+
+        <a
+          href="${url("/getting-started/introduction")}"
+          class="button ghost"
+          ${sections.some((s) => slug(s.path) === slug(path))
+            ? html`aria-current="page"`
+            : ""}
+        >
           ${raw(icon("book"))} Getting started
         </a>
-        <a href="${url("/components/button")}" class="button ghost">
+        <a
+          href="${url("/components/button")}"
+          class="button ghost"
+          ${path.startsWith("/components/") ? html`aria-current="page"` : ""}
+        >
           ${raw(icon("components"))} Components
         </a>
-        <a href="${url("/blocks")}" class="button ghost">
+        <a
+          href="${url("/blocks")}"
+          class="button ghost"
+          ${path === "/blocks" || path.startsWith("/blocks/")
+            ? 'aria-current="page"'
+            : ""}
+        >
           ${raw(icon("layout"))} Blocks
         </a>
         <button
@@ -258,116 +251,7 @@ async function header(path: string) {
       </nav>
 
       <div style="display: flex; gap: 1rem; margin-left: auto;">
-        <fieldset role="group">
-          <label class="toggle square" aria-label="Light" data-tooltip="bottom">
-            <input
-              type="radio"
-              name="theme"
-              value="light"
-              onchange="applyColorScheme(this.value)"
-            />
-            ${raw(icon("sun"))}
-          </label>
-          <label class="toggle square" aria-label="Dark" data-tooltip="bottom">
-            <input
-              type="radio"
-              name="theme"
-              value="dark"
-              onchange="applyColorScheme(this.value)"
-            />
-            ${raw(icon("moon"))}
-          </label>
-          <label
-            class="toggle square"
-            aria-label="System"
-            data-tooltip="bottom"
-          >
-            <input
-              type="radio"
-              name="theme"
-              value="system"
-              onchange="applyColorScheme(this.value)"
-            />
-            ${raw(icon("device-desktop"))}
-          </label>
-        </fieldset>
-        <div>
-          <button
-            class="secondary"
-            popovertarget="color-picker"
-            style="anchor-name:--color-picker"
-          >
-            ${raw(icon("palette"))} <small>Theme</small>
-          </button>
-        </div>
-        <menu id="color-picker" popover class="color-picker-popover">
-          ${(
-            [
-              { color: "dodgerblue", name: "Blue" },
-              { color: "#7c3aed", name: "Violet" },
-              { color: "#db2777", name: "Pink" },
-              { color: "#dc2626", name: "Red" },
-              { color: "#ea580c", name: "Orange" },
-              { color: "#16a34a", name: "Green" },
-              { color: "#0891b2", name: "Cyan" },
-            ] as const
-          ).map(
-            ({ color, name }) => html`
-              <li>
-                <button
-                  class="color-swatch-btn ghost"
-                  style="--swatch-color:${color}"
-                  aria-label="${name}"
-                  data-primary="light-dark(${color}, color-mix(in oklab, ${color}, white 20%))"
-                  onclick="
-                  const val = 'light-dark(${color}, color-mix(in oklab, ${color}, white 20%))';
-                  document.documentElement.style.setProperty('--jazz-primary', val);
-                  localStorage.setItem('jazz-primary', val);
-                  document.getElementById('color-picker').hidePopover();
-                  syncSwatch();
-                "
-                >
-                  <span class="swatch-circle"></span>
-                  <span class="swatch-name">${name}</span>
-                </button>
-              </li>
-            `,
-          )}
-          <li>
-            <button
-              class="color-swatch-btn ghost"
-              style="--swatch-color:linear-gradient(135deg, #111 50%, #fff 50%)"
-              aria-label="Mono"
-              data-primary="light-dark(#111111, #ffffff)"
-              onclick="
-                const val = 'light-dark(#111111, #ffffff)';
-                document.documentElement.style.setProperty('--jazz-primary', val);
-                localStorage.setItem('jazz-primary', val);
-                document.getElementById('color-picker').hidePopover();
-                syncSwatch();
-              "
-            >
-              <span
-                class="swatch-circle"
-                style="box-shadow:0 0 0 1px var(--jazz-neutral-300) inset"
-              ></span>
-              <span class="swatch-name">Mono</span>
-            </button>
-          </li>
-          <li class="color-picker-custom">
-            <label class="field">
-              <span>Custom</span>
-              <input
-                type="color"
-                value="#6366f1"
-                oninput="
-                document.documentElement.style.setProperty('--jazz-primary', this.value);
-                localStorage.setItem('jazz-primary', this.value);
-              "
-              />
-            </label>
-          </li>
-        </menu>
+        ${SchemePicker()} ${ThemePicker()}
 
         <a
           id="github-link"
@@ -379,9 +263,9 @@ async function header(path: string) {
           data-tooltip="bottom"
         >
           ${raw(icon("brand-github"))}
-          <small id="github-stars" ${stars === null ? " hidden" : ""}
-            >${stars ?? ""}</small
-          >
+          <small id="github-stars" ${stars === null ? " hidden" : ""}>
+            ${stars ?? ""}
+          </small>
         </a>
       </div>
 
@@ -422,129 +306,16 @@ export function Layout({ title, path, toc, wide, content }: LayoutProps) {
       <head>
         ${head(title)}
       </head>
+
       <body>
         ${header(path)}
-        <label
-          for="sidebar-toggle"
-          class="sidebar-backdrop"
-          aria-hidden="true"
-        ></label>
+
         <div class="docs-layout${wide ? " docs-layout-wide" : ""}">
-          <aside class="docs-sidebar">
-            <menu>
-              <li><small>Sections</small></li>
-              <li>
-                <a
-                  class="button ghost"
-                  href="${url("/introduction")}"
-                  ${path === "/introduction" ? 'aria-current="page"' : ""}
-                >
-                  Introduction
-                </a>
-              </li>
-              <li>
-                <a
-                  class="button ghost"
-                  href="${url("/customization")}"
-                  ${path === "/customization" ? 'aria-current="page"' : ""}
-                >
-                  Customization
-                </a>
-              </li>
-              <li>
-                <a
-                  class="button ghost"
-                  href="${url("/themes")}"
-                  ${path === "/themes" ? 'aria-current="page"' : ""}
-                >
-                  Themes
-                </a>
-              </li>
-              <li>
-                <a
-                  class="button ghost"
-                  href="${url("/icons")}"
-                  ${path === "/icons" ? 'aria-current="page"' : ""}
-                >
-                  Icons
-                </a>
-              </li>
-              <li>
-                <a
-                  class="button ghost"
-                  href="${url("/easings")}"
-                  ${path === "/easings" ? 'aria-current="page"' : ""}
-                >
-                  Easings
-                </a>
-              </li>
-              <li>
-                <a
-                  class="button ghost"
-                  href="${url("/skills")}"
-                  ${path === "/skills" ? 'aria-current="page"' : ""}
-                >
-                  Skills
-                </a>
-              </li>
-              <li>
-                <a
-                  class="button ghost"
-                  href="${url("/llms.txt")}"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  llms.txt
-                </a>
-              </li>
-              <li><small>Components</small></li>
-              ${components.map(
-                (c) =>
-                  html`<li>
-                    <a
-                      class="button ghost"
-                      href="${url(c.path)}"
-                      ${path === c.path ? 'aria-current="page"' : ""}
-                      >${c.label}${c.badge
-                        ? html` <span class="badge ${c.badgeClass ?? ""}"
-                            >${c.badge}</span
-                          >`
-                        : ""}</a
-                    >
-                  </li>`,
-              )}
-              <li><small>Blocks</small></li>
-              ${blocks.map(
-                (b) =>
-                  html`<li>
-                    <a
-                      class="button ghost"
-                      href="${url(b.path)}"
-                      ${path === b.path ? 'aria-current="page"' : ""}
-                    >
-                      ${b.label}
-                    </a>
-                  </li>`,
-              )}
-            </menu>
-          </aside>
+          <aside class="docs-sidebar">${SidebarNav(path)}</aside>
 
           <main class="docs-content">${content}</main>
 
-          ${toc && toc.length > 0
-            ? html`
-                <aside class="docs-toc">
-                  <p class="sidebar-label">
-                    ${raw(icon("list-tree"))} On This Page
-                  </p>
-                  <nav>
-                    ${toc.map(
-                      (item) => html`<a href="#${item.id}">${item.label}</a>`,
-                    )}
-                  </nav>
-                </aside>
-              `
-            : ""}
+          ${TableOfContents(toc)}
         </div>
         ${raw(IconsSearchDialog())}
       </body>
