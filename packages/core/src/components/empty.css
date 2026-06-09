@@ -1,5 +1,4 @@
 .empty {
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -9,6 +8,10 @@
   color: var(--jazz-neutral-400);
 
   margin: auto;
+
+  &:not([hidden]) {
+    display: flex;
+  }
 
   > svg {
     width: 2.5rem;

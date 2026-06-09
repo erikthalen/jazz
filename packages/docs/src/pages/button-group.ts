@@ -56,6 +56,7 @@ export async function ButtonGroupPage(path: string) {
             <button
               class="ghost square"
               aria-label="Go back"
+              data-tooltip
             >
               ${raw(icon("chevron-left"))}
             </button>
@@ -65,6 +66,7 @@ export async function ButtonGroupPage(path: string) {
             <button
               class="ghost square"
               aria-label="More"
+              data-tooltip
               popovertarget="mixed-more-menu"
             >
               ${raw(icon("dots"))}
@@ -83,13 +85,14 @@ export async function ButtonGroupPage(path: string) {
         <div class="code-block">
           ${raw(
             await highlight(`<fieldset role="group">
-  <button class="ghost square" aria-label="Go back">←</button>
+  <button class="ghost square" aria-label="Go back" data-tooltip>←</button>
   <button class="ghost">Archive</button>
   <button class="ghost">Report</button>
   <button class="ghost">Snooze</button>
   <button
     class="ghost square"
     aria-label="More"
+    data-tooltip
     popovertarget="more-menu"
   >···</button>
 </fieldset>
@@ -115,7 +118,7 @@ export async function ButtonGroupPage(path: string) {
         <div class="preview">
           <fieldset role="group" style="width:320px">
             <input type="text" placeholder="Search..." />
-            <button class="ghost square" aria-label="Search">
+            <button class="ghost square" aria-label="Search" data-tooltip>
               ${raw(icon("search"))}
             </button>
           </fieldset>
@@ -124,7 +127,7 @@ export async function ButtonGroupPage(path: string) {
           ${raw(
             await highlight(`<fieldset role="group">
   <input type="text" placeholder="Search..." />
-  <button class="ghost square" aria-label="Search">
+  <button class="ghost square" aria-label="Search" data-tooltip>
     …
   </button>
 </fieldset>`),
@@ -142,6 +145,7 @@ export async function ButtonGroupPage(path: string) {
             <button
               class="ghost square"
               aria-label="Decrement"
+              data-tooltip
               onclick="this.closest('fieldset').firstElementChild.stepDown()"
             >
               ${raw(icon("minus"))}
@@ -149,6 +153,7 @@ export async function ButtonGroupPage(path: string) {
             <button
               class="ghost square"
               aria-label="Increment"
+              data-tooltip
               onclick="this.closest('fieldset').firstElementChild.stepUp()"
             >
               ${raw(icon("plus"))}
@@ -159,11 +164,11 @@ export async function ButtonGroupPage(path: string) {
           ${raw(
             await highlight(`<fieldset role="group">
   <input type="number" value="8" min="0" style="width:4rem" />
-  <button class="ghost square" aria-label="Decrement"
+  <button class="ghost square" aria-label="Decrement" data-tooltip
     onclick="this.closest('fieldset').firstElementChild.stepDown()">
     −
   </button>
-  <button class="ghost square" aria-label="Increment"
+  <button class="ghost square" aria-label="Increment" data-tooltip
     onclick="this.closest('fieldset').firstElementChild.stepUp()">
     +
   </button>

@@ -128,7 +128,7 @@ button,
     }
 
     &[popovertarget]:has(+ [popover]:popover-open) {
-      background-color: var(--jazz-neutral-600);
+      background-color: var(--jazz-neutral-300);
     }
   }
 

@@ -27,7 +27,7 @@ input[type="week"] {
 
   padding-block: var(--jazz-spacing-2);
   padding-inline: var(--jazz-spacing-3);
-  border-radius: var(--jazz-spacing-2);
+  border-radius: 8px;
 
   font: inherit;
   line-height: calc((16 / 14) * 1rem);

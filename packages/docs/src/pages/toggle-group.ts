@@ -31,15 +31,15 @@ export async function ToggleGroupPage(path: string) {
       <div class="example">
         <div class="preview">
           <fieldset role="group">
-            <label class="toggle square" aria-label="Align left">
+            <label class="toggle square" aria-label="Align left" data-tooltip>
               <input type="radio" name="align-default" />
               ${raw(icon("align-left"))}
             </label>
-            <label class="toggle square" aria-label="Align center">
+            <label class="toggle square" aria-label="Align center" data-tooltip>
               <input type="radio" name="align-default" checked />
               ${raw(icon("align-center"))}
             </label>
-            <label class="toggle square" aria-label="Align right">
+            <label class="toggle square" aria-label="Align right" data-tooltip>
               <input type="radio" name="align-default" />
               ${raw(icon("align-right"))}
             </label>
@@ -48,15 +48,15 @@ export async function ToggleGroupPage(path: string) {
         <div class="code-block">
           ${raw(
             await highlight(`<fieldset role="group">
-  <label class="toggle square" aria-label="Align left">
+  <label class="toggle square" aria-label="Align left" data-tooltip>
     <input type="radio" name="align" />
     <svg>...</svg>
   </label>
-  <label class="toggle square" aria-label="Align center">
+  <label class="toggle square" aria-label="Align center" data-tooltip>
     <input type="radio" name="align" checked />
     <svg>...</svg>
   </label>
-  <label class="toggle square" aria-label="Align right">
+  <label class="toggle square" aria-label="Align right" data-tooltip>
     <input type="radio" name="align" />
     <svg>...</svg>
   </label>
@@ -76,29 +76,29 @@ export async function ToggleGroupPage(path: string) {
         <div class="preview">
           <div style="display:flex;gap:0.5rem">
             <fieldset role="group">
-              <label class="toggle square" aria-label="Align left">
+              <label class="toggle square" aria-label="Align left" data-tooltip>
                 <input type="radio" name="align-multi" />
                 ${raw(icon("align-left"))}
               </label>
-              <label class="toggle square" aria-label="Align center">
+              <label class="toggle square" aria-label="Align center" data-tooltip>
                 <input type="radio" name="align-multi" checked />
                 ${raw(icon("align-center"))}
               </label>
-              <label class="toggle square" aria-label="Align right">
+              <label class="toggle square" aria-label="Align right" data-tooltip>
                 <input type="radio" name="align-multi" />
                 ${raw(icon("align-right"))}
               </label>
             </fieldset>
             <fieldset role="group">
-              <label class="toggle square" aria-label="Bold">
+              <label class="toggle square" aria-label="Bold" data-tooltip>
                 <input type="checkbox" />
                 ${raw(icon("bold"))}
               </label>
-              <label class="toggle square" aria-label="Italic">
+              <label class="toggle square" aria-label="Italic" data-tooltip>
                 <input type="checkbox" checked />
                 ${raw(icon("italic"))}
               </label>
-              <label class="toggle square" aria-label="Underline">
+              <label class="toggle square" aria-label="Underline" data-tooltip>
                 <input type="checkbox" />
                 ${raw(icon("underline"))}
               </label>
@@ -109,29 +109,29 @@ export async function ToggleGroupPage(path: string) {
           ${raw(
             await highlight(`<div style="display:flex;gap:0.5rem">
   <fieldset role="group">
-    <label class="toggle square" aria-label="Align left">
+    <label class="toggle square" aria-label="Align left" data-tooltip>
       <input type="radio" name="align" />
       <svg>...</svg>
     </label>
-    <label class="toggle square" aria-label="Align center">
+    <label class="toggle square" aria-label="Align center" data-tooltip>
       <input type="radio" name="align" checked />
       <svg>...</svg>
     </label>
-    <label class="toggle square" aria-label="Align right">
+    <label class="toggle square" aria-label="Align right" data-tooltip>
       <input type="radio" name="align" />
       <svg>...</svg>
     </label>
   </fieldset>
   <fieldset role="group">
-    <label class="toggle square" aria-label="Bold">
+    <label class="toggle square" aria-label="Bold" data-tooltip>
       <input type="checkbox" />
       <svg>...</svg>
     </label>
-    <label class="toggle square" aria-label="Italic">
+    <label class="toggle square" aria-label="Italic" data-tooltip>
       <input type="checkbox" checked />
       <svg>...</svg>
     </label>
-    <label class="toggle square" aria-label="Underline">
+    <label class="toggle square" aria-label="Underline" data-tooltip>
       <input type="checkbox" />
       <svg>...</svg>
     </label>

@@ -6,7 +6,7 @@ label:not(.field).toggle {
   gap: var(--jazz-spacing);
   padding-block: var(--jazz-spacing-2);
   padding-inline: var(--jazz-spacing-3);
-  border-radius: var(--jazz-spacing-3);
+  border-radius: 8px;
   box-shadow: 0 0 0 1px var(--jazz-neutral-200) inset;
   cursor: pointer;
   user-select: none;

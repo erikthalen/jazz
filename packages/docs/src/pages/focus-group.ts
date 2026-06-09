@@ -33,10 +33,10 @@ export async function FocusGroupPage(path: string) {
             <header>
               ${raw(icon("brand-javascript", { size: 18 }))}
               <span style="margin-right:auto">script.js</span>
-              <button class="ghost square" aria-label="Reload">
+              <button class="ghost square" aria-label="Reload" data-tooltip>
                 ${raw(icon("reload", { size: 16 }))}
               </button>
-              <button class="ghost square" aria-label="Copy">
+              <button class="ghost square" aria-label="Copy" data-tooltip>
                 ${raw(icon("copy", { size: 16 }))}
               </button>
             </header>
@@ -82,8 +82,8 @@ export async function FocusGroupPage(path: string) {
   <header>
     <svg>...</svg>
     <span>script.js</span>
-    <button class="ghost square" aria-label="Reload"><svg>...</svg></button>
-    <button class="ghost square" aria-label="Copy"><svg>...</svg></button>
+    <button class="ghost square" aria-label="Reload" data-tooltip><svg>...</svg></button>
+    <button class="ghost square" aria-label="Copy" data-tooltip><svg>...</svg></button>
   </header>
   <textarea data-focus rows="6" placeholder="console.log('Hello, world!');"></textarea>
   <footer>

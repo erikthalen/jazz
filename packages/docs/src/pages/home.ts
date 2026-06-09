@@ -27,6 +27,8 @@ export async function HomePage(path: string) {
     title: "Jazz",
     path,
     content: html`
+      <div class="home-background"></div>
+      
       <section class="home-hero">
         <div class="home-hero-inner">
           <h1 class="home-headline">One stylesheet.<br />That's it.</h1>
@@ -46,7 +48,7 @@ export async function HomePage(path: string) {
             <a href="${url("/getting-started/introduction")}" class="button">
               Get started
             </a>
-            <a href="${url("/components/button")}" class="button outlined">
+            <a href="${url("/components/button")}" class="button outlined" style="background-color: var(--jazz-background-color)">
               Components
             </a>
           </div>
@@ -58,10 +60,13 @@ export async function HomePage(path: string) {
         </div>
       </section>
 
+      <hr style="margin: 0 0 -1px 0" />
+
       <section class="home-showcase">
         <div class="showcase-cell">
           <button>Primary</button>
-          <button class="outlined">Outline</button>
+          <button class="secondary">Secondary</button>
+          <button class="outlined">Outlined</button>
           <button class="ghost">Ghost</button>
         </div>
 
@@ -84,29 +89,37 @@ export async function HomePage(path: string) {
         <div class="showcase-cell">
           <div style="display:flex;gap:0.5rem;">
             <fieldset role="group">
-              <label class="toggle square" aria-label="Align left">
+              <label class="toggle square" aria-label="Align left" data-tooltip>
                 <input type="radio" name="home-align" />
                 ${raw(icon("align-left"))}
               </label>
-              <label class="toggle square" aria-label="Align center">
+              <label
+                class="toggle square"
+                aria-label="Align center"
+                data-tooltip
+              >
                 <input type="radio" name="home-align" checked />
                 ${raw(icon("align-center"))}
               </label>
-              <label class="toggle square" aria-label="Align right">
+              <label
+                class="toggle square"
+                aria-label="Align right"
+                data-tooltip
+              >
                 <input type="radio" name="home-align" />
                 ${raw(icon("align-right"))}
               </label>
             </fieldset>
             <fieldset role="group">
-              <label class="toggle square" aria-label="Bold">
+              <label class="toggle square" aria-label="Bold" data-tooltip>
                 <input type="checkbox" />
                 ${raw(icon("bold"))}
               </label>
-              <label class="toggle square" aria-label="Italic">
+              <label class="toggle square" aria-label="Italic" data-tooltip>
                 <input type="checkbox" checked />
                 ${raw(icon("italic"))}
               </label>
-              <label class="toggle square" aria-label="Underline">
+              <label class="toggle square" aria-label="Underline" data-tooltip>
                 <input type="checkbox" />
                 ${raw(icon("underline"))}
               </label>
@@ -143,7 +156,7 @@ export async function HomePage(path: string) {
         </div>
 
         <div class="showcase-cell">
-          <button class="ghost" popovertarget="showcase-dropdown">
+          <button class="outlined" popovertarget="showcase-dropdown">
             Options
           </button>
           <div id="showcase-dropdown" popover>
@@ -464,6 +477,8 @@ export async function HomePage(path: string) {
         </div>
       </section>
 
+      <hr style="margin: -1px 0 0 0" />
+
       <section class="home-code">
         <div class="code-block">
           ${raw(
@@ -496,6 +511,8 @@ export async function HomePage(path: string) {
         </div>
       </section>
 
+      <hr style="margin: -1px 0 0 0" />
+
       <section class="home-features">
         <div class="home-feature-card prose">
           <p><small>Reset + UI in one import</small></p>
@@ -523,11 +540,14 @@ export async function HomePage(path: string) {
           <h2>Dark mode included</h2>
           <p>
             Responds to <code>prefers-color-scheme</code> automatically. Force a
-            mode with <code>.jazz-light</code> or <code>.jazz-dark</code> on any
-            element.
+            mode on any element with<br />
+            <code>style="color-scheme: light"</code> or
+            <code>style="color-scheme: dark"</code>.
           </p>
         </div>
       </section>
+
+      <hr style="margin: -1px 0 0 0" />
 
       <footer class="home-footer">
         <div class="home-footer-inner">

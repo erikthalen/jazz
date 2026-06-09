@@ -276,8 +276,8 @@ A \`[popover]\` that is a sibling of a \`<button>\` inside a menu \`<li>\` becom
 ## Tooltip
 
 \`\`\`html
-<button aria-label="Save changes">Save</button>
-<button aria-label="Left side" data-placement="left">Info</button>
+<button aria-label="Save changes" data-tooltip>Save</button>
+<button aria-label="Left side" data-tooltip="left">Info</button>
 \`\`\`
 
 ## Table
@@ -368,15 +368,15 @@ Use \`<label class="toggle">\` inside \`<fieldset role="group">\`. Radio for mut
 
 \`\`\`html
 <fieldset role="group">
-  <label class="toggle square" aria-label="Align left">
+  <label class="toggle square" aria-label="Align left" data-tooltip>
     <input type="radio" name="align" />
     <svg>...</svg>
   </label>
-  <label class="toggle square" aria-label="Align center">
+  <label class="toggle square" aria-label="Align center" data-tooltip>
     <input type="radio" name="align" checked />
     <svg>...</svg>
   </label>
-  <label class="toggle square" aria-label="Align right">
+  <label class="toggle square" aria-label="Align right" data-tooltip>
     <input type="radio" name="align" />
     <svg>...</svg>
   </label>

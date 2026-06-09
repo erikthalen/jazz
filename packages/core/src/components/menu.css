@@ -25,33 +25,6 @@ menu {
       pointer-events: none;
     }
 
-    /* &:has(input[type="checkbox"]) {
-      position: relative;
-
-      &::before {
-        content: "";
-        order: 9999;
-        margin-left: auto;
-        flex-shrink: 0;
-        width: 0.75rem;
-        height: 0.75rem;
-        border-radius: 3px;
-        border: 1px solid var(--jazz-neutral-300);
-      }
-
-      &::after {
-        --icon-size: calc(1em - 4px);
-        position: absolute;
-        right: var(--jazz-spacing-3);
-        top: 50%;
-        translate: -12.5% -50%;
-        margin-left: 0;
-        width: var(--icon-size);
-        height: var(--icon-size);
-        mask-size: var(--icon-size);
-      }
-    } */
-
     @media (hover: hover) {
       &:hover {
         background: var(--jazz-neutral-100);

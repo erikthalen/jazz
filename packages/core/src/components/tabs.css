@@ -11,8 +11,8 @@
     display: flex;
     width: fit-content;
 
-    background-color: var(--jazz-neutral-100);
-    border-radius: 8px;
+    background-color: var(--jazz-neutral-200);
+    border-radius: 9px;
 
     anchor-name: --hovered-link;
     anchor-scope: --hovered-link;
@@ -30,8 +30,8 @@
       bottom: calc(anchor(bottom) + 1px);
       z-index: 0;
 
-      border-radius: 7px;
-      background-color: var(--jazz-neutral-200);
+      border-radius: 8px;
+      background-color: var(--jazz-neutral-50);
       pointer-events: none;
 
       position-anchor: --hovered-link;
