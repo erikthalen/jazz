@@ -1,4 +1,5 @@
 import { Hono } from 'hono'
+import { serveStatic } from '@hono/node-server/serve-static'
 import { HomePage } from './pages/home'
 import { IntroPage } from './pages/intro'
 import { ButtonPage } from './pages/button'
@@ -55,6 +56,8 @@ import { SkillPage } from './pages/skill'
 import { SkillsPage } from './pages/skills'
 
 const app = new Hono()
+
+app.use('/public/*', serveStatic({ root: './src' }))
 
 app.get('/', (c) => c.html(HomePage(c.req.path)))
 app.get('/getting-started/introduction', (c) => c.html(IntroPage(c.req.path)))

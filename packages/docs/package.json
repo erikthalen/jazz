@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hono/node-server": "^2.0.4",
     "@jazz/core": "workspace:*",
     "@tabler/icons": "^3.40.0",
     "hono": "^4.0.0",

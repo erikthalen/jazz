@@ -1,0 +1,67 @@
+/* TOC */
+.docs-toc {
+  display: none;
+
+  user-select: none;
+
+  @media (min-width: 1100px) {
+    display: block;
+    position: sticky;
+    top: 4.5rem;
+    overflow-y: auto;
+    padding: 2.5rem 1rem;
+  }
+}
+
+.docs-toc .sidebar-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--jazz-neutral-700);
+}
+
+.docs-toc nav {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-left: 0.5rem;
+  anchor-scope: --toc-start, --toc-end;
+}
+
+.docs-toc nav::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 2px;
+  border-radius: 2px;
+  background-color: var(--jazz-primary);
+  pointer-events: none;
+
+  top: anchor(--toc-start top);
+  bottom: anchor(--toc-end bottom);
+
+  transition:
+    top 200ms var(--ease-glide),
+    bottom 200ms var(--ease-glide);
+}
+
+.docs-toc nav:not(:has([aria-current="true"]))::before {
+  display: none;
+}
+
+.docs-toc nav a {
+  color: var(--jazz-neutral-600);
+  text-decoration: none;
+  padding: 0.5rem 0 0.5rem 0.75rem;
+}
+
+.docs-toc nav a:hover {
+  color: var(--jazz-text-color);
+}
+
+.docs-toc nav a[aria-current="true"] {
+  color: var(--jazz-primary);
+  font-weight: 500;
+}

@@ -1,6 +1,5 @@
 import { html, raw } from "hono/html";
 import type { HtmlEscapedString } from "hono/utils/html";
-import docsCss from "./docs.css?raw";
 import { IconsSearchDialog } from "./pages/icons-dialog";
 import { SearchDialog } from "./pages/search-dialog";
 import { icon } from "./icon";
@@ -8,6 +7,7 @@ import { SchemePicker } from "./components/scheme-picker";
 import { ThemePicker } from "./components/theme-picker";
 import { SidebarNav } from "./components/sidebar-nav";
 import { TableOfContents } from "./components/table-of-contents";
+import copyCode from "./components/copy-code";
 
 const b = (process.env.BASE_URL ?? "/").replace(/\/$/, "");
 export const url = (path: string) => b + path;
@@ -121,15 +121,13 @@ function head(title: string) {
   return html`
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>${title} — Jazz</title>
+    <title>${title} – Jazz</title>
     <link
       rel="icon"
       href="data:image/svg+xml,<svg width='512' height='512' viewBox='0 0 512 512' fill='none' xmlns='http://www.w3.org/2000/svg'><rect width='512' height='512' rx='80' fill='%23FFFFFF'/><path d='M260.215 378.287C257.518 378.287 256.169 376.932 256.169 374.22L256.169 332.09C256.169 330.029 256.709 328.403 257.787 327.21L281.74 303.135C283.034 301.942 283.682 300.207 283.682 297.93L283.682 138.354C283.682 135.643 285.031 134.287 287.728 134.287L347.123 134.287C349.82 134.287 351.169 135.643 351.169 138.354L351.169 336.97C351.169 337.946 351.061 338.868 350.845 339.735C350.63 340.494 350.09 341.308 349.227 342.175L315.726 375.847C314.108 377.474 312.489 378.287 310.871 378.287L260.215 378.287Z' fill='black'/><path d='M252.08 134.287C254.806 134.287 256.169 135.643 256.169 138.354L256.169 180.485C256.169 182.545 255.624 184.172 254.534 185.364L230.329 209.439C229.021 210.632 228.367 212.367 228.367 214.645L228.367 374.22C228.367 376.932 227.004 378.287 224.278 378.287L164.258 378.287C161.532 378.287 160.169 376.932 160.169 374.22L160.169 175.605C160.169 174.629 160.278 173.707 160.496 172.839C160.714 172.08 161.259 171.267 162.132 170.399L195.985 136.727C197.621 135.1 199.256 134.287 200.891 134.287L252.08 134.287Z' fill='black'/></svg>"
     />
     <link rel="stylesheet" href="${url("/jazz.css")}" />
-    <style>
-      ${raw(docsCss)}
-    </style>
+    <link rel="stylesheet" href="${url("/main.css")}" />
     ${import.meta.env.DEV
       ? raw('<script type="module" src="/@vite/client"></script>')
       : ""}
@@ -144,25 +142,8 @@ function head(title: string) {
         });
       });
     </script>
-    <script defer>
-      document.addEventListener("DOMContentLoaded", () => {
-        document.querySelectorAll(".code-block").forEach((block) => {
-          const btn = document.createElement("button");
-          btn.className = "code-copy-btn ghost square";
-          btn.setAttribute("aria-label", "Copy code");
-          btn.setAttribute("data-tooltip", "left");
-          btn.innerHTML =
-            '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>';
-          btn.onclick = async () => {
-            const code = block.querySelector("code")?.innerText ?? "";
-            await navigator.clipboard.writeText(code);
-            btn.setAttribute("data-copied", "");
-            setTimeout(() => btn.removeAttribute("data-copied"), 1500);
-          };
-          block.appendChild(btn);
-        });
-      });
-    </script>
+
+    ${copyCode()}
   `;
 }
 

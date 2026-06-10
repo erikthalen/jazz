@@ -7,6 +7,7 @@ const toc = [
   { id: "default", label: "Default" },
   { id: "disabled", label: "Disabled tab" },
   { id: "with-cards", label: "With content" },
+  { id: "nested", label: "Nested" },
 ];
 
 export async function TabsPage(path: string) {
@@ -260,7 +261,7 @@ export async function TabsPage(path: string) {
       </div>
       <div class="example">
         <div class="preview preview-padded">
-          <section class="tabs" style="width:100%">
+          <section class="tabs" style="display: grid; gap: 1rem;">
             <header role="tablist" aria-label="Team">
               <label>
                 <input
@@ -406,7 +407,7 @@ export async function TabsPage(path: string) {
         </div>
         <div class="code-block">
           ${raw(
-            await highlight(`<section class="tabs">
+            await highlight(`<section class="tabs" style="display: grid; gap: 1rem;">
   <header role="tablist" aria-label="Team">
     <label>
     <input type="radio" name="tabs" id="tab-1" checked aria-controls="panel-1" /> Members
@@ -471,6 +472,103 @@ export async function TabsPage(path: string) {
     </form>
   </div>
 </section>`),
+          )}
+        </div>
+      </div>
+
+      <div class="prose">
+        <h2 id="nested">Nested</h2>
+        <p>
+          Tabs can be nested freely. Each level is fully independent — switching
+          tabs in the outer component has no effect on the inner one and vice
+          versa.
+        </p>
+      </div>
+      <div class="example">
+        <div class="preview preview-padded">
+          <section class="tabs parent-tabs" style="display:grid;gap:1rem">
+            <header role="tablist" aria-label="Outer tabs">
+              <label
+                ><input type="radio" name="outer" checked /> Overview</label
+              >
+              <label><input type="radio" name="outer" /> Settings</label>
+            </header>
+
+            <div role="tabpanel">
+              <p style="margin-bottom:1rem">
+                Outer panel one — contains a nested tabs:
+              </p>
+              <section class="tabs child-tabs" style="display:grid;gap:0.75rem">
+                <header role="tablist" aria-label="Inner tabs">
+                  <label
+                    ><input type="radio" name="inner" checked /> Week</label
+                  >
+                  <label><input type="radio" name="inner" /> Month</label>
+                  <label><input type="radio" name="inner" /> Year</label>
+                </header>
+                <div role="tabpanel"><p>Weekly view</p></div>
+                <div role="tabpanel"><p>Monthly view</p></div>
+                <div role="tabpanel"><p>Yearly view</p></div>
+              </section>
+            </div>
+
+            <div role="tabpanel">
+              <p>Outer panel two.</p>
+            </div>
+          </section>
+
+          <style>
+            .parent-tabs {
+              padding: 1rem;
+              border: 1px solid var(--jazz-neutral-100);
+            }
+
+            .child-tabs {
+              padding: 1rem;
+              background-color: var(--jazz-neutral-100);
+            }
+          </style>
+        </div>
+        <div class="code-block">
+          ${raw(
+            await highlight(`<section class="tabs parent">
+  <header role="tablist" aria-label="Outer tabs">
+    <label><input type="radio" name="outer" checked /> Overview</label>
+    <label><input type="radio" name="outer" /> Settings</label>
+  </header>
+
+  <div role="tabpanel">
+    <section class="tabs child">
+      <header role="tablist" aria-label="Inner tabs">
+        <label><input type="radio" name="inner" checked /> Week</label>
+        <label><input type="radio" name="inner" /> Month</label>
+        <label><input type="radio" name="inner" /> Year</label>
+      </header>
+      <div role="tabpanel"><p>Weekly view</p></div>
+      <div role="tabpanel"><p>Monthly view</p></div>
+      <div role="tabpanel"><p>Yearly view</p></div>
+    </section>
+  </div>
+
+  <div role="tabpanel">
+    <p>Outer panel two.</p>
+  </div>
+</section>
+
+          <style>
+            .tabs {
+              padding: 1rem;
+
+              .parent {
+                border: 1px solid var(--jazz-neutral-100);
+              }
+
+              .child {
+                background-color: var(--jazz-neutral-100);
+              }
+            }
+
+          </style>`),
           )}
         </div>
       </div>

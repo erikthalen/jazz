@@ -1,0 +1,69 @@
+.code-block {
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--jazz-neutral-100);
+  overflow: hidden;
+}
+
+.preview + .code-block {
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+}
+
+.code-block pre {
+  margin: 0;
+  padding: 1rem 1.25rem 1rem 2.5rem;
+  overflow-x: auto;
+}
+
+.code-block code {
+  font-family: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+  font-size: 0.8125rem;
+  line-height: 1.65;
+  white-space: pre;
+  counter-reset: line;
+}
+
+.code-block .line {
+  position: relative;
+  counter-increment: line;
+
+  &::before {
+    content: counter(line);
+    position: absolute;
+    left: -2.25rem;
+    width: 1.75rem;
+    text-align: right;
+    color: var(--jazz-neutral-400);
+    user-select: none;
+    pointer-events: none;
+  }
+}
+
+/* Shiki dual-theme */
+.shiki {
+  background: transparent !important;
+}
+
+[data-theme="light"] .shiki span {
+  color: var(--shiki-light);
+}
+
+[data-theme="dark"] .shiki span {
+  color: var(--shiki-dark);
+}
+
+.shiki span {
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) & {
+      color: var(--shiki-light);
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) & {
+      color: var(--shiki-dark);
+    }
+  }
+}

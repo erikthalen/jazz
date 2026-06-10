@@ -8,6 +8,7 @@ const coreCssPath = fileURLToPath(new URL("../../jazz.css", import.meta.url));
 const miniSearchPath = fileURLToPath(new URL("./node_modules/minisearch/dist/es/index.js", import.meta.url));
 
 export default defineConfig({
+  publicDir: resolve(import.meta.dirname, "src/public"),
   define: {
     __TABLER_ICONS_DIR__: JSON.stringify(
       resolve(import.meta.dirname, "node_modules/@tabler/icons/icons"),

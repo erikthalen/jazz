@@ -18,6 +18,9 @@ export function ThemePicker() {
           b.classList.toggle("secondary", b.dataset.primary === stored);
           b.classList.toggle("ghost", b.dataset.primary !== stored);
         });
+        document.querySelectorAll(".home-swatch-btn").forEach(function (b) {
+          b.classList.toggle("active", b.dataset.color === stored);
+        });
       }
       document.addEventListener("DOMContentLoaded", function () {
         syncSwatch();

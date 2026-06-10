@@ -1,12 +1,9 @@
-.tabs {
-  width: stretch;
+@scope (.tabs) to (.tabs .tabs) {
+  :scope {
+    width: stretch;
+  }
 
-  display: grid;
-  grid-template-rows: auto auto;
-  align-content: baseline;
-  gap: var(--jazz-spacing-6);
-
-  > header {
+  [role="tablist"] {
     position: relative;
     display: flex;
     width: fit-content;
@@ -82,38 +79,34 @@
     }
   }
 
-  /* Panels go after the tab strip <header> */
-  > [role="tabpanel"]:focus-visible {
+  [role="tabpanel"]:focus-visible {
     outline: 2px solid var(--jazz-neutral-950);
     outline-offset: 4px;
     border-radius: 4px;
   }
 
-  > *:not(header) {
-    transition:
+  [role="tabpanel"] {
+    /* transition:
       opacity 150ms var(--ease-glide),
-      display 50ms ease allow-discrete;
+      display 50ms ease allow-discrete; */
 
     display: none;
-    opacity: 0;
-
-    grid-column: 1;
-    grid-row: 2;
+    /* opacity: 0; */
   }
 
-  &:has(> header label:nth-of-type(1) input:checked) > *:not(header):nth-of-type(1),
-  &:has(> header label:nth-of-type(2) input:checked) > *:not(header):nth-of-type(2),
-  &:has(> header label:nth-of-type(3) input:checked) > *:not(header):nth-of-type(3),
-  &:has(> header label:nth-of-type(4) input:checked) > *:not(header):nth-of-type(4),
-  &:has(> header label:nth-of-type(5) input:checked) > *:not(header):nth-of-type(5),
-  &:has(> header label:nth-of-type(6) input:checked) > *:not(header):nth-of-type(6),
-  &:has(> header label:nth-of-type(7) input:checked) > *:not(header):nth-of-type(7),
-  &:has(> header label:nth-of-type(8) input:checked) > *:not(header):nth-of-type(8) {
+  :scope:has([role="tablist"]:not(:scope .tabs [role="tablist"]) label:nth-child(1 of label) input:checked) [role="tabpanel"]:not(:scope .tabs [role="tabpanel"]):nth-child(1 of [role="tabpanel"]),
+  :scope:has([role="tablist"]:not(:scope .tabs [role="tablist"]) label:nth-child(2 of label) input:checked) [role="tabpanel"]:not(:scope .tabs [role="tabpanel"]):nth-child(2 of [role="tabpanel"]),
+  :scope:has([role="tablist"]:not(:scope .tabs [role="tablist"]) label:nth-child(3 of label) input:checked) [role="tabpanel"]:not(:scope .tabs [role="tabpanel"]):nth-child(3 of [role="tabpanel"]),
+  :scope:has([role="tablist"]:not(:scope .tabs [role="tablist"]) label:nth-child(4 of label) input:checked) [role="tabpanel"]:not(:scope .tabs [role="tabpanel"]):nth-child(4 of [role="tabpanel"]),
+  :scope:has([role="tablist"]:not(:scope .tabs [role="tablist"]) label:nth-child(5 of label) input:checked) [role="tabpanel"]:not(:scope .tabs [role="tabpanel"]):nth-child(5 of [role="tabpanel"]),
+  :scope:has([role="tablist"]:not(:scope .tabs [role="tablist"]) label:nth-child(6 of label) input:checked) [role="tabpanel"]:not(:scope .tabs [role="tabpanel"]):nth-child(6 of [role="tabpanel"]),
+  :scope:has([role="tablist"]:not(:scope .tabs [role="tablist"]) label:nth-child(7 of label) input:checked) [role="tabpanel"]:not(:scope .tabs [role="tabpanel"]):nth-child(7 of [role="tabpanel"]),
+  :scope:has([role="tablist"]:not(:scope .tabs [role="tablist"]) label:nth-child(8 of label) input:checked) [role="tabpanel"]:not(:scope .tabs [role="tabpanel"]):nth-child(8 of [role="tabpanel"]) {
     display: block;
-    opacity: 1;
+    /* opacity: 1;
 
     @starting-style {
       opacity: 0;
-    }
+    } */
   }
 }

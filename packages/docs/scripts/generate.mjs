@@ -1,4 +1,4 @@
-import { mkdir, writeFile, copyFile } from "node:fs/promises";
+import { mkdir, writeFile, copyFile, cp } from "node:fs/promises";
 import { join } from "node:path";
 
 const { default: app } = await import("../dist/.server/index.js");
@@ -91,6 +91,10 @@ console.log("  SKILL.md → repo root");
 // Copy minisearch ESM bundle
 const miniSearchSrc = new URL("../node_modules/minisearch/dist/es/index.js", import.meta.url).pathname;
 await copyFile(miniSearchSrc, join(outDir, "minisearch.js"));
+
+// Copy public directory to dist
+const publicDir = new URL("../src/public", import.meta.url).pathname;
+await cp(publicDir, outDir, { recursive: true });
 
 // GitHub Pages needs this to disable Jekyll processing
 await writeFile(join(outDir, ".nojekyll"), "");
