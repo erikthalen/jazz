@@ -3,38 +3,18 @@ import { icon } from "../icon";
 
 export function SchemePicker() {
   return html`
-    <script>
-      function applyColorScheme(scheme) {
-        let s = document.getElementById("jazz-theme-style");
-        if (scheme === "system") {
-          if (s) s.remove();
-          localStorage.removeItem("jazz-theme");
-        } else {
-          if (!s) {
-            s = document.createElement("style");
-            s.id = "jazz-theme-style";
-            document.head.appendChild(s);
-          }
-          s.textContent = ":root { color-scheme: " + scheme + "; }";
-          localStorage.setItem("jazz-theme", scheme);
-        }
-        document.documentElement.dataset.theme = scheme;
-        document.querySelectorAll('input[name="theme"]').forEach(function (r) {
-          r.checked = r.value === scheme;
-        });
-      }
-      applyColorScheme(localStorage.getItem("jazz-theme") || "system");
-      document.addEventListener("DOMContentLoaded", function () {
-        applyColorScheme(localStorage.getItem("jazz-theme") || "system");
-      });
-    </script>
-    <fieldset role="group">
+    <fieldset
+      role="group"
+      x-data="{ scheme: $persist('system') }"
+      x-init="document.documentElement.style.colorScheme = scheme; $watch('scheme', () => document.documentElement.style.colorScheme = scheme)"
+    >
       <label class="toggle square" aria-label="Light" data-tooltip="bottom">
         <input
           type="radio"
           name="theme"
           value="light"
-          onchange="applyColorScheme(this.value)"
+          :checked="scheme === 'light'"
+          @change="scheme = $event.target.value"
         />
         ${raw(icon("sun"))}
       </label>
@@ -43,20 +23,18 @@ export function SchemePicker() {
           type="radio"
           name="theme"
           value="dark"
-          onchange="applyColorScheme(this.value)"
+          :checked="scheme === 'dark'"
+          @change="scheme = $event.target.value"
         />
         ${raw(icon("moon"))}
       </label>
-      <label
-        class="toggle square"
-        aria-label="System"
-        data-tooltip="bottom"
-      >
+      <label class="toggle square" aria-label="System" data-tooltip="bottom">
         <input
           type="radio"
           name="theme"
           value="system"
-          onchange="applyColorScheme(this.value)"
+          :checked="scheme === 'system'"
+          @change="scheme = $event.target.value"
         />
         ${raw(icon("device-desktop"))}
       </label>

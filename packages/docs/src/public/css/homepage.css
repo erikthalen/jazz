@@ -60,39 +60,36 @@
     border-left: 1px solid var(--border);
     border-right: 1px solid var(--border);
   }
-}
 
-.home-eyebrow {
-  margin-top: 2.5rem;
-  width: fit-content;
-  max-width: 100%;
-  padding-right: 0;
+  hgroup {
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
 
-  @media (min-width: 769px) {
-    padding-right: 3rem;
+    p {
+      font-size: 1.125rem;
+      max-width: 480px;
+
+      code {
+        background-color: var(--jazz-constructive-200);
+        color: var(--jazz-constructive-600);
+      }
+    }
   }
-}
 
-.home-headline {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin-bottom: 1.25rem;
-}
+  .code-block {
+    margin-top: 2.5rem;
+    width: fit-content;
+    max-width: 100%;
+    padding-right: 0;
 
-.home-sub {
-  font-size: 1.125rem;
-  color: var(--jazz-neutral-600);
-  line-height: 1.6;
-  max-width: 480px;
-  margin-bottom: 2rem;
-}
-
-.home-cta {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
+    @media (min-width: 769px) {
+      padding-right: 3rem;
+    }
+  }
 }
 
 .home-theme-section {

@@ -62,8 +62,8 @@ export function ThemePicker() {
               syncSwatch();
             "
             >
-              <span class="swatch-circle"></span>
-              <span class="swatch-name">${name}</span>
+              <span class="circle"></span>
+              <span class="name">${name}</span>
             </button>
           </li>
         `,
@@ -83,10 +83,10 @@ export function ThemePicker() {
           "
         >
           <span
-            class="swatch-circle"
+            class="circle"
             style="box-shadow:0 0 0 1px var(--jazz-neutral-300) inset"
           ></span>
-          <span class="swatch-name">Mono</span>
+          <span class="name">Mono</span>
         </button>
       </li>
       <li class="color-picker-custom">
@@ -103,5 +103,51 @@ export function ThemePicker() {
         </label>
       </li>
     </menu>
+
+    <style>
+      .color-picker-popover {
+        position-anchor: --color-picker;
+        top: calc(var(--header-h) - 0.5rem);
+        left: unset;
+        right: anchor(right);
+        padding: 0.75rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.25rem;
+      }
+
+      .color-swatch-btn {
+        flex-direction: column;
+
+        .circle {
+          width: 2.5rem;
+          height: 2.5rem;
+          border-radius: 50%;
+          background: var(--swatch-color);
+          transition: scale 100ms;
+
+          .color-swatch-btn:hover & {
+            scale: 1.08;
+          }
+        }
+
+        .name {
+          font-size: 0.6875rem;
+          color: var(--jazz-neutral-600);
+          white-space: nowrap;
+        }
+      }
+
+      .color-picker-custom {
+        grid-column: 1 / -1;
+        padding-top: 0.5rem;
+        border-top: 1px solid var(--jazz-neutral-200);
+        margin-top: 0.25rem;
+
+        input[type="color"] {
+          width: 100%;
+        }
+      }
+    </style>
   `;
 }

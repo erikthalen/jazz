@@ -31,38 +31,30 @@ export async function HomePage(path: string) {
     content: html`
       <div class="home-background"></div>
 
-      <section class="home-hero">
-        <div class="home-hero-inner">
-          <h1 class="home-headline">One stylesheet.<br />That's it.</h1>
-          <p class="home-sub">
+      <section class="home-hero prose">
+        <hgroup>
+          <h1>One stylesheet.<br />That's it.</h1>
+          <p>
             Drop in a single CSS file and get a full component library, theming
             and dark mode.
-            ${cssSize
-              ? html` <span
-                    style="white-space:break-spaces;background-color:var(--jazz-constructive-200);color:var(--jazz-constructive-600);padding:0.15rem 0.4rem;border-radius:8px;"
-                    >${cssSize} kB</span
-                  >
-                  gziped`
-              : ""}
-            packing all that jazz.
+            ${cssSize ? html`<code>${cssSize} kB</code> gziped` : ""} packing
+            all that jazz.
           </p>
-          <div class="home-cta">
-            <a href="${url("/getting-started/introduction")}" class="button">
-              Get started
-            </a>
-            <a
-              href="${url("/components/button")}"
-              class="button outlined"
-              style="background-color: var(--jazz-background-color)"
-            >
-              Components
-            </a>
-          </div>
-          <div class="home-eyebrow code-block">
-            ${raw(
-              await highlight(`<link rel="stylesheet" href="${cdnUrl}" />`),
-            )}
-          </div>
+        </hgroup>
+        <div>
+          <a href="${url("/getting-started/introduction")}" class="button">
+            Get started
+          </a>
+          <a
+            href="${url("/components/button")}"
+            class="button outlined"
+            style="background-color: var(--jazz-background-color)"
+          >
+            Components
+          </a>
+        </div>
+        <div class="code-block">
+          ${raw(await highlight(`<link rel="stylesheet" href="${cdnUrl}" />`))}
         </div>
       </section>
 

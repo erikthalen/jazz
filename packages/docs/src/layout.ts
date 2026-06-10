@@ -143,6 +143,22 @@ function head(title: string) {
       });
     </script>
 
+    <script type="importmap">
+      {
+        "imports": {
+          "alpinejs": "https://esm.sh/alpinejs@3.15.12",
+          "@alpinejs/persist": "https://esm.sh/@alpinejs/persist@3.15.12"
+        }
+      }
+    </script>
+
+    <script type="module">
+      import Alpine from "alpinejs";
+      import persist from "@alpinejs/persist";
+
+      Alpine.plugin(persist);
+    </script>
+
     ${copyCode()}
   `;
 }
@@ -161,7 +177,7 @@ async function header(path: string) {
   const stars = await fetchStars();
 
   return html`
-    <header class="docs-header">
+    <header>
       <a href="${url("/")}" class="docs-logo" aria-label="Jazz homepage">
         <svg
           height="24"
@@ -309,6 +325,12 @@ export function HomeLayout({ title, path, content }: Omit<LayoutProps, "toc">) {
         <main class="home-content">${content}</main>
         ${raw(IconsSearchDialog())} ${raw(SearchDialog())}
       </body>
+
+      <script type="module">
+        import Alpine from "alpinejs";
+
+        Alpine.start();
+      </script>
     </html>`;
 }
 
@@ -331,5 +353,11 @@ export function Layout({ title, path, toc, wide, content }: LayoutProps) {
         </div>
         ${raw(IconsSearchDialog())} ${raw(SearchDialog())}
       </body>
+
+      <script type="module">
+        import Alpine from "alpinejs";
+
+        Alpine.start();
+      </script>
     </html>`;
 }
