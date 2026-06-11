@@ -86,12 +86,12 @@
   }
 
   [role="tabpanel"] {
-    /* transition:
-      opacity 150ms var(--ease-glide),
-      display 50ms ease allow-discrete; */
+    transition:
+      opacity 250ms var(--ease-glide),
+      display 50ms ease allow-discrete;
 
     display: none;
-    /* opacity: 0; */
+    opacity: 0;
   }
 
   :scope:has([role="tablist"]:not(:scope .tabs [role="tablist"]) label:nth-child(1 of label) input:checked) [role="tabpanel"]:not(:scope .tabs [role="tabpanel"]):nth-child(1 of [role="tabpanel"]),
@@ -103,10 +103,10 @@
   :scope:has([role="tablist"]:not(:scope .tabs [role="tablist"]) label:nth-child(7 of label) input:checked) [role="tabpanel"]:not(:scope .tabs [role="tabpanel"]):nth-child(7 of [role="tabpanel"]),
   :scope:has([role="tablist"]:not(:scope .tabs [role="tablist"]) label:nth-child(8 of label) input:checked) [role="tabpanel"]:not(:scope .tabs [role="tabpanel"]):nth-child(8 of [role="tabpanel"]) {
     display: block;
-    /* opacity: 1;
+    opacity: 1;
 
     @starting-style {
       opacity: 0;
-    } */
+    }
   }
 }

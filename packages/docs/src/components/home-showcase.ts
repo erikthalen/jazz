@@ -140,7 +140,7 @@ export default () => html`
         class="tabs"
         style="display:grid;gap:1rem;align-items:start;align-self:start;"
       >
-        <header role="tablist" aria-label="Settings">
+        <header role="tablist" aria-label="Settings" style="grid-row: 1;">
           <label>
             <input
               type="radio"
@@ -175,6 +175,7 @@ export default () => html`
           id="home-panel-1"
           aria-labelledby="home-tab-1"
           tabindex="0"
+          style="grid-column: 1; grid-row: 2;"
         >
           <p style="font-size:0.875rem;color:var(--jazz-neutral-500);margin:0">
             Manage your public profile and personal details.
@@ -185,6 +186,7 @@ export default () => html`
           id="home-panel-2"
           aria-labelledby="home-tab-2"
           tabindex="0"
+          style="grid-column: 1; grid-row: 2;"
         >
           <p style="font-size:0.875rem;color:var(--jazz-neutral-500);margin:0">
             Recent actions and events will appear here.
@@ -195,6 +197,7 @@ export default () => html`
           id="home-panel-3"
           aria-labelledby="home-tab-3"
           tabindex="0"
+          style="grid-column: 1; grid-row: 2;"
         >
           <p style="font-size:0.875rem;color:var(--jazz-neutral-500);margin:0">
             Configure notifications, privacy, and preferences.

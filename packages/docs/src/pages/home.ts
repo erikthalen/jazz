@@ -87,69 +87,82 @@ export async function HomePage(path: string) {
           ${ColorSwatches()}
         </div>
 
-        <div role="tabpanel" id="panel-1" aria-labelledby="tab-1" tabindex="0">
-          ${homeShowcase()}
-        </div>
-        <div role="tabpanel" id="panel-2" aria-labelledby="tab-2" tabindex="0">
-          <div class="home-themes-showcase">
-            <div class="home-themes-scales">
-              ${[
-                "primary",
-                "neutral",
-                "constructive",
-                "destructive",
-                "color1",
-                "color2",
-                "color3",
-                "color4",
-                "color5",
-                "color6",
-              ].map(
-                (name) => html`
-                  <div class="home-themes-scale">
-                    ${[100, 200, 300, 400, 500, 600, 700, 800, 900].map(
-                      (step) => html`
-                        <div
-                          class="home-themes-swatch"
-                          style="background:var(--jazz-${name}-${step})"
-                          title="${name}-${step}"
-                        ></div>
-                      `,
-                    )}
-                  </div>
-                `,
-              )}
-            </div>
-
-            <div class="home-themes-modes">
-              <div class="home-themes-mode" style="color-scheme:light">
-                <article>
-                  <header>Light mode</header>
-                  <div>
-                    <p>
-                      Jazz responds to
-                      <code>prefers-color-scheme</code> automatically.
-                    </p>
-                  </div>
-                  <footer>
-                    <button class="ghost">Cancel</button>
-                    <button>Save</button>
-                  </footer>
-                </article>
+        <div class="tabpanels">
+          <div
+            role="tabpanel"
+            id="panel-1"
+            aria-labelledby="tab-1"
+            tabindex="0"
+          >
+            ${homeShowcase()}
+          </div>
+          <div
+            role="tabpanel"
+            id="panel-2"
+            aria-labelledby="tab-2"
+            tabindex="0"
+          >
+            <div class="home-themes-showcase">
+              <div class="home-themes-scales">
+                ${[
+                  "primary",
+                  "neutral",
+                  "constructive",
+                  "destructive",
+                  "color1",
+                  "color2",
+                  "color3",
+                  "color4",
+                  "color5",
+                  "color6",
+                ].map(
+                  (name) => html`
+                    <div class="home-themes-scale">
+                      ${[100, 200, 300, 400, 500, 600, 700, 800, 900].map(
+                        (step) => html`
+                          <div
+                            class="home-themes-swatch"
+                            style="background:var(--jazz-${name}-${step})"
+                            title="${name}-${step}"
+                          ></div>
+                        `,
+                      )}
+                    </div>
+                  `,
+                )}
               </div>
-              <div class="home-themes-mode" style="color-scheme:dark">
-                <article>
-                  <header>Dark mode</header>
-                  <div>
-                    <p>
-                      Force a mode with <code>style="color-scheme: dark"</code>.
-                    </p>
-                  </div>
-                  <footer>
-                    <button class="ghost">Cancel</button>
-                    <button>Save</button>
-                  </footer>
-                </article>
+
+              <div class="home-themes-modes">
+                <div class="home-themes-mode" style="color-scheme:light">
+                  <article>
+                    <header>Light mode</header>
+                    <div>
+                      <p>
+                        Jazz responds to
+                        <code>prefers-color-scheme</code> automatically.
+                      </p>
+                    </div>
+                    <footer>
+                      <button class="ghost">Cancel</button>
+                      <button>Save</button>
+                    </footer>
+                  </article>
+                </div>
+                <div class="home-themes-mode" style="color-scheme:dark">
+                  <article>
+                    <header>Dark mode</header>
+                    <div>
+                      <p>
+                        Force a mode with
+                        <code>style="color-scheme: dark"</code>.
+                      </p>
+                    </div>
+                    <footer>
+                      <button class="ghost">Cancel</button>
+                      <button>Save</button>
+                    </footer>
+                  </article>
+                </div>
               </div>
             </div>
           </div>

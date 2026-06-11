@@ -40,7 +40,7 @@ export async function TabsPage(path: string) {
       </div>
       <div class="example">
         <div class="preview preview-padded">
-          <section class="tabs">
+          <section class="tabs" style="display: grid; gap: 1rem;">
             <header role="tablist" aria-label="Account settings">
               <label>
                 <input
@@ -77,6 +77,7 @@ export async function TabsPage(path: string) {
               id="panel-demo-account"
               aria-labelledby="tab-demo-account"
               tabindex="0"
+              style="grid-column: 1; grid-row: 2;"
             >
               <p>Manage your account settings and preferences.</p>
             </div>
@@ -85,6 +86,7 @@ export async function TabsPage(path: string) {
               id="panel-demo-password"
               aria-labelledby="tab-demo-password"
               tabindex="0"
+              style="grid-column: 1; grid-row: 2;"
             >
               <p>Change your password and security settings.</p>
             </div>
@@ -93,6 +95,7 @@ export async function TabsPage(path: string) {
               id="panel-demo-notifications"
               aria-labelledby="tab-demo-notifications"
               tabindex="0"
+              style="grid-column: 1; grid-row: 2;"
             >
               <p>Configure how and when you receive notifications.</p>
             </div>
@@ -100,7 +103,7 @@ export async function TabsPage(path: string) {
         </div>
         <div class="code-block">
           ${raw(
-            await highlight(`<section class="tabs">
+            await highlight(`<section class="tabs" style="display: grid; gap: 1rem;">
   <header role="tablist" aria-label="Account settings">
     <label>
     <input type="radio" name="tabs" id="tab-1" checked aria-controls="panel-1" /> Account
@@ -113,13 +116,13 @@ export async function TabsPage(path: string) {
     </label>
   </header>
 
-  <div role="tabpanel" id="panel-1" aria-labelledby="tab-1" tabindex="0">
+  <div role="tabpanel" id="panel-1" aria-labelledby="tab-1" tabindex="0" style="grid-column: 1; grid-row: 2;">
     <p>Manage your account settings and preferences.</p>
   </div>
-  <div role="tabpanel" id="panel-2" aria-labelledby="tab-2" tabindex="0">
+  <div role="tabpanel" id="panel-2" aria-labelledby="tab-2" tabindex="0" style="grid-column: 1; grid-row: 2;">
     <p>Change your password and security settings.</p>
   </div>
-  <div role="tabpanel" id="panel-3" aria-labelledby="tab-3" tabindex="0">
+  <div role="tabpanel" id="panel-3" aria-labelledby="tab-3" tabindex="0" style="grid-column: 1; grid-row: 2;">
     <p>Configure how and when you receive notifications.</p>
   </div>
 </section>`),
