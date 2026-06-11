@@ -99,4 +99,30 @@ await cp(publicDir, outDir, { recursive: true });
 // GitHub Pages needs this to disable Jekyll processing
 await writeFile(join(outDir, ".nojekyll"), "");
 
+// Generate sitemap.xml
+const siteOrigin = (process.env.SITE_URL ?? "https://erikthalen.github.io").replace(/\/$/, "");
+const baseUrl = process.env.BASE_URL ? siteOrigin + process.env.BASE_URL.replace(/\/$/, "") : siteOrigin;
+const htmlRoutes = routes.filter(r => !r.includes("."));
+const today = new Date().toISOString().split("T")[0];
+const priorities = { "/": "1.0", default: "0.8" };
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${htmlRoutes.map(r => `  <url>
+    <loc>${baseUrl}${r === "/" ? "" : r}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>${priorities[r] ?? priorities.default}</priority>
+  </url>`).join("\n")}
+</urlset>`;
+await writeFile(join(outDir, "sitemap.xml"), sitemap);
+console.log("  sitemap.xml");
+
+// Generate robots.txt
+const robotsTxt = `User-agent: *
+Allow: /
+
+Sitemap: ${baseUrl}/sitemap.xml`;
+await writeFile(join(outDir, "robots.txt"), robotsTxt);
+console.log("  robots.txt");
+
 console.log(`\nGenerated ${routes.length} pages → dist/`);

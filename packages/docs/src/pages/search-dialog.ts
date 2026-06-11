@@ -5,27 +5,52 @@ import { icon } from "../icon";
 const b = (process.env.BASE_URL ?? "/").replace(/\/$/, "");
 const minisearchUrl = `${b}/minisearch.js`;
 
-type SearchItem = { id: number; title: string; path: string; type: string };
+type SearchItem = {
+  id: number;
+  title: string;
+  description: string;
+  path: string;
+  type: string;
+  badgeClass: string;
+};
+
+function renderItem(base: string, item: SearchItem) {
+  return html` <li>
+    <a href="${base}${item.path}" class="search-result">
+      <span class="search-result-body">
+        <span class="search-result-title">${item.title}</span>
+        <span class="search-result-desc">${item.description}</span>
+      </span>
+      <span class="badge ${item.badgeClass}">${item.type}</span>
+    </a>
+  </li>`;
+}
 
 export function SearchDialog() {
   const items: SearchItem[] = [
     ...sections.map((s, i) => ({
       id: i,
       title: s.label,
+      description: s.description,
       path: s.path,
       type: "guide",
+      badgeClass: "color2",
     })),
     ...components.map((c, i) => ({
       id: sections.length + i,
       title: c.label,
+      description: c.description,
       path: c.path,
       type: "component",
+      badgeClass: "color4",
     })),
     ...blocks.map((bl, i) => ({
       id: sections.length + components.length + i,
       title: bl.label,
+      description: bl.description,
       path: bl.path,
       type: "block",
+      badgeClass: "color5",
     })),
   ];
 
@@ -33,7 +58,7 @@ export function SearchDialog() {
     <article>
       <header>
         <label>
-          ${raw(icon("search", { size: 14, attrs: "data-prefix" }))}
+          ${raw(icon("search", { attrs: "data-prefix" }))}
           <input
             type="search"
             id="search-input"
@@ -46,14 +71,7 @@ export function SearchDialog() {
       </header>
       <div id="search-results" class="search-results">
         <ul class="search-list" id="search-list">
-          ${raw(
-            items
-              .map(
-                (item) =>
-                  `<li><a href="${b}${item.path}" class="search-result"><span class="search-result-title">${item.title}</span><span class="badge">${item.type}</span></a></li>`,
-              )
-              .join(""),
-          )}
+          ${raw(items.map((item) => renderItem(b, item)).join(""))}
         </ul>
         <section class="empty" id="search-empty" hidden>
           ${raw(icon("search-off"))}
@@ -70,7 +88,7 @@ export function SearchDialog() {
 
       const ms = new MiniSearch({
         fields: ["title"],
-        storeFields: ["title", "path", "type"],
+        storeFields: ["title", "description", "path", "type"],
       });
       ms.addAll(items);
 
@@ -93,18 +111,31 @@ export function SearchDialog() {
       });
 
       function show(results) {
-        console.log(results.length)
         const hasResults = results.length > 0;
         list.hidden = !hasResults;
         empty.hidden = hasResults;
         if (hasResults) {
           list.innerHTML = results
-            .map(r =>
-              '<li><a href="' + BASE + r.path + '" class="search-result">' +
-              '<span class="search-result-title">' + r.title + '</span>' +
-              '<span class="badge">' + r.type + '</span>' +
-              '</a></li>'
-            ).join('');
+            .map(
+              (r) =>
+                '<li><a href="' +
+                BASE +
+                r.path +
+                '" class="search-result">' +
+                '<span class="search-result-body">' +
+                '<span class="search-result-title">' +
+                r.title +
+                "</span>" +
+                '<span class="search-result-desc">' +
+                r.description +
+                "</span>" +
+                "</span>" +
+                '<span class="badge">' +
+                r.type +
+                "</span>" +
+                "</a></li>",
+            )
+            .join("");
         }
       }
 

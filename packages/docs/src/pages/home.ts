@@ -118,7 +118,7 @@ export async function HomePage(path: string) {
                 ].map(
                   (name) => html`
                     <div class="home-themes-scale">
-                      ${[100, 200, 300, 400, 500, 600, 700, 800, 900].map(
+                      ${[50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].map(
                         (step) => html`
                           <div
                             class="home-themes-swatch"

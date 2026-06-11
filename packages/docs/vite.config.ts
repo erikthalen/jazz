@@ -19,6 +19,7 @@ export default defineConfig({
       name: "serve-and-watch-core-css",
       configureServer(server) {
         server.watcher.add(coreCssPath);
+        server.watcher.add(resolve(import.meta.dirname, "src/public/**/*.css"));
         server.middlewares.use("/jazz.css", (_req, res) => {
           res.setHeader("Content-Type", "text/css");
           res.end(readFileSync(coreCssPath, "utf-8"));
@@ -33,7 +34,8 @@ export default defineConfig({
         });
       },
       handleHotUpdate({ file, server }) {
-        if (file !== coreCssPath) return;
+        const publicCssDir = resolve(import.meta.dirname, "src/public");
+        if (file !== coreCssPath && !file.startsWith(publicCssDir)) return;
         server.ws.send({ type: "full-reload" });
         return [];
       },

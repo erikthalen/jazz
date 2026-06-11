@@ -46,24 +46,6 @@
   background: transparent !important;
 }
 
-[data-theme="light"] .shiki span {
-  color: var(--shiki-light);
-}
-
-[data-theme="dark"] .shiki span {
-  color: var(--shiki-dark);
-}
-
 .shiki span {
-  @media (prefers-color-scheme: light) {
-    :root:not([data-theme="dark"]) & {
-      color: var(--shiki-light);
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) & {
-      color: var(--shiki-dark);
-    }
-  }
+  color: light-dark(var(--shiki-light), var(--shiki-dark));
 }

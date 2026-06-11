@@ -5,8 +5,7 @@
   z-index: -1;
   margin-top: -1px;
 
-  background-color: var(--jazz-background-color);
-  /* opacity: 0.8; */
+  /* background-color: var(--jazz-background-color);
   background-image:
     repeating-linear-gradient(
       to right,
@@ -41,7 +40,15 @@
     0 0,
     0 0,
     0 -0.2px,
-    -0.2px 0;
+    -0.2px 0; */
+
+  /* background-image:
+    linear-gradient(var(--jazz-neutral-500) 2px, transparent 2px),
+    linear-gradient(to right, var(--jazz-neutral-500) 2px, transparent 2px);
+  background-size: 45px 45px; */
+
+  background-image: radial-gradient(var(--jazz-neutral-200) 1px, transparent 1px);
+  background-size: 25px 25px;
 
   mask-image: radial-gradient(black 50%, transparent 80%);
   mask-position: 50% 100%;

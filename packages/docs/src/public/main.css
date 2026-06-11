@@ -254,12 +254,14 @@ body:has(.sidebar-toggle:checked) {
 .search-results {
   overflow-y: auto;
   max-height: 60vh;
+  padding: 0.5rem;
 }
 
 .search-result {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto;
   align-items: center;
-  justify-content: space-between;
+  gap: 0 var(--jazz-spacing-3);
   padding: var(--jazz-spacing-2) var(--jazz-spacing-3);
   border-radius: 6px;
   text-decoration: none;
@@ -268,10 +270,23 @@ body:has(.sidebar-toggle:checked) {
   &:hover {
     background: var(--jazz-neutral-100);
   }
+
+}
+
+.search-result-body {
+  display: grid;
 }
 
 .search-result-title {
   font-size: 0.9375rem;
+}
+
+.search-result-desc {
+  font-size: 0.8125rem;
+  color: var(--jazz-neutral-500);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .search-empty {

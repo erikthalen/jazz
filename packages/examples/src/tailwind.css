@@ -1,4 +1,0 @@
-@layer theme, base, jazz-reset, jazz, components, utilities;
-
-@import "https://esm.sh/gh/erikthalen/jazz/jazz.css";
-@import "tailwindcss";
