@@ -1,6 +1,6 @@
 ![](.github/cover-min.jpg)
 
-# @erikt/ui
+# erikt/ui
 
 **[Documentation](https://ui.erikt.me)**
 
