@@ -9,7 +9,7 @@
 CSS cascade layers, custom properties, `color-mix()`, `light-dark()`, anchor positioning, and the Popover API have collectively closed most of the gap that large UI libraries were built to fill. @erikt/ui takes that foundation and adds a focused component layer on top. A single stylesheet that styles native HTML elements without requiring a component model, a compiler, or a runtime.
 
 ```html
-<link rel="stylesheet" href="https://esm.sh/@erikt/ui@0.0.5/ui.css" />
+<link rel="stylesheet" href="https://esm.sh/@erikt/ui@0.0.6/ui.css" />
 ```
 
 - 🗂️ **One file**
