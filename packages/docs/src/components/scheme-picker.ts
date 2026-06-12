@@ -6,7 +6,7 @@ export function SchemePicker() {
     <fieldset
       role="group"
       x-data="{ scheme: $persist('system') }"
-      x-init="document.documentElement.style.colorScheme = scheme; $watch('scheme', () => document.documentElement.style.colorScheme = scheme)"
+      x-init="if (scheme) document.documentElement.style.colorScheme = scheme; $watch('scheme', () => { if (scheme) { document.documentElement.style.colorScheme = scheme } else document.documentElement.style.removeProperty('color-scheme') })"
     >
       <label class="toggle square" aria-label="Light" data-tooltip="bottom">
         <input
@@ -34,7 +34,7 @@ export function SchemePicker() {
           name="theme"
           value="system"
           :checked="scheme === 'system'"
-          @change="scheme = $event.target.value"
+          @change="scheme = null"
         />
         ${raw(icon("device-desktop"))}
       </label>

@@ -16,29 +16,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  check:
-    runs-on: ubuntu-latest
-    outputs:
-      changed: ${{ steps.version.outputs.changed }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
-
-      - name: Check if version changed
-        id: version
-        run: |
-          CURRENT=$(node -p "require('./packages/core/package.json').version")
-          PREVIOUS=$(git show HEAD~1:packages/core/package.json | node -p "JSON.parse(require('fs').readFileSync('/dev/stdin','utf8')).version" || echo "none")
-          if [ "$CURRENT" != "$PREVIOUS" ]; then
-            echo "changed=true" >> $GITHUB_OUTPUT
-          else
-            echo "changed=false" >> $GITHUB_OUTPUT
-          fi
-
   build:
-    needs: check
-    if: needs.check.outputs.changed == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
