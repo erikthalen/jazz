@@ -12,7 +12,7 @@ import copyCode from "./components/copy-code";
 const b = (process.env.BASE_URL ?? "/").replace(/\/$/, "");
 export const url = (path: string) => b + path;
 
-const siteOrigin = (process.env.SITE_URL ?? "https://erikthalen.github.io").replace(/\/$/, "");
+const siteOrigin = (process.env.SITE_URL ?? "https://erikthq.github.io").replace(/\/$/, "");
 export const siteUrl = siteOrigin + b;
 
 type TocItem = { id: string; label: string };
@@ -33,7 +33,7 @@ export const sections: { label: string; path: string; description: string }[] =
     {
       label: "Introduction",
       path: "/getting-started/introduction",
-      description: "What Jazz is, how to install it, and when to use it.",
+      description: "What @erikt/ui is, how to install it, and when to use it.",
     },
     {
       label: "Customization",
@@ -58,7 +58,7 @@ export const sections: { label: string; path: string; description: string }[] =
     {
       label: "Skills",
       path: "/getting-started/skills",
-      description: "Reference guide for AI-assisted development with Jazz.",
+      description: "Reference guide for AI-assisted development with @erikt/ui.",
     },
   ];
 
@@ -299,8 +299,8 @@ export const components: {
 
 const pageDescriptions: Record<string, string> = {
   "/": "The CSS design system that lives in one <link> tag. Drop in a single stylesheet and get a full component library, theming, and dark mode — no build step required.",
-  "/blocks": "Ready-to-use UI blocks built with Jazz CSS. Copy-paste layouts for authentication, dashboards, navigation, and more.",
-  "/typography": "Typography scale and text utility styles in Jazz CSS.",
+  "/blocks": "Ready-to-use UI blocks built with @erikt/ui. Copy-paste layouts for authentication, dashboards, navigation, and more.",
+  "/typography": "Typography scale and text utility styles in @erikt/ui.",
   ...Object.fromEntries(sections.map((s) => [s.path, s.description])),
   ...Object.fromEntries(components.map((c) => [c.path, c.description])),
   ...Object.fromEntries(blocks.map((bl) => [bl.path, bl.description])),
@@ -312,7 +312,7 @@ const FALLBACK_DESC = "The CSS design system that lives in one <link> tag. No bu
 function head(title: string, path: string, descriptionOverride?: string) {
   const description = descriptionOverride ?? pageDescriptions[path] ?? FALLBACK_DESC;
   const canonicalUrl = `${siteUrl}${path === "/" ? "" : path}`;
-  const pageTitle = `${title} – Jazz CSS`;
+  const pageTitle = `${title} – @erikt/ui`;
   const isHome = path === "/";
 
   const jsonLd = isHome
@@ -321,14 +321,14 @@ function head(title: string, path: string, descriptionOverride?: string) {
         "@graph": [
           {
             "@type": "WebSite",
-            name: "Jazz CSS",
+            name: "@erikt/ui",
             url: siteUrl,
             description,
             author: { "@type": "Person", name: "Erik Thalén" },
           },
           {
             "@type": "SoftwareApplication",
-            name: "Jazz CSS",
+            name: "@erikt/ui",
             applicationCategory: "DeveloperApplication",
             operatingSystem: "Web",
             url: siteUrl,
@@ -343,11 +343,11 @@ function head(title: string, path: string, descriptionOverride?: string) {
         name: title,
         description,
         url: canonicalUrl,
-        isPartOf: { "@type": "WebSite", name: "Jazz CSS", url: siteUrl },
+        isPartOf: { "@type": "WebSite", name: "@erikt/ui", url: siteUrl },
         breadcrumb: {
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Jazz CSS", item: siteUrl },
+            { "@type": "ListItem", position: 1, name: "@erikt/ui", item: siteUrl },
             { "@type": "ListItem", position: 2, name: title, item: canonicalUrl },
           ],
         },
@@ -363,14 +363,14 @@ function head(title: string, path: string, descriptionOverride?: string) {
     <link rel="canonical" href="${canonicalUrl}" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Jazz CSS" />
+    <meta property="og:site_name" content="@erikt/ui" />
     <meta property="og:url" content="${canonicalUrl}" />
     <meta property="og:title" content="${pageTitle}" />
     <meta property="og:description" content="${description}" />
     <meta property="og:image" content="${COVER_IMAGE}" />
     <meta property="og:image:width" content="1456" />
     <meta property="og:image:height" content="816" />
-    <meta property="og:image:alt" content="Jazz CSS component library demo" />
+    <meta property="og:image:alt" content="@erikt/ui component library demo" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${pageTitle}" />
@@ -385,7 +385,7 @@ function head(title: string, path: string, descriptionOverride?: string) {
       rel="icon"
       href="data:image/svg+xml,<svg width='512' height='512' viewBox='0 0 512 512' fill='none' xmlns='http://www.w3.org/2000/svg'><rect width='512' height='512' rx='80' fill='%23FFFFFF'/><path d='M260.215 378.287C257.518 378.287 256.169 376.932 256.169 374.22L256.169 332.09C256.169 330.029 256.709 328.403 257.787 327.21L281.74 303.135C283.034 301.942 283.682 300.207 283.682 297.93L283.682 138.354C283.682 135.643 285.031 134.287 287.728 134.287L347.123 134.287C349.82 134.287 351.169 135.643 351.169 138.354L351.169 336.97C351.169 337.946 351.061 338.868 350.845 339.735C350.63 340.494 350.09 341.308 349.227 342.175L315.726 375.847C314.108 377.474 312.489 378.287 310.871 378.287L260.215 378.287Z' fill='black'/><path d='M252.08 134.287C254.806 134.287 256.169 135.643 256.169 138.354L256.169 180.485C256.169 182.545 255.624 184.172 254.534 185.364L230.329 209.439C229.021 210.632 228.367 212.367 228.367 214.645L228.367 374.22C228.367 376.932 227.004 378.287 224.278 378.287L164.258 378.287C161.532 378.287 160.169 376.932 160.169 374.22L160.169 175.605C160.169 174.629 160.278 173.707 160.496 172.839C160.714 172.08 161.259 171.267 162.132 170.399L195.985 136.727C197.621 135.1 199.256 134.287 200.891 134.287L252.08 134.287Z' fill='black'/></svg>"
     />
-    <link rel="stylesheet" href="${url("/jazz.css")}" />
+    <link rel="stylesheet" href="${url("/ui.css")}" />
     <link rel="stylesheet" href="${url("/main.css")}" />
     ${import.meta.env.DEV
       ? raw('<script type="module" src="/@vite/client"></script>')
@@ -424,7 +424,7 @@ function head(title: string, path: string, descriptionOverride?: string) {
 
 async function fetchStars(): Promise<number | null> {
   try {
-    const res = await fetch("https://api.github.com/repos/erikthalen/jazz");
+    const res = await fetch("https://api.github.com/repos/erikthq/ui");
     const data = (await res.json()) as { stargazers_count?: number };
     return data.stargazers_count ?? null;
   } catch {
@@ -437,7 +437,7 @@ async function header(path: string) {
 
   return html`
     <header>
-      <a href="${url("/")}" class="docs-logo" aria-label="Jazz homepage">
+      <a href="${url("/")}" class="docs-logo" aria-label="@erikt/ui docs homepage">
         <svg
           height="24"
           viewBox="0 0 401 512"
@@ -446,11 +446,11 @@ async function header(path: string) {
         >
           <path
             d="M208.831 511.996C203.142 511.996 200.298 509.152 200.298 503.463L200.298 415.058C200.298 410.735 201.436 407.322 203.711 404.819L254.228 354.302C256.959 351.798 258.324 348.158 258.324 343.379L258.324 8.53331C258.324 2.84446 261.169 4.03482e-05 266.857 4.08455e-05L392.126 5.17969e-05C397.815 5.22942e-05 400.659 2.84447 400.659 8.53332L400.659 425.298C400.659 427.346 400.432 429.281 399.976 431.101C399.521 432.694 398.384 434.401 396.563 436.221L325.908 506.877C322.494 510.29 319.081 511.996 315.668 511.996L208.831 511.996Z"
-            fill="var(--jazz-neutral-1000)"
+            fill="var(--ui-neutral-1000)"
           />
           <path
             d="M191.828 0.00359467C197.517 0.00359516 200.361 2.84805 200.361 8.5369L200.361 96.9416C200.361 101.265 199.224 104.678 196.948 107.182L146.431 157.698C143.7 160.202 142.335 163.842 142.335 168.621L142.335 503.467C142.335 509.156 139.491 512 133.802 512L8.53331 512C2.84447 512 4.87818e-05 509.156 4.92792e-05 503.467L8.57139e-05 86.7017C8.5893e-05 84.6537 0.227637 82.7195 0.682739 80.899C1.13784 79.3062 2.27561 77.5995 4.09605 75.779L74.7516 5.12354C78.1649 1.71023 81.5782 0.00358503 84.9915 0.00358533L191.828 0.00359467Z"
-            fill="var(--jazz-neutral-1000)"
+            fill="var(--ui-neutral-1000)"
           />
         </svg>
       </a>
@@ -542,7 +542,7 @@ async function header(path: string) {
 
         <a
           id="github-link"
-          href="https://github.com/erikthalen/jazz"
+          href="https://github.com/erikthq/ui"
           target="_blank"
           rel="noopener"
           class="button secondary ${stars === null ? "square" : ""}"
@@ -557,7 +557,7 @@ async function header(path: string) {
       </div>
 
       <!-- <script>
-        fetch("https://api.github.com/repos/erikthalen/jazz")
+        fetch("https://api.github.com/repos/erikthq/ui")
           .then(r => r.json())
           .then(({ stargazers_count: n }) => {
             if (!n) return;

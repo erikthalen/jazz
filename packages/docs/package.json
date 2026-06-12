@@ -1,5 +1,5 @@
 {
-  "name": "@jazz/docs",
+  "name": "docs",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@hono/node-server": "^2.0.4",
-    "@jazz/core": "workspace:*",
+    "@erikt/ui": "workspace:*",
     "@tabler/icons": "^3.40.0",
     "hono": "^4.0.0",
     "minisearch": "^7.2.0",

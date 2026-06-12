@@ -6,7 +6,7 @@ import browserslist from "browserslist";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const srcFile = resolve(__dirname, "src/main.css");
-const dest = resolve(__dirname, "../../jazz.css");
+const dest = resolve(__dirname, "../../ui.css");
 const watchMode = process.argv.includes("--watch");
 
 // Load lightningcss from Vite's own dependencies — no extra install needed
@@ -27,9 +27,9 @@ async function runBuild() {
   const mapJson = JSON.parse(map.toString());
   mapJson.sources = mapJson.sources.map(s => relative(destDir, "/" + s));
 
-  await writeFile(dest, code + "\n/*# sourceMappingURL=jazz.css.map */");
+  await writeFile(dest, code + "\n/*# sourceMappingURL=ui.css.map */");
   await writeFile(dest + ".map", JSON.stringify(mapJson));
-  console.log("  jazz.css written");
+  console.log("  ui.css written");
 }
 
 await runBuild();

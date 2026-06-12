@@ -9,21 +9,21 @@ export async function BlocksPage(path: string) {
     content: html`
       <div
         class="prose"
-        style="text-align:center;padding:var(--jazz-spacing-8) 0 var(--jazz-spacing-8);max-width:640px;margin:0 auto"
+        style="text-align:center;padding:var(--ui-spacing-8) 0 var(--ui-spacing-8);max-width:640px;margin:0 auto"
       >
-        <p class="badge">Ready-made UI patterns for Jazz</p>
+        <p class="badge">Ready-made UI patterns for @erikt/ui</p>
 
         <hgroup>
           <h1>Copy-paste blocks for real interfaces</h1>
           <p style="">
-            Full UI compositions built entirely from Jazz components wth minimal
+            Full UI compositions built entirely from @erikt/ui components wth minimal
             extra CSS. No extra dependencies. Drop them straight into your
             project.
           </p>
         </hgroup>
 
         <div
-          style="display:flex;gap:var(--jazz-spacing-3);justify-content:center"
+          style="display:flex;gap:var(--ui-spacing-3);justify-content:center"
         >
           <a href="${url(blocks[0].path)}" class="button">Browse blocks</a>
           <a href="${url("/components/button")}" class="button ghost">

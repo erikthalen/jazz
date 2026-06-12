@@ -3,9 +3,9 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: var(--jazz-spacing-3);
-  padding: var(--jazz-spacing-8);
-  color: var(--jazz-neutral-400);
+  gap: var(--ui-spacing-3);
+  padding: var(--ui-spacing-8);
+  color: var(--ui-neutral-400);
 
   margin: auto;
 
@@ -16,14 +16,14 @@
   > svg {
     width: 2.5rem;
     height: 2.5rem;
-    background: var(--jazz-neutral-100);
-    color: var(--jazz-neutral-800);
+    background: var(--ui-neutral-100);
+    color: var(--ui-neutral-800);
     padding: 0.5rem;
     border-radius: 6px;
   }
 
   > :is(h1, h2, h3, h4, h5, h6) {
-    color: var(--jazz-neutral-950);
+    color: var(--ui-neutral-950);
   }
 
   p {
@@ -34,11 +34,11 @@
   > a,
   > .button,
   > footer {
-    margin-top: var(--jazz-spacing-2);
+    margin-top: var(--ui-spacing-2);
   }
 
   > footer {
     display: flex;
-    gap: var(--jazz-spacing-2);
+    gap: var(--ui-spacing-2);
   }
 }

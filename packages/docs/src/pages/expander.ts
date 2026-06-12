@@ -7,7 +7,7 @@ const toc = [
   { id: "lines", label: "Lines" },
 ];
 
-const loremIpsum = `Jazz is a minimal CSS design system that styles native HTML elements
+const loremIpsum = `@erikt/ui is a minimal CSS design system that styles native HTML elements
 directly — no utility classes, no component wrappers, no build step required.
 It ships as a single stylesheet and works with any framework or none at all.
 Colors, spacing, and easing are all driven by CSS custom properties, so

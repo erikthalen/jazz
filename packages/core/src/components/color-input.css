@@ -3,7 +3,7 @@ input[type="color"] {
   width: 2.25rem;
   height: 2.25rem;
   border-radius: 8px;
-  border: 1px solid var(--jazz-neutral-200);
+  border: 1px solid var(--ui-neutral-200);
   padding: 0.2rem;
   background: none;
   cursor: pointer;
@@ -23,7 +23,7 @@ input[type="color"] {
   }
 
   &:focus-visible {
-    outline: 2px solid var(--jazz-neutral-950);
+    outline: 2px solid var(--ui-neutral-950);
     outline-offset: 2px;
   }
 }

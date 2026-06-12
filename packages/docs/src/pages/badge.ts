@@ -44,7 +44,7 @@ export async function BadgePage(path: string) {
       <div class="prose">
         <h2 id="colors">Colors</h2>
         <p>
-          One modifier class per Jazz color seed: <code>primary</code>,
+          One modifier class per @erikt/ui color seed: <code>primary</code>,
           <code>constructive</code>, <code>destructive</code>, and
           <code>color1</code> through <code>color6</code>.
         </p>

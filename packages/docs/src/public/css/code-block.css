@@ -2,7 +2,7 @@
   position: relative;
   border: 1px solid var(--border);
   border-radius: 8px;
-  background: var(--jazz-neutral-100);
+  background: var(--ui-neutral-100);
   overflow: hidden;
 }
 
@@ -35,7 +35,7 @@
     left: -2.25rem;
     width: 1.75rem;
     text-align: right;
-    color: var(--jazz-neutral-400);
+    color: var(--ui-neutral-400);
     user-select: none;
     pointer-events: none;
   }

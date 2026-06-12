@@ -4,7 +4,7 @@ import { highlight } from "../highlight";
 import pkg from "../../../core/package.json";
 
 const { version } = pkg;
-const cdnUrl = `https://esm.sh/gh/erikthalen/jazz@${version}/jazz.css`;
+const cdnUrl = `https://esm.sh/@erikt/ui@${version}/ui.css`;
 
 const toc = [
   { id: "usage", label: "Usage" },
@@ -22,11 +22,11 @@ export async function IntroPage(path: string) {
     content: html`
       <div class="prose">
         <hgroup>
-          <h1>Jazz</h1>
+          <h1>erikt/ui</h1>
           <p>A CSS reset and a small UI library in one stylesheet.</p>
         </hgroup>
         <p>
-          Jazz is somewhere between a CSS reset and a classless CSS project. It
+          erikt/ui is somewhere between a CSS reset and a classless CSS project. It
           styles native HTML elements directly, so plain semantic markup looks
           decent with no extra work. A small set of opt-in class names covers
           the things HTML can't express on its own.
@@ -36,7 +36,7 @@ export async function IntroPage(path: string) {
           <a href="https://picocss.com" target="_blank" rel="noopener"
             >Pico CSS</a
           >: the idea that a stylesheet should improve the browser's defaults
-          rather than replace them. Jazz adds a richer component set and a
+          rather than replace them. erikt/ui adds a richer component set and a
           theming layer on top of that.
         </p>
 
@@ -47,7 +47,7 @@ export async function IntroPage(path: string) {
         <div class="code-block">
           ${raw(
             await highlight(
-              `<link rel="stylesheet" href="${cdnUrl}" />\n\n<!-- Optional: theme -->\n<style>\n  :root {\n    --jazz-primary: light-dark(#111, #fefefe);\n  }\n</style>`,
+              `<link rel="stylesheet" href="${cdnUrl}" />\n\n<!-- Optional: theme -->\n<style>\n  :root {\n    --ui-primary: light-dark(#111, #fefefe);\n  }\n</style>`,
             ),
           )}
         </div>
@@ -55,15 +55,15 @@ export async function IntroPage(path: string) {
 
       <div class="prose">
         <p>You can also download the CSS file and host it yourself:</p>
-        <a href="${url("/jazz.css")}" download="jazz.css" class="button">
-          Download jazz.css
+        <a href="${url("/ui.css")}" download="ui.css" class="button">
+          Download ui.css
         </a>
       </div>
 
       <div class="prose">
         <h2 id="overview">Overview</h2>
         <p>
-          Jazz styles native HTML elements directly, no class names required.
+          erikt/ui styles native HTML elements directly, no class names required.
         </p>
       </div>
       <div class="example">
@@ -85,7 +85,7 @@ export async function IntroPage(path: string) {
       <div class="prose">
         <h2 id="ui-not-layout">UI, not layout</h2>
         <p>
-          Jazz handles the look of interactive elements (buttons, inputs,
+          erikt/ui handles the look of interactive elements (buttons, inputs,
           popovers) but deliberately stays out of the way of how you arrange
           them on the page. CSS <code>flex</code> and <code>grid</code> are fast
           to write, easy to read, and need no abstraction on top of them.
@@ -95,7 +95,7 @@ export async function IntroPage(path: string) {
       <div class="example">
         <div class="preview">
           <div
-            style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:var(--jazz-spacing-3);width:100%;max-width:400px;margin:auto"
+            style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:var(--ui-spacing-3);width:100%;max-width:400px;margin:auto"
           >
             <input type="text" placeholder="First name" />
             <input type="text" placeholder="Last name" />
@@ -115,15 +115,15 @@ export async function IntroPage(path: string) {
       <div class="prose">
         <h2 id="with-tailwind">With Tailwind</h2>
         <p>
-          Jazz and Tailwind work well together. Jazz handles component styles,
+          erikt/ui and Tailwind work well together. erikt/ui handles component styles,
           Tailwind handles layout and one-off utilities. There is no conflict
-          because Jazz wraps all its styles in <code>@layer jazz {}</code>,
+          because erikt/ui wraps all its styles in <code>@layer ui {}</code>,
           which means any Tailwind utility class wins automatically without
           needing <code>!</code>.
         </p>
         <p>
           To get the layering right, declare the layer order before importing
-          either library. This ensures Tailwind's reset sits below Jazz, and
+          either library. This ensures Tailwind's reset sits below erikt/ui, and
           Tailwind's utilities sit above it:
         </p>
       </div>
@@ -132,7 +132,7 @@ export async function IntroPage(path: string) {
         <div class="code-block">
           ${raw(
             await highlight(
-              `/* main.css */\n@layer theme, base, jazz-reset, jazz, components, utilities;\n\n@import "https://esm.sh/gh/erikthalen/jazz/jazz.css";\n@import "tailwindcss";`,
+              `/* main.css */\n@layer theme, base, ui-reset, ui, components, utilities;\n\n@import "https://esm.sh/@erikt/ui/ui.css";\n@import "tailwindcss";`,
               80,
               "css",
             ),
@@ -143,13 +143,13 @@ export async function IntroPage(path: string) {
       <div class="prose">
         <h2 id="philosophy">Philosophy</h2>
         <p>
-          Jazz is also a personal testbed for modern CSS. New features like
+          erikt/ui is also a personal testbed for modern CSS. New features like
           anchor positioning, <code>@starting-style</code>, the Popover API, and
           <code>:has()</code> are tried out here first. The aim is to see how
           far CSS alone can get before JavaScript is needed.
         </p>
         <p>
-          Because of that, Jazz leans on newer browser features and isn't aimed
+          Because of that, erikt/ui leans on newer browser features and isn't aimed
           at projects that need broad compatibility. It's more of a place to
           experiment than a production-ready toolkit.
         </p>

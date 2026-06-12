@@ -1,4 +1,4 @@
-# Jazz — Agent Guide
+# erikt/ui — Agent Guide
 
 A minimal CSS design system. One stylesheet, no build step required for users.
 
@@ -33,29 +33,28 @@ pnpm build      # Bundle src/main.css → ../../main.css (minified)
 
 ## Core CSS (`packages/core/src/`)
 
-All styles live inside `@layer jazz { }`. This is important — it means any unlayered user styles always win without needing `!important`.
+All styles live inside `@layer ui { }`. This is important — it means any unlayered user styles always win without needing `!important`.
 
 Key files:
 
 - `src/main.css` — entry point, imports everything
 - `src/colors.css` — color scales derived from seed variables
 - `src/easings.css` — `--ease-glide`, `--ease-snap`, `--ease-heavy`
-- `src/spacing.css` — `--jazz-spacing`, `--jazz-spacing-1` through `--jazz-spacing-8`
+- `src/spacing.css` — `--ui-spacing`, `--ui-spacing-1` through `--ui-spacing-8`
 - `src/components/*.css` — one file per component
 
 ### Adding a component
 
-1. Create `src/components/my-component.css` inside `@layer jazz { }`
+1. Create `src/components/my-component.css` inside `@layer ui { }`
 2. Import it in `src/main.css`
 3. Prefer styling native HTML elements or minimal class names (e.g. `.field`, `.switch`, `.badge`)
 4. Avoid JavaScript — use CSS-only where possible (`:has()`, `@starting-style`, Popover API, anchor positioning)
 
 ### CSS conventions
 
-- Colors: always use `var(--jazz-neutral-*)`, `var(--jazz-primary)`, etc. Never hardcode hex values
-- Spacing: use `var(--jazz-spacing-*)` tokens
+- Colors: always use `var(--ui-neutral-*)`, `var(--ui-primary)`, etc. Never hardcode hex values
+- Spacing: use `var(--ui-spacing-*)` tokens
 - Transitions: use `var(--ease-glide)` / `var(--ease-snap)` / `var(--ease-heavy)`
-- Dark mode: handled automatically via `color-scheme` and the `.jazz-light` / `.jazz-dark` classes
 - No em dashes in any text (copy, comments, docs)
 
 ## Docs site (`packages/docs/src/`)
@@ -127,7 +126,7 @@ These files are regenerated automatically on every `pnpm build` — do not edit 
 
 ## Design principles
 
-- Jazz styles native elements directly. No class names needed for basic usage
-- UI only, not layout. Jazz does not provide grid/flex utilities
+- erikt/ui styles native elements directly. No class names needed for basic usage
+- UI only, not layout. erikt/ui does not provide grid/flex utilities
 - Semantic HTML first. Use the right element for the job
 - One file. The entire library ships as a single `main.css`

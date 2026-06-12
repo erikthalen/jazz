@@ -4,16 +4,16 @@ import { icon } from "../icon";
 export function ThemePicker() {
   return html`
     <script>
-      localStorage.removeItem("jazz-primary-dark");
-      const storedColor = localStorage.getItem("jazz-primary");
+      localStorage.removeItem("ui-primary-dark");
+      const storedColor = localStorage.getItem("ui-primary");
       if (storedColor) {
         document.documentElement.style.setProperty(
-          "--jazz-primary",
+          "--ui-primary",
           storedColor,
         );
       }
       function syncSwatch() {
-        var stored = localStorage.getItem("jazz-primary");
+        var stored = localStorage.getItem("ui-primary");
         document.querySelectorAll(".color-swatch-btn").forEach(function (b) {
           b.classList.toggle("secondary", b.dataset.primary === stored);
           b.classList.toggle("ghost", b.dataset.primary !== stored);
@@ -56,8 +56,8 @@ export function ThemePicker() {
               data-primary="light-dark(${color}, color-mix(in oklab, ${color}, white 20%))"
               onclick="
               const val = 'light-dark(${color}, color-mix(in oklab, ${color}, white 20%))';
-              document.documentElement.style.setProperty('--jazz-primary', val);
-              localStorage.setItem('jazz-primary', val);
+              document.documentElement.style.setProperty('--ui-primary', val);
+              localStorage.setItem('ui-primary', val);
               document.getElementById('color-picker').hidePopover();
               syncSwatch();
             "
@@ -76,15 +76,15 @@ export function ThemePicker() {
           data-primary="light-dark(#111111, #ffffff)"
           onclick="
             const val = 'light-dark(#111111, #ffffff)';
-            document.documentElement.style.setProperty('--jazz-primary', val);
-            localStorage.setItem('jazz-primary', val);
+            document.documentElement.style.setProperty('--ui-primary', val);
+            localStorage.setItem('ui-primary', val);
             document.getElementById('color-picker').hidePopover();
             syncSwatch();
           "
         >
           <span
             class="circle"
-            style="box-shadow:0 0 0 1px var(--jazz-neutral-300) inset"
+            style="box-shadow:0 0 0 1px var(--ui-neutral-300) inset"
           ></span>
           <span class="name">Mono</span>
         </button>
@@ -96,8 +96,8 @@ export function ThemePicker() {
             type="color"
             value="#6366f1"
             oninput="
-            document.documentElement.style.setProperty('--jazz-primary', this.value);
-            localStorage.setItem('jazz-primary', this.value);
+            document.documentElement.style.setProperty('--ui-primary', this.value);
+            localStorage.setItem('ui-primary', this.value);
           "
           />
         </label>
@@ -133,7 +133,7 @@ export function ThemePicker() {
 
         .name {
           font-size: 0.6875rem;
-          color: var(--jazz-neutral-600);
+          color: var(--ui-neutral-600);
           white-space: nowrap;
         }
       }
@@ -141,7 +141,7 @@ export function ThemePicker() {
       .color-picker-custom {
         grid-column: 1 / -1;
         padding-top: 0.5rem;
-        border-top: 1px solid var(--jazz-neutral-200);
+        border-top: 1px solid var(--ui-neutral-200);
         margin-top: 0.25rem;
 
         input[type="color"] {

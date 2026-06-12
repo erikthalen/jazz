@@ -43,7 +43,7 @@ ol li {
 }
 
 a {
-  color: var(--jazz-primary);
+  color: var(--ui-primary);
 }
 
 img {
@@ -58,7 +58,7 @@ svg {
 }
 
 ::selection {
-  background-color: var(--jazz-neutral-200);
+  background-color: var(--ui-neutral-200);
 }
 
 input[type="number"] {
@@ -72,6 +72,6 @@ input[type="number"] {
 
 a:focus-visible {
   border-radius: 8px;
-  outline: 2px solid var(--jazz-neutral-950);
+  outline: 2px solid var(--ui-neutral-950);
   outline-offset: 2px;
 }

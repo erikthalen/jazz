@@ -10,9 +10,9 @@ body > header {
   grid-template-rows: auto auto;
 
   align-items: center;
-  padding: 0 var(--jazz-spacing-4);
-  column-gap: var(--jazz-spacing-4);
-  background: var(--jazz-background-color);
+  padding: 0 var(--ui-spacing-4);
+  column-gap: var(--ui-spacing-4);
+  background: var(--ui-background-color);
   z-index: 100;
 
   transition: translate 300ms var(--ease-glide);
@@ -54,7 +54,7 @@ body > header {
       white-space: nowrap;
 
       &[aria-current] {
-        background: var(--jazz-neutral-100);
+        background: var(--ui-neutral-100);
       }
     }
   }
@@ -71,7 +71,7 @@ body > header {
   }
 
   svg {
-    fill: var(--jazz-text-color);
+    fill: var(--ui-text-color);
     height: auto;
     width: auto;
   }
@@ -83,7 +83,7 @@ body > header {
   flex-shrink: 0;
   position: sticky;
   left: 0;
-  background-color: var(--jazz-background-color);
+  background-color: var(--ui-background-color);
 
   @media (min-width: 769px) {
     display: none;

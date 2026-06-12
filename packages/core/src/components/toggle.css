@@ -3,11 +3,11 @@ label:not(.field).toggle {
   text-align: center;
   grid-auto-flow: column;
   align-items: center;
-  gap: var(--jazz-spacing);
-  padding-block: var(--jazz-spacing-2);
-  padding-inline: var(--jazz-spacing-3);
+  gap: var(--ui-spacing);
+  padding-block: var(--ui-spacing-2);
+  padding-inline: var(--ui-spacing-3);
   border-radius: 8px;
-  box-shadow: 0 0 0 1px var(--jazz-neutral-200) inset;
+  box-shadow: 0 0 0 1px var(--ui-neutral-200) inset;
   cursor: pointer;
   user-select: none;
   interpolate-size: allow-keywords;
@@ -72,7 +72,7 @@ label:not(.field).toggle {
   } */
 
   &:has(> input:checked) {
-    background-color: var(--jazz-neutral-100);
+    background-color: var(--ui-neutral-100);
 
     [data-checked] {
       display: revert;
@@ -102,19 +102,19 @@ label:not(.field).toggle {
   }
 
   &.ghost:has(> input:checked) {
-    background-color: var(--jazz-neutral-100);
+    background-color: var(--ui-neutral-100);
     box-shadow: 0 0 0 1px transparent inset;
   }
 
   &.fill:has(> input:checked) {
     svg {
       fill: currentColor;
-      color: var(--jazz-primary);
+      color: var(--ui-primary);
     }
   }
 
   &:has(:focus-visible) {
-    outline: 2px solid var(--jazz-neutral-950);
+    outline: 2px solid var(--ui-neutral-950);
     outline-offset: 2px;
   }
 
@@ -124,6 +124,6 @@ label:not(.field).toggle {
   }
 
   &.square {
-    padding-inline: var(--jazz-spacing-2);
+    padding-inline: var(--ui-spacing-2);
   }
 }

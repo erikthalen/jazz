@@ -4,7 +4,7 @@ input[type="checkbox"].switch {
   height: 1.2lh;
   border-radius: 100px;
   box-shadow: none;
-  background-color: var(--jazz-neutral-200);
+  background-color: var(--ui-neutral-200);
   cursor: pointer;
   flex-shrink: 0;
   position: relative;
@@ -21,12 +21,12 @@ input[type="checkbox"].switch {
     aspect-ratio: 1;
     margin-inline: 1px;
     border-radius: 50%;
-    background-color: var(--jazz-background-color);
+    background-color: var(--ui-background-color);
     transition: left 300ms var(--ease-glide);
   }
 
   &:checked {
-    background-color: var(--jazz-primary);
+    background-color: var(--ui-primary);
     background-image: none;
 
     &::after {
@@ -35,7 +35,7 @@ input[type="checkbox"].switch {
   }
 
   &:focus-visible {
-    outline: 2px solid var(--jazz-neutral-950);
+    outline: 2px solid var(--ui-neutral-950);
     outline-offset: 2px;
   }
 

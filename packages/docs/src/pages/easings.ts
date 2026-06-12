@@ -34,7 +34,7 @@ function easingDemo(variable: string, label: string) {
         </div>
       </div>
       <p
-        style="color:var(--jazz-neutral-400);font-size:0.8em;margin-top:var(--jazz-spacing-1)"
+        style="color:var(--ui-neutral-400);font-size:0.8em;margin-top:var(--ui-spacing-1)"
       >
         ${label}
       </p>
@@ -51,7 +51,7 @@ async function directionGroup(direction: string) {
     <div class="example">
       <div
         class="preview preview-padded"
-        style="display:flex;flex-direction:column;gap:var(--jazz-spacing-4)"
+        style="display:flex;flex-direction:column;gap:var(--ui-spacing-4)"
       >
         ${families.map(
           (f) =>

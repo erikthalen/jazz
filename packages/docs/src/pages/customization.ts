@@ -18,14 +18,14 @@ export async function CustomizationPage(path: string) {
         <hgroup>
           <h1>Customization</h1>
           <p>
-            Jazz uses <code>@layer</code> to stay out of your way. Any styles you
-            write outside of a layer automatically win over Jazz's defaults.
+            @erikt/ui uses <code>@layer</code> to stay out of your way. Any styles you
+            write outside of a layer automatically win over @erikt/ui's defaults.
           </p>
         </hgroup>
 
         <h2 id="how-it-works">How it works</h2>
         <p>
-          All Jazz styles are scoped inside <code>@layer jazz</code>. The CSS
+          All @erikt/ui styles are scoped inside <code>@layer ui</code>. The CSS
           cascade gives unlayered styles the highest priority, so you can override
           anything simply by writing regular CSS — no <code>!important</code>, no
           increased specificity needed.
@@ -34,8 +34,8 @@ export async function CustomizationPage(path: string) {
       <div class="example">
         <div class="code-block">
           ${raw(await highlight(
-            `/* jazz internals — low priority */\n` +
-            `@layer jazz {\n` +
+            `/* erikt/ui internals — low priority */\n` +
+            `@layer ui {\n` +
             `  button { border-radius: 8px; }\n` +
             `}\n` +
             `\n` +
@@ -49,14 +49,14 @@ export async function CustomizationPage(path: string) {
       <div class="prose">
         <h2 id="overriding-styles">Overriding styles</h2>
         <p>
-          Write your overrides in a plain stylesheet, after the Jazz import. You
-          can target any element or class Jazz exposes.
+          Write your overrides in a plain stylesheet, after the @erikt/ui import. You
+          can target any element or class @erikt/ui exposes.
         </p>
       </div>
       <div class="example">
         <div class="code-block">
           ${raw(await highlight(
-            `<link rel="stylesheet" href="jazz/jazz.css" />\n` +
+            `<link rel="stylesheet" href="ui.css" />\n` +
             `<link rel="stylesheet" href="your-styles.css" />`,
             80, 'html'
           ))}
@@ -66,12 +66,12 @@ export async function CustomizationPage(path: string) {
         <p>
           Or inline in a <code>&lt;style&gt;</code> tag, or inside your own
           <code>@layer</code> as long as it is declared after
-          <code>jazz</code> in the layer order.
+          <code>erikt/ui</code> in the layer order.
         </p>
 
         <h2 id="example">Example</h2>
         <p>
-          Here is a button with Jazz's default styling next to one with
+          Here is a button with @erikt/ui's default styling next to one with
           <code>border-radius: 0</code> applied via a local override.
         </p>
       </div>
@@ -104,8 +104,8 @@ export async function CustomizationPage(path: string) {
       <div class="prose">
         <p>
           The same technique works for any property — spacing, font sizes,
-          colors, transitions, and so on. Jazz's token system (CSS custom
-          properties like <code>--jazz-primary</code>) gives you an additional
+          colors, transitions, and so on. @erikt/ui's token system (CSS custom
+          properties like <code>--ui-primary</code>) gives you an additional
           lever: changing a token updates every component that references it at
           once. See <a href="/themes">Themes</a> for details.
         </p>

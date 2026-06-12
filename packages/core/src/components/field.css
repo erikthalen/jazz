@@ -1,20 +1,20 @@
 .field {
   display: flex;
   flex-direction: column;
-  gap: var(--jazz-spacing-2);
+  gap: var(--ui-spacing-2);
 
   > span:not([data-prefix]):not([data-suffix]) {
     font-weight: 600;
   }
 
   > small {
-    color: var(--jazz-neutral-500);
+    color: var(--ui-neutral-500);
     font-size: 0.875em;
   }
 
   &:has(input:required) > span:not([data-prefix]):not([data-suffix])::after {
     content: " *";
-    color: var(--jazz-destructive);
+    color: var(--ui-destructive);
   }
 
   > input:not([type="checkbox"]):not([type="radio"]):not([type="color"]),

@@ -52,7 +52,7 @@ export function IconsPage(path: string) {
         <hgroup>
           <h1>Icons</h1>
           <p>
-            Jazz doesn't ship icons. The examples below use
+            @erikt/ui doesn't ship icons. The examples below use
             <a href="https://tabler.io/icons" target="_blank" rel="noopener"
               >Tabler Icons</a
             >
@@ -61,7 +61,7 @@ export function IconsPage(path: string) {
           </p>
         </hgroup>
         <p>
-          Inline SVGs work especially well with Jazz since they inherit
+          Inline SVGs work especially well with @erikt/ui since they inherit
           <code>currentColor</code> and scale with <code>font-size</code>. Click
           any icon to copy its SVG.
         </p>

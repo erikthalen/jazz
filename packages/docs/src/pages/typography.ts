@@ -55,7 +55,7 @@ export async function TypographyPage(path: string) {
       <div class="example">
         <div class="preview preview-padded">
           <p>
-            A paragraph of text. Jazz styles native HTML elements directly with
+            A paragraph of text. @erikt/ui styles native HTML elements directly with
             no class names needed for basic usage.
           </p>
           <p>

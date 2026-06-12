@@ -117,19 +117,19 @@ export default () => html`
     >
       <details open>
         <summary>Account</summary>
-        <p style="color:var(--jazz-neutral-500);font-size:0.875rem">
+        <p style="color:var(--ui-neutral-500);font-size:0.875rem">
           Manage your account settings and preferences.
         </p>
       </details>
       <details>
         <summary>Privacy</summary>
-        <p style="color:var(--jazz-neutral-500);font-size:0.875rem">
+        <p style="color:var(--ui-neutral-500);font-size:0.875rem">
           Control who can see your data and activity.
         </p>
       </details>
       <details>
         <summary>Notifications</summary>
-        <p style="color:var(--jazz-neutral-500);font-size:0.875rem">
+        <p style="color:var(--ui-neutral-500);font-size:0.875rem">
           Choose what you want to be notified about.
         </p>
       </details>
@@ -177,7 +177,7 @@ export default () => html`
           tabindex="0"
           style="grid-column: 1; grid-row: 2;"
         >
-          <p style="font-size:0.875rem;color:var(--jazz-neutral-500);margin:0">
+          <p style="font-size:0.875rem;color:var(--ui-neutral-500);margin:0">
             Manage your public profile and personal details.
           </p>
         </div>
@@ -188,7 +188,7 @@ export default () => html`
           tabindex="0"
           style="grid-column: 1; grid-row: 2;"
         >
-          <p style="font-size:0.875rem;color:var(--jazz-neutral-500);margin:0">
+          <p style="font-size:0.875rem;color:var(--ui-neutral-500);margin:0">
             Recent actions and events will appear here.
           </p>
         </div>
@@ -199,7 +199,7 @@ export default () => html`
           tabindex="0"
           style="grid-column: 1; grid-row: 2;"
         >
-          <p style="font-size:0.875rem;color:var(--jazz-neutral-500);margin:0">
+          <p style="font-size:0.875rem;color:var(--ui-neutral-500);margin:0">
             Configure notifications, privacy, and preferences.
           </p>
         </div>
@@ -261,7 +261,7 @@ export default () => html`
     <div class="showcase-cell">
       <article style="width:100%">
         <header>Card title</header>
-        <p style="font-size:0.875rem;color:var(--jazz-neutral-500)">
+        <p style="font-size:0.875rem;color:var(--ui-neutral-500)">
           Some content inside a card with a header.
         </p>
         <footer style="display:flex;justify-content:flex-end;gap:0.5rem">
@@ -373,7 +373,7 @@ export default () => html`
 
           var root = document.documentElement;
           var primary = getComputedStyle(root)
-            .getPropertyValue("--jazz-primary")
+            .getPropertyValue("--ui-primary")
             .trim();
           var lightInput = document.getElementById("showcase-primary-light");
           var darkInput = document.getElementById("showcase-primary-dark");
@@ -386,14 +386,14 @@ export default () => html`
           lightInput.oninput = function () {
             lightVal = this.value;
             root.style.setProperty(
-              "--jazz-primary",
+              "--ui-primary",
               "light-dark(" + lightVal + ", " + darkVal + ")",
             );
           };
           darkInput.oninput = function () {
             darkVal = this.value;
             root.style.setProperty(
-              "--jazz-primary",
+              "--ui-primary",
               "light-dark(" + lightVal + ", " + darkVal + ")",
             );
           };

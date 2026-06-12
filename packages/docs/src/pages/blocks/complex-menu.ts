@@ -13,7 +13,7 @@ export async function ComplexMenuPage(path: string) {
           <h1>Complex Menu</h1>
           <p>
             A multi-section dropdown with keyboard shortcuts, checkable items,
-            and nested submenus. Built entirely with the Popover API and Jazz
+            and nested submenus. Built entirely with the Popover API and @erikt/ui
             components.
           </p>
         </hgroup>

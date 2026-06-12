@@ -126,10 +126,10 @@ export async function RadioPage(path: string) {
               display: flex;
               justify-content: space-between;
               align-items: flex-start;
-              gap: var(--jazz-spacing-4);
-              padding: var(--jazz-spacing-4);
-              border: 1px solid var(--jazz-neutral-300);
-              border-radius: var(--jazz-spacing-3);
+              gap: var(--ui-spacing-4);
+              padding: var(--ui-spacing-4);
+              border: 1px solid var(--ui-neutral-300);
+              border-radius: var(--ui-spacing-3);
 
               > div {
                 display: grid;
@@ -137,16 +137,16 @@ export async function RadioPage(path: string) {
               }
 
               small {
-                color: var(--jazz-neutral-500);
+                color: var(--ui-neutral-500);
               }
             }
             .choice-card:has(input:checked) {
-              background: var(--jazz-neutral-50);
-              border-color: var(--jazz-neutral-600);
+              background: var(--ui-neutral-50);
+              border-color: var(--ui-neutral-600);
             }
           </style>
           <fieldset
-            style="border:none;display:flex;flex-direction:column;gap:var(--jazz-spacing-3);width:100%;flex-direction:column;width:100%;max-width:400px;margin:auto"
+            style="border:none;display:flex;flex-direction:column;gap:var(--ui-spacing-3);width:100%;flex-direction:column;width:100%;max-width:400px;margin:auto"
           >
             <label class="choice-card">
               <div>
@@ -178,10 +178,10 @@ export async function RadioPage(path: string) {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: var(--jazz-spacing-2);
-    padding: var(--jazz-spacing-4);
-    border: 1px solid var(--jazz-neutral-300);
-    border-radius: var(--jazz-spacing-3);
+    gap: var(--ui-spacing-2);
+    padding: var(--ui-spacing-4);
+    border: 1px solid var(--ui-neutral-300);
+    border-radius: var(--ui-spacing-3);
 
     > div {
       display: grid;
@@ -189,12 +189,12 @@ export async function RadioPage(path: string) {
     }
     
     small {
-      color:var(--jazz-neutral-500);
+      color:var(--ui-neutral-500);
     }
   }
   .choice-card:has(input:checked) {
-    background: var(--jazz-neutral-100);
-    border-color: var(--jazz-neutral-400);
+    background: var(--ui-neutral-100);
+    border-color: var(--ui-neutral-400);
   }
 </style>
 

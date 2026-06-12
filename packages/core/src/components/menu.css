@@ -8,8 +8,8 @@ menu {
 
   & > li > label {
     width: 100%;
-    padding-block: var(--jazz-spacing-2);
-    padding-inline: var(--jazz-spacing-3);
+    padding-block: var(--ui-spacing-2);
+    padding-inline: var(--ui-spacing-3);
     border-radius: 8px;
     white-space: nowrap;
     cursor: pointer;
@@ -27,7 +27,7 @@ menu {
 
     @media (hover: hover) {
       &:hover {
-        background: var(--jazz-neutral-100);
+        background: var(--ui-neutral-100);
       }
     }
 
@@ -53,13 +53,13 @@ menu {
   }
 
   & hr {
-    margin-block: var(--jazz-spacing-1);
+    margin-block: var(--ui-spacing-1);
   }
 
   & > li > small:only-child:not(:has(*)) {
     display: block;
-    padding: var(--jazz-spacing-2) var(--jazz-spacing-3) var(--jazz-spacing-1);
-    color: var(--jazz-neutral-500);
+    padding: var(--ui-spacing-2) var(--ui-spacing-3) var(--ui-spacing-1);
+    color: var(--ui-neutral-500);
     font-size: 0.8125rem;
     margin-left: 2px;
     user-select: none;

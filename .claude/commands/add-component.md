@@ -1,15 +1,15 @@
-# Add a Jazz component
+# Add a erikt/ui component
 
-Add a new component to Jazz. The argument is the component name, e.g. `/add-component tooltip`.
+Add a new component to erikt/ui. The argument is the component name, e.g. `/add-component tooltip`.
 
 ## Steps
 
 Given the component name `$ARGUMENTS`:
 
 1. **Create the CSS file** at `packages/core/src/components/<name>.css`
-   - Wrap everything in `@layer jazz { }`
+   - Wrap everything in `@layer ui { }`
    - Style native HTML elements or use a minimal class name matching the component name
-   - Use `var(--jazz-*)` color tokens, `var(--jazz-spacing-*)` for spacing, `var(--ease-*)` for transitions
+   - Use `var(--ui-*)` color tokens, `var(--ui-spacing-*)` for spacing, `var(--ease-*)` for transitions
    - No hardcoded hex colors, no JavaScript, no em dashes in comments
 
 2. **Import it** in `packages/core/src/main.css`

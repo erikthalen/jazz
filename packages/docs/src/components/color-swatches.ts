@@ -23,8 +23,8 @@ export function ColorSwatches() {
             style="--swatch: ${"display" in c ? c.display : c.color}"
             onclick="
               const val = this.dataset.color;
-              document.documentElement.style.setProperty('--jazz-primary', val);
-              localStorage.setItem('jazz-primary', val);
+              document.documentElement.style.setProperty('--ui-primary', val);
+              localStorage.setItem('ui-primary', val);
               syncSwatch();
             "
           ></button>

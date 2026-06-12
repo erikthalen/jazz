@@ -1,38 +1,33 @@
 ---
-name: jazz
-description: Teaches agents how to use the Jazz CSS design system. Use when writing HTML/CSS for a project that uses Jazz, or when asked to add UI components with Jazz.
+name: erikt-ui
+description: Teaches agents how to use the @erikt/ui design system. Use when writing HTML/CSS for a project that uses @erikt/ui, or when asked to add UI components with @erikt/ui.
 ---
 
-# Jazz CSS Design System
+# @erikt/ui Design System
 
-Jazz is a single CSS file that styles native HTML elements directly. No class names required for most things. Link the stylesheet and write semantic HTML.
+@erikt/ui is a single CSS file that styles native HTML elements directly. No class names required for most things. Link the stylesheet and write semantic HTML.
 
-Docs: https://erikthalen.github.io/jazz/
+Docs: https://erikthq.github.io/ui/
 
 ## Setup
 
 ```html
-<link
-  rel="stylesheet"
-  href="https://esm.sh/gh/erikthalen/jazz@v0.1.0-beta.23/jazz.css"
-/>
+<link rel="stylesheet" href="https://esm.sh/@erikt/ui@0.0.4/ui.css" />
 ```
 
 ## Core idea
 
-Jazz styles native elements. A `<button>` is already a styled button. An `<input>` is already a styled input. No wrapper divs or base classes needed.
+@erikt/ui styles native elements. A `<button>` is already a styled button. An `<input>` is already a styled input. No wrapper divs or base classes needed.
 
 ```html
 <button>Click me</button>
 <input type="text" placeholder="Type here" />
-<select>
-  <option>Option</option>
-</select>
+<select><option>Option</option></select>
 ```
 
 ## Layout
 
-Jazz does not provide layout utilities. Use CSS `flex` and `grid` directly.
+@erikt/ui does not provide layout utilities. Use CSS `flex` and `grid` directly.
 
 ```html
 <div style="display:flex;gap:1rem">
@@ -45,7 +40,7 @@ Jazz does not provide layout utilities. Use CSS `flex` and `grid` directly.
 
 ```html
 <button>Primary</button>
-<button class="outline">Outline</button>
+<button class="outlined">Outline</button>
 <button class="ghost">Ghost</button>
 <button class="secondary">Secondary</button>
 <button class="destructive">Delete</button>
@@ -137,19 +132,19 @@ Add `required` to the input and a `*` appears on the label automatically.
 <input type="range" min="0" max="100" value="50" />
 ```
 
-Note: Jazz uses a `--pct` CSS custom property for the fill. Set it via JS:
-
+Note: @erikt/ui uses a `--pct` CSS custom property for the fill. Set it via JS:
 ```js
-el.style.setProperty("--pct", (el.value - el.min) / (el.max - el.min));
-el.addEventListener("input", () =>
-  el.style.setProperty("--pct", (el.value - el.min) / (el.max - el.min)),
-);
+el.style.setProperty('--pct', (el.value - el.min) / (el.max - el.min))
+el.addEventListener('input', () =>
+  el.style.setProperty('--pct', (el.value - el.min) / (el.max - el.min))
+)
 ```
 
 ## Progress
 
 ```html
-<progress value="65" max="100"></progress> <progress></progress>
+<progress value="65" max="100"></progress>
+<progress></progress>
 ```
 
 ## Badge
@@ -158,7 +153,7 @@ el.addEventListener("input", () =>
 <span class="badge">Default</span>
 <span class="badge secondary">Secondary</span>
 <span class="badge destructive">Error</span>
-<span class="badge outline">Outline</span>
+<span class="badge outlined">Outline</span>
 ```
 
 ## Card
@@ -190,12 +185,7 @@ el.addEventListener("input", () =>
     <header>Title</header>
     <p>Content</p>
     <footer>
-      <button
-        class="ghost"
-        onclick="document.getElementById('my-dialog').close()"
-      >
-        Cancel
-      </button>
+      <button class="ghost" onclick="document.getElementById('my-dialog').close()">Cancel</button>
       <button>Confirm</button>
     </footer>
   </article>
@@ -230,12 +220,8 @@ Radio and checkbox inputs inside `<label>`s show a checkmark indicator:
 
 ```html
 <menu>
-  <li>
-    <label><input type="radio" name="sort" checked /> Newest</label>
-  </li>
-  <li>
-    <label><input type="radio" name="sort" /> Oldest</label>
-  </li>
+  <li><label><input type="radio" name="sort" checked /> Newest</label></li>
+  <li><label><input type="radio" name="sort" /> Oldest</label></li>
 </menu>
 ```
 
@@ -280,25 +266,17 @@ A `[popover]` that is a sibling of a `<button>` inside a menu `<li>` becomes a s
 ## Tooltip
 
 ```html
-<button data-tooltip="Save changes">Save</button>
-<button data-tooltip="Left side" data-placement="left">Info</button>
+<button aria-label="Save changes" data-tooltip>Save</button>
+<button aria-label="Left side" data-tooltip="left">Info</button>
 ```
 
 ## Table
 
 ```html
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Status</th>
-    </tr>
-  </thead>
+  <thead><tr><th>Name</th><th>Status</th></tr></thead>
   <tbody>
-    <tr>
-      <td>Alice</td>
-      <td>Active</td>
-    </tr>
+    <tr><td>Alice</td><td>Active</td></tr>
   </tbody>
 </table>
 ```
@@ -309,9 +287,7 @@ A `[popover]` that is a sibling of a `<button>` inside a menu `<li>` becomes a s
 <div class="prose">
   <h1>Title</h1>
   <p>Body text with correct spacing.</p>
-  <ul>
-    <li>List item</li>
-  </ul>
+  <ul><li>List item</li></ul>
 </div>
 ```
 
@@ -341,7 +317,6 @@ A `[popover]` that is a sibling of a `<button>` inside a menu `<li>` becomes a s
 ```
 
 Control the number of visible lines with `--lines` (default: 3):
-
 ```html
 <div class="expander" style="--lines:5">...</div>
 ```
@@ -383,15 +358,15 @@ Use `<label class="toggle">` inside `<fieldset role="group">`. Radio for mutuall
 
 ```html
 <fieldset role="group">
-  <label class="toggle square" aria-label="Align left">
+  <label class="toggle square" aria-label="Align left" data-tooltip>
     <input type="radio" name="align" />
     <svg>...</svg>
   </label>
-  <label class="toggle square" aria-label="Align center">
+  <label class="toggle square" aria-label="Align center" data-tooltip>
     <input type="radio" name="align" checked />
     <svg>...</svg>
   </label>
-  <label class="toggle square" aria-label="Align right">
+  <label class="toggle square" aria-label="Align right" data-tooltip>
     <input type="radio" name="align" />
     <svg>...</svg>
   </label>
@@ -410,22 +385,6 @@ Put a `<kbd>` inside a button to show a keyboard shortcut hint:
 ```html
 <button class="ghost">Save <kbd>⌘S</kbd></button>
 ```
-
-## Toast (notification)
-
-Append children to an `<output>` element fixed in the corner. Each child auto-animates in and out:
-
-```html
-<output id="toasts"></output>
-```
-
-```js
-const p = document.createElement("p");
-p.textContent = "Saved!";
-document.getElementById("toasts").appendChild(p);
-```
-
-Control duration with `--toast-duration` (default: 3s).
 
 ## Color Input
 
@@ -452,7 +411,6 @@ Control duration with `--toast-duration` (default: 3s).
 ```
 
 Add a button to give the user a clear next step:
-
 ```html
 <div class="empty">
   <svg><!-- icon --></svg>
@@ -479,39 +437,33 @@ Override seed variables on `:root` after the stylesheet. All color scales are de
 
 ```css
 :root {
-  --jazz-primary: dodgerblue; /* or light-dark(blue, lightblue) */
-  --jazz-neutral: #8b8c93;
-  --jazz-constructive: #5dbb55; /* success/positive actions */
-  --jazz-destructive: #ef5655; /* danger/error actions */
-  --jazz-color1: crimson; /* accent colors 1-6 */
-  --jazz-color2: gold;
+  --ui-primary: dodgerblue;               /* or light-dark(blue, lightblue) */
+  --ui-neutral: #8b8c93;
+  --ui-constructive: #5dbb55;             /* success/positive actions */
+  --ui-destructive: #ef5655;             /* danger/error actions */
+  --ui-color1: crimson;                  /* accent colors 1-6 */
+  --ui-color2: gold;
 }
 ```
 
 ## Dark mode
 
-Jazz responds to `prefers-color-scheme` automatically (via `color-scheme: light dark`). To force a theme, set `color-scheme` on the root:
+@erikt/ui responds to `prefers-color-scheme` automatically (via `color-scheme: light dark`). To force a theme, set `color-scheme` on the root:
 
 ```css
-:root {
-  color-scheme: dark;
-}
-:root {
-  color-scheme: light;
-}
+:root { color-scheme: dark; }
+:root { color-scheme: light; }
 ```
 
 Or inline:
 
 ```html
-<html style="color-scheme:dark">
-  ...
-</html>
+<html style="color-scheme:dark">...</html>
 ```
 
 ## Spacing tokens
 
-`--jazz-spacing-1` through `--jazz-spacing-8` (multiples of `--jazz-spacing: 0.25em`).
+`--ui-spacing-1` through `--ui-spacing-8` (multiples of `--ui-spacing: 0.25em`).
 
 ## Easing tokens
 
@@ -538,22 +490,24 @@ Or inline:
 - `Expander`
 - `Field`
 - `File Drop`
+- `Focus Group`
 - `Kbd`
 - `Loading`
 - `Menu`
 - `Popover`
 - `Progress`
+- `Prose`
 - `Radio`
 - `Radio Group`
 - `Select`
-- `Submenu`
 - `Separator`
 - `Slider`
+- `Submenu`
 - `Switch`
 - `Table`
+- `Tabs` (0.0.2)
 - `Text Field`
 - `Textarea`
-- `Toast` (WIP)
 - `Toggle`
 - `Toggle Group`
 - `Tooltip`

@@ -100,9 +100,9 @@ table:has(> thead > tr > th:last-child:nth-child(30)) {
 
 caption {
   grid-column: 1 / -1;
-  padding: var(--jazz-spacing-3) var(--jazz-spacing-3);
-  color: var(--jazz-neutral-400);
-  /* border-bottom: 1px solid var(--jazz-neutral-200); */
+  padding: var(--ui-spacing-3) var(--ui-spacing-3);
+  color: var(--ui-neutral-400);
+  /* border-bottom: 1px solid var(--ui-neutral-200); */
 }
 
 thead,
@@ -118,16 +118,16 @@ tr {
 
   @media (hover: hover) {
     &:hover > td {
-      background: var(--jazz-neutral-50);
+      background: var(--ui-neutral-50);
     }
   }
 }
 
 th,
 td {
-  padding: var(--jazz-spacing-3) var(--jazz-spacing-3);
+  padding: var(--ui-spacing-3) var(--ui-spacing-3);
   text-align: left;
-  border-bottom: 1px solid var(--jazz-neutral-200);
+  border-bottom: 1px solid var(--ui-neutral-200);
 }
 
 th:last-child,
@@ -137,8 +137,8 @@ td:last-child {
 
 thead > tr > th {
   font-weight: 600;
-  color: var(--jazz-neutral-600);
-  /* background: var(--jazz-neutral-50); */
+  color: var(--ui-neutral-600);
+  /* background: var(--ui-neutral-50); */
 }
 
 tbody > tr:last-child > td,
@@ -147,10 +147,10 @@ tfoot > tr:last-child > :is(th, td) {
 }
 
 tfoot > tr > :is(th, td) {
-  background: var(--jazz-neutral-50);
+  background: var(--ui-neutral-50);
   font-weight: 600;
 }
 
 tfoot > tr:first-child > :is(th, td) {
-  border-top: 1px solid var(--jazz-neutral-200);
+  border-top: 1px solid var(--ui-neutral-200);
 }

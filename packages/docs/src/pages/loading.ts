@@ -77,7 +77,7 @@ export async function LoadingPage(path: string) {
           <article class="empty">
             <span
               aria-busy="true"
-              style="width:2.5rem;height:2.5rem;border-radius:8px;background:var(--jazz-neutral-100);display:grid;place-items:center;"
+              style="width:2.5rem;height:2.5rem;border-radius:8px;background:var(--ui-neutral-100);display:grid;place-items:center;"
             ></span>
             <h4>Processing your request</h4>
             <p>
@@ -92,7 +92,7 @@ export async function LoadingPage(path: string) {
             await highlight(`<article class="empty">
               <span
                 aria-busy="true"
-                style="width:2.5rem;height:2.5rem;border-radius:8px;background:var(--jazz-neutral-100);display:grid;place-items:center;"
+                style="width:2.5rem;height:2.5rem;border-radius:8px;background:var(--ui-neutral-100);display:grid;place-items:center;"
               ></span>
               <h4>Processing your request</h4>
               <p>

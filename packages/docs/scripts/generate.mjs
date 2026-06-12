@@ -77,9 +77,9 @@ for (const route of routes) {
   console.log(`  ${route}`);
 }
 
-// Copy jazz.css to dist
-const rootCss = new URL("../../../jazz.css", import.meta.url).pathname;
-await copyFile(rootCss, join(outDir, "jazz.css"));
+// Copy ui.css to dist
+const rootCss = new URL("../../../ui.css", import.meta.url).pathname;
+await copyFile(rootCss, join(outDir, "ui.css"));
 
 // Regenerate SKILL.md at repo root so it stays in sync with the build
 const skillResponse = await app.fetch(new Request("http://localhost/skill.md"));
@@ -100,7 +100,7 @@ await cp(publicDir, outDir, { recursive: true });
 await writeFile(join(outDir, ".nojekyll"), "");
 
 // Generate sitemap.xml
-const siteOrigin = (process.env.SITE_URL ?? "https://erikthalen.github.io").replace(/\/$/, "");
+const siteOrigin = (process.env.SITE_URL ?? "https://erikthq.github.io").replace(/\/$/, "");
 const baseUrl = process.env.BASE_URL ? siteOrigin + process.env.BASE_URL.replace(/\/$/, "") : siteOrigin;
 const htmlRoutes = routes.filter(r => !r.includes("."));
 const today = new Date().toISOString().split("T")[0];

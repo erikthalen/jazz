@@ -14,8 +14,8 @@
 /* Override core's body max-width so it doesn't constrain the docs layout */
 body {
   max-width: none;
-  background-color: var(--jazz-background-color);
-  color: var(--jazz-text-color);
+  background-color: var(--ui-background-color);
+  color: var(--ui-text-color);
 
   width: 100vw;
   overflow-x: clip;
@@ -25,8 +25,8 @@ body {
   --sidebar-w: 0px;
   --toc-w: 0px;
   --header-h: 56px;
-  --border: var(--jazz-neutral-200);
-  --bg-subtle: var(--jazz-neutral-100);
+  --border: var(--ui-neutral-200);
+  --bg-subtle: var(--ui-neutral-100);
   --code-bg: #24292e; /* github-dark background */
 
   scroll-behavior: smooth;
@@ -76,7 +76,7 @@ body {
   border-right: 1px solid var(--border);
   padding-block: 1rem;
   padding-inline: 0.5rem;
-  background: var(--jazz-background-color);
+  background: var(--ui-background-color);
 
   @media (min-width: 769px) {
     position: sticky;
@@ -109,13 +109,13 @@ body:has(.sidebar-toggle:checked) {
 }
 
 .docs-sidebar a[aria-current] {
-  background: color-mix(in srgb, var(--jazz-primary) 10%, transparent);
+  background: color-mix(in srgb, var(--ui-primary) 10%, transparent);
 }
 
 /* Main content */
 .docs-content {
   container-type: inline-size;
-  padding: 2.5rem var(--jazz-spacing-4);
+  padding: 2.5rem var(--ui-spacing-4);
   min-width: 0;
   width: 100vw;
   margin-inline: auto;
@@ -148,7 +148,7 @@ body:has(.sidebar-toggle:checked) {
   border: 1px solid var(--border);
   border-radius: 8px 8px 0 0;
   padding: 2.5rem 2rem;
-  background: var(--jazz-neutral-0);
+  background: var(--ui-neutral-0);
   display: flex;
   flex-wrap: wrap;
   /* gap: 0.75rem; */
@@ -177,7 +177,7 @@ body:has(.sidebar-toggle:checked) {
   align-items: center;
   gap: 0.375rem;
   font-size: 0.6875rem;
-  color: var(--jazz-neutral-600);
+  color: var(--ui-neutral-600);
 }
 
 .color-swatch-block {
@@ -193,10 +193,10 @@ body:has(.sidebar-toggle:checked) {
   z-index: 10;
   display: flex;
   align-items: center;
-  gap: var(--jazz-spacing-3);
-  padding: var(--jazz-spacing-3) var(--jazz-spacing-4);
-  margin-inline: calc(var(--jazz-spacing-4) * -1);
-  background: var(--jazz-background-color);
+  gap: var(--ui-spacing-3);
+  padding: var(--ui-spacing-3) var(--ui-spacing-4);
+  margin-inline: calc(var(--ui-spacing-4) * -1);
+  background: var(--ui-background-color);
   border-bottom: 1px solid var(--border);
 }
 
@@ -218,7 +218,7 @@ body:has(.sidebar-toggle:checked) {
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
-  background: var(--jazz-primary);
+  background: var(--ui-primary);
   transition: translate 600ms linear;
 }
 
@@ -261,14 +261,14 @@ body:has(.sidebar-toggle:checked) {
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  gap: 0 var(--jazz-spacing-3);
-  padding: var(--jazz-spacing-2) var(--jazz-spacing-3);
+  gap: 0 var(--ui-spacing-3);
+  padding: var(--ui-spacing-2) var(--ui-spacing-3);
   border-radius: 6px;
   text-decoration: none;
-  color: var(--jazz-text-color);
+  color: var(--ui-text-color);
 
   &:hover {
-    background: var(--jazz-neutral-100);
+    background: var(--ui-neutral-100);
   }
 
 }
@@ -283,15 +283,15 @@ body:has(.sidebar-toggle:checked) {
 
 .search-result-desc {
   font-size: 0.8125rem;
-  color: var(--jazz-neutral-500);
+  color: var(--ui-neutral-500);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .search-empty {
-  padding: var(--jazz-spacing-4);
-  color: var(--jazz-neutral-500);
+  padding: var(--ui-spacing-4);
+  color: var(--ui-neutral-500);
   font-size: 0.875rem;
   list-style: none;
 }
@@ -312,7 +312,7 @@ body:has(.sidebar-toggle:checked) {
     header {
       position: sticky;
       top: 0;
-      background: var(--jazz-background-color);
+      background: var(--ui-background-color);
       z-index: 1;
 
       label:first-of-type {
@@ -328,7 +328,7 @@ body:has(.sidebar-toggle:checked) {
 
 .icons-dialog-content {
   flex: 1;
-  padding: var(--jazz-spacing-4);
+  padding: var(--ui-spacing-4);
 }
 
 /* Icons page */
@@ -358,7 +358,7 @@ body:has(.sidebar-toggle:checked) {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--jazz-neutral-700);
+  color: var(--ui-neutral-700);
   position: relative;
 
   &::after {
@@ -368,9 +368,9 @@ body:has(.sidebar-toggle:checked) {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--jazz-neutral-100);
+    background: var(--ui-neutral-100);
     border-radius: inherit;
-    color: var(--jazz-constructive-500);
+    color: var(--ui-constructive-500);
     opacity: 0;
     transition: opacity 100ms;
     pointer-events: none;
@@ -388,11 +388,11 @@ body:has(.sidebar-toggle:checked) {
 }
 
 .callout {
-  background-color: var(--jazz-neutral-50);
-  border: 1px solid var(--jazz-neutral-200);
-  border-radius: var(--jazz-spacing-2);
-  padding: var(--jazz-spacing-3) var(--jazz-spacing-4);
+  background-color: var(--ui-neutral-50);
+  border: 1px solid var(--ui-neutral-200);
+  border-radius: var(--ui-spacing-2);
+  padding: var(--ui-spacing-3) var(--ui-spacing-4);
   font-size: 0.875rem;
-  color: var(--jazz-neutral-700);
+  color: var(--ui-neutral-700);
   margin-bottom: 1rem;
 }

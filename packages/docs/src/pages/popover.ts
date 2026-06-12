@@ -158,7 +158,7 @@ export async function PopoverPage(path: string) {
             >
               <strong>bottom left</strong>
               <p
-                style="margin:0.5rem 0 0;font-size:0.875rem;color:var(--jazz-neutral-500)"
+                style="margin:0.5rem 0 0;font-size:0.875rem;color:var(--ui-neutral-500)"
               >
                 Appears below the trigger, left edges aligned.
               </p>
@@ -175,7 +175,7 @@ export async function PopoverPage(path: string) {
             >
               <strong>bottom right</strong>
               <p
-                style="margin:0.5rem 0 0;font-size:0.875rem;color:var(--jazz-neutral-500)"
+                style="margin:0.5rem 0 0;font-size:0.875rem;color:var(--ui-neutral-500)"
               >
                 Appears below the trigger, right edges aligned.
               </p>
@@ -190,7 +190,7 @@ export async function PopoverPage(path: string) {
             >
               <strong>top left</strong>
               <p
-                style="margin:0.5rem 0 0;font-size:0.875rem;color:var(--jazz-neutral-500)"
+                style="margin:0.5rem 0 0;font-size:0.875rem;color:var(--ui-neutral-500)"
               >
                 Appears above the trigger, left edges aligned.
               </p>
@@ -205,7 +205,7 @@ export async function PopoverPage(path: string) {
             >
               <strong>top right</strong>
               <p
-                style="margin:0.5rem 0 0;font-size:0.875rem;color:var(--jazz-neutral-500)"
+                style="margin:0.5rem 0 0;font-size:0.875rem;color:var(--ui-neutral-500)"
               >
                 Appears above the trigger, right edges aligned.
               </p>
@@ -220,7 +220,7 @@ export async function PopoverPage(path: string) {
             >
               <strong>left top</strong>
               <p
-                style="margin:0.5rem 0 0;font-size:0.875rem;color:var(--jazz-neutral-500)"
+                style="margin:0.5rem 0 0;font-size:0.875rem;color:var(--ui-neutral-500)"
               >
                 Appears left of the trigger, top edges aligned.
               </p>
@@ -235,7 +235,7 @@ export async function PopoverPage(path: string) {
             >
               <strong>left bottom</strong>
               <p
-                style="margin:0.5rem 0 0;font-size:0.875rem;color:var(--jazz-neutral-500)"
+                style="margin:0.5rem 0 0;font-size:0.875rem;color:var(--ui-neutral-500)"
               >
                 Appears left of the trigger, bottom edges aligned.
               </p>
@@ -250,7 +250,7 @@ export async function PopoverPage(path: string) {
             >
               <strong>right top</strong>
               <p
-                style="margin:0.5rem 0 0;font-size:0.875rem;color:var(--jazz-neutral-500)"
+                style="margin:0.5rem 0 0;font-size:0.875rem;color:var(--ui-neutral-500)"
               >
                 Appears right of the trigger, top edges aligned.
               </p>
@@ -267,7 +267,7 @@ export async function PopoverPage(path: string) {
             >
               <strong>right bottom</strong>
               <p
-                style="margin:0.5rem 0 0;font-size:0.875rem;color:var(--jazz-neutral-500)"
+                style="margin:0.5rem 0 0;font-size:0.875rem;color:var(--ui-neutral-500)"
               >
                 Appears right of the trigger, bottom edges aligned.
               </p>

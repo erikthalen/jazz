@@ -132,7 +132,7 @@ export async function AdminDashboardPage(path: string) {
             }
 
             .admin-sidebar {
-              border-right: 1px solid var(--jazz-neutral-200);
+              border-right: 1px solid var(--ui-neutral-200);
               padding: 1rem 0.5rem;
             }
 
@@ -209,7 +209,7 @@ export async function AdminDashboardPage(path: string) {
               >
                 <div>
                   <h2 style="margin:0 0 0.25rem">Tasks</h2>
-                  <p style="color:var(--jazz-neutral-500)">
+                  <p style="color:var(--ui-neutral-500)">
                     <small> Here's a list of your tasks for this month. </small>
                   </p>
                 </div>
@@ -353,7 +353,7 @@ export async function AdminDashboardPage(path: string) {
                   ${tasks.map(
                     (task, i) => html`
                       <tr>
-                        <td style="color:var(--jazz-neutral-500);">
+                        <td style="color:var(--ui-neutral-500);">
                           <small> ${task.id} </small>
                         </td>
                         <td>
@@ -364,14 +364,14 @@ export async function AdminDashboardPage(path: string) {
                         <td>${task.title}</td>
                         <td>
                           <span
-                            style="display:flex;align-items:center;gap:0.375rem;color:var(--jazz-neutral-600)"
+                            style="display:flex;align-items:center;gap:0.375rem;color:var(--ui-neutral-600)"
                           >
                             ${raw(statusIcon[task.status] ?? "")} ${task.status}
                           </span>
                         </td>
                         <td>
                           <span
-                            style="display:flex;align-items:center;gap:0.375rem;color:var(--jazz-neutral-600)"
+                            style="display:flex;align-items:center;gap:0.375rem;color:var(--ui-neutral-600)"
                           >
                             ${raw(priorityIcon[task.priority] ?? "")}
                             ${task.priority}
@@ -455,7 +455,7 @@ export async function AdminDashboardPage(path: string) {
   }
 
   .admin-sidebar {
-    border-right: 1px solid var(--jazz-neutral-200);
+    border-right: 1px solid var(--ui-neutral-200);
     padding: 1rem 0.5rem;
   }
 
@@ -500,7 +500,7 @@ export async function AdminDashboardPage(path: string) {
     <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem">
       <div>
         <h2 style="margin:0 0 0.25rem">Tasks</h2>
-        <p style="color:var(--jazz-neutral-500)">Here's a list of your tasks for this month.</p>
+        <p style="color:var(--ui-neutral-500)">Here's a list of your tasks for this month.</p>
       </div>
       <div style="display:flex;gap:0.5rem;flex-shrink:0">
         <button class="outlined"><svg><!-- download --></svg> Import</button>

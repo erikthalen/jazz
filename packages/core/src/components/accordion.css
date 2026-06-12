@@ -2,7 +2,7 @@ details {
   interpolate-size: allow-keywords;
 
   width: 100%;
-  border-bottom: 1px solid var(--jazz-neutral-200);
+  border-bottom: 1px solid var(--ui-neutral-200);
   /* border-radius: 8px; */
 
   &::details-content {
@@ -25,7 +25,7 @@ details {
     cursor: pointer;
     list-style: none;
     user-select: none;
-    padding-block: var(--jazz-spacing-3);
+    padding-block: var(--ui-spacing-3);
 
     text-decoration: underline;
     text-decoration-color: transparent;
@@ -56,7 +56,7 @@ details {
     }
 
     &:focus-visible {
-      outline: 2px solid var(--jazz-neutral-950);
+      outline: 2px solid var(--ui-neutral-950);
       outline-offset: 2px;
       border-radius: 8px;
     }
@@ -67,6 +67,6 @@ details {
   }
 
   > *:not(summary) {
-    padding-block: var(--jazz-spacing-3) var(--jazz-spacing-6);
+    padding-block: var(--ui-spacing-3) var(--ui-spacing-6);
   }
 }

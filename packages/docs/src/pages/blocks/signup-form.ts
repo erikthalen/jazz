@@ -14,7 +14,7 @@ export async function SignupFormPage(path: string) {
           <h1>Signup Form</h1>
           <p>
             A full account creation form with social login options, built from
-            native form elements and Jazz components.
+            native form elements and @erikt/ui components.
           </p>
         </hgroup>
       </div>
@@ -22,13 +22,13 @@ export async function SignupFormPage(path: string) {
       <div class="example">
         <div class="preview" style="justify-content:center">
           <form
-            style="display:flex;flex-direction:column;gap:var(--jazz-spacing-4);width:100%;max-width:420px;"
+            style="display:flex;flex-direction:column;gap:var(--ui-spacing-4);width:100%;max-width:420px;"
           >
             <header style="text-align:center">
-              <h2 style="margin-bottom:var(--jazz-spacing-1)">
+              <h2 style="margin-bottom:var(--ui-spacing-1)">
                 Create your account
               </h2>
-              <p style="color:var(--jazz-neutral-400)">
+              <p style="color:var(--ui-neutral-400)">
                 Enter your email below to create your account
               </p>
             </header>
@@ -43,7 +43,7 @@ export async function SignupFormPage(path: string) {
             </label>
 
             <div
-              style="display:grid;grid-template-columns:1fr 1fr;gap:var(--jazz-spacing-3)"
+              style="display:grid;grid-template-columns:1fr 1fr;gap:var(--ui-spacing-3)"
             >
               <label class="field">
                 Password
@@ -55,24 +55,24 @@ export async function SignupFormPage(path: string) {
               </label>
             </div>
             <small
-              style="text-align:left;margin-top:calc(var(--jazz-spacing-1) * -1)"
+              style="text-align:left;margin-top:calc(var(--ui-spacing-1) * -1)"
               >Must be at least 8 characters long.</small
             >
 
             <button type="submit">Create Account</button>
 
             <div
-              style="display:flex;align-items:center;gap:var(--jazz-spacing-3)"
+              style="display:flex;align-items:center;gap:var(--ui-spacing-3)"
             >
               <hr style="flex:1" />
-              <small style="color:var(--jazz-neutral-400)"
+              <small style="color:var(--ui-neutral-400)"
                 >Or continue with</small
               >
               <hr style="flex:1" />
             </div>
 
             <div
-              style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--jazz-spacing-3)"
+              style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--ui-spacing-3)"
             >
               <button type="button" class="outlined">
                 ${raw(icon("brand-apple", { size: 14, filled: true }))}
@@ -85,7 +85,7 @@ export async function SignupFormPage(path: string) {
               </button>
             </div>
 
-            <footer style="color:var(--jazz-neutral-400);text-align:center">
+            <footer style="color:var(--ui-neutral-400);text-align:center">
               Already have an account? <a href="#">Sign in</a>
             </footer>
           </form>
@@ -96,7 +96,7 @@ export async function SignupFormPage(path: string) {
   form {
     display: flex;
     flex-direction: column;
-    gap: var(--jazz-spacing-4);
+    gap: var(--ui-spacing-4);
     width: 100%;
     max-width: 420px;
     }
@@ -108,14 +108,14 @@ export async function SignupFormPage(path: string) {
   .password-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--jazz-spacing-3);
+    gap: var(--ui-spacing-3);
     text-align: left;
   }
 
   .divider {
     display: flex;
     align-items: center;
-    gap: var(--jazz-spacing-3);
+    gap: var(--ui-spacing-3);
   }
 
   .divider hr {
@@ -125,14 +125,14 @@ export async function SignupFormPage(path: string) {
   .social-row {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: var(--jazz-spacing-3);
+    gap: var(--ui-spacing-3);
   }
 </style>
 
 <form>
   <header>
     <h2>Create your account</h2>
-    <p style="color: var(--jazz-neutral-400)">Enter your email below to create your account</p>
+    <p style="color: var(--ui-neutral-400)">Enter your email below to create your account</p>
   </header>
 
   <label class="field" style="">
@@ -159,7 +159,7 @@ export async function SignupFormPage(path: string) {
 
   <div class="divider">
     <hr />
-    <small style="color:var(--jazz-neutral-400)">Or continue with</small>
+    <small style="color:var(--ui-neutral-400)">Or continue with</small>
     <hr />
   </div>
 
@@ -169,7 +169,7 @@ export async function SignupFormPage(path: string) {
     <button type="button" class="outlined"><svg>...</svg></button>
   </div>
 
-  <footer style="color:var(--jazz-neutral-400)">Already have an account? <a href="#">Sign in</a></footer>
+  <footer style="color:var(--ui-neutral-400)">Already have an account? <a href="#">Sign in</a></footer>
 </form>`),
           )}
         </div>

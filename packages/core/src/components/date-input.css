@@ -18,8 +18,8 @@ input[type="week"] {
   &::-webkit-datetime-edit-hour-field:focus,
   &::-webkit-datetime-edit-minute-field:focus,
   &::-webkit-datetime-edit-ampm-field:focus {
-    background-color: var(--jazz-primary);
-    color: var(--jazz-neutral-0);
+    background-color: var(--ui-primary);
+    color: var(--ui-neutral-0);
     border-radius: 2px;
     outline: none;
   }

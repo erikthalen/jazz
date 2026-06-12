@@ -5,14 +5,14 @@
   z-index: -1;
   margin-top: -1px;
 
-  /* background-color: var(--jazz-background-color);
+  /* background-color: var(--ui-background-color);
   background-image:
     repeating-linear-gradient(
       to right,
       transparent 0,
       transparent 1.6666666666666667px,
-      var(--jazz-background-color) 1.6666666666666667px,
-      var(--jazz-background-color) 5px,
+      var(--ui-background-color) 1.6666666666666667px,
+      var(--ui-background-color) 5px,
       transparent 5px,
       transparent 6.666666666666667px
     ),
@@ -20,17 +20,17 @@
       to bottom,
       transparent 0,
       transparent 1.6666666666666667px,
-      var(--jazz-background-color) 1.6666666666666667px,
-      var(--jazz-background-color) 5px,
+      var(--ui-background-color) 1.6666666666666667px,
+      var(--ui-background-color) 5px,
       transparent 5px,
       transparent 6.666666666666667px
     ),
     linear-gradient(
       to bottom,
-      var(--jazz-neutral-200) 0.6px,
+      var(--ui-neutral-200) 0.6px,
       transparent 0.6px
     ),
-    linear-gradient(to right, var(--jazz-neutral-200) 0.6px, transparent 0.6px);
+    linear-gradient(to right, var(--ui-neutral-200) 0.6px, transparent 0.6px);
   background-size:
     100% 100%,
     100% 100%,
@@ -43,11 +43,11 @@
     -0.2px 0; */
 
   /* background-image:
-    linear-gradient(var(--jazz-neutral-500) 2px, transparent 2px),
-    linear-gradient(to right, var(--jazz-neutral-500) 2px, transparent 2px);
+    linear-gradient(var(--ui-neutral-500) 2px, transparent 2px),
+    linear-gradient(to right, var(--ui-neutral-500) 2px, transparent 2px);
   background-size: 45px 45px; */
 
-  background-image: radial-gradient(var(--jazz-neutral-200) 1px, transparent 1px);
+  background-image: radial-gradient(var(--ui-neutral-200) 1px, transparent 1px);
   background-size: 25px 25px;
 
   mask-image: radial-gradient(black 50%, transparent 80%);
@@ -81,8 +81,8 @@
       max-width: 480px;
 
       code {
-        background-color: var(--jazz-constructive-200);
-        color: var(--jazz-constructive-600);
+        background-color: var(--ui-constructive-200);
+        color: var(--ui-constructive-600);
       }
     }
   }
@@ -129,7 +129,7 @@
       justify-content: center;
     }
 
-    /* background-color: var(--jazz-neutral-0); */
+    /* background-color: var(--ui-neutral-0); */
   }
 
   .tabpanels {
@@ -174,8 +174,8 @@
 
   &.active {
     box-shadow:
-      0 0 0 2px var(--jazz-background-color),
-      0 0 0 4px var(--jazz-primary);
+      0 0 0 2px var(--ui-background-color),
+      0 0 0 4px var(--ui-primary);
   }
 }
 
@@ -211,10 +211,10 @@
 }
 
 .home-themes-mode {
-  background: var(--jazz-background-color);
-  color: var(--jazz-text-color);
+  background: var(--ui-background-color);
+  color: var(--ui-text-color);
   padding: 1rem;
-  border-bottom: 1px solid var(--jazz-neutral-200);
+  border-bottom: 1px solid var(--ui-neutral-200);
 
   article {
     font-size: 0.875rem;
@@ -244,7 +244,7 @@
   justify-content: center;
   gap: 0.5rem;
   padding: 1.5rem;
-  background: var(--jazz-background-color);
+  background: var(--ui-background-color);
 }
 
 .showcase-cell--wide {
@@ -299,11 +299,11 @@
 
   small {
     font-family: monospace;
-    color: var(--jazz-neutral-500);
+    color: var(--ui-neutral-500);
   }
 
   p:last-of-type {
-    color: var(--jazz-neutral-700);
+    color: var(--ui-neutral-700);
   }
 }
 
@@ -317,7 +317,7 @@
   gap: 2rem;
   align-items: center;
   font-size: 0.875rem;
-  color: var(--jazz-neutral-600);
+  color: var(--ui-neutral-600);
 
   a {
     color: inherit;
@@ -325,7 +325,7 @@
     margin-left: auto;
 
     &:hover {
-      color: var(--jazz-text-color);
+      color: var(--ui-text-color);
     }
   }
 }

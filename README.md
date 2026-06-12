@@ -1,15 +1,15 @@
 ![](.github/cover-min.jpg)
 
-# Jazz CSS
+# @erikt/ui
 
-**[Documentation](https://erikthalen.github.io/jazz/)**
+**[Documentation](https://erikthq.github.io/ui/)**
 
-[![gzip size](https://img.badgesize.io/erikthalen/jazz/main/jazz.css?compression=gzip&label=gzipped&color=3b82f6)](https://erikthalen.github.io/jazz/)
+[![gzip size](https://img.badgesize.io/erikthq/ui/main/ui.css?compression=gzip&label=gzipped&color=3b82f6)](https://erikthq.github.io/ui/)
 
-CSS cascade layers, custom properties, `color-mix()`, `light-dark()`, anchor positioning, and the Popover API have collectively closed most of the gap that large UI libraries were built to fill. Jazz takes that foundation and adds a focused component layer on top. A single stylesheet that styles native HTML elements without requiring a component model, a compiler, or a runtime.
+CSS cascade layers, custom properties, `color-mix()`, `light-dark()`, anchor positioning, and the Popover API have collectively closed most of the gap that large UI libraries were built to fill. @erikt/ui takes that foundation and adds a focused component layer on top. A single stylesheet that styles native HTML elements without requiring a component model, a compiler, or a runtime.
 
 ```html
-<link rel="stylesheet" href="https://esm.sh/gh/erikthalen/jazz@0.0.4/jazz.css" />
+<link rel="stylesheet" href="https://esm.sh/@erikt/ui@0.0.4/ui.css" />
 ```
 
 - 🗂️ **One file**

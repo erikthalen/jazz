@@ -50,7 +50,7 @@ export async function TextareaPage(path: string) {
         <div class="preview preview-padded">
           <article style="width:100%">
             <header
-              style="display:flex;align-items:center;gap:var(--jazz-spacing-2)"
+              style="display:flex;align-items:center;gap:var(--ui-spacing-2)"
             >
               ${raw(icon("brand-javascript", { size: 18 }))}
               <span style="font-size:0.875rem">script.js</span>
@@ -71,7 +71,7 @@ console.log('Hello, world!');</textarea
             <footer
               style="display:flex;align-items:center;justify-content:space-between"
             >
-              <small style="color:var(--jazz-neutral-500)"
+              <small style="color:var(--ui-neutral-500)"
                 >Line 1, Column 1</small
               >
               <button>

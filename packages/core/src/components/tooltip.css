@@ -12,8 +12,8 @@
 
   &::before {
     content: attr(aria-label);
-    background: var(--jazz-neutral-950);
-    color: var(--jazz-neutral-50);
+    background: var(--ui-neutral-950);
+    color: var(--ui-neutral-50);
     padding: 0.4em 0.75em;
     border-radius: 6px;
     font-size: 0.875rem;
@@ -26,7 +26,7 @@
     width: 8px;
     height: 8px;
     rotate: 45deg;
-    background: var(--jazz-neutral-950);
+    background: var(--ui-neutral-950);
   }
 
   /* top (default) */

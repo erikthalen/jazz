@@ -80,7 +80,7 @@ export async function ProsePage(path: string) {
       <div class="example">
         <div class="preview preview-padded prose" style="display: block;">
           <p>
-            Jazz is a minimal CSS design system. It styles native HTML elements
+            @erikt/ui is a minimal CSS design system. It styles native HTML elements
             directly — no class names required for most components.
           </p>
           <p>
@@ -171,7 +171,7 @@ export async function ProsePage(path: string) {
         <h2 id="spacing">Spacing</h2>
         <p>
           Vertical spacing between elements is controlled by
-          <code>--jazz-typography-spacing</code>, which defaults to
+          <code>--ui-typography-spacing</code>, which defaults to
           <code>.61em</code>.
         </p>
       </div>
@@ -179,7 +179,7 @@ export async function ProsePage(path: string) {
         <div class="code-block">
           ${raw(
             await highlight(`:root {
-  --jazz-typography-spacing: .61em;
+  --ui-typography-spacing: .61em;
 }`, 80, 'css'),
           )}
         </div>

@@ -11,12 +11,12 @@ export async function SkillsPage(path: string) {
         <hgroup>
           <h1>Skills</h1>
           <p>
-            Teach your AI coding agent how to use Jazz with one command.
+            Teach your AI coding agent how to use @erikt/ui with one command.
           </p>
         </hgroup>
 
         <p>
-          Jazz ships a <code>SKILL.md</code> file that gives agents like Claude
+          @erikt/ui ships a <code>SKILL.md</code> file that gives agents like Claude
           Code, Cursor, and Windsurf a concise reference for every component,
           theming API, and HTML pattern in the library.
         </p>
@@ -25,7 +25,7 @@ export async function SkillsPage(path: string) {
       </div>
 
       <div class="example">
-        <div class="code-block"><pre><code>pnpm dlx skills add erikthalen/jazz</code></pre></div>
+        <div class="code-block"><pre><code>pnpm dlx skills add erikthq/ui</code></pre></div>
       </div>
 
       <div class="prose">
@@ -33,20 +33,20 @@ export async function SkillsPage(path: string) {
       </div>
 
       <div class="example">
-        <div class="code-block"><pre><code>npx skills add erikthalen/jazz
-bunx skills add erikthalen/jazz</code></pre></div>
+        <div class="code-block"><pre><code>npx skills add erikthq/ui
+bunx skills add erikthq/ui</code></pre></div>
       </div>
 
       <div class="prose">
         <p>
           Once installed, your agent will know how to reach for the right element
-          and pattern when building UI with Jazz. No prompting required.
+          and pattern when building UI with @erikt/ui. No prompting required.
         </p>
 
         <p>
           The skill is kept in sync with the library and regenerated on every
           release. You can also read it directly:
-          <a href="https://github.com/erikthalen/jazz/blob/main/SKILL.md" target="_blank" rel="noopener">SKILL.md on GitHub</a>.
+          <a href="https://github.com/erikthq/ui/blob/main/SKILL.md" target="_blank" rel="noopener">SKILL.md on GitHub</a>.
         </p>
       </div>
     `,

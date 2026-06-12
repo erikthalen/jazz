@@ -1,22 +1,22 @@
 select {
   appearance: none;
   border: none;
-  box-shadow: 0 0 0 1px var(--jazz-neutral-200) inset;
+  box-shadow: 0 0 0 1px var(--ui-neutral-200) inset;
 
-  padding-block: var(--jazz-spacing-2);
-  padding-inline: var(--jazz-spacing-3);
-  padding-inline-end: calc(1rem + var(--jazz-spacing-6));
-  border-radius: var(--jazz-spacing-2);
+  padding-block: var(--ui-spacing-2);
+  padding-inline: var(--ui-spacing-3);
+  padding-inline-end: calc(1rem + var(--ui-spacing-6));
+  border-radius: var(--ui-spacing-2);
 
   font: inherit;
   cursor: pointer;
   user-select: none;
   field-sizing: content;
 
-  background-color: var(--jazz-background-color);
+  background-color: var(--ui-background-color);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right var(--jazz-spacing-3) center;
+  background-position: right var(--ui-spacing-3) center;
   background-size: 1rem;
 
   &:focus {

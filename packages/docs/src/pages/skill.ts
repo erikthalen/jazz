@@ -1,7 +1,7 @@
 import { components } from "../layout";
 import pkg from "../../../core/package.json";
 
-const cdnUrl = `https://esm.sh/gh/erikthalen/jazz@${pkg.version}/jazz.css`;
+const cdnUrl = `https://esm.sh/@erikt/ui@${pkg.version}/ui.css`;
 
 export function SkillPage() {
   const componentList = components
@@ -9,15 +9,15 @@ export function SkillPage() {
     .join("\n");
 
   return `---
-name: jazz
-description: Teaches agents how to use the Jazz CSS design system. Use when writing HTML/CSS for a project that uses Jazz, or when asked to add UI components with Jazz.
+name: erikt-ui
+description: Teaches agents how to use the @erikt/ui design system. Use when writing HTML/CSS for a project that uses @erikt/ui, or when asked to add UI components with @erikt/ui.
 ---
 
-# Jazz CSS Design System
+# @erikt/ui Design System
 
-Jazz is a single CSS file that styles native HTML elements directly. No class names required for most things. Link the stylesheet and write semantic HTML.
+@erikt/ui is a single CSS file that styles native HTML elements directly. No class names required for most things. Link the stylesheet and write semantic HTML.
 
-Docs: https://erikthalen.github.io/jazz/
+Docs: https://erikthq.github.io/ui/
 
 ## Setup
 
@@ -27,7 +27,7 @@ Docs: https://erikthalen.github.io/jazz/
 
 ## Core idea
 
-Jazz styles native elements. A \`<button>\` is already a styled button. An \`<input>\` is already a styled input. No wrapper divs or base classes needed.
+@erikt/ui styles native elements. A \`<button>\` is already a styled button. An \`<input>\` is already a styled input. No wrapper divs or base classes needed.
 
 \`\`\`html
 <button>Click me</button>
@@ -37,7 +37,7 @@ Jazz styles native elements. A \`<button>\` is already a styled button. An \`<in
 
 ## Layout
 
-Jazz does not provide layout utilities. Use CSS \`flex\` and \`grid\` directly.
+@erikt/ui does not provide layout utilities. Use CSS \`flex\` and \`grid\` directly.
 
 \`\`\`html
 <div style="display:flex;gap:1rem">
@@ -142,7 +142,7 @@ Add \`required\` to the input and a \`*\` appears on the label automatically.
 <input type="range" min="0" max="100" value="50" />
 \`\`\`
 
-Note: Jazz uses a \`--pct\` CSS custom property for the fill. Set it via JS:
+Note: @erikt/ui uses a \`--pct\` CSS custom property for the fill. Set it via JS:
 \`\`\`js
 el.style.setProperty('--pct', (el.value - el.min) / (el.max - el.min))
 el.addEventListener('input', () =>
@@ -447,18 +447,18 @@ Override seed variables on \`:root\` after the stylesheet. All color scales are 
 
 \`\`\`css
 :root {
-  --jazz-primary: dodgerblue;               /* or light-dark(blue, lightblue) */
-  --jazz-neutral: #8b8c93;
-  --jazz-constructive: #5dbb55;             /* success/positive actions */
-  --jazz-destructive: #ef5655;             /* danger/error actions */
-  --jazz-color1: crimson;                  /* accent colors 1-6 */
-  --jazz-color2: gold;
+  --ui-primary: dodgerblue;               /* or light-dark(blue, lightblue) */
+  --ui-neutral: #8b8c93;
+  --ui-constructive: #5dbb55;             /* success/positive actions */
+  --ui-destructive: #ef5655;             /* danger/error actions */
+  --ui-color1: crimson;                  /* accent colors 1-6 */
+  --ui-color2: gold;
 }
 \`\`\`
 
 ## Dark mode
 
-Jazz responds to \`prefers-color-scheme\` automatically (via \`color-scheme: light dark\`). To force a theme, set \`color-scheme\` on the root:
+@erikt/ui responds to \`prefers-color-scheme\` automatically (via \`color-scheme: light dark\`). To force a theme, set \`color-scheme\` on the root:
 
 \`\`\`css
 :root { color-scheme: dark; }
@@ -473,7 +473,7 @@ Or inline:
 
 ## Spacing tokens
 
-\`--jazz-spacing-1\` through \`--jazz-spacing-8\` (multiples of \`--jazz-spacing: 0.25em\`).
+\`--ui-spacing-1\` through \`--ui-spacing-8\` (multiples of \`--ui-spacing: 0.25em\`).
 
 ## Easing tokens
 

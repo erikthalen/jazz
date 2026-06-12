@@ -26,11 +26,11 @@ export default () => html`
       position: absolute;
       top: 0.5rem;
       right: 0.5rem;
-      color: var(--jazz-neutral-400);
+      color: var(--ui-neutral-400);
     }
 
     .code-copy-btn[data-copied] {
-      color: var(--jazz-constructive-400);
+      color: var(--ui-constructive-400);
     }
   </style>
 `;

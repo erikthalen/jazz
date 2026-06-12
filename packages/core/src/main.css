@@ -1,62 +1,62 @@
-@layer jazz-reset, jazz;
+@layer ui-reset, ui;
 
-@import "./reset.css" layer(jazz-reset);
+@import "./reset.css" layer(ui-reset);
 
-@import "./easings.css" layer(jazz);
-@import "./colors.css" layer(jazz);
+@import "./easings.css" layer(ui);
+@import "./colors.css" layer(ui);
 
-@import "./components/badge.css" layer(jazz);
-@import "./components/accordion.css" layer(jazz);
-@import "./components/card.css" layer(jazz);
-@import "./components/button.css" layer(jazz);
-@import "./components/button-group.css" layer(jazz);
-@import "./components/dialog.css" layer(jazz);
-@import "./components/checkbox.css" layer(jazz);
-@import "./components/color-input.css" layer(jazz);
-@import "./components/date-input.css" layer(jazz);
-@import "./components/radio.css" layer(jazz);
-@import "./components/separator.css" layer(jazz);
-@import "./components/text-field.css" layer(jazz);
-@import "./components/file-drop.css" layer(jazz);
-@import "./components/expander.css" layer(jazz);
-@import "./components/focus-group.css" layer(jazz);
-@import "./components/textarea.css" layer(jazz);
-@import "./components/field.css" layer(jazz);
-@import "./components/radio-group.css" layer(jazz);
-@import "./components/select.css" layer(jazz);
-@import "./components/datalist.css" layer(jazz);
-@import "./components/combobox.css" layer(jazz);
-@import "./components/slider.css" layer(jazz);
-@import "./components/switch.css" layer(jazz);
-@import "./components/tooltip.css" layer(jazz);
-@import "./components/code.css" layer(jazz);
-@import "./components/kbd.css" layer(jazz);
-@import "./components/loading.css" layer(jazz);
-@import "./components/progress.css" layer(jazz);
-@import "./components/popover.css" layer(jazz);
-@import "./components/menu.css" layer(jazz);
-@import "./components/dropdown.css" layer(jazz);
-@import "./components/submenu.css" layer(jazz);
-@import "./components/toggle.css" layer(jazz);
-@import "./components/table.css" layer(jazz);
-@import "./components/tabs.css" layer(jazz);
-@import "./components/prose.css" layer(jazz);
-@import "./components/empty.css" layer(jazz);
+@import "./components/badge.css" layer(ui);
+@import "./components/accordion.css" layer(ui);
+@import "./components/card.css" layer(ui);
+@import "./components/button.css" layer(ui);
+@import "./components/button-group.css" layer(ui);
+@import "./components/dialog.css" layer(ui);
+@import "./components/checkbox.css" layer(ui);
+@import "./components/color-input.css" layer(ui);
+@import "./components/date-input.css" layer(ui);
+@import "./components/radio.css" layer(ui);
+@import "./components/separator.css" layer(ui);
+@import "./components/text-field.css" layer(ui);
+@import "./components/file-drop.css" layer(ui);
+@import "./components/expander.css" layer(ui);
+@import "./components/focus-group.css" layer(ui);
+@import "./components/textarea.css" layer(ui);
+@import "./components/field.css" layer(ui);
+@import "./components/radio-group.css" layer(ui);
+@import "./components/select.css" layer(ui);
+@import "./components/datalist.css" layer(ui);
+@import "./components/combobox.css" layer(ui);
+@import "./components/slider.css" layer(ui);
+@import "./components/switch.css" layer(ui);
+@import "./components/tooltip.css" layer(ui);
+@import "./components/code.css" layer(ui);
+@import "./components/kbd.css" layer(ui);
+@import "./components/loading.css" layer(ui);
+@import "./components/progress.css" layer(ui);
+@import "./components/popover.css" layer(ui);
+@import "./components/menu.css" layer(ui);
+@import "./components/dropdown.css" layer(ui);
+@import "./components/submenu.css" layer(ui);
+@import "./components/toggle.css" layer(ui);
+@import "./components/table.css" layer(ui);
+@import "./components/tabs.css" layer(ui);
+@import "./components/prose.css" layer(ui);
+@import "./components/empty.css" layer(ui);
 
-@layer jazz {
+@layer ui {
   :root {
-    --jazz-spacing: 0.25em;
+    --ui-spacing: 0.25em;
 
-    --jazz-spacing-1: calc(var(--jazz-spacing) * 1);
-    --jazz-spacing-2: calc(var(--jazz-spacing) * 2);
-    --jazz-spacing-3: calc(var(--jazz-spacing) * 3);
-    --jazz-spacing-4: calc(var(--jazz-spacing) * 4);
-    --jazz-spacing-5: calc(var(--jazz-spacing) * 5);
-    --jazz-spacing-6: calc(var(--jazz-spacing) * 6);
-    --jazz-spacing-7: calc(var(--jazz-spacing) * 7);
-    --jazz-spacing-8: calc(var(--jazz-spacing) * 8);
+    --ui-spacing-1: calc(var(--ui-spacing) * 1);
+    --ui-spacing-2: calc(var(--ui-spacing) * 2);
+    --ui-spacing-3: calc(var(--ui-spacing) * 3);
+    --ui-spacing-4: calc(var(--ui-spacing) * 4);
+    --ui-spacing-5: calc(var(--ui-spacing) * 5);
+    --ui-spacing-6: calc(var(--ui-spacing) * 6);
+    --ui-spacing-7: calc(var(--ui-spacing) * 7);
+    --ui-spacing-8: calc(var(--ui-spacing) * 8);
 
-    --jazz-background-color: var(--jazz-neutral-50);
-    --jazz-text-color: var(--jazz-neutral-950);
+    --ui-background-color: var(--ui-neutral-50);
+    --ui-text-color: var(--ui-neutral-950);
   }
 }

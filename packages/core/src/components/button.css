@@ -4,17 +4,17 @@ button,
   transition-duration: 100ms;
   transition-timing-function: ease-out;
 
-  background-color: var(--jazz-primary);
+  background-color: var(--ui-primary);
   border: none;
-  color: var(--jazz-neutral-50);
+  color: var(--ui-neutral-50);
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5em;
 
-  padding-block: var(--jazz-spacing-2);
-  padding-inline: var(--jazz-spacing-3);
+  padding-block: var(--ui-spacing-2);
+  padding-inline: var(--ui-spacing-3);
   border-radius: 8px;
 
   font: inherit;
@@ -26,17 +26,17 @@ button,
   &:not(:disabled) {
     @media (hover: hover) {
       &:hover {
-        background-color: var(--jazz-primary-600);
+        background-color: var(--ui-primary-600);
       }
     }
 
     &:active {
-      background-color: var(--jazz-primary-700);
+      background-color: var(--ui-primary-700);
       translate: 0 1px;
     }
 
     &:focus-visible {
-      outline: 2px solid var(--jazz-neutral-950);
+      outline: 2px solid var(--ui-neutral-950);
       outline-offset: 2px;
     }
   }
@@ -52,7 +52,7 @@ button,
 
   kbd {
     padding-block: 0;
-    padding-inline: var(--jazz-spacing);
+    padding-inline: var(--ui-spacing);
     margin-left: auto;
   }
 
@@ -64,7 +64,7 @@ button,
     content: "";
     display: inline-block;
     background-color: currentColor;
-    mask-image: var(--jazz-loading);
+    mask-image: var(--ui-loading);
     mask-size: 1rem;
     width: 1rem;
     height: 1rem;
@@ -72,91 +72,91 @@ button,
   }
 
   &[popovertarget]:has(+ [popover]:popover-open) {
-    background-color: var(--jazz-primary-600);
+    background-color: var(--ui-primary-600);
     translate: 0 1px;
   }
 
   /* modifiers */
 
   &.round {
-    padding-inline: var(--jazz-spacing-2);
+    padding-inline: var(--ui-spacing-2);
     border-radius: 100px;
   }
 
   &.square {
-    padding-inline: var(--jazz-spacing-2);
+    padding-inline: var(--ui-spacing-2);
   }
 
   /* variants */
 
   &.outlined {
-    color: var(--jazz-neutral-950);
+    color: var(--ui-neutral-950);
     background-color: transparent;
-    box-shadow: 0 0 0 1px var(--jazz-neutral-200) inset;
+    box-shadow: 0 0 0 1px var(--ui-neutral-200) inset;
 
     &:not(:disabled) {
       @media (hover: hover) {
         &:hover {
-          background-color: var(--jazz-neutral-100);
+          background-color: var(--ui-neutral-100);
         }
       }
 
       &:active {
-        background-color: var(--jazz-neutral-200);
+        background-color: var(--ui-neutral-200);
       }
     }
 
     &[popovertarget]:has(+ [popover]:popover-open) {
-      background-color: var(--jazz-neutral-100);
+      background-color: var(--ui-neutral-100);
     }
   }
 
   &.secondary {
-    background-color: var(--jazz-neutral-100);
-    color: var(--jazz-neutral-950);
+    background-color: var(--ui-neutral-100);
+    color: var(--ui-neutral-950);
 
     &:not(:disabled) {
       @media (hover: hover) {
         &:hover {
-          background-color: var(--jazz-neutral-200);
+          background-color: var(--ui-neutral-200);
         }
       }
 
       &:active {
-        background-color: var(--jazz-neutral-300);
+        background-color: var(--ui-neutral-300);
       }
     }
 
     &[popovertarget]:has(+ [popover]:popover-open) {
-      background-color: var(--jazz-neutral-300);
+      background-color: var(--ui-neutral-300);
     }
   }
 
   &.ghost {
     background-color: transparent;
-    color: var(--jazz-neutral-950);
+    color: var(--ui-neutral-950);
 
     &:not(:disabled) {
       @media (hover: hover) {
         &:hover {
-          background-color: var(--jazz-neutral-100);
+          background-color: var(--ui-neutral-100);
         }
       }
 
       &:active {
-        background-color: var(--jazz-neutral-200);
+        background-color: var(--ui-neutral-200);
       }
     }
 
     &[popovertarget]:has(+ [popover]:popover-open) {
-      background-color: var(--jazz-neutral-200);
+      background-color: var(--ui-neutral-200);
     }
   }
 
   &.link {
     background-color: transparent;
     text-decoration: underline;
-    color: var(--jazz-neutral-950);
+    color: var(--ui-neutral-950);
 
     &:not(:disabled) {
       @media (hover: hover) {
@@ -172,44 +172,44 @@ button,
   }
 
   &.destructive {
-    background-color: var(--jazz-destructive);
-    color: var(--jazz-destructive-100);
+    background-color: var(--ui-destructive);
+    color: var(--ui-destructive-100);
 
     &:not(:disabled) {
       @media (hover: hover) {
         &:hover {
-          background-color: var(--jazz-destructive-600);
+          background-color: var(--ui-destructive-600);
         }
       }
 
       &:active {
-        background-color: var(--jazz-destructive-700);
+        background-color: var(--ui-destructive-700);
       }
     }
 
     &[popovertarget]:has(+ [popover]:popover-open) {
-      background-color: var(--jazz-destructive-600);
+      background-color: var(--ui-destructive-600);
     }
   }
 
   &.ghost.destructive {
     background-color: transparent;
-    color: var(--jazz-destructive);
+    color: var(--ui-destructive);
 
     &:not(:disabled) {
       @media (hover: hover) {
         &:hover {
-          background-color: var(--jazz-destructive-100);
+          background-color: var(--ui-destructive-100);
         }
       }
 
       &:active {
-        background-color: var(--jazz-destructive-200);
+        background-color: var(--ui-destructive-200);
       }
     }
 
     &[popovertarget]:has(+ [popover]:popover-open) {
-      background-color: var(--jazz-destructive-100);
+      background-color: var(--ui-destructive-100);
     }
   }
 }

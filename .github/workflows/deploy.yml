@@ -55,13 +55,13 @@ jobs:
       - run: pnpm install
 
       - name: Build core CSS
-        run: pnpm --filter @jazz/core build
+        run: pnpm --filter @erikt/ui build
 
       - name: Build docs
-        run: pnpm --filter @jazz/docs build
+        run: pnpm --filter docs build
         env:
           BASE_URL: /${{ github.event.repository.name }}/
-          SITE_URL: https://erikthalen.github.io
+          SITE_URL: https://erikthq.github.io
 
       - uses: actions/upload-pages-artifact@v3
         with:

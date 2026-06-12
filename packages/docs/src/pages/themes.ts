@@ -22,7 +22,7 @@ function colorScale(name: string) {
           <div class="color-swatch">
             <div
               class="color-swatch-block"
-              style="background: var(--jazz-${name}-${step})"
+              style="background: var(--ui-${name}-${step})"
             ></div>
             <span>${step}</span>
           </div>
@@ -42,7 +42,7 @@ export async function ThemesPage(path: string) {
         <hgroup>
           <h1>Themes</h1>
           <p>
-            Jazz is themed entirely through CSS custom properties — override the
+            @erikt/ui is themed entirely through CSS custom properties — override the
             seed colors to match your brand.
           </p>
         </hgroup>
@@ -50,7 +50,7 @@ export async function ThemesPage(path: string) {
         <h2 id="primary-scale">Primary scale</h2>
         <p>
           Used for interactive elements like buttons and focus rings. The
-          palette is derived from <code>--jazz-primary</code>, which accepts a
+          palette is derived from <code>--ui-primary</code>, which accepts a
           <code>light-dark()</code> value for per-theme control.
         </p>
       </div>
@@ -60,7 +60,7 @@ export async function ThemesPage(path: string) {
         <h2 id="neutral-scale">Neutral scale</h2>
         <p>
           Used for text, borders, and backgrounds. Override
-          <code>--jazz-neutral</code> to adjust neutral tones.
+          <code>--ui-neutral</code> to adjust neutral tones.
         </p>
       </div>
       ${colorScale("neutral")}
@@ -69,7 +69,7 @@ export async function ThemesPage(path: string) {
         <h2 id="constructive-scale">Constructive scale</h2>
         <p>
           Used for success and positive states. Override
-          <code>--jazz-constructive</code>.
+          <code>--ui-constructive</code>.
         </p>
       </div>
       ${colorScale("constructive")}
@@ -78,7 +78,7 @@ export async function ThemesPage(path: string) {
         <h2 id="destructive-scale">Destructive scale</h2>
         <p>
           Used for errors and danger states. Override
-          <code>--jazz-destructive</code>.
+          <code>--ui-destructive</code>.
         </p>
       </div>
       ${colorScale("destructive")}
@@ -87,7 +87,7 @@ export async function ThemesPage(path: string) {
         <h2 id="color-scales">Color scales</h2>
         <p>
           General-purpose accent colors. Override
-          <code>--jazz-color1</code> through <code>--jazz-color6</code> to suit
+          <code>--ui-color1</code> through <code>--ui-color6</code> to suit
           your palette.
         </p>
       </div>
@@ -98,7 +98,7 @@ export async function ThemesPage(path: string) {
         <p>
           Override seed colors on <code>:root</code> after importing the
           stylesheet. Use <code>light-dark()</code> on
-          <code>--jazz-primary</code> for per-theme control:
+          <code>--ui-primary</code> for per-theme control:
         </p>
       </div>
       <div class="example">
@@ -107,12 +107,12 @@ export async function ThemesPage(path: string) {
             await highlight(
               `:root {
   /* Same primary for both themes */
-  --jazz-primary: #6366f1;
+  --ui-primary: #6366f1;
 
   /* Or tune per-theme with light-dark() */
-  --jazz-primary: light-dark(#4f46e5, #818cf8);
+  --ui-primary: light-dark(#4f46e5, #818cf8);
 
-  --jazz-neutral: #6b7280;
+  --ui-neutral: #6b7280;
 }`,
               80,
               "css",
@@ -124,7 +124,7 @@ export async function ThemesPage(path: string) {
       <div class="prose">
         <h2 id="dark-mode">Dark mode</h2>
         <p>
-          Jazz responds to
+          @erikt/ui responds to
           <code>prefers-color-scheme: dark</code> automatically. You can also
           force a mode on any element using the <code>color-scheme</code> CSS
           property:

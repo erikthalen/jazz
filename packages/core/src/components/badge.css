@@ -1,65 +1,65 @@
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: var(--jazz-spacing-1);
-  padding-inline: var(--jazz-spacing-2);
+  gap: var(--ui-spacing-1);
+  padding-inline: var(--ui-spacing-2);
   border-radius: 999px;
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.02em;
   user-select: none;
   line-height: 1.5;
-  background-color: var(--jazz-neutral-200);
-  color: var(--jazz-neutral-700);
+  background-color: var(--ui-neutral-200);
+  color: var(--ui-neutral-700);
 
   &.secondary {
-    background-color: var(--jazz-neutral-700);
-    color: var(--jazz-neutral-100);
+    background-color: var(--ui-neutral-700);
+    color: var(--ui-neutral-100);
   }
 
   &.primary {
-    background-color: var(--jazz-primary-200);
-    color: var(--jazz-primary-700);
+    background-color: var(--ui-primary-200);
+    color: var(--ui-primary-700);
   }
 
   &.constructive {
-    background-color: var(--jazz-constructive-200);
-    color: var(--jazz-constructive-700);
+    background-color: var(--ui-constructive-200);
+    color: var(--ui-constructive-700);
   }
 
   &.destructive {
-    background-color: var(--jazz-destructive-200);
-    color: var(--jazz-destructive-700);
+    background-color: var(--ui-destructive-200);
+    color: var(--ui-destructive-700);
   }
 
   &.color1 {
-    background-color: var(--jazz-color1-200);
-    color: var(--jazz-color1-700);
+    background-color: var(--ui-color1-200);
+    color: var(--ui-color1-700);
   }
 
   &.color2 {
-    background-color: var(--jazz-color2-200);
-    color: var(--jazz-color2-700);
+    background-color: var(--ui-color2-200);
+    color: var(--ui-color2-700);
   }
 
   &.color3 {
-    background-color: var(--jazz-color3-200);
-    color: var(--jazz-color3-700);
+    background-color: var(--ui-color3-200);
+    color: var(--ui-color3-700);
   }
 
   &.color4 {
-    background-color: var(--jazz-color4-200);
-    color: var(--jazz-color4-700);
+    background-color: var(--ui-color4-200);
+    color: var(--ui-color4-700);
   }
 
   &.color5 {
-    background-color: var(--jazz-color5-200);
-    color: var(--jazz-color5-700);
+    background-color: var(--ui-color5-200);
+    color: var(--ui-color5-700);
   }
 
   &.color6 {
-    background-color: var(--jazz-color6-200);
-    color: var(--jazz-color6-700);
+    background-color: var(--ui-color6-200);
+    color: var(--ui-color6-700);
   }
 
   &.outlined {

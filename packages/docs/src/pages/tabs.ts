@@ -523,12 +523,12 @@ export async function TabsPage(path: string) {
           <style>
             .parent-tabs {
               padding: 1rem;
-              border: 1px solid var(--jazz-neutral-100);
+              border: 1px solid var(--ui-neutral-100);
             }
 
             .child-tabs {
               padding: 1rem;
-              background-color: var(--jazz-neutral-100);
+              background-color: var(--ui-neutral-100);
             }
           </style>
         </div>
@@ -563,11 +563,11 @@ export async function TabsPage(path: string) {
               padding: 1rem;
 
               .parent {
-                border: 1px solid var(--jazz-neutral-100);
+                border: 1px solid var(--ui-neutral-100);
               }
 
               .child {
-                background-color: var(--jazz-neutral-100);
+                background-color: var(--ui-neutral-100);
               }
             }
 

@@ -47,7 +47,7 @@ export async function FocusGroupPage(path: string) {
               placeholder="console.log('Hello, world!');"
             ></textarea>
             <footer style="justify-content:space-between">
-              <span style="color:var(--jazz-neutral-500)"
+              <span style="color:var(--ui-neutral-500)"
                 >Line 1, Column 1</span
               >
               <button>
@@ -73,7 +73,7 @@ export async function FocusGroupPage(path: string) {
     & footer {
       justify-content: space-between;
 
-      & span { color: var(--jazz-neutral-500); }
+      & span { color: var(--ui-neutral-500); }
     }
   }
 </style>

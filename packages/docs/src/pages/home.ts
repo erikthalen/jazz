@@ -9,11 +9,11 @@ import { gzipSync } from "node:zlib";
 import { resolve } from "node:path";
 import homeShowcase from "../components/home-showcase";
 
-const cdnUrl = `https://esm.sh/gh/erikthalen/jazz@${pkg.version}/jazz.css`;
+const cdnUrl = `https://esm.sh/@erikt/ui@${pkg.version}/ui.css`;
 
 function getMainCssSize() {
   try {
-    const cssPath = resolve(import.meta.dirname, "../../../../jazz.css");
+    const cssPath = resolve(import.meta.dirname, "../../../../ui.css");
     const css = readFileSync(cssPath);
     const compressed = gzipSync(css);
     return (compressed.byteLength / 1024).toFixed(1);
@@ -35,10 +35,9 @@ export async function HomePage(path: string) {
         <hgroup>
           <h1>One stylesheet.<br />That's it.</h1>
           <p>
-            Drop in a single CSS file and get a full component library, theming
-            and dark mode.
-            ${cssSize ? html`<code>${cssSize} kB</code> gziped` : ""} packing
-            all that jazz.
+            Modern CSS has closed most of the gap that large UI libraries were
+            built to fill. erikt/ui covers the rest.
+            ${cssSize ? html`<code>${cssSize} kB</code> gzipped.` : ""}
           </p>
         </hgroup>
         <div>
@@ -48,7 +47,7 @@ export async function HomePage(path: string) {
           <a
             href="${url("/components/button")}"
             class="button outlined"
-            style="background-color: var(--jazz-background-color)"
+            style="background-color: var(--ui-background-color)"
           >
             Components
           </a>
@@ -118,11 +117,13 @@ export async function HomePage(path: string) {
                 ].map(
                   (name) => html`
                     <div class="home-themes-scale">
-                      ${[50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].map(
+                      ${[
+                        50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950,
+                      ].map(
                         (step) => html`
                           <div
                             class="home-themes-swatch"
-                            style="background:var(--jazz-${name}-${step})"
+                            style="background:var(--ui-${name}-${step})"
                             title="${name}-${step}"
                           ></div>
                         `,
@@ -138,7 +139,7 @@ export async function HomePage(path: string) {
                     <header>Light mode</header>
                     <div>
                       <p>
-                        Jazz responds to
+                        erikt/ui responds to
                         <code>prefers-color-scheme</code> automatically.
                       </p>
                     </div>
@@ -210,8 +211,8 @@ export async function HomePage(path: string) {
           <p><small>Reset + UI in one import</small></p>
           <h2>Batteries included</h2>
           <p>
-            Jazz normalizes browser defaults and builds on top of them. You get
-            a consistent baseline and a full component library from a single
+            @erikt/ui normalizes browser defaults and builds on top of them. You
+            get a consistent baseline and a full component library from a single
             stylesheet.
           </p>
         </div>
@@ -243,12 +244,9 @@ export async function HomePage(path: string) {
 
       <footer class="home-footer">
         <div class="home-footer-inner">
-          <span>Jazz</span>
+          <span>@erikt/ui</span>
           <span>MIT License</span>
-          <a
-            href="https://github.com/erikthalen/jazz"
-            target="_blank"
-            rel="noopener"
+          <a href="https://github.com/erikthq/ui" target="_blank" rel="noopener"
             >GitHub</a
           >
         </div>

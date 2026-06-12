@@ -26,27 +26,27 @@ export async function SidebarPage(path: string) {
           header {
             display: flex;
             align-items: center;
-            gap: var(--jazz-spacing-3);
+            gap: var(--ui-spacing-3);
           }
 
           section > menu {
-            padding-top: var(--jazz-spacing-2);
+            padding-top: var(--ui-spacing-2);
           }
 
           details {
             border-bottom: 0;
-            padding-inline: var(--jazz-spacing-3);
+            padding-inline: var(--ui-spacing-3);
 
             summary {
-              padding-block: var(--jazz-spacing-2);
+              padding-block: var(--ui-spacing-2);
             }
 
             menu {
-              border-left: 1px solid var(--jazz-neutral-200);
-              margin-left: var(--jazz-spacing-2);
-              margin-block: 0 var(--jazz-spacing-4);
+              border-left: 1px solid var(--ui-neutral-200);
+              margin-left: var(--ui-spacing-2);
+              margin-block: 0 var(--ui-spacing-4);
               padding-block: 0;
-              padding-left: var(--jazz-spacing-1);
+              padding-left: var(--ui-spacing-1);
             }
           }
 
@@ -244,7 +244,7 @@ export async function SidebarPage(path: string) {
                 popovertarget="sidebar-user-menu"
               >
                 <img
-                  src="https://api.dicebear.com/9.x/pixel-art/svg?seed=jazz"
+                  src="https://api.dicebear.com/9.x/pixel-art/svg?seed=erikt-ui"
                   width="26"
                   height="26"
                   style="border-radius:var(--radius)"
@@ -261,10 +261,10 @@ export async function SidebarPage(path: string) {
               <div id="sidebar-user-menu" popover data-placement="right bottom">
                 <menu>
                   <li
-                    style="display:flex;align-items:center;gap:var(--jazz-spacing-3);padding:var(--jazz-spacing-2) var(--jazz-spacing-3)"
+                    style="display:flex;align-items:center;gap:var(--ui-spacing-3);padding:var(--ui-spacing-2) var(--ui-spacing-3)"
                   >
                     <img
-                      src="https://api.dicebear.com/9.x/pixel-art/svg?seed=jazz"
+                      src="https://api.dicebear.com/9.x/pixel-art/svg?seed=erikt-ui"
                       width="32"
                       height="32"
                       style="border-radius:var(--radius)"
@@ -279,7 +279,7 @@ export async function SidebarPage(path: string) {
                   <li>
                     <button
                       class="ghost"
-                      style="color: var(--jazz-color2-600);"
+                      style="color: var(--ui-color2-600);"
                     >
                       ${raw(icon("sparkles"))} Upgrade to Pro
                     </button>
@@ -320,27 +320,27 @@ export async function SidebarPage(path: string) {
     header {
       display: flex;
       align-items: center;
-      gap: var(--jazz-spacing-3);
+      gap: var(--ui-spacing-3);
     }
 
     section > menu {
-      padding-top: var(--jazz-spacing-2);
+      padding-top: var(--ui-spacing-2);
     }
 
     details {
       border-bottom: 0;
-      padding-inline: var(--jazz-spacing-3);
+      padding-inline: var(--ui-spacing-3);
 
       summary {
-        padding-block: var(--jazz-spacing-2);
+        padding-block: var(--ui-spacing-2);
       }
 
       menu {
-        border-left: 1px solid var(--jazz-neutral-200);
-        margin-left: var(--jazz-spacing-2);
-        margin-block: 0 var(--jazz-spacing-4);
+        border-left: 1px solid var(--ui-neutral-200);
+        margin-left: var(--ui-spacing-2);
+        margin-block: 0 var(--ui-spacing-4);
         padding-block: 0;
-        padding-left: var(--jazz-spacing-1);
+        padding-left: var(--ui-spacing-1);
       }
     }
 
@@ -478,7 +478,7 @@ export async function SidebarPage(path: string) {
     </button>
     <div id="user-menu" popover data-placement="right bottom">
       <menu>
-        <li style="display:flex;align-items:center;gap:var(--jazz-spacing-3);padding:var(--jazz-spacing-2) var(--jazz-spacing-3)">
+        <li style="display:flex;align-items:center;gap:var(--ui-spacing-3);padding:var(--ui-spacing-2) var(--ui-spacing-3)">
           <img src="avatar.png" width="32" height="32" alt="" />
           <div style="display:grid">
             <strong>miles</strong>
@@ -486,7 +486,7 @@ export async function SidebarPage(path: string) {
           </div>
         </li>
         <li><hr /></li>
-        <li><button class="ghost" style="color: var(--jazz-color2-600);"><svg><!-- sparkles --></svg> Upgrade to Pro</button></li>
+        <li><button class="ghost" style="color: var(--ui-color2-600);"><svg><!-- sparkles --></svg> Upgrade to Pro</button></li>
         <li><hr /></li>
         <li><button class="ghost"><svg><!-- user-circle --></svg> Account</button></li>
         <li><button class="ghost"><svg><!-- credit-card --></svg> Billing</button></li>

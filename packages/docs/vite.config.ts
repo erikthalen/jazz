@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
-const coreCssPath = fileURLToPath(new URL("../../jazz.css", import.meta.url));
+const coreCssPath = fileURLToPath(new URL("../../ui.css", import.meta.url));
 const miniSearchPath = fileURLToPath(new URL("./node_modules/minisearch/dist/es/index.js", import.meta.url));
 
 export default defineConfig({
@@ -20,11 +20,11 @@ export default defineConfig({
       configureServer(server) {
         server.watcher.add(coreCssPath);
         server.watcher.add(resolve(import.meta.dirname, "src/public/**/*.css"));
-        server.middlewares.use("/jazz.css", (_req, res) => {
+        server.middlewares.use("/ui.css", (_req, res) => {
           res.setHeader("Content-Type", "text/css");
           res.end(readFileSync(coreCssPath, "utf-8"));
         });
-        server.middlewares.use("/jazz.css.map", (_req, res) => {
+        server.middlewares.use("/ui.css.map", (_req, res) => {
           res.setHeader("Content-Type", "application/json");
           res.end(readFileSync(coreCssPath + ".map", "utf-8"));
         });

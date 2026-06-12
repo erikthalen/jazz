@@ -205,7 +205,7 @@ export async function FieldPage(path: string) {
       <div class="example">
         <div class="preview preview-padded">
           <form
-            style="display:flex;flex-direction:column;gap:var(--jazz-spacing-4);width:100%;max-width:400px;margin:auto;"
+            style="display:flex;flex-direction:column;gap:var(--ui-spacing-4);width:100%;max-width:400px;margin:auto;"
             onsubmit="return false"
           >
             <label class="field">
@@ -218,7 +218,7 @@ export async function FieldPage(path: string) {
               <small>We'll never share your email with anyone.</small>
             </label>
             <div
-              style="display:grid;grid-template-columns:1fr 1fr;gap:var(--jazz-spacing-4)"
+              style="display:grid;grid-template-columns:1fr 1fr;gap:var(--ui-spacing-4)"
             >
               <label class="field">
                 <span>Phone</span>
@@ -272,7 +272,7 @@ export async function FieldPage(path: string) {
               <span>Address</span>
               <input type="text" placeholder="123 Main St" />
             </label>
-            <div style="display:flex;gap:var(--jazz-spacing-2)">
+            <div style="display:flex;gap:var(--ui-spacing-2)">
               <button class="ghost">Cancel</button>
               <button>Submit</button>
             </div>

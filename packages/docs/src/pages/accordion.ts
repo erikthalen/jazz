@@ -29,9 +29,9 @@ export async function AccordionPage(path: string) {
       <div class="example">
         <div class="preview preview-padded">
           <details>
-            <summary>What is Jazz?</summary>
+            <summary>What is @erikt/ui?</summary>
             <div>
-              Jazz is a minimal CSS design system that styles native HTML
+              @erikt/ui is a minimal CSS design system that styles native HTML
               elements directly — no utility classes or component wrappers
               needed.
             </div>
@@ -40,9 +40,9 @@ export async function AccordionPage(path: string) {
         <div class="code-block">
           ${raw(
             await highlight(`<details>
-  <summary>What is Jazz?</summary>
+  <summary>What is @erikt/ui?</summary>
   <div>
-    Jazz is a minimal CSS design system that styles native
+    @erikt/ui is a minimal CSS design system that styles native
     HTML elements directly.
   </div>
 </details>`),
@@ -62,7 +62,7 @@ export async function AccordionPage(path: string) {
           <details>
             <summary>Getting started</summary>
             <div>
-              Import <code>@jazz/core</code> and start writing HTML.
+              Import <code>@erikt/ui</code> and start writing HTML.
             </div>
           </details>
           <details>
@@ -74,7 +74,7 @@ export async function AccordionPage(path: string) {
           <details>
             <summary>Dark mode</summary>
             <div>
-              Jazz responds to <code>prefers-color-scheme</code> automatically.
+              @erikt/ui responds to <code>prefers-color-scheme</code> automatically.
             </div>
           </details>
         </div>
@@ -107,7 +107,7 @@ export async function AccordionPage(path: string) {
         <div class="preview preview-padded">
           <details name="faq">
             <summary>Getting started</summary>
-            <div>Import <code>@jazz/core</code> and start writing HTML.</div>
+            <div>Import <code>@erikt/ui</code> and start writing HTML.</div>
           </details>
           <details name="faq">
             <summary>Customization</summary>
@@ -116,7 +116,7 @@ export async function AccordionPage(path: string) {
           <details name="faq">
             <summary>Dark mode</summary>
             <div>
-              Jazz responds to <code>prefers-color-scheme</code> automatically.
+              @erikt/ui responds to <code>prefers-color-scheme</code> automatically.
             </div>
           </details>
         </div>

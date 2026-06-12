@@ -1,10 +1,10 @@
 article {
   --card-border-radius: 12px;
 
-  box-shadow: 0 0 0 1px inset var(--jazz-neutral-100);
+  box-shadow: 0 0 0 1px inset var(--ui-neutral-100);
   border-radius: 12px;
   overflow: hidden;
-  padding: var(--jazz-spacing-4);
+  padding: var(--ui-spacing-4);
 
   &:has(> header, > footer) {
     padding: 0;
@@ -14,21 +14,21 @@ article {
   & > footer {
     display: flex;
     align-items: center;
-    gap: var(--jazz-spacing-2);
+    gap: var(--ui-spacing-2);
   }
 
   & > header {
-    box-shadow: 0 0 0 1px inset var(--jazz-neutral-100);
+    box-shadow: 0 0 0 1px inset var(--ui-neutral-100);
     border-radius: var(--card-border-radius) var(--card-border-radius) 0 0;
   }
 
   & > footer {
-    box-shadow: 0 0 0 1px inset var(--jazz-neutral-100);
+    box-shadow: 0 0 0 1px inset var(--ui-neutral-100);
     border-radius: 0 0 var(--card-border-radius) var(--card-border-radius);
   }
 
   &:has(> header, > footer) > * {
-    padding: var(--jazz-spacing-4);
+    padding: var(--ui-spacing-4);
   }
 
   &:has(> header, > footer) > :not(header):not(footer) {
@@ -49,16 +49,16 @@ article {
 /* Reduce padding when the card's parent container is narrow */
 @container (max-width: 320px) {
   article {
-    padding: var(--jazz-spacing-3);
+    padding: var(--ui-spacing-3);
 
     & > header,
     & > footer {
-      padding: var(--jazz-spacing-3);
-      gap: var(--jazz-spacing);
+      padding: var(--ui-spacing-3);
+      gap: var(--ui-spacing);
     }
 
     &:has(> header, > footer) > :not(header):not(footer) {
-      padding: var(--jazz-spacing-3);
+      padding: var(--ui-spacing-3);
     }
   }
 }

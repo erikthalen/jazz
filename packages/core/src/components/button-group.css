@@ -4,14 +4,14 @@ fieldset[role="group"] {
   padding: 0;
   vertical-align: bottom;
   border: none;
-  /* background: var(--jazz-background-color); */
+  /* background: var(--ui-background-color); */
 
   & > *:not(.field) {
     position: relative;
     border-radius: 0;
     margin-right: -1px;
 
-    box-shadow: 0 0 0 1px var(--jazz-neutral-200) inset;
+    box-shadow: 0 0 0 1px var(--ui-neutral-200) inset;
 
     &:first-child {
       border-radius: 8px 0 0 8px;
@@ -45,7 +45,7 @@ fieldset[role="group"] {
     min-width: 0;
 
     &:focus {
-      border-color: var(--jazz-neutral-500);
+      border-color: var(--ui-neutral-500);
     }
   }
 
