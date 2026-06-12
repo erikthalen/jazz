@@ -60,8 +60,8 @@ jobs:
       - name: Build docs
         run: pnpm --filter docs build
         env:
-          BASE_URL: /${{ github.event.repository.name }}/
-          SITE_URL: https://erikthq.github.io
+          BASE_URL: /
+          SITE_URL: https://ui.erikt.me
 
       - uses: actions/upload-pages-artifact@v3
         with:

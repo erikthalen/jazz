@@ -1,6 +1,6 @@
 import { components } from '../layout'
 
-const base = 'https://erikthq.github.io/ui'
+const base = 'https://ui.erikt.me'
 
 export function LlmsPage() {
   const sections = [

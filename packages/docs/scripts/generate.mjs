@@ -100,7 +100,7 @@ await cp(publicDir, outDir, { recursive: true });
 await writeFile(join(outDir, ".nojekyll"), "");
 
 // Generate sitemap.xml
-const siteOrigin = (process.env.SITE_URL ?? "https://erikthq.github.io").replace(/\/$/, "");
+const siteOrigin = (process.env.SITE_URL ?? "https://ui.erikt.me").replace(/\/$/, "");
 const baseUrl = process.env.BASE_URL ? siteOrigin + process.env.BASE_URL.replace(/\/$/, "") : siteOrigin;
 const htmlRoutes = routes.filter(r => !r.includes("."));
 const today = new Date().toISOString().split("T")[0];

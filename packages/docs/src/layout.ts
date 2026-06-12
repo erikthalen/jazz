@@ -12,7 +12,7 @@ import copyCode from "./components/copy-code";
 const b = (process.env.BASE_URL ?? "/").replace(/\/$/, "");
 export const url = (path: string) => b + path;
 
-const siteOrigin = (process.env.SITE_URL ?? "https://erikthq.github.io").replace(/\/$/, "");
+const siteOrigin = (process.env.SITE_URL ?? "https://ui.erikt.me").replace(/\/$/, "");
 export const siteUrl = siteOrigin + b;
 
 type TocItem = { id: string; label: string };

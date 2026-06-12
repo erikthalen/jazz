@@ -2,9 +2,9 @@
 
 # @erikt/ui
 
-**[Documentation](https://erikthq.github.io/ui/)**
+**[Documentation](https://ui.erikt.me)**
 
-[![gzip size](https://img.badgesize.io/erikthq/ui/main/ui.css?compression=gzip&label=gzipped&color=3b82f6)](https://erikthq.github.io/ui/)
+[![gzip size](https://img.badgesize.io/erikthq/ui/main/ui.css?compression=gzip&label=gzipped&color=3b82f6)](https://ui.erikt.me)
 
 CSS cascade layers, custom properties, `color-mix()`, `light-dark()`, anchor positioning, and the Popover API have collectively closed most of the gap that large UI libraries were built to fill. @erikt/ui takes that foundation and adds a focused component layer on top. A single stylesheet that styles native HTML elements without requiring a component model, a compiler, or a runtime.
 

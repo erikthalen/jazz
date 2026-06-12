@@ -16,7 +16,7 @@ description: Teaches agents how to use the erikt/ui design system. Use when writ
 
 erikt/ui is a single CSS file that styles native HTML elements directly. No class names required for most things. Link the stylesheet and write semantic HTML.
 
-Docs: https://erikthq.github.io/ui/
+Docs: https://ui.erikt.me
 
 ## Setup
 

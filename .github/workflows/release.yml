@@ -60,7 +60,7 @@ jobs:
 
       - name: Copy built files into package
         if: steps.version.outputs.changed == 'true'
-        run: cp ui.css ui.css.map packages/core/
+        run: cp ui.css ui.css.map README.md packages/core/
 
       - name: Publish to npm
         if: steps.version.outputs.changed == 'true'
