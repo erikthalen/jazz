@@ -1,10 +1,8 @@
 import { html, raw } from "hono/html";
 import { Layout, url } from "../layout";
 import { highlight } from "../highlight";
-import pkg from "../../../core/package.json";
 
-const { version } = pkg;
-const cdnUrl = `https://esm.sh/@erikt/ui@${version}/ui.css`;
+const cdnUrl = `https://esm.sh/@erikt/ui`;
 
 const toc = [
   { id: "usage", label: "Usage" },
@@ -132,7 +130,7 @@ export async function IntroPage(path: string) {
         <div class="code-block">
           ${raw(
             await highlight(
-              `/* main.css */\n@layer theme, base, ui-reset, ui, components, utilities;\n\n@import "https://esm.sh/@erikt/ui/ui.css";\n@import "tailwindcss";`,
+              `/* main.css */\n@layer theme, base, ui-reset, ui, components, utilities;\n\n@import "https://esm.sh/@erikt/ui";\n@import "tailwindcss";`,
               80,
               "css",
             ),

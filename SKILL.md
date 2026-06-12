@@ -12,7 +12,7 @@ Docs: https://erikthq.github.io/ui/
 ## Setup
 
 ```html
-<link rel="stylesheet" href="https://esm.sh/@erikt/ui@0.0.4/ui.css" />
+<link rel="stylesheet" href="https://esm.sh/@erikt/ui" />
 ```
 
 ## Core idea

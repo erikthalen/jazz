@@ -3,13 +3,12 @@ import { HomeLayout, url } from "../layout";
 import { ColorSwatches } from "../components/color-swatches";
 import { highlight } from "../highlight";
 import { icon } from "../icon";
-import pkg from "../../../core/package.json";
 import { readFileSync } from "node:fs";
 import { gzipSync } from "node:zlib";
 import { resolve } from "node:path";
 import homeShowcase from "../components/home-showcase";
 
-const cdnUrl = `https://esm.sh/@erikt/ui@${pkg.version}/ui.css`;
+const cdnUrl = `https://esm.sh/@erikt/ui`;
 
 function getMainCssSize() {
   try {
